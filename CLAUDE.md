@@ -221,6 +221,22 @@ The following are explicitly excluded from MVP:
 
 ## Development Guidelines
 
+### Documentation Maintenance
+
+**IMPORTANT**: When making changes to any component, always update the corresponding README.md file in that component's folder to reflect the changes. Each component folder has its own README.md that serves as the primary documentation for that component.
+
+Component folders with README files:
+- `anagrafica tecnica app/README.md` - iOS mobile application
+- `admin-dashboard/README.md` - Web-based admin control panel
+- `backend/README.md` - Server-side processing and API
+- Other component folders as they are created
+
+After editing code in any component, verify the README is updated with:
+- New features or functionality
+- Changed build commands or setup instructions
+- Updated dependencies or requirements
+- Modified architecture or design decisions
+
 ### Photo Management
 
 - Format: JPEG, 1280px longest edge, quality 0.8
