@@ -11,9 +11,9 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
-		CA8F7D962F02DBED009F30E4 /* anagrafica tecnica */ = {
+		CA8F7D962F02DBED009F30E4 /* anagrafica tecnica app */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
-			path = "anagrafica tecnica";
+			path = "anagrafica tecnica app";
 			sourceTree = "<group>";
 		};
 /* End PBXFileSystemSynchronizedRootGroup section */
@@ -32,7 +32,7 @@
 		CA8F7D8B2F02DBED009F30E4 = {
 			isa = PBXGroup;
 			children = (
-				CA8F7D962F02DBED009F30E4 /* anagrafica tecnica */,
+				CA8F7D962F02DBED009F30E4 /* anagrafica tecnica app */,
 				CA8F7D952F02DBED009F30E4 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -61,7 +61,7 @@
 			dependencies = (
 			);
 			fileSystemSynchronizedGroups = (
-				CA8F7D962F02DBED009F30E4 /* anagrafica tecnica */,
+				CA8F7D962F02DBED009F30E4 /* anagrafica tecnica app */,
 			);
 			name = "anagrafica tecnica";
 			packageProductDependencies = (
