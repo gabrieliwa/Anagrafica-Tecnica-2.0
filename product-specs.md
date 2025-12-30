@@ -198,7 +198,7 @@ This flow covers the complete process of preparing a project for field work.
 
 ```
 ┌─────────────────────────────────────────────────────────────────────────────┐
-│                         PROJECT SETUP FLOW                                   │
+│                         PROJECT SETUP FLOW                                  │
 └─────────────────────────────────────────────────────────────────────────────┘
 
     ┌──────────────┐
