@@ -22,25 +22,25 @@
 
 ## 1. Executive Summary
 
-Anagrafica Tecnica is an end-to-end platform for performing technical asset inventories in buildings. It combines an offline-first field application (for on-site operators), a backend/server (for synchronization, storage, validation, and integrations), and a web-based administration dashboard (for configuration, QA, review, and export). Together, these components allow teams to catalog technical equipment—such as lighting fixtures, HVAC components, network infrastructure, and electrical systems—reliably on-site, even with intermittent or no connectivity.
+Anagrafica Tecnica is an end-to-end platform for performing technical asset inventories on-site. It combines an offline-first field application (for on-site operators), a backend/server (for synchronization, storage, validation, and integrations), and a web-based administration dashboard (for configuration, QA, review, and export). Together, these components allow teams to catalog technical equipment—such as lighting fixtures, HVAC components, network infrastructure, and electrical systems—reliably on-site, even with intermittent or no connectivity.
 
-The platform addresses a key facility-management gap: producing accurate, structured, and verifiable asset data directly from the field, while keeping processes standardized across technicians and projects. Data is captured where it happens, validated against project rules (required fields, controlled vocabularies, anomaly flags), and synchronized when connectivity is available. The admin dashboard provides oversight and governance—templates, asset schemas, progress tracking, QA workflows, and delivery packages—ensuring consistent outputs that can be trusted and reused in downstream systems (e.g., CAFM/CMMS, BIM, reporting).
+The platform addresses a key facility-management gap: producing accurate, structured, and verifiable asset data directly from the field, while keeping processes standardized across technicians and projects. Data is captured where it happens, validated against project rules (required fields, controlled vocabularies, anomaly flags), and synchronized when connectivity is available. The admin dashboard provides oversight and governance—templates, asset schemas, progress tracking, QA workflows, and delivery packages—ensuring consistent outputs that can be trusted and reused in downstream systems (e.g., CAFM/CMMS, asset management platforms, reporting).
 
 ### 1.1 Key Value Propositions
 
 | Value | Description |
 |-------|-------------|
 | **Offline-First Operation** | Full functionality without network connectivity, with automatic synchronization when online |
-| **Spatial Context** | Interactive floorplan navigation ensures assets are accurately placed and easily located |
+| **Spatial Context** | Interactive floorplan navigation links assets to rooms and makes them easy to locate |
 | **Data Quality at Source** | Validation rules and required fields prevent incomplete or incorrect data entry |
 | **Standardized Taxonomy** | Family → Type → Instance hierarchy ensures consistent asset classification |
-| **Configurable Schemas** | Project-specific asset schemas (fields, validation rules, controlled vocabularies, and photo requirements) enable consistent data capture across different building types and clients |
-| **Photo Documentation** | Configurable photo requirements provide visual verification of each asset |
+| **Configurable Schemas** | Project-specific asset schemas (fields, validation rules, controlled vocabularies, and photo requirements) enable consistent data capture across different facility types and clients |
+| **Photo Documentation** | Configurable Type photo requirements provide visual verification of each asset Type |
 | **Export-Ready Deliverables** | Structured data exports (CSV/Excel) with organized photo archives for client delivery |
 
 ### 1.2 Scope
 
-This specification defines the Minimum Viable Product (MVP), a proof-of-concept designed to demonstrate and validate core functionality with a single operator workflow.
+This specification defines the Minimum Viable Product (MVP), a proof-of-concept designed to demonstrate and validate core functionality with a single operator workflow. Each project is scoped to a single facility.
 
 ---
 
@@ -48,7 +48,7 @@ This specification defines the Minimum Viable Product (MVP), a proof-of-concept 
 
 ### 2.1 The Challenge
 
-Facility managers, building owners, and service providers frequently need accurate inventories of technical assets within buildings. These inventories are essential for:
+Facility managers, property owners, and service providers frequently need accurate inventories of technical assets within sites. These inventories are essential for:
 
 - Maintenance planning and scheduling
 - Regulatory compliance documentation
@@ -65,8 +65,8 @@ Currently, technical asset surveys are conducted using a combination of paper fo
 
 | Problem | Impact |
 |---------|--------|
-| **Connectivity dependency** | Building interiors often have poor or no cellular/WiFi signal, forcing operators to defer data entry |
-| **Context switching** | Operators must juggle multiple tools (camera, notepad, phone) while navigating buildings |
+| **Connectivity dependency** | Indoor environments often have poor or no cellular/WiFi signal, forcing operators to defer data entry |
+| **Context switching** | Operators must juggle multiple tools (camera, notepad, phone) while navigating sites |
 | **Photo-data disconnection** | Photos taken separately from data entry become orphaned or mislabeled |
 | **Completion uncertainty** | No systematic way to verify all rooms have been surveyed |
 
@@ -75,7 +75,7 @@ Currently, technical asset surveys are conducted using a combination of paper fo
 | Problem | Impact |
 |---------|--------|
 | **Manual data consolidation** | Hours spent transferring handwritten notes to digital formats |
-| **Photo organization** | Matching hundreds of photos to corresponding asset records |
+| **Photo organization** | Matching hundreds of photos to corresponding asset Type records |
 | **Quality assurance gaps** | Discovering missing data only after leaving the site |
 | **Inconsistent deliverables** | Each project produces slightly different output formats |
 
@@ -89,21 +89,21 @@ These inefficiencies translate directly to business costs: return site visits to
 
 ### 3.1 Product Vision
 
-In technical surveys, the floorplan has always been central; Anagrafica Tecnica makes it structured and operational—turning a static backdrop into a BIM-like spatial model that drives capture, organization, and verification.
+In technical surveys, the floorplan has always been central; Anagrafica Tecnica makes it structured and operational—turning a static backdrop into a spatial model that drives capture, organization, and verification.
 
-Instead of “dumb” collection (room lists, unstructured notes, photo folders), operators record assets as objects anchored to spaces, classified via Family → Type → Instance and guided by configurable schemas (fields, rules, vocabularies, photo requirements). This enforces data quality at capture (validation + required fields) and produces consistent, verifiable, export-ready data for QA, reporting, and downstream systems—fully offline with automatic sync when online.
+Instead of “dumb” collection (room lists, unstructured notes, photo folders), operators record assets linked to rooms, classified via Family → Type → Instance and guided by configurable schemas (fields, rules, vocabularies, photo requirements). This enforces data quality at capture (validation + required fields) and produces consistent, verifiable, export-ready data for QA, reporting, and downstream systems—fully offline with automatic sync when online.
 
 ### 3.2 Core Capabilities
 
 #### Mobile Application (iOS)
 
-The mobile app serves as the primary tool for field operators, designed for single-handed operation while moving through buildings.
+The mobile app serves as the primary tool for field operators, designed for single-handed operation while moving through sites.
 
 **Key Features:**
 - Interactive floorplan with map-style pan, zoom, and navigation
-- Tap-to-place asset markers directly on the plan
+- Add assets by selecting a room on the plan
 - Structured data entry forms with field validation
-- Integrated photo capture (1-5 photos per asset, configurable by asset family)
+- Integrated Type photo capture (minimum 1 per Type; more optional, configurable by Family)
 - On-device fuzzy matching to suggest existing Types and prevent duplicates
 - Room-by-room progress tracking with visual indicators
 - Offline first operation with automatic sync
@@ -140,7 +140,7 @@ The backend provides data management, processing, and integration services.
 | **Floorplan-centric** | The map is the primary interface, not lists or menus |
 | **Validation at source** | Required fields enforced on device; incomplete data cannot be saved |
 | **Structured flexibility** | Standardized taxonomy with ability to create new Types in the field |
-| **Visual verification** | Photo requirements ensure assets are documented, not just recorded |
+| **Visual verification** | Photo requirements ensure asset Types are documented, not just recorded |
 | **Complete coverage** | Survey cannot be marked complete until every room is addressed |
 
 ---
@@ -149,14 +149,14 @@ The backend provides data management, processing, and integration services.
 
 ### 4.1 Field Operator
 
-**Profile:** Technical surveyor who physically visits buildings to catalog assets.
+**Profile:** Technical surveyor who physically visits sites to catalog assets.
 
 | Attribute | Description |
 |-----------|-------------|
-| **Environment** | On-site in buildings, often in challenging conditions (poor lighting, restricted access, no connectivity) |
+| **Environment** | On-site, often in challenging conditions (poor lighting, restricted access, no connectivity) |
 | **Device** | iPhone, operated primarily one-handed while carrying equipment |
 | **Goals** | Complete accurate surveys efficiently; minimize return visits |
-| **Pain points** | Connectivity issues, data re-entry, forgetting rooms, in devioce storage, battery life |
+| **Pain points** | Connectivity issues, data re-entry, forgetting rooms, limited device storage, battery life |
 
 **Key Needs:**
 - Works reliably offline
@@ -203,7 +203,7 @@ This flow covers the complete process of preparing a project for field work.
     ┌────────────────────────────────────────┐
     │  1. CREATE NEW PROJECT                 │
     │  ─────────────────────────────────     │
-    │  Configuartion of Project Parameters:  │
+    │  Configuration of Project Parameters:  │
     │  • name                                │
     │  • location                            │
     │  • client                              │
@@ -221,7 +221,7 @@ This flow covers the complete process of preparing a project for field work.
     │  • System validates file structure   │
     │  • Extracts levels and rooms         │
     │  • Generates vector tiles            │
-    │  • Numbers room                      │
+    │  • Assigns 4-digit room numbers      │
     └──────────────┬───────────────────────┘
                    │
                    ▼
@@ -267,13 +267,14 @@ This flow covers the complete process of preparing a project for field work.
 
 **Step 1: Create New Project**
 - Administrator accesses the dashboard and initiates project creation
-- Configures project parameters, such as Name, Client, Location and other basic setting, then adds an image
+- Configures project parameters, such as name, client, location, and other basic settings, then adds a cover image
 - Project is created in DRAFT state
 
 **Step 2: Upload Floorplan**
-- Administrator uploads the DWG file containing building geometry
+- Administrator uploads the DWG file containing floorplan geometry
 - System performs automated validation (see Section 9.3 for validation rules)
 - On success: rooms, levels, and spatial data are extracted; vector tiles are generated
+- Rooms are assigned a 4-digit number: the first digit is the floor number (from lowest = 0 to highest), and the remaining three digits are a sequential room number within the floor
 - On failure: detailed validation report identifies specific issues requiring correction
 
 **Step 3: Select Parameter Schema**
@@ -309,7 +310,7 @@ This flow covers the complete on-site survey process from project download to co
 │  ─────────────────────────────────     │
 │  • Browse available projects           │
 │  • Select project to open              │
-│  • Project data & tiles is Downloaded  │
+│  • Project data & tiles are downloaded │
 │  • Full project stored locally         │
 │                                        │
 │  State: READY → ACTIVE                 │
@@ -322,19 +323,19 @@ This flow covers the complete on-site survey process from project download to co
 │  • View floorplan (pan/zoom)           │
 │  • Select level from picker            │
 │  • Tap target room                     │
-│  • View room status + asset add botton │
+│  • View room status + asset add button │
 └───────────────┬────────────────────────┘
  ▲              │
  │              ▼
  │  ┌────────────────────────────────────┐
  │  │  3. ADD ASSET                      │
  │  │  ──────────────────────────────    │
- │  │  • Tap the add botton              │
+ │  │  • Tap the add button              │
  │  │  • Select asset Family             │
  │  │  • Search/select existing Type     │
  │  │    OR create new Type              │
  │  │  • Fill instance parameters        │
- │  │  • Capture required photos         │
+ │  │  • Capture Type photo (if new)     │
  │  │  • Save asset                      │
  │  └───────────┬────────────────────────┘
  │   ▲          │
@@ -389,82 +390,90 @@ This flow covers the complete on-site survey process from project download to co
 
 **Step 1: Download Project**
 - Operator opens the mobile app and views available projects (state: READY)
-- Selects a project and opens it. Download of the project is initianted
-- App downloads complete project data: floorplan tiles, room geometry, schema, existing types
+- Selects a project and opens it. The download of the project is initiated
+- App downloads complete project data: floorplan tiles, room geometry, schema, existing Types
 - Project state changes to ACTIVE; operator can now work fully offline
 
 **Step 2: Navigate to Room**
 - Operator views the interactive floorplan
 - Uses familiar gestures: pinch to zoom, drag to pan
 - Floating on top of the floorplan are:
-  1. Top left a Level picker allowing switching between floors
-  2. Top center the project name
-  3. Top right a (↑↓) icon showing sync status with server
-  4. Bottom left (⌂) lets the operator leave the project and come back to the project list
-  5. Bottom right (☰) goes to the "Survey Report" page
-- Rooms are color-coded by status: empty (gray), with assets (celeste)
-- In the centroid of each celeste room a circle contains the number of assets present in the room
-- In the centroid of each grey room a circle contains an add (+) sign
-- Operator taps on the room he is phisically in -> Everything outside the room's boundary is halftoned:
-  1. If the room is empty an asset creatin wizard is directly deployd
-  2. If the room contains assets a "room view" is opened:
-       - Zoom and pan no longer work. The background is fixed on the room outline
-       - In the center top of the screen is a text showing level and room numer
-       - In the bottom half of the screen, floating over the floorplan is the asset list relative to the selected room
-       - An "add asset" (+) botton appears bottom center of the screen
+  1. Top left is a Level picker for switching between floors
+  2. Top center is the project name
+  3. Top right is a (↑↓) icon showing sync status with the server
+  4. Bottom left (⌂) lets the operator leave the project and return to the project list
+  5. Bottom right (☰) opens the "Survey Report" page
+- Rooms are color-coded by status: empty (gray), with assets (light blue)
+- In the centroid of each light blue room, a circle contains the number of assets present in the room
+- In the centroid of each gray room, a circle contains an add (+) sign
+- The operator taps the room they are physically in. Everything outside the room boundary is half-toned:
+  1. If the room is empty, the asset creation wizard opens immediately
+  2. If the room contains assets, a "room view" opens:
+       - Zoom and pan are disabled; the background is fixed to the room outline
+       - At the top center of the screen, a label shows the level and room number
+       - In the bottom half of the screen, the asset list for the selected room floats over the floorplan
+       - An "add asset" (+) button appears at the bottom center of the screen
 
 **Step 3: Add Asset**
-- Operator taps on the add asset botton (+) in the bottom center of the screen
+- The operator taps the add asset (+) button at the bottom center of the screen
 - Asset creation wizard (editor) opens
 - First page is the Family selection (e.g., Lights, Radiators, Access Points)
-- Secondo page is the Type selector which offers two options:
+- Second page is the Type selector, which offers two options:
   1. Select existing Type from searchable list:
-       - Third page is type parameters form
-       - In this case all type parameters are pre-filled (picture included), but user can edit them (and retake the picture)
-       - If any type parameter is changed a new type is created
-       - Before navigating to page four the operator is promped to name the new type (suggested name is = old type name + "2", "3"...)
+       - Third page is the Type parameters form
+       - In this case, all Type parameters are pre-filled (Type photos included), but the operator can edit them (and retake the primary photo)
+       - If any Type parameter is changed, a new Type is created
+       - Before navigating to page four, the operator is prompted to name the new Type (suggested name: old Type name + "2", "3", etc.)
        - Fuzzy matching suggests similar existing Types to prevent duplicates
   2. Create new Type from scratch
-       - On tap the camera launches to take a picture of the new asset type
-       - Photo capture interface enforces minimum photo requirements
-       - After picture is taken the third page opens, and is always the parameters form
-       - In this case all type parameters fields are empty
-       - After filling all necessary type parameters and trying to navigate to forth page the operator is promped to name the new type
+       - On tap, the camera launches to take a photo of the new asset Type
+       - The photo capture interface enforces a minimum of one photo per Type; additional photos are optional
+       - After the photo is taken, the third page opens and is always the parameters form
+       - In this case, all Type parameter fields are empty
+       - After filling all necessary Type parameters and attempting to navigate to the fourth page, the operator is prompted to name the new Type
        - Fuzzy matching suggests similar existing Types to prevent duplicates
-- Forth page is the instance parameter form, displaying fields defined by the Family schema
-- Some instance parameters are pre-filled and uneditable (e.g. Level, Room...)
+- Fourth page is the Instance parameter form, displaying fields defined by the Family schema
+- Photos are Type parameters and are not captured at the Instance level
+- Some instance parameters are pre-filled and read-only (e.g., Level, Room)
 - Required fields must be completed; validation prevents saving incomplete data
 - Asset is saved locally and appears in the room's assets list
 
 **Step 4: Asset Editing Inside Room View**
-- When inside a "room view" the operator can interact with assets in the rooms' list
-- By tapping on an asset a card appears displaying assets details
-- By sliding the asset to the right and edit button appears
-- If tapped a form dispaying type and instance parameters appears letting the operator edi them
-- If type parameters are changed the operator is promped to save the new type (fuzzy matching is applied here as well)
-- By sliding the asset to the left a delete botton appears, if tapped the operator is promped again before deletion.
+- When inside a "room view," the operator can interact with assets in the room list
+- By tapping an asset, a card appears showing asset details
+- By sliding the asset to the right, an edit button appears
+- If tapped, a form displaying Type and Instance parameters appears, letting the operator edit them
+- If Type parameters are changed, the operator is prompted to save the new Type (fuzzy matching is applied here as well)
+- By sliding the asset to the left, a delete button appears; if tapped, the operator is prompted to confirm before deletion
 
 **Step 5: Survey Report Page**
-- When in the interactive plan view the operator can tap the bottom right (☰) botton entering the "Survey Report" Page
-- This page contains a searchable list of room, grouped by level, and a searchable list of asset types, grouped by family
-- By default the "Survey Report" Page opens in the room list
-- In the botton of the screen, floating on top of the shown list are three bottons:
-  1. First on the left is the link to the rooms list
-  2. Center is the link to the types list
-  3. On the right is the botton to trigger an emergency export of the project
+- When in the interactive plan view, the operator can tap the bottom right (☰) button to enter the "Survey Report" page
+- This page contains a searchable list of rooms, grouped by level, and a searchable list of asset Types, grouped by Family
+- By default, the "Survey Report" page opens in the room list
+- At the bottom of the screen, floating on top of the list, are three buttons:
+  1. On the left is the link to the rooms list
+       - The room list has 3 columns: Room number, Room name, Number of assets in the room
+       - By tapping any room, the operator is taken to the respective room view (where the asset list is shown)
+       - If the room has no assets assigned, a (+) button appears next to the name; tapping it takes the operator directly to the asset creation wizard
+  2. Center is the link to the Types list
+       - Each line represents a type of asset
+       - Each line contains: Type name, summary of the major type parameters, a circle with the number of instances relative to the type
+       - If a Type is tapped, a form displaying the Type parameters appears, letting the operator edit the Type
+       - This edit will have a trickle-down effect on all instances linked to this Type
+  3. On the right is the button to trigger an emergency export of the project
 
 **Step 6: Complete Survey**
-- Operator taps (⌂) on the bottom left of the screen when finished
-- The app prompts if he would like to complete the Survey or to Pause it:
-  1. Operators taps on "Pause survey"
-       - He goes back to the main project list 
-       - he can come back any time inside the project to resume the survey
-  2. Operators taps on "Complete survey"
-       - System validates that every room has at least one asset or annotation
+- The operator taps (⌂) on the bottom left of the screen when finished
+- The app prompts whether the operator would like to complete the survey or pause it:
+  1. Operator taps on "Pause survey"
+       - Returns to the main project list
+       - The operator can return at any time to resume the survey
+  2. Operator taps on "Complete survey"
+       - The system validates that every room has at least one asset or Annotation
        - If rooms are empty, a report displays all unaddressed rooms
-       - For legitimately empty rooms, operator must add an Annotation asset with reason
-       - Once all rooms are addressed, operator confirms completion
-       - Project state changes to COMPLETED; becomes read-only on device and cannot be edited any more
+       - For legitimately empty rooms, the operator must add an Annotation asset with a reason
+       - Once all rooms are addressed, the operator confirms completion
+       - Project state changes to COMPLETED; it becomes read-only on the device and cannot be edited anymore
 
 **Step 7: Final Sync**
 - When network is available, all remaining events and photos sync to server
@@ -527,7 +536,12 @@ This flow details the asset creation process, the most frequent operation during
 │ Skip to        │  │                                      │
 │ Instance       │  │  Type Name: ___________________      │
 │ Parameters     │  │                                      │
-└───────┬────────┘  │  Type Parameters (from Family):      │
+└───────┬────────┘  │  Type Photos (min 1):                │
+        │           │  ┌──────┐ ┌──────┐ ┌──────┐         │
+        │           │  │ 📷   │ │ 📷   │ │  +   │         │
+        │           │  └──────┘ └──────┘ └──────┘         │
+        │           │                                      │
+        │           │  Type Parameters (from Family):      │
         │           │  ┌────────────────────────────────┐  │
         │           │  │  Manufacturer: [Philips    ▼]  │  │
         │           │  │  Model: ___________________    │  │
@@ -558,24 +572,6 @@ This flow details the asset creation process, the most frequent operation during
 └──────────────┬───────────────────────┘
                │
                ▼
-┌──────────────────────────────────────┐
-│  PHOTO CAPTURE                       │
-│  ─────────────────────────────────   │
-│                                      │
-│  Photos (2 of 3 minimum):            │
-│  ┌──────┐ ┌──────┐ ┌──────┐         │
-│  │ 📷   │ │ 📷   │ │  +   │         │
-│  │ IMG1 │ │ IMG2 │ │ Add  │         │
-│  └──────┘ └──────┘ └──────┘         │
-│                                      │
-│  ⚠️ 1 more photo required            │
-│                                      │
-│  ┌────────────────────────────────┐  │
-│  │        📷 Take Photo           │  │
-│  └────────────────────────────────┘  │
-└──────────────┬───────────────────────┘
-               │
-               ▼
        ┌───────────────┐
        │ All required  │──NO──→ Cannot save;
        │ fields filled?│       show validation
@@ -586,9 +582,9 @@ This flow details the asset creation process, the most frequent operation during
 │  SAVE ASSET                          │
 │  ─────────────────────────────────   │
 │  • Asset saved locally               │
-│  • Marker appears on floorplan       │
+│  • Asset appears in room asset list  │
 │  • Event logged for sync             │
-│  • Return to floorplan view          │
+│  • Return to room view               │
 └──────────────────────────────────────┘
 ```
 
@@ -608,7 +604,7 @@ The fuzzy matching system actively suggests similar existing Types when operator
 
 ```
 ┌─────────────────────────────────────────────────────────────────────────────┐
-│                       EXPORT GENERATION FLOW                                 │
+│                       EXPORT GENERATION FLOW                                │
 └─────────────────────────────────────────────────────────────────────────────┘
 
 ┌──────────────┐
@@ -618,14 +614,12 @@ The fuzzy matching system actively suggests similar existing Types when operator
 └──────┬───────┘
        │
        ▼
-┌──────────────────────────────────────┐
-│  1. REVIEW SURVEY DATA               │
-│  ─────────────────────────────────   │
-│  • View all assets on floorplan      │
-│  • Review data quality metrics       │
-│  • Check completion statistics       │
-│  • Identify any issues               │
-└──────────────┬───────────────────────┘
+┌──────────────────────────────────────────┐
+│  1. REVIEW SURVEY DATA                   │
+│  ─────────────────────────────────       │
+│  • View all assets instances in a list   │
+│  • Identify any issues                   │
+└──────────────┬───────────────────────────┘
                │
                ▼
        ┌───────────────┐
@@ -678,49 +672,49 @@ The system follows a four-component architecture designed for offline-first oper
 
 ```
 ┌────────────────────────────────────────────────────────────────────────────┐
-│                              CLOUD                                          │
-│                                                                             │
-│  ┌───────────────────────────────────────────────────────────────────────┐ │
-│  │                      SERVER BACKEND                                    │ │
-│  │                                                                        │ │
-│  │  ┌────────────────────────────────────────────────────────────────┐   │ │
-│  │  │                        API Layer                                │   │ │
-│  │  │            REST endpoints for all client operations             │   │ │
-│  │  └────────────────────────────────────────────────────────────────┘   │ │
-│  │                                                                        │ │
-│  │  ┌─────────────┐  ┌─────────────┐  ┌─────────────┐  ┌─────────────┐   │ │
-│  │  │    Sync     │  │    DWG      │  │    Type     │  │   Export    │   │ │
-│  │  │   Engine    │  │ Processing  │  │ Normalizer  │  │  Generator  │   │ │
-│  │  │             │  │             │  │             │  │             │   │ │
-│  │  │ Event       │  │ Validation  │  │ Duplicate   │  │ CSV/Excel   │   │ │
-│  │  │ sourcing    │  │ Room        │  │ detection   │  │ Photo       │   │ │
-│  │  │ Ordering    │  │ extraction  │  │ Fuzzy       │  │ archive     │   │ │
-│  │  │             │  │ Tile gen    │  │ matching    │  │ Sequential  │   │ │
-│  │  └─────────────┘  └─────────────┘  └─────────────┘  │ IDs         │   │ │
-│  │                                                      └─────────────┘   │ │
-│  │  ┌─────────────┐  ┌─────────────┐                                     │ │
-│  │  │   Schema    │  │   Photo     │                                     │ │
-│  │  │  Manager    │  │   Handler   │                                     │ │
-│  │  │             │  │             │                                     │ │
-│  │  │ Versioning  │  │ Upload      │                                     │ │
-│  │  │ Validation  │  │ Processing  │                                     │ │
-│  │  │ rules       │  │ Storage     │                                     │ │
-│  │  └─────────────┘  └─────────────┘                                     │ │
-│  └───────────────────────────┬───────────────────────────────────────────┘ │
-│                              │                                              │
-│  ┌───────────────────────────┴───────────────────────────────────────────┐ │
-│  │                         STORAGE                                        │ │
-│  │                                                                        │ │
-│  │  ┌───────────────────────────┐    ┌───────────────────────────────┐   │ │
-│  │  │        Database           │    │       File Storage            │   │ │
-│  │  │       (PostgreSQL)        │    │        (S3/Blob)              │   │ │
-│  │  │                           │    │                               │   │ │
-│  │  │  • Projects               │    │  • DWG source files           │   │ │
-│  │  │  • Schemas & versions     │    │  • Vector tiles               │   │ │
-│  │  │  • Assets & events        │    │  • Asset photos               │   │ │
-│  │  │  • Types & instances      │    │  • Export archives            │   │ │
-│  │  └───────────────────────────┘    └───────────────────────────────┘   │ │
-│  └───────────────────────────────────────────────────────────────────────┘ │
+│                              CLOUD                                         │
+│                                                                            │
+│  ┌──────────────────────────────────────────────────────────────────────┐  │
+│  │                      SERVER BACKEND                                  │  │
+│  │                                                                      │  │
+│  │  ┌────────────────────────────────────────────────────────────────┐  │  │
+│  │  │                        API Layer                               │  │  │
+│  │  │            REST endpoints for all client operations            │  │  │
+│  │  └────────────────────────────────────────────────────────────────┘  │  │
+│  │                                                                      │  │
+│  │  ┌─────────────┐  ┌─────────────┐  ┌─────────────┐  ┌─────────────┐  │  │
+│  │  │    Sync     │  │    DWG      │  │    Type     │  │   Export    │  │  │
+│  │  │   Engine    │  │ Processing  │  │ Normalizer  │  │  Generator  │  │  │
+│  │  │             │  │             │  │             │  │             │  │  │
+│  │  │ Event       │  │ Validation  │  │ Duplicate   │  │ CSV/Excel   │  │  │
+│  │  │ sourcing    │  │ Room        │  │ detection   │  │ Photo       │  │  │
+│  │  │ Ordering    │  │ extraction  │  │ Fuzzy       │  │ archive     │  │  │
+│  │  │             │  │ Tile gen    │  │ matching    │  │ Sequential  │  │  │
+│  │  └─────────────┘  └─────────────┘  └─────────────┘  │ IDs         │  │  │
+│  │                                                     └─────────────┘  │  │
+│  │  ┌─────────────┐  ┌─────────────┐                                    │  │
+│  │  │   Schema    │  │   Photo     │                                    │  │
+│  │  │  Manager    │  │   Handler   │                                    │  │
+│  │  │             │  │             │                                    │  │
+│  │  │ Versioning  │  │ Upload      │                                    │  │
+│  │  │ Validation  │  │ Processing  │                                    │  │
+│  │  │ rules       │  │ Storage     │                                    │  │
+│  │  └─────────────┘  └─────────────┘                                    │  │
+│  └───────────────────────────┬──────────────────────────────────────────┘  │
+│                              │                                             │
+│  ┌───────────────────────────┴──────────────────────────────────────────┐  │
+│  │                         STORAGE                                      │  │
+│  │                                                                      │  │
+│  │  ┌───────────────────────────┐    ┌───────────────────────────────┐  │  │
+│  │  │        Database           │    │       File Storage            │  │  │
+│  │  │       (PostgreSQL)        │    │        (S3/Blob)              │  │  │
+│  │  │                           │    │                               │  │  │
+│  │  │  • Projects               │    │  • DWG source files           │  │  │
+│  │  │  • Schemas & versions     │    │  • Vector tiles               │  │  │
+│  │  │  • Assets & events        │    │  • Type photos                │  │  │
+│  │  │  • Types & instances      │    │  • Export archives            │  │  │
+│  │  └───────────────────────────┘    └───────────────────────────────┘  │  │
+│  └──────────────────────────────────────────────────────────────────────┘  │
 └────────────────────────────────────────────────────────────────────────────┘
                                        │
                                    INTERNET
@@ -737,7 +731,7 @@ The system follows a four-component architecture designed for offline-first oper
 │  │                     │  │               │  │                             │  │
 │  │  • Project data     │  │               │  │  • Project management       │  │
 │  │  • Event log        │  │               │  │  • DWG upload & validation  │  │
-│  │  • Photo queue      │  │               │  │  • Schema management        │  │
+│  │  • Type photo queue │  │               │  │  • Schema management        │  │
 │  │  • Tiles cache      │  │               │  │  • Progress monitoring      │  │
 │  └─────────────────────┘  │               │  │  • Export generation        │  │
 │                           │               │  └─────────────────────────────┘  │
@@ -774,13 +768,13 @@ The mobile app maintains a complete local copy of project data, enabling full fu
 - All existing Types for the project
 - Vector tiles for floorplan rendering
 - Local event log (pending changes)
-- Photo queue (pending uploads)
+- Type photo queue (pending uploads)
 
 **Synchronization Model:**
 - Changes are recorded as events in a local log
 - When online, events are pushed to server in order
 - Server maintains authoritative event ordering
-- Photos upload asynchronously in background
+- Type photos upload asynchronously in background
 - Sync is additive: offline work is never lost
 
 ---
@@ -795,57 +789,58 @@ The mobile app maintains a complete local copy of project data, enabling full fu
 |------|------------|
 | **Family** | A category of assets sharing the same parameter structure (e.g., Lights, Radiators, Access Points) |
 | **Type** | A specific product within a Family, defined by fixed parameter values (e.g., "Philips 30W LED Panel") |
-| **Instance** | A single physical asset placed in a specific location, belonging to a Type |
+| **Instance** | A single physical asset linked to a room, belonging to a Type |
 | **Schema** | The complete set of Families, parameters, and validation rules for a project |
 | **Schema Version** | An immutable snapshot of a schema, locked to a project |
 | **Annotation** | A special asset type for notes, "no assets" markers, or "unreachable" flags |
 
 ### 7.2 Asset Hierarchy
 
-The system follows BIM (Building Information Modeling) conventions with a three-level hierarchy:
+The system follows a three-level asset hierarchy:
 
 ```
 ┌─────────────────────────────────────────────────────────────────────────────┐
-│                         ASSET HIERARCHY                                      │
+│                         ASSET HIERARCHY                                     │
 └─────────────────────────────────────────────────────────────────────────────┘
 
 ┌─────────────────────────────────────────────────────────────────────────────┐
-│  FAMILY                                                                      │
+│  FAMILY                                                                     │
 │  ────────────────────────────────────────────────────────────────────────── │
-│  Definition:  Category of assets with shared parameter structure             │
-│  Created by:  Administrator only                                             │
+│  Definition:  Category of assets with shared parameter structure            │
+│  Created by:  Administrator only                                            │
 │  Examples:    Lights, Radiators, Access Points, Outlets, Fire Extinguishers │
-│                                                                              │
-│  Defines:                                                                    │
+│                                                                             │
+│  Defines:                                                                   │
 │    • Type parameters (fields that describe the product)                     │
 │    • Instance parameters (fields that describe each physical unit)          │
-│    • Photo requirements (min/max photos per instance)                       │
+│    • Photo requirements (min/max photos per Type)                           │
 │    • Validation rules for all parameters                                    │
-│                                                                              │
+│                                                                             │
 │  ┌────────────────────────────────────────────────────────────────────────┐ │
-│  │  TYPE                                                                   │ │
-│  │  ──────────────────────────────────────────────────────────────────── │ │
+│  │  TYPE                                                                  │ │
+│  │  ────────────────────────────────────────────────────────────────────  │ │
 │  │  Definition:  Specific product model within a Family                   │ │
 │  │  Created by:  Administrator or Operator (in field)                     │ │
-│  │  Examples:    "Philips 30W LED Panel", "Carrier 12000 BTU Split AC"   │ │
-│  │                                                                         │ │
-│  │  Contains:                                                              │ │
+│  │  Examples:    "Philips 30W LED Panel", "Carrier 12000 BTU Split AC"    │ │
+│  │                                                                        │ │
+│  │  Contains:                                                             │ │
 │  │    • Fixed values for all Type parameters                              │ │
 │  │    • Manufacturer, model, specifications                               │ │
 │  │    • Shared across all Instances of this Type                          │ │
-│  │                                                                         │ │
+│  │    • Photos of this type of asset                                      │ │
+│  │                                                                        │ │
 │  │  ┌──────────────────────────────────────────────────────────────────┐  │ │
-│  │  │  INSTANCE                                                         │  │ │
-│  │  │  ────────────────────────────────────────────────────────────── │  │ │
-│  │  │  Definition:  Single physical asset at a specific location        │  │ │
-│  │  │  Created by:  Operator (in field)                                 │  │ │
-│  │  │  Examples:    "The specific lamp in Room 101 at position X,Y"    │  │ │
-│  │  │                                                                   │  │ │
-│  │  │  Contains:                                                        │  │ │
+│  │  │  INSTANCE                                                        │  │ │
+│  │  │  ──────────────────────────────────────────────────────────────  │  │ │
+│  │  │  Definition:  Single physical asset in a specific room           │  │ │
+│  │  │  Created by:  Operator (in field)                                │  │ │
+│  │  │  Examples:    "The specific lamp in Room 1001"                   │  │ │
+│  │  │                                                                  │  │ │
+│  │  │  Contains:                                                       │  │ │
 │  │  │    • Reference to parent Type                                    │  │ │
-│  │  │    • Location (room + X,Y coordinates)                           │  │ │
+│  │  │    • Room reference (room number)                                │  │ │
 │  │  │    • Instance-specific parameters (serial, condition, notes)     │  │ │
-│  │  │    • Photos of this specific asset                               │  │ │
+│  │  │    • Inherits Type photos (no per-instance photos)               │  │ │
 │  │  └──────────────────────────────────────────────────────────────────┘  │ │
 │  └────────────────────────────────────────────────────────────────────────┘ │
 └─────────────────────────────────────────────────────────────────────────────┘
@@ -875,9 +870,7 @@ PROJECT (Site)
 ```
 
 **Notes:**
-- There is no separate Building entity in the MVP
-- For multi-building projects, floors are named to include building (e.g., "Building A - Floor 1")
-- An optional "Building" layer in the DWG can group levels for UI navigation
+- Room numbers use a 4-digit format: first digit is the floor number (lowest = 0), followed by a three-digit sequence within that floor (e.g., 2001)
 
 ### 7.4 Entity Relationship Model
 
@@ -923,14 +916,12 @@ PROJECT (Site)
 ┌──────────────┐       ┌──────────────┐       ┌──────────────┐
 │   INSTANCE   │       │     TYPE     │       │    PHOTO     │
 │              │       │              │       │              │
-│  instance_id │──────►│  type_id     │       │  photo_id    │
-│  type_id     │       │  family_id   │       │  instance_id │
+│  instance_id │──────►│  type_id     │──────►│  photo_id    │
+│  type_id     │       │  family_id   │       │  type_id     │
 │  room_id     │       │  name        │       │  filename    │
-│  position_x  │       │  parameters  │       │  captured_at │
-│  position_y  │       │  (JSON)      │       │  uploaded    │
-│  parameters  │       └──────────────┘       └──────────────┘
-│  (JSON)      │
-│  created_at  │◄──────────────────────────────────────┘
+│  parameters  │       │  parameters  │       │  captured_at │
+│  (JSON)      │       │  (JSON)      │       │  uploaded    │
+│  created_at  │       └──────────────┘       └──────────────┘
 └──────────────┘
 ```
 
@@ -942,6 +933,8 @@ Parameters are defined at the Family level and can be scoped to either Type or I
 |-------|-------------|---------|
 | **Type Parameter** | Describes the product model; same for all instances | Manufacturer, Model, Wattage |
 | **Instance Parameter** | Describes the specific physical unit | Serial Number, Condition, Installation Date |
+
+Photos are Type-scoped only; instances do not store photo parameters and instead inherit the Type photo set.
 
 **Parameter Attributes:**
 
@@ -962,7 +955,7 @@ Parameters are defined at the Family level and can be scoped to either Type or I
 ### 8.1 Mobile Application Requirements
 
 #### FR-M01: Project Download
-- App shall display list of available projects (state: READY)
+- App shall display a list of available projects (state: READY)
 - App shall download complete project data including floorplan tiles, schema, and existing Types
 - App shall store project data locally for offline access
 - App shall update project state to ACTIVE upon successful download
@@ -970,56 +963,57 @@ Parameters are defined at the Family level and can be scoped to either Type or I
 #### FR-M02: Floorplan Navigation
 - App shall display vector-rendered floorplan with pan and zoom gestures
 - App shall support level switching via picker control
-- App shall display room boundaries with status indicators (not started, in progress, completed)
-- App shall allow room selection by tapping within room boundary
+- App shall display room boundaries with status indicators (not started/empty, completed/with assets)
+- App shall allow room selection by tapping within the room boundary
 
 #### FR-M03: Asset Creation
-- App shall allow asset placement by tapping location on floorplan
+- App shall allow asset creation by selecting a room on the floorplan
 - App shall present Family selection from schema-defined families
-- App shall present Type selection with search, recently used, and create new options
-- App shall perform fuzzy matching against existing Types when creating new Type
+- App shall present Type selection with search and create-new options
+- App shall perform fuzzy matching against existing Types when creating a new Type
 - App shall display Type parameter form for new Type creation
 - App shall display Instance parameter form with validation
 - App shall enforce required field completion before save
-- App shall capture photos with configurable min/max per family
+- App shall capture Type photos with configurable min/max per Family (minimum 1)
 
 #### FR-M04: Photo Capture
-- App shall capture photos using device camera
-- App shall compress photos to JPEG, longest edge 1280px, quality 0.8
-- App shall assign globally unique filename at capture time
-- App shall store photos locally with upload queue
-- App shall enforce minimum photo requirement before asset save
+- App shall capture Type photos using the device camera
+- App shall compress Type photos to JPEG with a longest edge of 1280px and quality 0.8
+- App shall assign a globally unique filename at capture time
+- App shall store Type photos locally with an upload queue
+- App shall enforce a minimum of one photo before saving a new Type
+- App shall allow additional optional photos to be added to a Type
 
 #### FR-M05: Offline Operation
 - App shall function fully without network connectivity
 - App shall log all changes as events in local storage
-- App shall queue photos for background upload
-- App shall indicate sync status to operator
+- App shall queue Type photos for background upload
+- App shall indicate sync status to the operator
 
 #### FR-M06: Synchronization
 - App shall detect network availability
 - App shall upload pending events when online
-- App shall upload queued photos in background
+- App shall upload queued Type photos in the background
 - App shall display sync progress and status
 
 #### FR-M07: Survey Completion
-- App shall validate all rooms have at least one asset or annotation
-- App shall display report of empty rooms if validation fails
-- App shall allow completion confirmation when all rooms addressed
+- App shall validate that all rooms have at least one asset or Annotation
+- App shall display a report of empty rooms if validation fails
+- App shall allow completion confirmation when all rooms are addressed
 - App shall change project state to COMPLETED upon confirmation
 - App shall make project read-only after completion
 
 ### 8.2 Admin Dashboard Requirements
 
 #### FR-A01: Project Creation
-- Dashboard shall allow creation of new projects with name and description
+- Dashboard shall allow creation of new projects with a name and description
 - Dashboard shall display project list with status indicators
 - Dashboard shall allow project state management
 
 #### FR-A02: DWG Upload and Validation
-- Dashboard shall accept DWG file upload
+- Dashboard shall accept DWG file uploads
 - Dashboard shall validate DWG against required structure (see Section 9.3)
-- Dashboard shall display validation report with specific errors if failed
+- Dashboard shall display validation report with specific errors if validation fails
 - Dashboard shall extract levels and rooms from valid DWG
 - Dashboard shall generate vector tiles for mobile rendering
 
@@ -1027,7 +1021,7 @@ Parameters are defined at the Family level and can be scoped to either Type or I
 - Dashboard shall display available schema templates
 - Dashboard shall allow schema template creation/editing
 - Dashboard shall create immutable schema versions
-- Dashboard shall lock schema version to project
+- Dashboard shall lock a schema version to a project
 
 #### FR-A04: Progress Monitoring
 - Dashboard shall display real-time survey progress
@@ -1036,17 +1030,17 @@ Parameters are defined at the Family level and can be scoped to either Type or I
 - Dashboard shall show sync status for active projects
 
 #### FR-A05: Export Generation
-- Dashboard shall generate CSV/Excel export of all asset data
-- Dashboard shall generate ZIP archive of all photos
-- Dashboard shall assign sequential IDs at first export
+- Dashboard shall generate CSV/Excel exports of all asset data
+- Dashboard shall generate a ZIP archive of all photos
+- Dashboard shall assign sequential IDs on first export
 - Dashboard shall maintain stable IDs for re-exports
 
 ### 8.3 Backend Requirements
 
 #### FR-B01: API Services
-- Backend shall provide REST API for all client operations
+- Backend shall provide a REST API for all client operations
 - Backend shall handle authentication (future: MVP has open access)
-- Backend shall validate all incoming data against schema
+- Backend shall validate all incoming data against the schema
 
 #### FR-B02: Sync Engine
 - Backend shall receive events from mobile clients
@@ -1077,7 +1071,7 @@ Parameters are defined at the Family level and can be scoped to either Type or I
 
 ### 9.1 Coordinate System
 
-All spatial data uses a "Plan Space" coordinate system:
+All floorplan and room geometry use a "Plan Space" coordinate system. Asset instances are linked to rooms and do not store X/Y coordinates.
 
 | Property | Specification |
 |----------|---------------|
@@ -1092,7 +1086,7 @@ All spatial data uses a "Plan Space" coordinate system:
 |---------|--------|---------|
 | **Internal ID** | UUIDv7 | All entities (projects, levels, rooms, types, instances, photos, events) |
 | **Export ID** | Sequential integer | Client-facing IDs assigned at first export |
-| **Photo Name** | `{project_short}_{operator}_{timestamp}_{seq}` | Globally unique, assigned at capture |
+| **Photo Name** | `{project_short}_{operator_id}_{timestamp}_{sequence}.jpg` | Globally unique, assigned at capture |
 
 **UUIDv7 Benefits:**
 - Time-sortable (embeds timestamp)
@@ -1118,8 +1112,8 @@ On upload, the system validates the DWG file against these requirements:
 | **Room Regions** | All room filled regions must be inside a level boundary |
 | **Room Labels** | Room name text (if present) must be inside the room region |
 | **Level Labels** | Level name text must be inside the level boundary |
-| **Building Groups** | Building layer polylines (optional) must properly enclose levels |
-| **Building Labels** | Building name text must be inside building boundary |
+
+**Room Numbering Convention:** Rooms are numbered with four digits. The first digit represents the floor number (from lowest = 0 to highest), and the remaining three digits are a sequential room number within that floor.
 
 **Validation Failure:** If any rule fails, the DWG must be corrected and re-uploaded. The project cannot proceed until the floorplan passes validation.
 
@@ -1130,10 +1124,12 @@ On upload, the system validates the DWG file against these requirements:
 | **Format** | JPEG |
 | **Resolution** | Longest edge 1280px |
 | **Quality** | 0.8 compression |
-| **Min per Instance** | 1 (configurable per Family) |
-| **Max per Instance** | 5 (configurable per Family) |
-| **Reuse** | A photo can be linked to multiple instances |
+| **Min per Type** | 1 (configurable per Family) |
+| **Max per Type** | 5 (configurable per Family) |
+| **Reuse** | Photos are linked to a Type and inherited by its instances |
 | **Naming** | Globally unique, assigned at capture, unchanged through export |
+
+Only one photo is required per Type; additional photos are optional up to the Family maximum.
 
 ### 9.5 Scale Constraints
 
@@ -1149,16 +1145,16 @@ On upload, the system validates the DWG file against these requirements:
 
 | State | Description | Available Actions |
 |-------|-------------|-------------------|
-| **Draft** | Being configured | Edit settings, upload DWG, select schema |
-| **Ready** | Configuration complete | Download to mobile, edit settings |
-| **Active** | Survey in progress | Sync data, monitor progress |
-| **Completed** | Survey finished | Review data, approve or return for corrections |
-| **Approved** | Admin approved | Generate exports |
-| **Archived** | Long-term storage | View only |
+| **DRAFT** | Being configured | Edit settings, upload DWG, select schema |
+| **READY** | Configuration complete | Download to mobile, edit settings |
+| **ACTIVE** | Survey in progress | Sync data, monitor progress |
+| **COMPLETED** | Survey finished | Review data, approve or return for corrections |
+| **APPROVED** | Admin approved | Generate exports |
+| **ARCHIVED** | Long-term storage | View only |
 
 **State Transitions:**
 ```
-Draft → Ready → Active → Completed → Approved → Archived
+DRAFT → READY → ACTIVE → COMPLETED → APPROVED → ARCHIVED
                   ↑           │
                   └───────────┘
                 (return for corrections)
@@ -1169,13 +1165,13 @@ Draft → Ready → Active → Completed → Approved → Archived
 The sync system uses an event log pattern:
 
 **Event Types:**
-- `INSTANCE_CREATED` — New asset instance placed
+- `INSTANCE_CREATED` — New asset instance created in a room
 - `INSTANCE_UPDATED` — Instance parameters modified
 - `INSTANCE_DELETED` — Instance removed
 - `TYPE_CREATED` — New Type defined
 - `TYPE_UPDATED` — Type parameters modified
-- `PHOTO_ATTACHED` — Photo linked to instance
-- `ROOM_STATUS_CHANGED` — Room marked complete/incomplete
+- `PHOTO_ATTACHED` — Photo linked to Type
+- `ROOM_STATUS_CHANGED` — Room marked empty/with assets
 
 **Event Structure:**
 ```json
@@ -1253,10 +1249,12 @@ When an operator encounters a room that legitimately has no assets to record, th
 
 | Situation | Action Required |
 |-----------|-----------------|
-| **No assets to register** | Add Annotation + select reason from dropdown + optional note/photo |
-| **Room unreachable** | Add Annotation + select reason + mandatory photo (or note if photo impossible) |
+| **No assets to register** | Add Annotation + select reason from dropdown + optional note |
+| **Room unreachable** | Add Annotation + select reason + required note |
 
 This ensures every room is explicitly addressed, preventing accidental omissions.
+
+If the Annotation Family requires photos, they are captured at the Type level and apply to all instances of that Annotation Type.
 
 ### Appendix B: Type Creation Guidelines
 
@@ -1272,7 +1270,7 @@ The fuzzy matching system suggests existing Types when operators type a new name
 
 Photos receive a globally unique name at capture time that remains unchanged through export:
 
-**Format:** `{project_short}_{operator_id}_{timestamp}_{sequence}`
+**Format:** `{project_short}_{operator_id}_{timestamp}_{sequence}.jpg`
 
 **Example:** `PRJ001_OP42_20251215143022_001.jpg`
 
