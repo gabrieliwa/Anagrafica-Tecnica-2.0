@@ -35,7 +35,7 @@ The platform addresses a key facility-management gap: producing accurate, struct
 | **Data Quality at Source** | Validation rules and required fields prevent incomplete or incorrect data entry |
 | **Standardized Taxonomy** | Family → Type → Instance hierarchy ensures consistent asset classification |
 | **Configurable Schemas** | Project-specific asset schemas (fields, validation rules, controlled vocabularies, and photo requirements) enable consistent data capture across different facility types and clients |
-| **Photo Documentation** | Configurable Type photo requirements provide visual verification of each asset Type |
+| **Photo Documentation** | Single required Type photo plus optional Instance photos provide visual verification of assets |
 | **Export-Ready Deliverables** | Structured data exports (CSV/Excel) with organized photo archives for client delivery |
 
 ### 1.2 Scope
@@ -100,12 +100,15 @@ Instead of “dumb” collection (room lists, unstructured notes, photo folders)
 The mobile app serves as the primary tool for field operators, designed for single-handed operation while moving through sites.
 
 **Key Features:**
+- Projects home with search, filters, sync status, and placeholder settings/import entry points
 - Interactive floorplan with map-style pan, zoom, and navigation
-- Add assets by selecting a room on the plan
-- Structured data entry forms with field validation
-- Integrated Type photo capture (minimum 1 per Type; more optional, configurable by Family)
+- Room view with assets and room notes list plus quick add
+- Add Asset wizard with progress tracker, Room Note path, and type creation flow
+- Instance editor widget with in-place edits and type editing access
+- Survey Report hub with rooms list, types list, filters, and project export
+- Integrated Type photo capture (exactly 1 required per Type) and optional Instance photos (up to 5)
 - On-device fuzzy matching to suggest existing Types and prevent duplicates
-- Room-by-room progress tracking with visual indicators
+- Room-by-room progress tracking with visual indicators and sync status states
 - Offline first operation with automatic sync
 
 #### Admin Dashboard (Web)
@@ -389,95 +392,140 @@ This flow covers the complete on-site survey process from project download to co
 #### Step Details
 
 **Step 1: Download Project**
-- Operator opens the mobile app and views available projects (state: READY)
-- Selects a project and opens it. The download of the project is initiated
+- Operator opens the mobile app and views the Projects page (state: READY)
+- If no projects are assigned, show the empty state: "No project assigned"
+- Projects page includes search, filter (e.g., location/status), and per-project sync status
+- Settings and Import buttons are fixed at the bottom as placeholders for future implementations
+- Each project card displays: project name, project image, location, number of rooms, number of assets, and state label
+- Project states (mobile UI):
+  - Online (not yet downloaded): label "Online" with light gray background (#F1F1F1)
+  - Open (being surveyed): label "Open" with light blue background (#DCEEFF)
+  - Completed (finished survey): label "Completed" with light green background (#DFF5E1)
+- Operator taps a project card to open it:
+  - Online: show a loading screen while project data downloads, then open the floorplan
+  - Open: open the floorplan immediately
+  - Completed: show a read-only warning and open in read-only mode
 - App downloads complete project data: floorplan tiles, room geometry, schema, existing Types
-- Project state changes to ACTIVE; operator can now work fully offline
+- Project state changes to ACTIVE (Open); operator can now work fully offline
 
 **Step 2: Navigate to Room**
 - Operator views the interactive floorplan
 - Uses familiar gestures: pinch to zoom, drag to pan
 - Floating on top of the floorplan are:
-  1. Top left is a Level picker for switching between floors
+  1. Top left is an Exit button that opens the exit pop-up
   2. Top center is the project name
-  3. Top right is a (↑↓) icon showing sync status with the server
-  4. Bottom left (⌂) lets the operator leave the project and return to the project list
-  5. Bottom right (☰) opens the "Survey Report" page
-- Rooms are color-coded by status: empty (gray), with assets (light blue)
-- In the centroid of each light blue room, a circle contains the number of assets present in the room
-- In the centroid of each gray room, a circle contains an add (+) sign
+  3. Top right is the sync status indicator (tap for status message)
+  4. Bottom left (☰) opens the "Survey Report" page
+  5. Bottom right is a Level picker that opens upward to switch floors (drop-up)
+- Room names and numbers are visible directly on the floorplan
+- Rooms are color-coded by status: empty (halftone gray), with assets or room notes (light blue)
+- Empty rooms show a (+) button inside the room
+- Rooms with assets or room notes show a circle badge with the total item count (assets + room notes)
 - The operator taps the room they are physically in. Everything outside the room boundary is half-toned:
-  1. If the room is empty, the asset creation wizard opens immediately
-  2. If the room contains assets, a "room view" opens:
-       - Zoom and pan are disabled; the background is fixed to the room outline
-       - At the top center of the screen, a label shows the level and room number
-       - In the bottom half of the screen, the asset list for the selected room floats over the floorplan
-       - An "add asset" (+) button appears at the bottom center of the screen
+  1. If the room is empty, the Add Asset wizard opens immediately
+  2. If the room contains assets or room notes, a "room view" opens:
+       - A back arrow returns to the interactive floorplan
+       - At the top, a label shows the level and room number and the sync status icon
+       - A scrollable list shows assets and room notes linked to the room
+       - Bottom actions include a hamburger (Survey Report) and a "+ Add Asset" button
 
 **Step 3: Add Asset**
-- The operator taps the add asset (+) button at the bottom center of the screen
-- Asset creation wizard (editor) opens
-- First page is the Family selection (e.g., Lights, Radiators, Access Points)
-- Second page is the Type selector, which offers two options:
-  1. Select existing Type from searchable list:
-       - Third page is the Type parameters form
-       - In this case, all Type parameters are pre-filled (Type photos included), but the operator can edit them (and retake the primary photo)
-       - If any Type parameter is changed, a new Type is created
-       - Before navigating to page four, the operator is prompted to name the new Type (suggested name: old Type name + "2", "3", etc.)
-       - Fuzzy matching suggests similar existing Types to prevent duplicates
-  2. Create new Type from scratch
-       - On tap, the camera launches to take a photo of the new asset Type
-       - The photo capture interface enforces a minimum of one photo per Type; additional photos are optional
-       - After the photo is taken, the third page opens and is always the parameters form
-       - In this case, all Type parameter fields are empty
-       - After filling all necessary Type parameters and attempting to navigate to the fourth page, the operator is prompted to name the new Type
-       - Fuzzy matching suggests similar existing Types to prevent duplicates
-- Fourth page is the Instance parameter form, displaying fields defined by the Family schema
-- Photos are Type parameters and are not captured at the Instance level
-- Some instance parameters are pre-filled and read-only (e.g., Level, Room)
-- Required fields must be completed; validation prevents saving incomplete data
-- Asset is saved locally and appears in the room's assets list
+- The operator taps the "+ Add Asset" button or taps an empty room; the Add Asset wizard opens with a progress tracker
+- Step 1: Family selection
+  - Search bar filters both Family names and Type names within families
+  - Room Note option appears below the search bar and above the families list, separated by a horizontal line
+  - Room Note is always available
+- If Room Note is selected:
+  - Room Note form opens with a dedicated progress tracker
+  - Photos section requires 1 main photo plus up to 4 optional photos
+  - Read-only info includes Level and Host Room
+  - Boolean fields include "Empty room" and "Room is blocked"
+  - Flags are mutually exclusive, but both can be "no"
+  - If the room already contains assets, both flags are disabled (grayed out)
+  - Description field is available for notes
+  - "Save Note" returns to Room view and adds the note
+- If a standard Family is selected:
+  - Step 2: Type selection
+    - Operator can select an existing Type or choose "+ New Type"
+  - Existing Type path (Step 3):
+       - Type form opens with pre-filled parameters and the required single Type photo
+       - If no Type parameters are changed, proceed directly to Step 4 (Instance Form)
+       - If any Type parameter is changed, the operator is prompted to name a new Type before proceeding
+       - The original Type remains unchanged; only the new asset uses the new branched Type
+  - New Type path:
+       - Camera launches immediately; captured photo becomes the mandatory Type photo
+       - Type form opens with empty parameters
+       - Operator names the new Type, then proceeds to Step 4 (Instance Form)
+  - Fuzzy matching suggests similar existing Types to prevent duplicates
+  - Final step is the Instance form with Family instance parameters
+  - Some instance parameters are pre-filled and read-only (e.g., Level, Room)
+  - Optional Instance photos can be captured (up to 5)
+  - Required fields must be completed; validation prevents saving incomplete data
+  - Asset is saved locally and appears in the room's assets list with an "Asset saved" banner
+- If the operator exits the wizard mid-way, a warning indicates all progress will be lost; confirming returns to the Floorplan View or Room View based on where the wizard was launched
 
 **Step 4: Asset Editing Inside Room View**
-- When inside a "room view," the operator can interact with assets in the room list
-- By tapping an asset, a card appears showing asset details
-- By sliding the asset to the right, an edit button appears
-- If tapped, a form displaying Type and Instance parameters appears, letting the operator edit them
-- If Type parameters are changed, the operator is prompted to save the new Type (fuzzy matching is applied here as well)
-- By sliding the asset to the left, a delete button appears; if tapped, the operator is prompted to confirm before deletion
+- When inside a "room view," the operator can interact with assets and room notes in the list
+- Zoom and pan are disabled; the floorplan is fixed on the current room
+- Room names and numbers remain visible
+- Asset list is ordered by Family, then Type, then creation time
+- Room Notes appear in the same list with a distinct icon
+- Tapping a row opens the Instance Editor Widget
+  - Shows Type summary, instance parameters only, optional Instance photos, and Reset/Save actions
+  - "Edit Type" opens the Edit Type widget (separate modal) for Type-level changes
+- Type edits from the Instance Editor update the existing Type (no duplication)
+- Closing the widget with unsaved edits prompts Discard/Save confirmation
+- Swiping an asset row reveals Delete; a confirmation modal is required before deletion
 
 **Step 5: Survey Report Page**
-- When in the interactive plan view, the operator can tap the bottom right (☰) button to enter the "Survey Report" page
-- This page contains a searchable list of rooms, grouped by level, and a searchable list of asset Types, grouped by Family
-- By default, the "Survey Report" page opens in the room list
-- At the bottom of the screen, floating on top of the list, are three buttons:
-  1. On the left is the link to the rooms list
-       - The room list has 3 columns: Room number, Room name, Number of assets in the room
-       - By tapping any room, the operator is taken to the respective room view (where the asset list is shown)
-       - If the room has no assets assigned, a (+) button appears next to the name; tapping it takes the operator directly to the asset creation wizard
-  2. Center is the link to the Types list
-       - Each line represents a type of asset
-       - Each line contains: Type name, summary of the major type parameters, a circle with the number of instances relative to the type
-       - If a Type is tapped, a form displaying the Type parameters appears, letting the operator edit the Type
-       - This edit will have a trickle-down effect on all instances linked to this Type
-  3. On the right is the button to trigger an emergency export of the project
+- From the floorplan or room view, the operator can tap the bottom left (☰) button to enter the "Survey Report" page
+- This page contains a searchable list of rooms (grouped by level) and a searchable list of Types (grouped by Family)
+- By default, the page opens in the Rooms list
+- At the bottom of the screen are fixed buttons:
+  1. Left: Rooms list
+       - Room rows show room number, name, and asset count (assets + room notes)
+       - Tapping a room opens its Room view
+       - If the room has no items, a (+) button opens the Add Asset wizard
+       - A filter button opens the Room List Filter:
+         - Room Type filters: All, Without assets, With assets (asset counts include room notes)
+         - Asset Type filters: multi-select list of asset Types; only rooms containing the selected Types are shown
+         - Reset/Save controls; applied filters show an indicator in the search bar
+  2. Center: Types list
+       - Each row contains Type name, summary of major parameters, and instance count
+       - Tapping a Type opens the Edit Type widget:
+         - Type parameters and the required single Type photo; edits affect all instances of the Type
+         - Edits in this context modify the existing Type (no duplication) within the current project
+         - "View photo" opens the Type photo
+         - Closing with unsaved edits prompts Discard/Save
+       - A filter button opens the Type List Filter:
+         - Family selector (required)
+         - After selecting a Family, all parameters for that Family appear
+         - Each parameter provides a drop-down list of existing values
+         - Multi-select across parameter values; Types must match all selected parameters, and any selected value within each parameter
+         - Reset/Save controls; applied filters show an indicator in the search bar
+  3. Right: Project Export
+       - Shows a "Building project export file..." progress pop-up
+       - When ready, presents the iOS share sheet
+       - Export serves as a backup mechanism if sync fails
 
 **Step 6: Complete Survey**
-- The operator taps (⌂) on the bottom left of the screen when finished
-- The app prompts whether the operator would like to complete the survey or pause it:
-  1. Operator taps on "Pause survey"
-       - Returns to the main project list
+- The operator taps the Exit button (top left) when finished
+- The exit pop-up offers "Pause Survey" or "Complete Survey"
+  1. Operator taps "Pause Survey"
+       - Returns to the Projects page
        - The operator can return at any time to resume the survey
-  2. Operator taps on "Complete survey"
-       - The system validates that every room has at least one asset or Annotation
-       - If rooms are empty, a report displays all unaddressed rooms
-       - For legitimately empty rooms, the operator must add an Annotation asset with a reason
-       - Once all rooms are addressed, the operator confirms completion
-       - Project state changes to COMPLETED; it becomes read-only on the device and cannot be edited anymore
+  2. Operator taps "Complete Survey"
+       - The system validates that every room has at least one asset or Room Note
+       - If any rooms are empty, a warning appears with "View Empty Rooms"
+       - Indicated action opens Survey Report > Rooms list filtered to only empty rooms
+       - For legitimately empty rooms, the operator must add a Room Note
+       - A room is considered complete when it contains at least one asset or one Room Note
+       - If no rooms are empty, a "Slide to complete" control is shown
+       - Project state changes to COMPLETED; it becomes read-only on the device and cannot be edited
 
 **Step 7: Final Sync**
-- When network is available, all remaining events and photos sync to server
-- Progress indicator shows upload status
+- When network is available, update events and photos sync to server
+- Sync status indicator shows "syncing", "synced", or "failed to sync" states and provides a status message on tap
 - Confirmation displayed when sync is complete
 
 ---
@@ -497,13 +545,14 @@ This flow details the asset creation process, the most frequent operation during
 └────────┬─────────────┘
          │
          ▼
-[Asset creation wizard opens]
+[Add Asset wizard opens]
          │
          ▼
 ┌──────────────────────────────────────┐
 │  SELECT FAMILY                       │
 │  ─────────────────────────────────   │
 │  • List of asset families            │
+│  • Includes Room Note                │
 │  • Icons + labels                    │
 │  • e.g., Lights, Radiators, APs      │
 └──────────────┬───────────────────────┘
@@ -536,10 +585,10 @@ This flow details the asset creation process, the most frequent operation during
 │ Skip to        │  │                                      │
 │ Instance       │  │  Type Name: ___________________      │
 │ Parameters     │  │                                      │
-└───────┬────────┘  │  Type Photos (min 1):                │
-        │           │  ┌──────┐ ┌──────┐ ┌──────┐         │
-        │           │  │ 📷   │ │ 📷   │ │  +   │         │
-        │           │  └──────┘ └──────┘ └──────┘         │
+└───────┬────────┘  │  Type Photo (required, single):     │
+        │           │  ┌──────┐                           │
+        │           │  │ 📷   │                           │
+        │           │  └──────┘                           │
         │           │                                      │
         │           │  Type Parameters (from Family):      │
         │           │  ┌────────────────────────────────┐  │
@@ -569,6 +618,7 @@ This flow details the asset creation process, the most frequent operation during
 │  └────────────────────────────────┘  │
 │                                      │
 │  * Required fields marked            │
+│  * Instance photos optional (up to 5)│
 └──────────────┬───────────────────────┘
                │
                ▼
@@ -587,6 +637,16 @@ This flow details the asset creation process, the most frequent operation during
 │  • Return to room view               │
 └──────────────────────────────────────┘
 ```
+
+#### Wizard UI Notes (Latest UI)
+
+- The Add Asset wizard includes a progress tracker (not-yet, current, completed states)
+- Room Note is a first-class option in Family selection and routes to the Room Note form
+- Room Note requires 1 mandatory main photo plus up to 4 optional photos
+- The "+ New Type" action immediately opens the camera; the captured photo becomes the Type key image
+- Naming a new Type is required when Type parameters change or a new Type is created
+- Type photo is required and limited to a single image
+- The Instance form can include up to 5 optional Instance photos
 
 #### Type Selection Priority
 
@@ -664,6 +724,33 @@ The fuzzy matching system actively suggests similar existing Types when operator
 
 ---
 
+### 5.5 Read-Only Mode (Completed Projects)
+
+- Trigger: opening a project in the Completed state
+- Warning popup informs the operator that the project is read-only
+- Visual treatment:
+  - Assets and room notes are halftoned in floorplan badges and room lists
+  - Forms and lists remain visible but are non-editable
+- Disabled interactions (halftoned and non-interactive):
+  - "+ Add Asset"
+  - "Save Asset" and "Save Note"
+  - "Save" in Instance Editor and Edit Type widgets
+  - "Edit Type" button
+  - Delete actions (swipe delete and delete confirmations)
+  - Reset actions in editors
+
+---
+
+### 5.6 Modals and Alerts
+
+- Read-only warning when opening a Completed project
+- Unsaved edits prompt with Discard/Save
+- Delete confirmation modal for assets and room notes
+- Wizard exit confirmation: warns that progress will be lost
+- Room Note flags are mutually exclusive; selecting one deselects the other, and both can be "no"
+
+---
+
 ## 6. System Architecture
 
 ### 6.1 Architecture Overview
@@ -711,7 +798,7 @@ The system follows a four-component architecture designed for offline-first oper
 │  │  │                           │    │                               │  │  │
 │  │  │  • Projects               │    │  • DWG source files           │  │  │
 │  │  │  • Schemas & versions     │    │  • Vector tiles               │  │  │
-│  │  │  • Assets & events        │    │  • Type photos                │  │  │
+│  │  │  • Assets & events        │    │  • Type and Instance photos   │  │  │
 │  │  │  • Types & instances      │    │  • Export archives            │  │  │
 │  │  └───────────────────────────┘    └───────────────────────────────┘  │  │
 │  └──────────────────────────────────────────────────────────────────────┘  │
@@ -731,7 +818,7 @@ The system follows a four-component architecture designed for offline-first oper
 │  │                     │  │               │  │                             │  │
 │  │  • Project data     │  │               │  │  • Project management       │  │
 │  │  • Event log        │  │               │  │  • DWG upload & validation  │  │
-│  │  • Type photo queue │  │               │  │  • Schema management        │  │
+│  │  • Type and Instance photo queue │  │               │  │  • Schema management        │  │
 │  │  • Tiles cache      │  │               │  │  • Progress monitoring      │  │
 │  └─────────────────────┘  │               │  │  • Export generation        │  │
 │                           │               │  └─────────────────────────────┘  │
@@ -768,14 +855,23 @@ The mobile app maintains a complete local copy of project data, enabling full fu
 - All existing Types for the project
 - Vector tiles for floorplan rendering
 - Local event log (pending changes)
-- Type photo queue (pending uploads)
+- Type and Instance photo queue (pending uploads)
 
 **Synchronization Model:**
 - Changes are recorded as events in a local log
 - When online, events are pushed to server in order
 - Server maintains authoritative event ordering
-- Type photos upload asynchronously in background
+- Type and Instance photos upload asynchronously in background
 - Sync is additive: offline work is never lost
+
+---
+
+### 6.4 Sync Behavior (Mobile)
+
+- Sync attempts are triggered whenever an asset, room note, or type is created, modified, or deleted
+- If a sync attempt fails, changes remain backed up locally and the device retries every 30 seconds
+- After 10 consecutive failures, retry interval switches to every 5 minutes and continues indefinitely until successful
+- Operators cannot manually trigger sync
 
 ---
 
@@ -792,7 +888,13 @@ The mobile app maintains a complete local copy of project data, enabling full fu
 | **Instance** | A single physical asset linked to a room, belonging to a Type |
 | **Schema** | The complete set of Families, parameters, and validation rules for a project |
 | **Schema Version** | An immutable snapshot of a schema, locked to a project |
-| **Annotation** | A special asset type for notes, "no assets" markers, or "unreachable" flags |
+| **Room Note** | A special asset type for notes, "no assets" markers, or "unreachable" flags |
+
+#### Terminology and Conventions
+
+- "Asset" always refers to a technical asset instance (never "product")
+- App users are referred to as "operators"
+- One asset can belong to one and only one room
 
 ### 7.2 Asset Hierarchy
 
@@ -813,7 +915,7 @@ The system follows a three-level asset hierarchy:
 │  Defines:                                                                   │
 │    • Type parameters (fields that describe the product)                     │
 │    • Instance parameters (fields that describe each physical unit)          │
-│    • Photo requirements (min/max photos per Type)                           │
+│    • Photo requirements (Type: exactly 1; Instance: optional up to 5)       │
 │    • Validation rules for all parameters                                    │
 │                                                                             │
 │  ┌────────────────────────────────────────────────────────────────────────┐ │
@@ -840,7 +942,7 @@ The system follows a three-level asset hierarchy:
 │  │  │    • Reference to parent Type                                    │  │ │
 │  │  │    • Room reference (room number)                                │  │ │
 │  │  │    • Instance-specific parameters (serial, condition, notes)     │  │ │
-│  │  │    • Inherits Type photos (no per-instance photos)               │  │ │
+│  │  │    • Inherits Type photo; may include up to 5 Instance photos     │  │ │
 │  │  └──────────────────────────────────────────────────────────────────┘  │ │
 │  └────────────────────────────────────────────────────────────────────────┘ │
 └─────────────────────────────────────────────────────────────────────────────┘
@@ -862,7 +964,7 @@ PROJECT (Site)
     │       │     └── Asset Instance
     │       │
     │       └── ROOM
-    │             └── Annotation (no assets)
+    │             └── Room Note (no assets)
     │
     └── LEVEL
             └── ROOM
@@ -918,12 +1020,14 @@ PROJECT (Site)
 │              │       │              │       │              │
 │  instance_id │──────►│  type_id     │──────►│  photo_id    │
 │  type_id     │       │  family_id   │       │  type_id     │
-│  room_id     │       │  name        │       │  filename    │
-│  parameters  │       │  parameters  │       │  captured_at │
-│  (JSON)      │       │  (JSON)      │       │  uploaded    │
-│  created_at  │       └──────────────┘       └──────────────┘
-└──────────────┘
+│  room_id     │       │  name        │       │  instance_id │
+│  parameters  │       │  parameters  │       │  filename    │
+│  (JSON)      │       │  (JSON)      │       │  captured_at │
+│  created_at  │       └──────────────┘       │  uploaded    │
+└──────────────┘                              └──────────────┘
 ```
+
+**Note:** `PHOTO` can reference either a `type_id` (Type photo) or an `instance_id` (Instance photo). Exactly one reference is set.
 
 ### 7.5 Parameter System
 
@@ -934,7 +1038,7 @@ Parameters are defined at the Family level and can be scoped to either Type or I
 | **Type Parameter** | Describes the product model; same for all instances | Manufacturer, Model, Wattage |
 | **Instance Parameter** | Describes the specific physical unit | Serial Number, Condition, Installation Date |
 
-Photos are Type-scoped only; instances do not store photo parameters and instead inherit the Type photo set.
+Photos can be Type-scoped and optionally Instance-scoped. Instances inherit the Type photo and may store up to 5 optional Instance photos.
 
 **Parameter Attributes:**
 
@@ -950,58 +1054,113 @@ Photos are Type-scoped only; instances do not store photo parameters and instead
 
 ---
 
+### 7.6 Form Fields and Validation
+
+- Supported field types: text, number, photos, dropdown, toggles, dates
+- Field composition is defined by the project schema in the backend
+- All fields in the Type Form are mandatory
+- Instance Form fields can be mandatory or optional, as defined by the schema
+- Validation errors appear inline during entry
+- When the operator attempts to save, any missing mandatory fields turn red
+
+---
+
 ## 8. Functional Requirements
 
 ### 8.1 Mobile Application Requirements
 
 #### FR-M01: Project Download
 - App shall display a list of available projects (state: READY)
+- App shall provide project search and filters (e.g., location/status)
+- App shall display per-project sync status indicators
+- App shall show Settings and Import buttons on the Projects page as placeholders for future functionality
+- App shall show the empty state message "No project assigned" when the list is empty
+- App shall display project cards with name, image, location, number of rooms, and number of assets
+- App shall display project states (Online, Open, Completed) with distinct label text and background colors
+- App shall show a loading screen while downloading a project after selection
+- App shall open Completed projects in read-only mode with a warning popup
 - App shall download complete project data including floorplan tiles, schema, and existing Types
 - App shall store project data locally for offline access
 - App shall update project state to ACTIVE upon successful download
 
 #### FR-M02: Floorplan Navigation
 - App shall display vector-rendered floorplan with pan and zoom gestures
-- App shall support level switching via picker control
-- App shall display room boundaries with status indicators (not started/empty, completed/with assets)
+- App shall support level switching via a bottom-right drop-up picker
+- App shall display room boundaries with status indicators (empty vs with assets or room notes)
+- App shall render empty rooms in halftone gray with a (+) button inside
+- App shall render rooms with assets or room notes in light blue with a count badge (assets + room notes)
+- App shall display room names and numbers directly on the floorplan
 - App shall allow room selection by tapping within the room boundary
+- App shall provide an Exit control that opens pause/complete options
+- App shall provide Survey Report access via a hamburger control
+- App shall display sync status states (syncing, synced, failed) with a tap-to-view message
 
 #### FR-M03: Asset Creation
 - App shall allow asset creation by selecting a room on the floorplan
-- App shall present Family selection from schema-defined families
+- App shall present Family selection from schema-defined families, including Room Note
+- App shall show a progress tracker for the Add Asset wizard
 - App shall present Type selection with search and create-new options
-- App shall perform fuzzy matching against existing Types when creating a new Type
-- App shall display Type parameter form for new Type creation
-- App shall display Instance parameter form with validation
+- App shall allow the Add Asset search bar to match Family names and Type names
+- App shall keep Room Note available at all times; if a room contains assets, Room Note flags are disabled
+- App shall launch the camera when creating a new Type and use the captured photo as the Type key image
+- App shall perform fuzzy matching against existing Types when creating or renaming a Type
+- App shall display Type parameter form for new Type creation or modification
+- App shall proceed directly to the Instance form when an existing Type is selected and unmodified
+- App shall prompt for a new Type name when Type parameters change inside the Add Asset wizard
+- App shall ensure branched Types do not modify the original Type and are used only for the new asset
+- App shall display Instance parameter form with validation and optional Instance photos (up to 5)
 - App shall enforce required field completion before save
-- App shall capture Type photos with configurable min/max per Family (minimum 1)
+- App shall capture exactly one required Type photo
+- App shall warn that wizard progress will be lost when exiting mid-way
 
 #### FR-M04: Photo Capture
-- App shall capture Type photos using the device camera
-- App shall compress Type photos to JPEG with a longest edge of 1280px and quality 0.8
+- App shall capture Type photos and optional Instance photos using the device camera
+- App shall compress Type and Instance photos to JPEG with a longest edge of 1280px and quality 0.8
 - App shall assign a globally unique filename at capture time
-- App shall store Type photos locally with an upload queue
-- App shall enforce a minimum of one photo before saving a new Type
-- App shall allow additional optional photos to be added to a Type
+- App shall store Type and Instance photos locally with an upload queue
+- App shall enforce a single required Type photo before saving a new Type
+- App shall allow optional Instance photos up to 5 per asset
 
 #### FR-M05: Offline Operation
 - App shall function fully without network connectivity
 - App shall log all changes as events in local storage
-- App shall queue Type photos for background upload
+- App shall queue Type and Instance photos for background upload
 - App shall indicate sync status to the operator
 
 #### FR-M06: Synchronization
 - App shall detect network availability
 - App shall upload pending events when online
-- App shall upload queued Type photos in the background
+- App shall upload queued Type and Instance photos in the background
 - App shall display sync progress and status
+- App shall attempt sync automatically after asset, Room Note, or Type create/update/delete events
+- App shall retry failed syncs every 30 seconds, switching to every 5 minutes after 10 consecutive failures
+- App shall not provide a manual sync trigger
 
 #### FR-M07: Survey Completion
-- App shall validate that all rooms have at least one asset or Annotation
-- App shall display a report of empty rooms if validation fails
-- App shall allow completion confirmation when all rooms are addressed
+- App shall validate that all rooms have at least one asset or Room Note
+- App shall display an exit pop-up with "Pause Survey" and "Complete Survey"
+- App shall display a report of empty rooms if validation fails and provide a shortcut to the filtered Rooms list
+- App shall require a "Slide to complete" confirmation when all rooms are addressed
+- App shall consider a room complete when it contains at least one asset or one Room Note
 - App shall change project state to COMPLETED upon confirmation
 - App shall make project read-only after completion
+
+#### FR-M08: Survey Report
+- App shall provide a Survey Report hub with Rooms and Types lists
+- Rooms list shall support search, level grouping, and filters for room and asset types
+- Types list shall support search, Family filtering, Type parameter filtering, and instance counts
+- App shall allow navigation to Room view and Add Asset from the Rooms list
+
+#### FR-M09: Editing Widgets
+- App shall open an Instance Editor Widget from the Room view list
+- Instance edits shall support Reset/Save and prompt on unsaved changes
+- App shall open an Edit Type widget for Type-level edits and apply changes to all linked instances
+- Edit Type changes from the Survey Report shall update the existing Type (no duplication)
+
+#### FR-M10: Project Export (Mobile)
+- App shall generate a project export file on demand and show progress
+- App shall present the iOS share sheet when the export is ready
+- App shall treat export as a backup mechanism if synchronization fails
 
 ### 8.2 Admin Dashboard Requirements
 
@@ -1124,12 +1283,14 @@ On upload, the system validates the DWG file against these requirements:
 | **Format** | JPEG |
 | **Resolution** | Longest edge 1280px |
 | **Quality** | 0.8 compression |
-| **Min per Type** | 1 (configurable per Family) |
-| **Max per Type** | 5 (configurable per Family) |
-| **Reuse** | Photos are linked to a Type and inherited by its instances |
+| **Min per Type** | 1 (required) |
+| **Max per Type** | 1 |
+| **Min per Instance** | 0 (optional) |
+| **Max per Instance** | 5 |
+| **Reuse** | Type photos are shared across instances; Instance photos are per-instance |
 | **Naming** | Globally unique, assigned at capture, unchanged through export |
 
-Only one photo is required per Type; additional photos are optional up to the Family maximum.
+Each Type requires exactly one photo. Instance photos are optional and limited to 5 per asset.
 
 ### 9.5 Scale Constraints
 
@@ -1160,6 +1321,8 @@ DRAFT → READY → ACTIVE → COMPLETED → APPROVED → ARCHIVED
                 (return for corrections)
 ```
 
+**Mobile UI State Labels:** READY = Online, ACTIVE = Open, COMPLETED = Completed.
+
 ### 9.7 Event Sourcing Model
 
 The sync system uses an event log pattern:
@@ -1170,7 +1333,7 @@ The sync system uses an event log pattern:
 - `INSTANCE_DELETED` — Instance removed
 - `TYPE_CREATED` — New Type defined
 - `TYPE_UPDATED` — Type parameters modified
-- `PHOTO_ATTACHED` — Photo linked to Type
+- `PHOTO_ATTACHED` — Photo linked to Type or Instance
 - `ROOM_STATUS_CHANGED` — Room marked empty/with assets
 
 **Event Structure:**
@@ -1245,16 +1408,16 @@ anagrafica-tecnica/
 
 ### Appendix A: Handling Rooms Without Assets
 
-When an operator encounters a room that legitimately has no assets to record, they must add an Annotation asset with an appropriate reason:
+When an operator encounters a room that legitimately has no assets to record, they must add a Room Note with an appropriate reason:
 
 | Situation | Action Required |
 |-----------|-----------------|
-| **No assets to register** | Add Annotation + select reason from dropdown + optional note |
-| **Room unreachable** | Add Annotation + select reason + required note |
+| **No assets to register** | Add Room Note + set "Empty room" = yes + optional description |
+| **Room unreachable / blocked** | Add Room Note + set "Room is blocked" = yes + required description |
 
 This ensures every room is explicitly addressed, preventing accidental omissions.
 
-If the Annotation Family requires photos, they are captured at the Type level and apply to all instances of that Annotation Type.
+Room Note form includes read-only Level/Room, 1 mandatory main photo plus up to 4 optional photos, and the two mutually exclusive boolean fields; both booleans can be "no" when used as a general note.
 
 ### Appendix B: Type Creation Guidelines
 
@@ -1278,6 +1441,11 @@ This ensures:
 - No duplicate names across projects
 - Traceability to source project and operator
 - Consistent naming from capture through client delivery
+
+### Appendix D: Locked Rooms
+
+- A room is annotated as "locked" when the operator cannot physically access it (Room Note with "Room is blocked" = yes)
+- If access becomes available later, the operator deletes the locked Room Note and adds assets normally
 
 ---
 
