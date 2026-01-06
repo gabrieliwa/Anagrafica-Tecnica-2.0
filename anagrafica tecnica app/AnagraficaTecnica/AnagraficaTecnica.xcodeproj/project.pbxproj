@@ -6,6 +6,17 @@
 	objectVersion = 77;
 	objects = {
 
+/* Begin PBXBuildFile section */
+		178E8A280E1FA3911AB0957A /* Room in Frameworks */ = {isa = PBXBuildFile; productRef = 5B94B285275EA36EE773F397 /* Room */; };
+		3C3DDA7868B41FDE2C266B3E /* DesignSystem in Frameworks */ = {isa = PBXBuildFile; productRef = 5F29AADDC84D80ACEED3F40D /* DesignSystem */; };
+		4DDDC06193845C02A219DD6D /* SurveyReport in Frameworks */ = {isa = PBXBuildFile; productRef = FDE73AC292FBBF55BF2E42F6 /* SurveyReport */; };
+		9AEE9B41A6BB7BD080812842 /* Projects in Frameworks */ = {isa = PBXBuildFile; productRef = 3F9C0E5D5C785856DE910E02 /* Projects */; };
+		9EEE386C1C9C0D2DD21667C3 /* Core in Frameworks */ = {isa = PBXBuildFile; productRef = 64A41088AF694E9926720A5F /* Core */; };
+		D3027838DD1DD6E50F40EAD3 /* Floorplan in Frameworks */ = {isa = PBXBuildFile; productRef = F58E43F319E1E8D53FC0F905 /* Floorplan */; };
+		E9D5D209FD9D9327D9BD7BA0 /* AddAssetWizard in Frameworks */ = {isa = PBXBuildFile; productRef = ED14787AC98ADCC40E55DC17 /* AddAssetWizard */; };
+		F937E763510C54DF2D3354F4 /* Export in Frameworks */ = {isa = PBXBuildFile; productRef = 1DBEC08B2176185FC78ECC9B /* Export */; };
+/* End PBXBuildFile section */
+
 /* Begin PBXFileReference section */
 		CAE236232F0C7D18004390E1 /* AnagraficaTecnica.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AnagraficaTecnica.app; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -23,6 +34,14 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9EEE386C1C9C0D2DD21667C3 /* Core in Frameworks */,
+				3C3DDA7868B41FDE2C266B3E /* DesignSystem in Frameworks */,
+				9AEE9B41A6BB7BD080812842 /* Projects in Frameworks */,
+				D3027838DD1DD6E50F40EAD3 /* Floorplan in Frameworks */,
+				E9D5D209FD9D9327D9BD7BA0 /* AddAssetWizard in Frameworks */,
+				178E8A280E1FA3911AB0957A /* Room in Frameworks */,
+				4DDDC06193845C02A219DD6D /* SurveyReport in Frameworks */,
+				F937E763510C54DF2D3354F4 /* Export in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -65,6 +84,14 @@
 			);
 			name = AnagraficaTecnica;
 			packageProductDependencies = (
+				64A41088AF694E9926720A5F /* Core */,
+				5F29AADDC84D80ACEED3F40D /* DesignSystem */,
+				3F9C0E5D5C785856DE910E02 /* Projects */,
+				F58E43F319E1E8D53FC0F905 /* Floorplan */,
+				ED14787AC98ADCC40E55DC17 /* AddAssetWizard */,
+				5B94B285275EA36EE773F397 /* Room */,
+				FDE73AC292FBBF55BF2E42F6 /* SurveyReport */,
+				1DBEC08B2176185FC78ECC9B /* Export */,
 			);
 			productName = AnagraficaTecnica;
 			productReference = CAE236232F0C7D18004390E1 /* AnagraficaTecnica.app */;
@@ -94,6 +121,9 @@
 			);
 			mainGroup = CAE2361A2F0C7D18004390E1;
 			minimizedProjectReferenceProxies = 1;
+			packageReferences = (
+				CAE236312F0C7DB5004390E1 /* XCLocalSwiftPackageReference "../Packages" */,
+			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = CAE236242F0C7D18004390E1 /* Products */;
 			projectDirPath = "";
@@ -253,11 +283,14 @@
 				CURRENT_PROJECT_VERSION = 1;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = "Anagrafica Tecnica";
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.utilities";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 16.6;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -266,6 +299,10 @@
 				PRODUCT_BUNDLE_IDENTIFIER = pfgg.AnagraficaTecnica;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				STRING_CATALOG_GENERATE_SYMBOLS = YES;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_APPROACHABLE_CONCURRENCY = YES;
 				SWIFT_DEFAULT_ACTOR_ISOLATION = MainActor;
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -284,11 +321,14 @@
 				CURRENT_PROJECT_VERSION = 1;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = "Anagrafica Tecnica";
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.utilities";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 16.6;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -297,6 +337,10 @@
 				PRODUCT_BUNDLE_IDENTIFIER = pfgg.AnagraficaTecnica;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				STRING_CATALOG_GENERATE_SYMBOLS = YES;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_APPROACHABLE_CONCURRENCY = YES;
 				SWIFT_DEFAULT_ACTOR_ISOLATION = MainActor;
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -328,6 +372,56 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCLocalSwiftPackageReference section */
+		CAE236312F0C7DB5004390E1 /* XCLocalSwiftPackageReference "../Packages" */ = {
+			isa = XCLocalSwiftPackageReference;
+			relativePath = ../Packages;
+		};
+/* End XCLocalSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		1DBEC08B2176185FC78ECC9B /* Export */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = CAE236312F0C7DB5004390E1 /* XCLocalSwiftPackageReference "../Packages" */;
+			productName = Export;
+		};
+		3F9C0E5D5C785856DE910E02 /* Projects */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = CAE236312F0C7DB5004390E1 /* XCLocalSwiftPackageReference "../Packages" */;
+			productName = Projects;
+		};
+		5B94B285275EA36EE773F397 /* Room */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = CAE236312F0C7DB5004390E1 /* XCLocalSwiftPackageReference "../Packages" */;
+			productName = Room;
+		};
+		5F29AADDC84D80ACEED3F40D /* DesignSystem */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = CAE236312F0C7DB5004390E1 /* XCLocalSwiftPackageReference "../Packages" */;
+			productName = DesignSystem;
+		};
+		64A41088AF694E9926720A5F /* Core */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = CAE236312F0C7DB5004390E1 /* XCLocalSwiftPackageReference "../Packages" */;
+			productName = Core;
+		};
+		ED14787AC98ADCC40E55DC17 /* AddAssetWizard */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = CAE236312F0C7DB5004390E1 /* XCLocalSwiftPackageReference "../Packages" */;
+			productName = AddAssetWizard;
+		};
+		F58E43F319E1E8D53FC0F905 /* Floorplan */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = CAE236312F0C7DB5004390E1 /* XCLocalSwiftPackageReference "../Packages" */;
+			productName = Floorplan;
+		};
+		FDE73AC292FBBF55BF2E42F6 /* SurveyReport */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = CAE236312F0C7DB5004390E1 /* XCLocalSwiftPackageReference "../Packages" */;
+			productName = SurveyReport;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = CAE2361B2F0C7D18004390E1 /* Project object */;
 }

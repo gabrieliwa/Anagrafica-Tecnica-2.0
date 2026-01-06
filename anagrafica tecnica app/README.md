@@ -14,6 +14,7 @@ Roadmap: capability-based (no fixed timeline)
 
 - Product requirements: `../product-specs.md`
 - Mobile UI specs: `mobile-ui-specs.md`
+- Progress tracking: `PROGRESS.md`
 
 ## Technical Decisions
 
@@ -33,7 +34,7 @@ Roadmap: capability-based (no fixed timeline)
 
 ```
 anagrafica tecnica app/
-├── App/                       # iOS app target
+├── AnagraficaTecnica/         # iOS app target and Xcode project
 ├── Packages/
 │   ├── Core/                  # Models, persistence, networking, services, sync
 │   ├── DesignSystem/          # Reusable UI components
@@ -123,8 +124,27 @@ Prerequisites:
 Setup:
 1. Review `../product-specs.md` and `mobile-ui-specs.md`
 2. Open the Xcode project:
-   - `open "anagrafica tecnica app.xcodeproj"`
+   - `open "AnagraficaTecnica/AnagraficaTecnica.xcodeproj"`
 3. Start with Phase 1 (Foundation)
+
+## Core Data Model Setup (Xcode)
+
+1. In Xcode, select the app target group `AnagraficaTecnica` in the navigator.
+2. File > New > File.
+3. Choose iOS > Core Data > Data Model.
+4. Name it `AnagraficaTecnicaModel` and save it inside `AnagraficaTecnica/` (the app source folder).
+5. In the new `.xcdatamodeld`, add entities for:
+   - Project, Level, Room, Family, AssetType, AssetInstance, RoomNote, Photo, SyncEvent, SchemaVersion
+6. For each entity, add `id` as UUID and set required fields from the Core models in `Packages/Core/Sources/Models`.
+7. Set relationships:
+   - Project -> Levels, Rooms, Families, Types, Instances, RoomNotes, Photos, SyncEvents, SchemaVersion
+   - Level -> Rooms
+   - Family -> Types, Parameters (if modeled)
+   - AssetType -> Instances, Type Photo
+   - Room -> Instances, RoomNotes
+   - RoomNote -> Photos (main + extra)
+8. In the target settings, set the Core Data model name to `AnagraficaTecnicaModel`.
+9. Build once to ensure the model compiles.
 
 ## Contributing
 
