@@ -137,14 +137,30 @@ Setup:
    - Project, Level, Room, Family, AssetType, AssetInstance, RoomNote, Photo, SyncEvent, SchemaVersion
 6. For each entity, add `id` as UUID and set required fields from the Core models in `Packages/Core/Sources/Models`.
 7. Set relationships:
-   - Project -> Levels, Rooms, Families, Types, Instances, RoomNotes, Photos, SyncEvents, SchemaVersion
+   - Project -> Levels, SchemaVersions, SyncEvents
    - Level -> Rooms
-   - Family -> Types, Parameters (if modeled)
-   - AssetType -> Instances, Type Photo
-   - Room -> Instances, RoomNotes
-   - RoomNote -> Photos (main + extra)
+   - SchemaVersion -> Families
+   - Family -> AssetTypes
+   - Room -> AssetInstances, RoomNotes
+   - AssetType -> AssetInstances
+   - Photos are linked via `ownerId` (no Core Data relationship)
 8. In the target settings, set the Core Data model name to `AnagraficaTecnicaModel`.
 9. Build once to ensure the model compiles.
+
+## Core Data Migration Strategy
+
+- Default to lightweight migrations (enabled in `CoreDataStack`).
+- When the schema changes: Editor > Add Model Version, then set the new version as current.
+- Avoid destructive migrations for production data; for dev-only resets, delete the local store.
+- If a change is not lightweight-compatible, add a mapping model and a custom migration step.
+
+## Core Data Migration Strategy
+
+- Version the `.xcdatamodeld` whenever the schema changes.
+- Default to lightweight migration (enabled in `CoreDataStack`).
+- Compatible changes: add optional attributes/relationships, add new entities.
+- Incompatible changes: type changes, renames, or required fields -> create a mapping model and custom migration.
+- Keep a `SchemaVersion` record per project to align app data with backend schema.
 
 ## Contributing
 

@@ -20,8 +20,8 @@ Update rule: keep this checklist current whenever milestones change.
 - [x] CoreDataStack skeleton
 - [x] Full domain models (Level, Room, Family, Type, Instance, RoomNote, Photo, SyncEvent)
 - [x] Core Data model file (.xcdatamodeld)
-- [ ] Core Data migrations strategy
-- [ ] Networking layer skeleton (API client + endpoints)
+- [x] Core Data migrations strategy
+- [x] Networking layer skeleton (API client + endpoints)
 - [ ] Core services (validation, ID generation, photo naming, coordinates)
 - [ ] Local file cache (photos + tiles)
 
