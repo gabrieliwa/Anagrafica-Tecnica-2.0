@@ -1,30 +1,40 @@
 # Demo Project Template Guide
 
 This guide explains how to create a demo project template file for the mobile app. It covers:
-- A plan created from a DWG/DXF file structured per `product-specs.md`, exported as vector tiles
+- A plan created from a DXF file structured per `product-specs.md`, exported as vector tiles
 - Asset families and parameters using a simple, readable schema
 
 The output is a single template file (YAML or JSON) you can load into the app as demo data.
 
 ---
 
-## Part A — Plan Template From DWG/DXF
+## Part A — Plan Template From DXF
 
-### Step 1: Prepare the DWG/DXF
+### Step 1: Prepare the DXF
 
 Follow the floorplan rules in `product-specs.md`:
 - Each level must have a closed boundary.
 - Rooms are closed regions fully inside their level boundary.
-- Room labels (number/name) must be inside the room region.
-- Room numbers are 4 digits: first digit is the floor index (lowest floor = 0), last three are sequential within the floor (e.g., 2001).
+- Room labels (optional) must be inside the room region.
+- Room numbers are auto-assigned (top-left to bottom-right per level) and use 4 digits: first digit is the floor index (lowest floor = 0), last three are sequential within the floor (e.g., 2001).
 - Keep everything in a consistent "Plan Space" coordinate system.
 
-### Step 2: Split levels and clean layers
+**Required Layer Names (exact):**
+- `0` — Walls, doors, windows (background only, not semantically parsed)
+- `1_ROOMS` — Closed room boundary polygons + optional room label text inside each room
+- `2_LEVEL` — Closed level boundary polygons + level label text inside each level
+- `3_NORTH` — One line segment per level, start point inside the level boundary
 
-Create one DXF/DWG per level (or isolate by layer):
-- Keep separate layers for walls, doors, room outlines, and labels.
+**Room labels (optional):**
+- If present, label text is used as the room name only.
+- Room numbers are auto-assigned by the import script using spatial order (top-left to bottom-right).
+
+### Step 2: Clean layers (single file)
+
+Keep a single DXF with multiple levels and ensure the required layers are correct:
+- Keep geometry on the correct layers (`0`, `1_ROOMS`, `2_LEVEL`, `3_NORTH`).
 - Ensure every room is a closed polyline (no gaps).
-- Room label text should include room number and name.
+- Room label text is optional; if present, it becomes the room name.
 - Remove decorative details that are not needed for the demo.
 
 ### Step 3: Export vector geometry
@@ -34,17 +44,7 @@ Convert each level to vector features in the same plan-space coordinates:
 - Export walls/doors as line features for rendering.
 - Preserve coordinates exactly (no scaling or rotation).
 
-Recommended CLI pipeline (example, adjust layer names):
-```bash
-# 1) Convert DXF to GeoJSON
-ogr2ogr -f GeoJSON level-0-raw.geojson level-0.dxf
-
-# 2) Split by layer and clean geometry
-mapshaper level-0-raw.geojson \
-  -filter 'layer=="ROOMS"' -clean -o rooms.geojson \
-  -filter 'layer=="LABELS"' -o labels.geojson \
-  -filter 'layer=="WALLS"' -o walls.geojson
-```
+Use the conversion script in `scripts/` to do this automatically (see below).
 
 ### Step 4: Generate vector tiles (MVT)
 
@@ -53,30 +53,37 @@ Create a tile set per level for the vector background:
 - Keep the room polygons in the template for tap detection.
 - Record min/max zoom, tile size, and bounds for the renderer.
 
-Example (tippecanoe, adjust zooms and layers):
-```bash
-tippecanoe -o level-0.mbtiles -Z 14 -z 20 --no-tile-size-limit \
-  -L walls:walls.geojson \
-  -L labels:labels.geojson
-```
-
-If you need a folder of tiles, extract from the MBTiles into `levels/L0/tiles/{z}/{x}/{y}.mvt`.
+The script outputs per-level tiles into `levels/<LEVEL_ID>/tiles/{z}/{x}/{y}.pbf`.
 
 ### Step 5: Build tappable rooms data
 
 The app should use the room polygons (not the vector background) for hit testing:
 - Each room polygon becomes a room record in the template.
 - Join label text to polygons if labels are separate (spatial join).
-- Ensure `room.number` and `room.name` are filled from label data.
+- Ensure `room.name` is filled when label text exists; numbering is auto-assigned by the script.
 
-### Step 6: Define levels and rooms in the template
+### Step 6: Run the conversion script
+
+From the repo root:
+```bash
+bash scripts/dxf_to_vector_tiles.sh "anagrafica tecnica app/demo_plans.dxf" "anagrafica tecnica app/demo_plan_output"
+```
+
+The script generates:
+- Vector tiles per level
+- A `plan_template.json` file with levels and tappable rooms
+- Debug GeoJSON files under `demo_plan_output/_work/`
+
+For full usage details, see `scripts/DEMO-DXF-CONVERSION.md`.
+
+### Step 7: Define levels and rooms in the template
 
 For each level, include:
 - `id`, `index`, `name`
 - `background` (vector tile path + metadata)
 - `rooms` list with `id`, `number`, `name`, and a polygon in plan space
 
-### Step 7: Sanity checks
+### Step 8: Sanity checks
 
 - Every room polygon is inside its level boundary.
 - Room numbers are unique across the project.
@@ -137,7 +144,7 @@ levels:
     name: "Ground"
     background:
       vector_tiles:
-        tiles: "levels/L0/tiles/{z}/{x}/{y}.mvt"
+        tiles: "levels/L0/tiles/{z}/{x}/{y}.pbf"
         min_zoom: 14
         max_zoom: 20
         tile_size: 512

@@ -15,6 +15,7 @@ Roadmap: capability-based (no fixed timeline)
 - Product requirements: `../product-specs.md`
 - Mobile UI specs: `mobile-ui-specs.md`
 - Progress tracking: `PROGRESS.md`
+- Demo project template: `DEMO-PROJECT-TEMPLATE-GUIDE.md`
 
 ## Technical Decisions
 
@@ -24,7 +25,7 @@ Roadmap: capability-based (no fixed timeline)
 | Storage | Core Data | Native, mature, good for complex relationships |
 | Networking | URLSession | Native, supports background tasks |
 | Project Structure | SwiftPM modules | Clear boundaries, faster builds, test isolation |
-| Floorplan Renderer | Custom vector tile renderer | Best fidelity to DWG output and offline control |
+| Floorplan Renderer | Custom vector tile renderer | Best fidelity to DXF output and offline control |
 | Sync Retry | Exponential backoff (cap at 5 minutes) | Network-friendly and battery-aware |
 | ID Strategy | UUIDv7 | Time-sortable, globally unique |
 | Photo Format | JPEG (1280px, 0.8 quality) | Consistent compression and portability |

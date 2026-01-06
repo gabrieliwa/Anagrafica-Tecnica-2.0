@@ -17,7 +17,7 @@ This is a multi-component system:
 ├── admin-dashboard/            # Web-based admin control panel
 ├── backend/                    # Server-side processing and API
 ├── database/                   # PostgreSQL schema and migrations
-├── storage/                    # File storage (DWG, tiles, photos, exports)
+├── storage/                    # File storage (DXF, tiles, photos, exports)
 ├── shared/                     # Common types and utilities
 ├── docs/                       # Additional documentation
 └── scripts/                    # Development and deployment scripts
@@ -86,7 +86,7 @@ Project → Level (Floor) → Room → Asset Instance
 
 - No separate Building entity in MVP
 - Multi-building projects: levels spread on XY plane with names like "Building A - Floor 1"
-- Optional Building layer in DWG groups levels for UI navigation
+- Optional Building layer in DXF groups levels for UI navigation
 
 ### Coordinate System ("Plan Space")
 
@@ -164,7 +164,7 @@ Special asset family for internal notes:
 - Excluded from client exports
 - Used for internal communication only
 
-## DWG Input Requirements
+## DXF Input Requirements
 
 ### Required Layers
 
@@ -179,7 +179,7 @@ Special asset family for internal notes:
 
 ### Validation Requirements
 
-DWG must pass validation before project proceeds:
+DXF must pass validation before project proceeds:
 - Required layers exist
 - Level boundaries are closed polylines
 - North vector exists per level and starts inside boundary
@@ -278,4 +278,4 @@ When operator marks job complete:
 
 ## Related Documentation
 
-See `Technical_Asset_Registry_MVP_Specification.md` for complete system architecture including server backend, admin dashboard, DWG processing, and export generation.
+See `Technical_Asset_Registry_MVP_Specification.md` for complete system architecture including server backend, admin dashboard, DXF processing, and export generation.

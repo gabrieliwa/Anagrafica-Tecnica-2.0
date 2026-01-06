@@ -13,9 +13,9 @@ Event sourcing sync engine:
 - Orders and stores events to database
 - Manages event compaction and snapshotting
 
-### `/src/dwg-processing`
-DWG file processing pipeline:
-- Validates DWG files against contract requirements
+### `/src/dxf-processing`
+DXF file processing pipeline:
+- Validates DXF files against contract requirements
 - Extracts room polygons and level boundaries
 - Generates vector tiles for mobile app
 - Creates plan_version_id for geometry tracking
@@ -36,7 +36,7 @@ Export generation:
 ### `/src/storage`
 Database and file storage interfaces:
 - PostgreSQL client for relational data
-- S3/Blob storage SDK for files (DWG, tiles, photos)
+- S3/Blob storage SDK for files (DXF, tiles, photos)
 
 ## Technology Stack
 

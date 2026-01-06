@@ -117,7 +117,7 @@ The web dashboard provides project management, configuration, and quality assura
 
 **Key Features:**
 - Project creation and configuration wizard
-- DWG floorplan upload with automated validation
+- DXF floorplan upload with automated validation
 - Asset family and parameter schema management
 - Real-time survey progress monitoring
 - Data quality metrics and alerts
@@ -129,7 +129,7 @@ The backend provides data management, processing, and integration services.
 
 **Key Features:**
 - Event-sourced synchronization engine
-- DWG processing pipeline (room extraction, vector tile generation)
+- DXF processing pipeline (room extraction, vector tile generation)
 - Schema versioning and management
 - Type normalization and duplicate detection
 - Export generation with sequential client-facing IDs
@@ -218,13 +218,14 @@ This flow covers the complete process of preparing a project for field work.
                    │
                    ▼
     ┌──────────────────────────────────────┐
-    │  2. UPLOAD FLOORPLAN (DWG)           │
+    │  2. UPLOAD FLOORPLAN (DXF)           │
     │  ─────────────────────────────────   │
-    │  • Select DWG file                   │
+    │  • Select DXF file                   │
     │  • System validates file structure   │
     │  • Extracts levels and rooms         │
     │  • Generates vector tiles            │
     │  • Assigns 4-digit room numbers      │
+    │    (top-left → bottom-right)         │
     └──────────────┬───────────────────────┘
                    │
                    ▼
@@ -242,7 +243,7 @@ This flow covers the complete process of preparing a project for field work.
 │ • List of errors  │  │  • Choose from existing schemas           │
 │ • Required fixes  │  │  • Or Duplicate/modify existing schemas   │
 │                   │  │  • Or upload new schema definition        │
-│ → Fix DWG and     │  │  • Schema locked to project               │
+│ → Fix DXF and     │  │  • Schema locked to project               │
 │   re-upload       │  └──────────────┬────────────────────────────┘
 └───────────────────┘                 │
                                       ▼
@@ -274,10 +275,10 @@ This flow covers the complete process of preparing a project for field work.
 - Project is created in DRAFT state
 
 **Step 2: Upload Floorplan**
-- Administrator uploads the DWG file containing floorplan geometry
+- Administrator uploads the DXF file containing floorplan geometry
 - System performs automated validation (see Section 9.3 for validation rules)
 - On success: rooms, levels, and spatial data are extracted; vector tiles are generated
-- Rooms are assigned a 4-digit number: the first digit is the floor number (from lowest = 0 to highest), and the remaining three digits are a sequential room number within the floor
+- Rooms are assigned a 4-digit number based on spatial order (top-left to bottom-right) within each level: the first digit is the floor number (from lowest = 0 to highest), and the remaining three digits are a sequential room number within the floor
 - On failure: detailed validation report identifies specific issues requiring correction
 
 **Step 3: Select Parameter Schema**
@@ -770,7 +771,7 @@ The system follows a four-component architecture designed for offline-first oper
 │  │  └────────────────────────────────────────────────────────────────┘  │  │
 │  │                                                                      │  │
 │  │  ┌─────────────┐  ┌─────────────┐  ┌─────────────┐  ┌─────────────┐  │  │
-│  │  │    Sync     │  │    DWG      │  │    Type     │  │   Export    │  │  │
+│  │  │    Sync     │  │    DXF      │  │    Type     │  │   Export    │  │  │
 │  │  │   Engine    │  │ Processing  │  │ Normalizer  │  │  Generator  │  │  │
 │  │  │             │  │             │  │             │  │             │  │  │
 │  │  │ Event       │  │ Validation  │  │ Duplicate   │  │ CSV/Excel   │  │  │
@@ -796,7 +797,7 @@ The system follows a four-component architecture designed for offline-first oper
 │  │  │        Database           │    │       File Storage            │  │  │
 │  │  │       (PostgreSQL)        │    │        (S3/Blob)              │  │  │
 │  │  │                           │    │                               │  │  │
-│  │  │  • Projects               │    │  • DWG source files           │  │  │
+│  │  │  • Projects               │    │  • DXF source files           │  │  │
 │  │  │  • Schemas & versions     │    │  • Vector tiles               │  │  │
 │  │  │  • Assets & events        │    │  • Type and Instance photos   │  │  │
 │  │  │  • Types & instances      │    │  • Export archives            │  │  │
@@ -817,7 +818,7 @@ The system follows a four-component architecture designed for offline-first oper
 │  │   Local Storage     │  │               │  │      Web Application        │  │
 │  │                     │  │               │  │                             │  │
 │  │  • Project data     │  │               │  │  • Project management       │  │
-│  │  • Event log        │  │               │  │  • DWG upload & validation  │  │
+│  │  • Event log        │  │               │  │  • DXF upload & validation  │  │
 │  │  • Type and Instance photo queue │  │               │  │  • Schema management        │  │
 │  │  • Tiles cache      │  │               │  │  • Progress monitoring      │  │
 │  └─────────────────────┘  │               │  │  • Export generation        │  │
@@ -841,7 +842,7 @@ The system follows a four-component architecture designed for offline-first oper
 |-----------|------------|--------------------------|
 | **Mobile App** | Swift/SwiftUI (iOS) | Field data collection, offline operation, photo capture, local storage |
 | **Admin Dashboard** | Web (React/Vue) | Project configuration, monitoring, quality assurance, export generation |
-| **Server Backend** | Node.js/Python | API services, sync engine, DWG processing, export generation |
+| **Server Backend** | Node.js/Python | API services, sync engine, DXF processing, export generation |
 | **Storage** | PostgreSQL + S3 | Persistent data storage, file storage, event log |
 
 ### 6.3 Offline-First Architecture
@@ -972,7 +973,7 @@ PROJECT (Site)
 ```
 
 **Notes:**
-- Room numbers use a 4-digit format: first digit is the floor number (lowest = 0), followed by a three-digit sequence within that floor (e.g., 2001)
+- Room numbers are auto-assigned by spatial order (top-left to bottom-right) and use a 4-digit format: first digit is the floor number (lowest = 0), followed by a three-digit sequence within that floor (e.g., 2001)
 
 ### 7.4 Entity Relationship Model
 
@@ -1169,11 +1170,11 @@ Photos can be Type-scoped and optionally Instance-scoped. Instances inherit the 
 - Dashboard shall display project list with status indicators
 - Dashboard shall allow project state management
 
-#### FR-A02: DWG Upload and Validation
-- Dashboard shall accept DWG file uploads
-- Dashboard shall validate DWG against required structure (see Section 9.3)
+#### FR-A02: DXF Upload and Validation
+- Dashboard shall accept DXF file uploads
+- Dashboard shall validate DXF against required structure (see Section 9.3)
 - Dashboard shall display validation report with specific errors if validation fails
-- Dashboard shall extract levels and rooms from valid DWG
+- Dashboard shall extract levels and rooms from valid DXF
 - Dashboard shall generate vector tiles for mobile rendering
 
 #### FR-A03: Schema Management
@@ -1207,8 +1208,8 @@ Photos can be Type-scoped and optionally Instance-scoped. Instances inherit the 
 - Backend shall store events for audit trail
 - Backend shall support event compaction for storage management
 
-#### FR-B03: DWG Processing
-- Backend shall validate uploaded DWG files
+#### FR-B03: DXF Processing
+- Backend shall validate uploaded DXF files
 - Backend shall extract level and room geometry
 - Backend shall identify north vectors per level
 - Backend shall generate vector tiles for mobile rendering
@@ -1259,9 +1260,9 @@ All floorplan and room geometry use a "Plan Space" coordinate system. Asset inst
 3. Once assigned, IDs are permanent and stored
 4. Re-exports use same IDs; new assets get next sequential numbers
 
-### 9.3 DWG Validation Rules
+### 9.3 DXF Validation Rules
 
-On upload, the system validates the DWG file against these requirements:
+On upload, the system validates the DXF file against these requirements:
 
 | Rule | Description |
 |------|-------------|
@@ -1269,12 +1270,22 @@ On upload, the system validates the DWG file against these requirements:
 | **Level Boundaries** | Each level must have a closed polyline boundary |
 | **North Vector** | Each level must have a north vector starting inside the level boundary |
 | **Room Regions** | All room filled regions must be inside a level boundary |
-| **Room Labels** | Room name text (if present) must be inside the room region |
+| **Room Labels** | Room name text (optional) must be inside the room region |
 | **Level Labels** | Level name text must be inside the level boundary |
 
-**Room Numbering Convention:** Rooms are numbered with four digits. The first digit represents the floor number (from lowest = 0 to highest), and the remaining three digits are a sequential room number within that floor.
+**Required Layer Names (exact):**
+- `0` - Background linework (walls, doors, windows). Render-only; not semantically parsed.
+- `1_ROOMS` - Closed room boundary polylines. Room label text is optional.
+- `2_LEVEL` - Closed level boundary polylines. Must include a text label inside each level.
+- `3_NORTH` - One line segment per level: start point inside the level boundary, end point indicates north direction.
 
-**Validation Failure:** If any rule fails, the DWG must be corrected and re-uploaded. The project cannot proceed until the floorplan passes validation.
+**Room Labels (optional):**
+- If present, label text is used as the room name only.
+- If absent, the system assigns a default name (e.g., `Room 0001`).
+
+**Room Numbering Convention:** Room numbers are auto-assigned during import based on spatial order (top-left to bottom-right) within each level. The format is four digits: first digit is the level index (lowest = 0), and the remaining three digits are the sequence within that level.
+
+**Validation Failure:** If any rule fails, the DXF must be corrected and re-uploaded. The project cannot proceed until the floorplan passes validation.
 
 ### 9.4 Photo Specifications
 
@@ -1299,14 +1310,14 @@ Each Type requires exactly one photo. Instance photos are optional and limited t
 | **Assets per Project** | 10,000 | Soft limit |
 | **Photos per Device** | ~1,000 | Storage management |
 | **Photos per Year (Cloud)** | 1,000,000 | Cost controls |
-| **Rooms per Level** | No fixed limit | Constrained by DWG |
-| **Levels per Project** | No fixed limit | Constrained by DWG |
+| **Rooms per Level** | No fixed limit | Constrained by DXF |
+| **Levels per Project** | No fixed limit | Constrained by DXF |
 
 ### 9.6 Project Lifecycle States
 
 | State | Description | Available Actions |
 |-------|-------------|-------------------|
-| **DRAFT** | Being configured | Edit settings, upload DWG, select schema |
+| **DRAFT** | Being configured | Edit settings, upload DXF, select schema |
 | **READY** | Configuration complete | Download to mobile, edit settings |
 | **ACTIVE** | Survey in progress | Sync data, monitor progress |
 | **COMPLETED** | Survey finished | Review data, approve or return for corrections |
@@ -1383,7 +1394,7 @@ anagrafica-tecnica/
 │   ├── src/
 │   │   ├── api/                 # REST endpoints
 │   │   ├── sync/                # Event sourcing engine
-│   │   ├── dwg-processing/      # DWG validation and tile generation
+│   │   ├── dxf-processing/      # DXF validation and tile generation
 │   │   ├── schema/              # Parameter catalogue management
 │   │   ├── export/              # Export generation
 │   │   └── storage/             # Database and file storage

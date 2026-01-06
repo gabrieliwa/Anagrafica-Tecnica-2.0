@@ -1,14 +1,14 @@
 # Storage
 
-File storage for DWG files, plan tiles, photos, and exports.
+File storage for DXF files, plan tiles, photos, and exports.
 
 ## Structure
 
-### `/dwg-files`
-Original DWG floorplan files uploaded by admins.
+### `/dxf-files`
+Original DXF floorplan files uploaded by admins.
 
 ### `/plan-tiles`
-Vector tiles generated from DWG files:
+Vector tiles generated from DXF files:
 - Clipped per level
 - Optimized for mobile app consumption
 - Background visualization for Architecture layer

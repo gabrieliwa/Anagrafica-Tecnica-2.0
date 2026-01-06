@@ -48,7 +48,7 @@ This is a **proof-of-concept MVP** designed to demonstrate core functionality. T
 - On-device fuzzy matching to prevent duplicate Types
 
 **Admin Dashboard (Web)**
-- Project creation and DWG upload/validation
+- Project creation and DXF upload/validation
 - Asset/parameter catalogue management
 - Survey progress monitoring
 - Data quality tracking
@@ -56,7 +56,7 @@ This is a **proof-of-concept MVP** designed to demonstrate core functionality. T
 
 **Server Backend**
 - Event sourcing sync engine
-- DWG processing (room extraction, vector tiles)
+- DXF processing (room extraction, vector tiles)
 - Schema versioning
 - Type normalization
 - Export generation with sequential IDs
@@ -79,7 +79,7 @@ This is a **proof-of-concept MVP** designed to demonstrate core functionality. T
 │  │  └─────────────────────────────────────────┘   │  │
 │  │                                                 │  │
 │  │  ┌───────────┐ ┌─────────────┐ ┌────────────┐  │  │
-│  │  │   Sync    │ │    DWG      │ │   Type     │  │  │
+│  │  │   Sync    │ │    DXF      │ │   Type     │  │  │
 │  │  │  Engine   │ │ Processing  │ │ Normalize  │  │  │
 │  │  └───────────┘ └─────────────┘ └────────────┘  │  │
 │  │                                                 │  │
@@ -114,7 +114,7 @@ This is a **proof-of-concept MVP** designed to demonstrate core functionality. T
 
 **Spatial hierarchy:** Site/Project → Level → Room → Asset Instance
 
-There is no separate Building entity. For multi-building projects, each floor of each building is spread out on the DWG XY plane, and levels are named accordingly (e.g., "Building A - Floor 1"). An optional "Building" layer in the DWG can group levels for UI navigation purposes.
+There is no separate Building entity. For multi-building projects, each floor of each building is spread out on the DXF XY plane, and levels are named accordingly (e.g., "Building A - Floor 1"). An optional "Building" layer in the DXF can group levels for UI navigation purposes.
 
 ---
 
@@ -129,7 +129,7 @@ This is a multi-component monorepo:
 │   ├── src/
 │   │   ├── api/               # REST/GraphQL endpoints
 │   │   ├── sync/              # Event sourcing sync engine
-│   │   ├── dwg-processing/    # DWG validation and tile generation
+│   │   ├── dxf-processing/    # DXF validation and tile generation
 │   │   ├── schema/            # Parameter catalogue management
 │   │   ├── export/            # CSV/Excel and photo export
 │   │   └── storage/           # Database and file storage interfaces
@@ -138,7 +138,7 @@ This is a multi-component monorepo:
 │   ├── migrations/
 │   └── seeds/
 ├── storage/                    # File storage directories
-│   ├── dwg-files/
+│   ├── dxf-files/
 │   ├── plan-tiles/
 │   ├── photos/
 │   └── exports/
@@ -365,7 +365,7 @@ The floorplan serves as the primary navigation interface, similar to Google Maps
 
 **Key Responsibilities:**
 - Project creation and configuration
-- Upload and validate DWG files (trigger backend processing)
+- Upload and validate DXF files (trigger backend processing)
 - Upload asset/parameter catalogues (create schema versions)
 - Monitor survey progress by level and room
 - Track data quality: missing recommended fields, anomalies
@@ -378,7 +378,7 @@ The floorplan serves as the primary navigation interface, similar to Google Maps
 
 **Before Survey:**
 1. Create Project
-2. Import DWG → run validation → generate plan_version_id
+2. Import DXF → run validation → generate plan_version_id
 3. Import catalogue → create schema_version_id
 4. Optional: pre-build Types, configure normalization
 5. Create project package for mobile download
@@ -400,7 +400,7 @@ The floorplan serves as the primary navigation interface, similar to Google Maps
 |------------|---------|
 | **API Layer** | REST or GraphQL endpoints for Mobile App and Admin Dashboard |
 | **Sync Engine** | Event sourcing: receive events from device, order them, store to database |
-| **DWG Processing** | Validate DWG files, extract room polygons, generate vector tiles, create plan_version_id |
+| **DXF Processing** | Validate DXF files, extract room polygons, generate vector tiles, create plan_version_id |
 | **Schema Management** | Store parameter catalogues, create immutable schema versions, bind to projects |
 | **Type Normalization** | Server-side duplicate detection for Types |
 | **Export Generation** | Produce CSV/Excel files, photo packages (photos retain capture-time names), summary reports |
@@ -418,7 +418,7 @@ The floorplan serves as the primary navigation interface, similar to Google Maps
 | Storage Type | Technology | Contents |
 |--------------|------------|----------|
 | Relational Database | PostgreSQL | Projects, levels, rooms, families, types, instances, events, schemas |
-| File Storage | AWS S3 / GCS / Azure Blob | DWG files, plan tiles, photos, generated exports |
+| File Storage | AWS S3 / GCS / Azure Blob | DXF files, plan tiles, photos, generated exports |
 | CDN (optional) | CloudFront / Cloud CDN | Fast delivery of plan tiles to mobile app |
 
 **Key Data Characteristics:**
@@ -431,7 +431,7 @@ The floorplan serves as the primary navigation interface, similar to Google Maps
 
 ## Input Requirements
 
-### DWG Contract
+### DXF Contract
 
 **Units:** Always meters.
 
@@ -465,9 +465,9 @@ The floorplan serves as the primary navigation interface, similar to Google Maps
 
 #### Supported Elements
 
-Only simple geometries are processed. Blocks, XREFs and proxy entities are ignored. The DWG must provide a clean, readable architectural background using supported entities only.
+Only simple geometries are processed. Blocks, XREFs and proxy entities are ignored. The DXF must provide a clean, readable architectural background using supported entities only.
 
-### DWG Validation
+### DXF Validation
 
 On upload, the system generates an Import Validation Report checking:
 
@@ -480,7 +480,7 @@ On upload, the system generates an Import Validation Report checking:
 7. Building layer polylines (if present) properly enclose levels
 8. All buildings' name texts are geometrically inside a building's closed polyline
 
-**Failure Handling:** If validation fails, the DWG must be corrected and re-uploaded. The project cannot proceed until the floorplan passes validation.
+**Failure Handling:** If validation fails, the DXF must be corrected and re-uploaded. The project cannot proceed until the floorplan passes validation.
 
 ### Asset/Parameter Catalogue → Versioned Schema
 
@@ -504,8 +504,8 @@ Input format: CSV, Excel, or JSON describing:
 
 ## Development Workflow
 
-1. **Input Preparation**: Admin uploads DWG and parameter catalogue
-2. **Project Setup**: System validates DWG, generates tiles, creates schema version
+1. **Input Preparation**: Admin uploads DXF and parameter catalogue
+2. **Project Setup**: System validates DXF, generates tiles, creates schema version
 3. **Field Survey**: Operator downloads project to mobile app, works offline
 4. **Sync**: Events and photos upload to server when online
 5. **Export**: Admin approves project and generates client deliverables

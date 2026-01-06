@@ -6,7 +6,7 @@ Browser-based control panel for project administrators.
 
 ### Project Management
 - Create and configure new projects
-- Upload and validate DWG files
+- Upload and validate DXF files
 - Upload asset/parameter catalogues
 - Bind schema versions to projects
 

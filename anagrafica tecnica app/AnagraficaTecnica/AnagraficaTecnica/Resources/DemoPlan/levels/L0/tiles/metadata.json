@@ -1,0 +1,15 @@
+{
+"name": "anagrafica tecnica app/demo_plan_output_v8/levels/L0/tiles",
+"description": "anagrafica tecnica app/demo_plan_output_v8/levels/L0/tiles",
+"version": "2",
+"minzoom": "14",
+"maxzoom": "18",
+"center": "83.066940,19.613484,18",
+"bounds": "75.566916,14.463597,86.066916,26.063597",
+"antimeridian_adjusted_bounds": "75.566916,14.463597,86.066916,26.063597",
+"type": "overlay",
+"format": "pbf",
+"generator": "tippecanoe v2.79.0",
+"generator_options": "tippecanoe --force -e 'anagrafica tecnica app/demo_plan_output_v8/levels/L0/tiles' -Z 14 -z 18 --no-tile-size-limit --no-feature-limit '--layer=background' 'anagrafica tecnica app/demo_plan_output_v8/levels/L0/background.geojson'",
+"json": "{\"vector_layers\":[{\"id\":\"background\",\"description\":\"\",\"minzoom\":14,\"maxzoom\":18,\"fields\":{\"EntityHandle\":\"String\",\"Layer\":\"String\",\"Linetype\":\"String\",\"SubClasses\":\"String\"}}],\"tilestats\":{\"layerCount\":1,\"layers\":[{\"layer\":\"background\",\"count\":169,\"geometry\":\"LineString\",\"attributeCount\":4,\"attributes\":[{\"attribute\":\"EntityHandle\",\"count\":169,\"type\":\"string\",\"values\":[\"4576\",\"4577\",\"4578\",\"4579\",\"457A\",\"457B\",\"457C\",\"457D\",\"457E\",\"457F\",\"4580\",\"4581\",\"4582\",\"4583\",\"4584\",\"458C\",\"458D\",\"811\",\"812\",\"813\",\"814\",\"815\",\"816\",\"817\",\"819\",\"81A\",\"81B\",\"81C\",\"81E\",\"81F\",\"820\",\"821\",\"822\",\"823\",\"824\",\"825\",\"826\",\"827\",\"828\",\"829\",\"82A\",\"82B\",\"82D\",\"82E\",\"82F\",\"830\",\"831\",\"832\",\"833\",\"834\",\"835\",\"836\",\"837\",\"838\",\"841\",\"842\",\"843\",\"844\",\"845\",\"846\",\"847\",\"848\",\"849\",\"84A\",\"84B\",\"84C\",\"84D\",\"84E\",\"84F\",\"850\",\"851\",\"852\",\"854\",\"855\",\"856\",\"857\",\"858\",\"859\",\"85A\",\"85B\",\"85C\",\"85D\",\"85E\",\"85F\",\"860\",\"861\",\"863\",\"865\",\"867\",\"868\",\"869\",\"86A\",\"86B\",\"86C\",\"86D\",\"86E\",\"86F\",\"871\",\"872\",\"873\"]},{\"attribute\":\"Layer\",\"count\":1,\"type\":\"string\",\"values\":[\"0\"]},{\"attribute\":\"Linetype\",\"count\":1,\"type\":\"string\",\"values\":[\"TRATTEGGIATA\"]},{\"attribute\":\"SubClasses\",\"count\":4,\"type\":\"string\",\"values\":[\"AcDbEntity:AcDbBlockReference\",\"AcDbEntity:AcDbCircle:AcDbArc\",\"AcDbEntity:AcDbLine\",\"AcDbEntity:AcDbPolyline\"]}]}]}}"
+}
