@@ -380,6 +380,10 @@
       "inputs" : [
         {
           "kind" : "file",
+          "name" : "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/DesignSystem/Sources/AppTheme.swift"
+        },
+        {
+          "kind" : "file",
           "name" : "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/DesignSystem/Sources/DesignSystem.swift"
         },
         {
@@ -395,6 +399,7 @@
       "moduleName" : "DesignSystem",
       "moduleOutputPath" : "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/.build/index-build/arm64-apple-macosx/debug/Modules/DesignSystem.swiftmodule",
       "objects" : [
+        "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/.build/index-build/arm64-apple-macosx/debug/DesignSystem.build/AppTheme.swift.o",
         "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/.build/index-build/arm64-apple-macosx/debug/DesignSystem.build/DesignSystem.swift.o"
       ],
       "otherArguments" : [
@@ -455,6 +460,7 @@
       ],
       "prepareForIndexing" : true,
       "sources" : [
+        "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/DesignSystem/Sources/AppTheme.swift",
         "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/DesignSystem/Sources/DesignSystem.swift"
       ],
       "tempsPath" : "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/.build/index-build/arm64-apple-macosx/debug/DesignSystem.build",
@@ -661,6 +667,10 @@
         },
         {
           "kind" : "file",
+          "name" : "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/Features/Projects/Sources/ProjectsListView.swift"
+        },
+        {
+          "kind" : "file",
           "name" : "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/.build/index-build/arm64-apple-macosx/debug/swift-version--1AB21518FC5DEDBE.txt"
         },
         {
@@ -680,7 +690,8 @@
       "moduleName" : "Projects",
       "moduleOutputPath" : "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/.build/index-build/arm64-apple-macosx/debug/Modules/Projects.swiftmodule",
       "objects" : [
-        "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/.build/index-build/arm64-apple-macosx/debug/Projects.build/Projects.swift.o"
+        "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/.build/index-build/arm64-apple-macosx/debug/Projects.build/Projects.swift.o",
+        "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/.build/index-build/arm64-apple-macosx/debug/Projects.build/ProjectsListView.swift.o"
       ],
       "otherArguments" : [
         "-target",
@@ -740,7 +751,8 @@
       ],
       "prepareForIndexing" : true,
       "sources" : [
-        "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/Features/Projects/Sources/Projects.swift"
+        "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/Features/Projects/Sources/Projects.swift",
+        "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/Features/Projects/Sources/ProjectsListView.swift"
       ],
       "tempsPath" : "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/.build/index-build/arm64-apple-macosx/debug/Projects.build",
       "wholeModuleOptimization" : false
@@ -1096,6 +1108,7 @@
       "-package-name",
       "packages",
       "-c",
+      "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/DesignSystem/Sources/AppTheme.swift",
       "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/DesignSystem/Sources/DesignSystem.swift",
       "-I",
       "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/.build/index-build/arm64-apple-macosx/debug/Modules",
@@ -1277,6 +1290,7 @@
       "packages",
       "-c",
       "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/Features/Projects/Sources/Projects.swift",
+      "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/Features/Projects/Sources/ProjectsListView.swift",
       "-I",
       "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/.build/index-build/arm64-apple-macosx/debug/Modules",
       "-target",
@@ -1647,6 +1661,10 @@
         },
         {
           "kind" : "file",
+          "name" : "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/DesignSystem/Sources/AppTheme.swift"
+        },
+        {
+          "kind" : "file",
           "name" : "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/DesignSystem/Sources/DesignSystem.swift"
         }
       ],
@@ -1690,6 +1708,10 @@
         {
           "kind" : "file",
           "name" : "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/Features/Projects/Sources/Projects.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/Features/Projects/Sources/ProjectsListView.swift"
         }
       ],
       "outputFilePath" : "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/.build/index-build/arm64-apple-macosx/debug/Projects.build/sources"

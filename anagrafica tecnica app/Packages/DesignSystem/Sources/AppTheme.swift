@@ -1,0 +1,64 @@
+import SwiftUI
+
+public enum AppColors {
+    public static let backgroundTop = Color(red: 0.96, green: 0.94, blue: 0.90)
+    public static let backgroundBottom = Color(red: 0.88, green: 0.93, blue: 0.92)
+    public static let cardBackground = Color(red: 0.99, green: 0.98, blue: 0.96)
+    public static let cardBorder = Color(red: 0.86, green: 0.84, blue: 0.80)
+    public static let textPrimary = Color(red: 0.13, green: 0.12, blue: 0.12)
+    public static let textSecondary = Color(red: 0.40, green: 0.38, blue: 0.36)
+    public static let accent = Color(red: 0.12, green: 0.52, blue: 0.50)
+
+    public static let onlineBadgeBackground = Color(red: 0.79, green: 0.92, blue: 0.84)
+    public static let onlineBadgeText = Color(red: 0.14, green: 0.44, blue: 0.28)
+    public static let openBadgeBackground = Color(red: 0.98, green: 0.87, blue: 0.64)
+    public static let openBadgeText = Color(red: 0.58, green: 0.36, blue: 0.10)
+    public static let completedBadgeBackground = Color(red: 0.86, green: 0.86, blue: 0.88)
+    public static let completedBadgeText = Color(red: 0.35, green: 0.35, blue: 0.38)
+    public static let unknownBadgeBackground = Color(red: 0.90, green: 0.90, blue: 0.90)
+    public static let unknownBadgeText = Color(red: 0.38, green: 0.38, blue: 0.42)
+}
+
+public enum AppGradients {
+    public static let page = LinearGradient(
+        colors: [AppColors.backgroundTop, AppColors.backgroundBottom],
+        startPoint: .topLeading,
+        endPoint: .bottomTrailing
+    )
+
+    public static let cardAccent = LinearGradient(
+        colors: [Color(red: 0.14, green: 0.54, blue: 0.52), Color(red: 0.12, green: 0.34, blue: 0.42)],
+        startPoint: .topLeading,
+        endPoint: .bottomTrailing
+    )
+}
+
+public enum AppTypography {
+    public static let title = Font.custom("AvenirNext-DemiBold", size: 28)
+    public static let section = Font.custom("AvenirNext-DemiBold", size: 18)
+    public static let body = Font.custom("AvenirNext-Regular", size: 15)
+    public static let bodyEmphasis = Font.custom("AvenirNext-Medium", size: 15)
+    public static let badge = Font.custom("AvenirNext-DemiBold", size: 12)
+    public static let metric = Font.custom("AvenirNext-Bold", size: 16)
+    public static let metricLabel = Font.custom("AvenirNext-Regular", size: 12)
+}
+
+public enum AppSpacing {
+    public static let xs: CGFloat = 4
+    public static let sm: CGFloat = 8
+    public static let md: CGFloat = 12
+    public static let lg: CGFloat = 16
+    public static let xl: CGFloat = 24
+    public static let xxl: CGFloat = 32
+}
+
+public enum AppRadius {
+    public static let card: CGFloat = 18
+    public static let thumb: CGFloat = 14
+    public static let badge: CGFloat = 10
+    public static let field: CGFloat = 12
+}
+
+public enum AppShadow {
+    public static let card = (color: Color.black.opacity(0.08), radius: CGFloat(10), x: CGFloat(0), y: CGFloat(6))
+}

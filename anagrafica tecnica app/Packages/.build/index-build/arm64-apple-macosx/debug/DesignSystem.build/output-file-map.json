@@ -2,6 +2,13 @@
   "": {
     "swift-dependencies": "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/.build/index-build/arm64-apple-macosx/debug/DesignSystem.build/master.swiftdeps"
   },
+  "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/DesignSystem/Sources/AppTheme.swift": {
+    "dependencies": "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/.build/index-build/arm64-apple-macosx/debug/DesignSystem.build/AppTheme.d",
+    "object": "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/.build/index-build/arm64-apple-macosx/debug/DesignSystem.build/AppTheme.swift.o",
+    "swiftmodule": "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/.build/index-build/arm64-apple-macosx/debug/DesignSystem.build/AppTheme~partial.swiftmodule",
+    "swift-dependencies": "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/.build/index-build/arm64-apple-macosx/debug/DesignSystem.build/AppTheme.swiftdeps",
+    "diagnostics": "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/.build/index-build/arm64-apple-macosx/debug/DesignSystem.build/AppTheme.dia"
+  },
   "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/DesignSystem/Sources/DesignSystem.swift": {
     "dependencies": "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/.build/index-build/arm64-apple-macosx/debug/DesignSystem.build/DesignSystem.d",
     "object": "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/.build/index-build/arm64-apple-macosx/debug/DesignSystem.build/DesignSystem.swift.o",

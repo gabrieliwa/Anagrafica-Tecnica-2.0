@@ -32,8 +32,8 @@ Update rule: keep this checklist current whenever milestones change.
 
 ## Phase 2 - Core UI (DesignSystem + Features)
 
-- [ ] DesignSystem tokens (colors, typography, spacing)
-- [ ] Projects list view skeleton
+- [x] DesignSystem tokens (colors, typography, spacing)
+- [x] Projects list view skeleton
 - [ ] Floorplan renderer spike (vector tiles + pan/zoom)
 - [ ] Level picker UI (bottom-right, drop-up)
 - [ ] Read-only UI styling
