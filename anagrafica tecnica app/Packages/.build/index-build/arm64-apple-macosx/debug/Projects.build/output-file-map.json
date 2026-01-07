@@ -1,0 +1,12 @@
+{
+  "": {
+    "swift-dependencies": "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/.build/index-build/arm64-apple-macosx/debug/Projects.build/master.swiftdeps"
+  },
+  "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/Features/Projects/Sources/Projects.swift": {
+    "dependencies": "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/.build/index-build/arm64-apple-macosx/debug/Projects.build/Projects.d",
+    "object": "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/.build/index-build/arm64-apple-macosx/debug/Projects.build/Projects.swift.o",
+    "swiftmodule": "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/.build/index-build/arm64-apple-macosx/debug/Projects.build/Projects~partial.swiftmodule",
+    "swift-dependencies": "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/.build/index-build/arm64-apple-macosx/debug/Projects.build/Projects.swiftdeps",
+    "diagnostics": "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/.build/index-build/arm64-apple-macosx/debug/Projects.build/Projects.dia"
+  }
+}

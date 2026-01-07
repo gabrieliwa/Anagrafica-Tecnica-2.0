@@ -1,0 +1,29 @@
+import Foundation
+
+public enum GeometryUtils {
+    public static func bounds(for polygon: [Point]) -> Rect? {
+        guard let first = polygon.first else {
+            return nil
+        }
+        var minX = first.x
+        var minY = first.y
+        var maxX = first.x
+        var maxY = first.y
+
+        for point in polygon.dropFirst() {
+            minX = min(minX, point.x)
+            minY = min(minY, point.y)
+            maxX = max(maxX, point.x)
+            maxY = max(maxY, point.y)
+        }
+
+        return Rect(minX: minX, minY: minY, maxX: maxX, maxY: maxY)
+    }
+
+    public static func northAngleDegrees(start: Point, end: Point) -> Double {
+        let dx = end.x - start.x
+        let dy = end.y - start.y
+        let radians = atan2(dx, dy)
+        return radians * 180 / .pi
+    }
+}

@@ -6,6 +6,8 @@ public struct Level: Identifiable, Codable, Equatable {
     public var name: String
     public var number: Int?
     public var orderIndex: Int
+    public var backgroundGeoJSONPath: String?
+    public var backgroundBounds: Rect?
     public var northAngleDegrees: Double?
 
     public init(
@@ -14,6 +16,8 @@ public struct Level: Identifiable, Codable, Equatable {
         name: String,
         number: Int? = nil,
         orderIndex: Int,
+        backgroundGeoJSONPath: String? = nil,
+        backgroundBounds: Rect? = nil,
         northAngleDegrees: Double? = nil
     ) {
         self.id = id
@@ -21,6 +25,8 @@ public struct Level: Identifiable, Codable, Equatable {
         self.name = name
         self.number = number
         self.orderIndex = orderIndex
+        self.backgroundGeoJSONPath = backgroundGeoJSONPath
+        self.backgroundBounds = backgroundBounds
         self.northAngleDegrees = northAngleDegrees
     }
 }

@@ -23,9 +23,11 @@ Update rule: keep this checklist current whenever milestones change.
 - [x] Core Data model file (.xcdatamodeld)
 - [x] Core Data migrations strategy
 - [x] Networking layer skeleton (API client + endpoints)
-- [ ] Core services (validation, ID generation, photo naming, coordinates)
-- [ ] Local file cache (photos + tiles)
-- [ ] Demo data loader (bundle -> Core Data seed)
+- [x] Core services: ID generation + geometry helpers
+- [x] Core services: validation rules
+- [x] Core services: photo naming
+- [x] Local file cache (photos + tiles)
+- [x] Demo data loader (bundle -> Core Data seed)
 
 ## Phase 2 - Core UI (DesignSystem + Features)
 

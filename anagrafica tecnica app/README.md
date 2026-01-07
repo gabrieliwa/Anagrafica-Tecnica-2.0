@@ -142,6 +142,9 @@ Contents:
 - `levels/<LEVEL_ID>/north.json`
 - `schema_version.json` (demo families + parameters)
 
+Seeding entry point (Core):
+`DemoDataSeeder().seedIfNeeded(context: bundle:)`
+
 ## Core Data Model Setup (Xcode)
 
 1. In Xcode, select the app target group `AnagraficaTecnica` in the navigator.

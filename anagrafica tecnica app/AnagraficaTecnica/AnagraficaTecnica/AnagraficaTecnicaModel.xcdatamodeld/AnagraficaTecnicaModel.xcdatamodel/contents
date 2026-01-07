@@ -33,6 +33,8 @@
         <attribute name="name" optional="NO" attributeType="String" usesScalarValueType="NO"/>
         <attribute name="orderIndex" optional="NO" attributeType="Integer 64" usesScalarValueType="YES"/>
         <attribute name="number" optional="YES" attributeType="Integer 64" usesScalarValueType="NO"/>
+        <attribute name="backgroundGeoJSONPath" optional="YES" attributeType="String" usesScalarValueType="NO"/>
+        <attribute name="backgroundBoundsData" optional="YES" attributeType="Binary" usesScalarValueType="NO"/>
         <attribute name="northAngleDegrees" optional="YES" attributeType="Double" usesScalarValueType="NO"/>
         <relationship name="project" optional="NO" maxCount="1" deletionRule="Nullify" destinationEntity="Project" inverseName="levels" inverseEntity="Project"/>
         <relationship name="rooms" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="Room" inverseName="level" inverseEntity="Room"/>
