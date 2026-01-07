@@ -34,12 +34,14 @@ Update rule: keep this checklist current whenever milestones change.
 
 - [x] DesignSystem tokens (colors, typography, spacing)
 - [x] Projects list view skeleton
-- [ ] Floorplan renderer spike (vector tiles + pan/zoom)
-- [ ] Level picker UI (bottom-right, drop-up)
-- [ ] Read-only UI styling
+- [x] Floorplan renderer spike (demo GeoJSON + pan/zoom)
+- [x] Level picker UI (bottom-right, drop-up)
+- [x] Read-only UI styling (badge/indicator)
+- [ ] Read-only halftone styling for assets + disabled actions
 
 ## Phase 3 - Asset Management (AddAssetWizard)
 
+- [x] Add Asset wizard skeleton (step indicator + placeholders)
 - [ ] Add Asset wizard flow (family -> type -> instance)
 - [ ] Room Note flow
 - [ ] Type branching flow

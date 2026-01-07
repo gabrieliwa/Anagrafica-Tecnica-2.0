@@ -17,6 +17,12 @@ public enum AppColors {
     public static let completedBadgeText = Color(red: 0.35, green: 0.35, blue: 0.38)
     public static let unknownBadgeBackground = Color(red: 0.90, green: 0.90, blue: 0.90)
     public static let unknownBadgeText = Color(red: 0.38, green: 0.38, blue: 0.42)
+
+    public static let planLinework = Color.black.opacity(0.18)
+    public static let roomEmptyFill = Color(red: 0.93, green: 0.93, blue: 0.93)
+    public static let roomEmptyStroke = Color(red: 0.76, green: 0.76, blue: 0.76)
+    public static let roomEmptyIcon = Color(red: 0.42, green: 0.42, blue: 0.44)
+    public static let roomOccupiedFill = Color(red: 0.75, green: 0.88, blue: 0.94)
 }
 
 public enum AppGradients {

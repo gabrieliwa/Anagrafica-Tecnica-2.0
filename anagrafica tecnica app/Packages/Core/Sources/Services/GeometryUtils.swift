@@ -26,4 +26,23 @@ public enum GeometryUtils {
         let radians = atan2(dx, dy)
         return radians * 180 / .pi
     }
+
+    public static func contains(point: Point, in polygon: [Point]) -> Bool {
+        guard polygon.count >= 3 else {
+            return false
+        }
+        var isInside = false
+        var j = polygon.count - 1
+        for i in 0..<polygon.count {
+            let pi = polygon[i]
+            let pj = polygon[j]
+            let intersects = ((pi.y > point.y) != (pj.y > point.y)) &&
+                (point.x < (pj.x - pi.x) * (point.y - pi.y) / (pj.y - pi.y + 0.000001) + pi.x)
+            if intersects {
+                isInside.toggle()
+            }
+            j = i
+        }
+        return isInside
+    }
 }

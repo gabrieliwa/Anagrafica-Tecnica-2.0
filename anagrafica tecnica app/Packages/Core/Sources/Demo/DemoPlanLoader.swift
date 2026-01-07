@@ -29,6 +29,10 @@ public struct DemoPlanLoader {
         try decodeJSON(resource: "schema_version", type: SchemaVersion.self)
     }
 
+    public var demoBundle: Bundle {
+        bundle
+    }
+
     private func decodeJSON<T: Decodable>(resource: String, type: T.Type) throws -> T {
         let data = try loadData(resource: resource, withExtension: "json")
         do {

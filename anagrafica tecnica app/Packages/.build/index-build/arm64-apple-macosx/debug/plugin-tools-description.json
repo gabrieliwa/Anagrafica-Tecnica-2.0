@@ -28,6 +28,10 @@
         },
         {
           "kind" : "file",
+          "name" : "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/Features/AddAssetWizard/Sources/AddAssetWizardView.swift"
+        },
+        {
+          "kind" : "file",
           "name" : "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/.build/index-build/arm64-apple-macosx/debug/swift-version--1AB21518FC5DEDBE.txt"
         },
         {
@@ -47,7 +51,8 @@
       "moduleName" : "AddAssetWizard",
       "moduleOutputPath" : "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/.build/index-build/arm64-apple-macosx/debug/Modules/AddAssetWizard.swiftmodule",
       "objects" : [
-        "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/.build/index-build/arm64-apple-macosx/debug/AddAssetWizard.build/AddAssetWizard.swift.o"
+        "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/.build/index-build/arm64-apple-macosx/debug/AddAssetWizard.build/AddAssetWizard.swift.o",
+        "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/.build/index-build/arm64-apple-macosx/debug/AddAssetWizard.build/AddAssetWizardView.swift.o"
       ],
       "otherArguments" : [
         "-target",
@@ -107,7 +112,8 @@
       ],
       "prepareForIndexing" : true,
       "sources" : [
-        "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/Features/AddAssetWizard/Sources/AddAssetWizard.swift"
+        "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/Features/AddAssetWizard/Sources/AddAssetWizard.swift",
+        "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/Features/AddAssetWizard/Sources/AddAssetWizardView.swift"
       ],
       "tempsPath" : "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/.build/index-build/arm64-apple-macosx/debug/AddAssetWizard.build",
       "wholeModuleOptimization" : false
@@ -572,6 +578,18 @@
         },
         {
           "kind" : "file",
+          "name" : "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/Features/Floorplan/Sources/FloorplanCanvas.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/Features/Floorplan/Sources/FloorplanView.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/Features/Floorplan/Sources/FloorplanViewModel.swift"
+        },
+        {
+          "kind" : "file",
           "name" : "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/.build/index-build/arm64-apple-macosx/debug/swift-version--1AB21518FC5DEDBE.txt"
         },
         {
@@ -584,6 +602,10 @@
         },
         {
           "kind" : "file",
+          "name" : "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/.build/index-build/arm64-apple-macosx/debug/Modules/AddAssetWizard.swiftmodule"
+        },
+        {
+          "kind" : "file",
           "name" : "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/.build/index-build/arm64-apple-macosx/debug/Floorplan.build/sources"
         }
       ],
@@ -591,7 +613,10 @@
       "moduleName" : "Floorplan",
       "moduleOutputPath" : "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/.build/index-build/arm64-apple-macosx/debug/Modules/Floorplan.swiftmodule",
       "objects" : [
-        "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/.build/index-build/arm64-apple-macosx/debug/Floorplan.build/Floorplan.swift.o"
+        "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/.build/index-build/arm64-apple-macosx/debug/Floorplan.build/Floorplan.swift.o",
+        "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/.build/index-build/arm64-apple-macosx/debug/Floorplan.build/FloorplanCanvas.swift.o",
+        "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/.build/index-build/arm64-apple-macosx/debug/Floorplan.build/FloorplanView.swift.o",
+        "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/.build/index-build/arm64-apple-macosx/debug/Floorplan.build/FloorplanViewModel.swift.o"
       ],
       "otherArguments" : [
         "-target",
@@ -651,7 +676,10 @@
       ],
       "prepareForIndexing" : true,
       "sources" : [
-        "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/Features/Floorplan/Sources/Floorplan.swift"
+        "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/Features/Floorplan/Sources/Floorplan.swift",
+        "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/Features/Floorplan/Sources/FloorplanCanvas.swift",
+        "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/Features/Floorplan/Sources/FloorplanView.swift",
+        "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/Features/Floorplan/Sources/FloorplanViewModel.swift"
       ],
       "tempsPath" : "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/.build/index-build/arm64-apple-macosx/debug/Floorplan.build",
       "wholeModuleOptimization" : false
@@ -960,6 +988,7 @@
       "packages",
       "-c",
       "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/Features/AddAssetWizard/Sources/AddAssetWizard.swift",
+      "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/Features/AddAssetWizard/Sources/AddAssetWizardView.swift",
       "-I",
       "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/.build/index-build/arm64-apple-macosx/debug/Modules",
       "-target",
@@ -1230,6 +1259,9 @@
       "packages",
       "-c",
       "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/Features/Floorplan/Sources/Floorplan.swift",
+      "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/Features/Floorplan/Sources/FloorplanCanvas.swift",
+      "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/Features/Floorplan/Sources/FloorplanView.swift",
+      "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/Features/Floorplan/Sources/FloorplanViewModel.swift",
       "-I",
       "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/.build/index-build/arm64-apple-macosx/debug/Modules",
       "-target",
@@ -1480,6 +1512,7 @@
       "Core"
     ],
     "Floorplan" : [
+      "AddAssetWizard",
       "DesignSystem",
       "Core"
     ],
@@ -1518,6 +1551,10 @@
         {
           "kind" : "file",
           "name" : "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/Features/AddAssetWizard/Sources/AddAssetWizard.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/Features/AddAssetWizard/Sources/AddAssetWizardView.swift"
         }
       ],
       "outputFilePath" : "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/.build/index-build/arm64-apple-macosx/debug/AddAssetWizard.build/sources"
@@ -1694,6 +1731,18 @@
         {
           "kind" : "file",
           "name" : "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/Features/Floorplan/Sources/Floorplan.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/Features/Floorplan/Sources/FloorplanCanvas.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/Features/Floorplan/Sources/FloorplanView.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/Features/Floorplan/Sources/FloorplanViewModel.swift"
         }
       ],
       "outputFilePath" : "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/.build/index-build/arm64-apple-macosx/debug/Floorplan.build/sources"

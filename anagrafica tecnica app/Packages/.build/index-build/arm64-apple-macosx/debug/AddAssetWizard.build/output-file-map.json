@@ -8,5 +8,12 @@
     "swiftmodule": "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/.build/index-build/arm64-apple-macosx/debug/AddAssetWizard.build/AddAssetWizard~partial.swiftmodule",
     "swift-dependencies": "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/.build/index-build/arm64-apple-macosx/debug/AddAssetWizard.build/AddAssetWizard.swiftdeps",
     "diagnostics": "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/.build/index-build/arm64-apple-macosx/debug/AddAssetWizard.build/AddAssetWizard.dia"
+  },
+  "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/Features/AddAssetWizard/Sources/AddAssetWizardView.swift": {
+    "dependencies": "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/.build/index-build/arm64-apple-macosx/debug/AddAssetWizard.build/AddAssetWizardView.d",
+    "object": "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/.build/index-build/arm64-apple-macosx/debug/AddAssetWizard.build/AddAssetWizardView.swift.o",
+    "swiftmodule": "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/.build/index-build/arm64-apple-macosx/debug/AddAssetWizard.build/AddAssetWizardView~partial.swiftmodule",
+    "swift-dependencies": "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/.build/index-build/arm64-apple-macosx/debug/AddAssetWizard.build/AddAssetWizardView.swiftdeps",
+    "diagnostics": "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/.build/index-build/arm64-apple-macosx/debug/AddAssetWizard.build/AddAssetWizardView.dia"
   }
 }

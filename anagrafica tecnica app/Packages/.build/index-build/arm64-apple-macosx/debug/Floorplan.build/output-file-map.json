@@ -8,5 +8,26 @@
     "swiftmodule": "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/.build/index-build/arm64-apple-macosx/debug/Floorplan.build/Floorplan~partial.swiftmodule",
     "swift-dependencies": "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/.build/index-build/arm64-apple-macosx/debug/Floorplan.build/Floorplan.swiftdeps",
     "diagnostics": "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/.build/index-build/arm64-apple-macosx/debug/Floorplan.build/Floorplan.dia"
+  },
+  "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/Features/Floorplan/Sources/FloorplanCanvas.swift": {
+    "dependencies": "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/.build/index-build/arm64-apple-macosx/debug/Floorplan.build/FloorplanCanvas.d",
+    "object": "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/.build/index-build/arm64-apple-macosx/debug/Floorplan.build/FloorplanCanvas.swift.o",
+    "swiftmodule": "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/.build/index-build/arm64-apple-macosx/debug/Floorplan.build/FloorplanCanvas~partial.swiftmodule",
+    "swift-dependencies": "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/.build/index-build/arm64-apple-macosx/debug/Floorplan.build/FloorplanCanvas.swiftdeps",
+    "diagnostics": "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/.build/index-build/arm64-apple-macosx/debug/Floorplan.build/FloorplanCanvas.dia"
+  },
+  "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/Features/Floorplan/Sources/FloorplanView.swift": {
+    "dependencies": "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/.build/index-build/arm64-apple-macosx/debug/Floorplan.build/FloorplanView.d",
+    "object": "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/.build/index-build/arm64-apple-macosx/debug/Floorplan.build/FloorplanView.swift.o",
+    "swiftmodule": "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/.build/index-build/arm64-apple-macosx/debug/Floorplan.build/FloorplanView~partial.swiftmodule",
+    "swift-dependencies": "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/.build/index-build/arm64-apple-macosx/debug/Floorplan.build/FloorplanView.swiftdeps",
+    "diagnostics": "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/.build/index-build/arm64-apple-macosx/debug/Floorplan.build/FloorplanView.dia"
+  },
+  "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/Features/Floorplan/Sources/FloorplanViewModel.swift": {
+    "dependencies": "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/.build/index-build/arm64-apple-macosx/debug/Floorplan.build/FloorplanViewModel.d",
+    "object": "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/.build/index-build/arm64-apple-macosx/debug/Floorplan.build/FloorplanViewModel.swift.o",
+    "swiftmodule": "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/.build/index-build/arm64-apple-macosx/debug/Floorplan.build/FloorplanViewModel~partial.swiftmodule",
+    "swift-dependencies": "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/.build/index-build/arm64-apple-macosx/debug/Floorplan.build/FloorplanViewModel.swiftdeps",
+    "diagnostics": "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/.build/index-build/arm64-apple-macosx/debug/Floorplan.build/FloorplanViewModel.dia"
   }
 }

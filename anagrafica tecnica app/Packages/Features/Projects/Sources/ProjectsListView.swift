@@ -26,7 +26,11 @@ public struct ProjectsListView: View {
                     ScrollView {
                         LazyVStack(spacing: AppSpacing.md) {
                             ForEach(filteredProjects, id: \.objectID) { project in
-                                ProjectCardView(snapshot: makeSnapshot(from: project))
+                                let snapshot = makeSnapshot(from: project)
+                                NavigationLink(value: ProjectRoute(id: snapshot.id, name: snapshot.name, uiState: snapshot.uiState)) {
+                                    ProjectCardView(snapshot: snapshot)
+                                }
+                                .buttonStyle(.plain)
                             }
                         }
                         .padding(.bottom, AppSpacing.xl)
@@ -125,6 +129,18 @@ private struct ProjectSnapshot: Identifiable {
     let roomCount: Int?
     let assetCount: Int?
     let uiState: ProjectUIState?
+}
+
+public struct ProjectRoute: Hashable, Identifiable {
+    public let id: UUID
+    public let name: String
+    public let uiState: ProjectUIState?
+
+    public init(id: UUID, name: String, uiState: ProjectUIState?) {
+        self.id = id
+        self.name = name
+        self.uiState = uiState
+    }
 }
 
 private struct ProjectCardView: View {
