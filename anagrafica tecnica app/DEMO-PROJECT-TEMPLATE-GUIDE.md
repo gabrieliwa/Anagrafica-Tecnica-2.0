@@ -1,10 +1,13 @@
 # Demo Project Template Guide
 
-This guide explains how to create a demo project template file for the mobile app. It covers:
-- A plan created from a DXF file structured per `product-specs.md`, exported as vector tiles
+This guide explains how to create demo assets for the mobile app. It covers:
+- A plan created from a DXF file structured per `product-specs.md`, exported as per-level GeoJSON
 - Asset families and parameters using a simple, readable schema
 
-The output is a single template file (YAML or JSON) you can load into the app as demo data.
+The output is a bundle of files you can load into the app as demo data:
+- `plan_template.json` (levels + rooms + references to GeoJSON files)
+- `levels/<LEVEL_ID>/background.geojson`, `rooms.geojson`, `north.json`
+- `schema_version.json` (demo families + parameters)
 
 ---
 
@@ -46,14 +49,12 @@ Convert each level to vector features in the same plan-space coordinates:
 
 Use the conversion script in `scripts/` to do this automatically (see below).
 
-### Step 4: Generate vector tiles (MVT)
+### Step 4: Export per-level GeoJSON backgrounds
 
-Create a tile set per level for the vector background:
-- Build tiles from walls/labels (and optional room outlines).
+Create a GeoJSON background per level for rendering:
+- Build backgrounds from walls/labels (and optional room outlines).
 - Keep the room polygons in the template for tap detection.
-- Record min/max zoom, tile size, and bounds for the renderer.
-
-The script outputs per-level tiles into `levels/<LEVEL_ID>/tiles/{z}/{x}/{y}.pbf`.
+- Record bounds for the renderer.
 
 ### Step 5: Build tappable rooms data
 
@@ -70,7 +71,7 @@ bash scripts/dxf_to_vector_tiles.sh "anagrafica tecnica app/demo_plans.dxf" "ana
 ```
 
 The script generates:
-- Vector tiles per level
+- Per-level `background.geojson`, `rooms.geojson`, and `north.json`
 - A `plan_template.json` file with levels and tappable rooms
 - Debug GeoJSON files under `demo_plan_output/_work/`
 
@@ -80,7 +81,7 @@ For full usage details, see `scripts/DEMO-DXF-CONVERSION.md`.
 
 For each level, include:
 - `id`, `index`, `name`
-- `background` (vector tile path + metadata)
+- `background` (GeoJSON path + bounds)
 - `rooms` list with `id`, `number`, `name`, and a polygon in plan space
 
 ### Step 8: Sanity checks
@@ -121,7 +122,19 @@ From `product-specs.md`:
 - Room Note flags are mutually exclusive (`empty_room` vs `room_blocked`)
 - If `room_blocked` is true, a description is required
 
-### Step 4: (Optional) Seed Types and Instances
+### Step 4: Save the demo schema for the app
+
+For this repo, the demo schema is stored in the app bundle here:
+`anagrafica tecnica app/AnagraficaTecnica/AnagraficaTecnica/Resources/DemoPlan.bundle/schema_version.json`.
+
+The JSON structure mirrors the Core models:
+- `SchemaVersion` → `families` → `parameters`
+- `ParameterDefinition.dataType` uses `TEXT`, `NUMBER`, `BOOLEAN`, `DATE`, `ENUM`
+- `ParameterDefinition.scope` uses `TYPE` or `INSTANCE`
+
+`createdAt` is stored as an ISO-8601 string, so use `JSONDecoder.dateDecodingStrategy = .iso8601` when loading.
+
+### Step 5: (Optional) Seed Types and Instances
 
 If you want a more realistic demo:
 - Add 1–3 Types per family
@@ -130,88 +143,65 @@ If you want a more realistic demo:
 
 ---
 
-## Suggested Template Structure (YAML)
+## Suggested Demo Plan Structure (JSON)
 
-```yaml
-project:
-  id: "demo-001"
-  name: "Demo Facility"
-  state: "READY"
+```json
+{
+  "levels": [
+    {
+      "id": "L0",
+      "index": 0,
+      "name": "Ground",
+      "background": {
+        "geojson": "levels/L0/background.geojson",
+        "bounds": [0, 0, 2400, 1400]
+      },
+      "north": {
+        "start": [120, 200],
+        "end": [120, 120]
+      },
+      "rooms": [
+        {
+          "id": "R0001",
+          "number": "0001",
+          "name": "Lobby",
+          "shape": {
+            "polygon": [[120, 180], [640, 180], [640, 520], [120, 520]]
+          }
+        }
+      ]
+    }
+  ]
+}
+```
 
-levels:
-  - id: "L0"
-    index: 0
-    name: "Ground"
-    background:
-      vector_tiles:
-        tiles: "levels/L0/tiles/{z}/{x}/{y}.pbf"
-        min_zoom: 14
-        max_zoom: 20
-        tile_size: 512
-        extent: 4096
-        bounds: [0,0,2400,1400]
-    rooms:
-      - id: "R0001"
-        number: "0001"
-        name: "Lobby"
-        shape:
-          polygon: [[120,180],[640,180],[640,520],[120,520]]
-      - id: "R0002"
-        number: "0002"
-        name: "Electrical Room"
-        shape:
-          polygon: [[700,180],[980,180],[980,520],[700,520]]
+## Suggested Demo Schema Structure (JSON)
 
-families:
-  - name: "Lighting"
-    type_parameters:
-      - key: "manufacturer"
-        label: "Manufacturer"
-        type: "text"
-        required: true
-      - key: "model"
-        label: "Model"
-        type: "text"
-        required: true
-      - key: "wattage"
-        label: "Wattage"
-        type: "number"
-        unit: "W"
-        required: true
-      - key: "mount_type"
-        label: "Mount Type"
-        type: "enum"
-        values: ["Ceiling","Wall","Suspended"]
-        required: true
-    instance_parameters:
-      - key: "condition"
-        label: "Condition"
-        type: "enum"
-        values: ["New","Good","Worn","Damaged"]
-        required: true
-      - key: "serial_number"
-        label: "Serial Number"
-        type: "text"
-        required: false
-
-room_note:
-  parameters:
-    - key: "empty_room"
-      label: "Empty room"
-      type: "boolean"
-      required: false
-    - key: "room_blocked"
-      label: "Room is blocked"
-      type: "boolean"
-      required: false
-    - key: "description"
-      label: "Description"
-      type: "text"
-      required: false
-  rules:
-    mutually_exclusive: ["empty_room","room_blocked"]
-    required_if:
-      room_blocked: ["description"]
+```json
+{
+  "version": "1.0-demo",
+  "families": [
+    {
+      "name": "Lighting",
+      "parameters": [
+        {
+          "name": "Manufacturer",
+          "dataType": "TEXT",
+          "scope": "TYPE",
+          "isRequired": true
+        },
+        {
+          "name": "Condition",
+          "dataType": "ENUM",
+          "scope": "INSTANCE",
+          "isRequired": true,
+          "enumValues": ["New", "Good", "Worn", "Damaged"]
+        }
+      ]
+    }
+  ]
+}
+```
 
 photo_rules:
   type: { min: 1, max: 1 }

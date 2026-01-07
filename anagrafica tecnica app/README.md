@@ -128,6 +128,20 @@ Setup:
    - `open "AnagraficaTecnica/AnagraficaTecnica.xcodeproj"`
 3. Start with Phase 1 (Foundation)
 
+## Demo Project (Bundled)
+
+The app ships with a local demo project for offline testing before the backend is wired.
+
+Bundle path:
+`AnagraficaTecnica/AnagraficaTecnica/Resources/DemoPlan.bundle`
+
+Contents:
+- `plan_template.json` (levels + rooms + GeoJSON references)
+- `levels/<LEVEL_ID>/background.geojson`
+- `levels/<LEVEL_ID>/rooms.geojson`
+- `levels/<LEVEL_ID>/north.json`
+- `schema_version.json` (demo families + parameters)
+
 ## Core Data Model Setup (Xcode)
 
 1. In Xcode, select the app target group `AnagraficaTecnica` in the navigator.

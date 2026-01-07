@@ -1,0 +1,5247 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "Layer": "0",
+        "SubClasses": "AcDbEntity:AcDbLine",
+        "EntityHandle": "64A"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            34.56691647459698,
+            26.06359972024824,
+            0.0
+          ],
+          [
+            36.31691647459698,
+            26.06359972024847,
+            0.0
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Layer": "0",
+        "SubClasses": "AcDbEntity:AcDbLine",
+        "EntityHandle": "64B"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            37.31691647459698,
+            26.06359972024824,
+            0.0
+          ],
+          [
+            43.06691647459698,
+            26.06359972024824,
+            0.0
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Layer": "0",
+        "SubClasses": "AcDbEntity:AcDbLine",
+        "EntityHandle": "64C"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            38.96691647485227,
+            27.26356311181302,
+            0.0
+          ],
+          [
+            44.06691647459669,
+            27.26359833879786,
+            0.0
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Layer": "0",
+        "SubClasses": "AcDbEntity:AcDbLine",
+        "EntityHandle": "64D"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            34.96691647459707,
+            25.66359972024815,
+            0.0
+          ],
+          [
+            36.21691647459662,
+            25.66359972024815,
+            0.0
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Layer": "0",
+        "SubClasses": "AcDbEntity:AcDbLine",
+        "EntityHandle": "64E"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            37.41691647459689,
+            25.66359972024838,
+            0.0
+          ],
+          [
+            39.81691647459698,
+            25.66359972024815,
+            0.0
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Layer": "0",
+        "SubClasses": "AcDbEntity:AcDbLine",
+        "EntityHandle": "64F"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            39.81691647459698,
+            25.66359972024815,
+            0.0
+          ],
+          [
+            42.66691647459689,
+            25.66359972024815,
+            0.0
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Layer": "0",
+        "SubClasses": "AcDbEntity:AcDbLine",
+        "EntityHandle": "651"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            43.06691647459689,
+            26.06359972024824,
+            0.0
+          ],
+          [
+            43.06691647459868,
+            14.46359972024822,
+            0.0
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Layer": "0",
+        "SubClasses": "AcDbEntity:AcDbLine",
+        "EntityHandle": "652"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            44.06691647459669,
+            27.26359833879786,
+            0.0
+          ],
+          [
+            44.06691647459888,
+            13.26359972024868,
+            0.0
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Layer": "0",
+        "SubClasses": "AcDbEntity:AcDbLine",
+        "EntityHandle": "653"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            42.66691647459689,
+            25.66359972024815,
+            0.0
+          ],
+          [
+            42.66691647459687,
+            19.7135997202481,
+            0.0
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Layer": "0",
+        "SubClasses": "AcDbEntity:AcDbLine",
+        "EntityHandle": "654"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            42.66691647459686,
+            19.61359972024819,
+            0.0
+          ],
+          [
+            42.66691647459686,
+            14.86359972024825,
+            0.0
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Layer": "0",
+        "SubClasses": "AcDbEntity:AcDbLine",
+        "EntityHandle": "655"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            43.06691647459868,
+            14.46359972024822,
+            0.0
+          ],
+          [
+            42.26691647459682,
+            14.46359972024822,
+            0.0
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Layer": "0",
+        "SubClasses": "AcDbEntity:AcDbLine",
+        "EntityHandle": "656"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            41.26691647459682,
+            14.46359972024822,
+            0.0
+          ],
+          [
+            40.36691647459628,
+            14.46359972024844,
+            0.0
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Layer": "0",
+        "SubClasses": "AcDbEntity:AcDbLine",
+        "EntityHandle": "657"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            39.16691647459692,
+            14.46359972024844,
+            0.0
+          ],
+          [
+            37.76691647460834,
+            14.46359972024844,
+            0.0
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Layer": "0",
+        "SubClasses": "AcDbEntity:AcDbLine",
+        "EntityHandle": "658"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            44.06691647459888,
+            13.26359972024868,
+            0.0
+          ],
+          [
+            33.5669164745959,
+            13.263640182203,
+            0.0
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Layer": "0",
+        "SubClasses": "AcDbEntity:AcDbLine",
+        "EntityHandle": "659"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            35.76691647460837,
+            14.46359972024856,
+            0.0
+          ],
+          [
+            34.56691647459701,
+            14.46359972024822,
+            0.0
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Layer": "0",
+        "SubClasses": "AcDbEntity:AcDbLine",
+        "EntityHandle": "65A"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            42.66691647459686,
+            14.86359972024825,
+            0.0
+          ],
+          [
+            42.36691647459673,
+            14.86359972024808,
+            0.0
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Layer": "0",
+        "SubClasses": "AcDbEntity:AcDbLine",
+        "EntityHandle": "65B"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            41.16691647459646,
+            14.86359972024831,
+            0.0
+          ],
+          [
+            40.96691647459656,
+            14.86359972024842,
+            0.0
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Layer": "0",
+        "SubClasses": "AcDbEntity:AcDbLine",
+        "EntityHandle": "65C"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            40.86691647459668,
+            14.86359972024848,
+            0.0
+          ],
+          [
+            40.46691647459664,
+            14.86359972024876,
+            0.0
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Layer": "0",
+        "SubClasses": "AcDbEntity:AcDbLine",
+        "EntityHandle": "65D"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            39.06691647459701,
+            14.86359972024876,
+            0.0
+          ],
+          [
+            38.91691647459737,
+            14.86359972024876,
+            0.0
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Layer": "0",
+        "SubClasses": "AcDbEntity:AcDbLine",
+        "EntityHandle": "65E"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            38.81691647459746,
+            14.86359972024871,
+            0.0
+          ],
+          [
+            37.86691647460825,
+            14.86359972024535,
+            0.0
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Layer": "0",
+        "SubClasses": "AcDbEntity:AcDbLine",
+        "EntityHandle": "65F"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            35.66691647460843,
+            14.86359972024621,
+            0.0
+          ],
+          [
+            34.9669164745971,
+            14.86359972024853,
+            0.0
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Layer": "0",
+        "SubClasses": "AcDbEntity:AcDbLine",
+        "EntityHandle": "660"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            34.56691647459698,
+            14.46359972024822,
+            0.0
+          ],
+          [
+            34.56691647459698,
+            16.31359972024824,
+            0.0
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Layer": "0",
+        "SubClasses": "AcDbEntity:AcDbLine",
+        "EntityHandle": "661"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            34.56691647459698,
+            17.81359972024824,
+            0.0
+          ],
+          [
+            34.56691647459744,
+            19.76359972024829,
+            0.0
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Layer": "0",
+        "SubClasses": "AcDbEntity:AcDbLine",
+        "EntityHandle": "662"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            33.5669164745959,
+            13.263640182203,
+            0.0
+          ],
+          [
+            33.56691647459917,
+            27.26356311181342,
+            0.0
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Layer": "0",
+        "SubClasses": "AcDbEntity:AcDbLine",
+        "EntityHandle": "663"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            34.56691647459744,
+            19.76359972024829,
+            0.0
+          ],
+          [
+            34.56691647459698,
+            22.41359972024861,
+            0.0
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Layer": "0",
+        "SubClasses": "AcDbEntity:AcDbLine",
+        "EntityHandle": "664"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            34.56691647459698,
+            23.91359972024838,
+            0.0
+          ],
+          [
+            34.56691647459698,
+            26.06359972024824,
+            0.0
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Layer": "0",
+        "SubClasses": "AcDbEntity:AcDbLine",
+        "EntityHandle": "665"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            34.96691647459753,
+            14.86359972024853,
+            0.0
+          ],
+          [
+            34.96691647459753,
+            16.21359972024833,
+            0.0
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Layer": "0",
+        "SubClasses": "AcDbEntity:AcDbLine",
+        "EntityHandle": "666"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            34.96691647459753,
+            17.91359972024815,
+            0.0
+          ],
+          [
+            34.96691647459753,
+            19.6635997202486,
+            0.0
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Layer": "0",
+        "SubClasses": "AcDbEntity:AcDbLine",
+        "EntityHandle": "667"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            34.96691647459753,
+            19.6635997202486,
+            0.0
+          ],
+          [
+            34.96691647459662,
+            22.3135997202487,
+            0.0
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Layer": "0",
+        "SubClasses": "AcDbEntity:AcDbLine",
+        "EntityHandle": "668"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            34.96691647459707,
+            24.01359972024851,
+            0.0
+          ],
+          [
+            34.96691647459707,
+            25.66359972024815,
+            0.0
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Layer": "0",
+        "SubClasses": "AcDbEntity:AcDbLine",
+        "EntityHandle": "669"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            39.11691647459671,
+            19.91359972024815,
+            0.0
+          ],
+          [
+            38.81691647459653,
+            19.91359972024815,
+            0.0
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Layer": "0",
+        "SubClasses": "AcDbEntity:AcDbLine",
+        "EntityHandle": "66A"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            38.81691647459653,
+            19.91359972024815,
+            0.0
+          ],
+          [
+            38.81691647459653,
+            19.61359972024819,
+            0.0
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Layer": "0",
+        "SubClasses": "AcDbEntity:AcDbLine",
+        "EntityHandle": "66B"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            39.11691647459671,
+            19.91359972024815,
+            0.0
+          ],
+          [
+            39.11691647459671,
+            19.71359972024782,
+            0.0
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Layer": "0",
+        "SubClasses": "AcDbEntity:AcDbLine",
+        "EntityHandle": "66C"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            39.11691647459671,
+            21.71359972024811,
+            0.0
+          ],
+          [
+            38.8169164745965,
+            21.71359972024811,
+            0.0
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Layer": "0",
+        "SubClasses": "AcDbEntity:AcDbLine",
+        "EntityHandle": "66D"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            38.81691647459653,
+            21.71359972024811,
+            0.0
+          ],
+          [
+            38.81691647459653,
+            21.41359972024815,
+            0.0
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Layer": "0",
+        "SubClasses": "AcDbEntity:AcDbLine",
+        "EntityHandle": "66E"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            38.81691647459653,
+            21.41359972024815,
+            0.0
+          ],
+          [
+            39.11691647459671,
+            21.41359972024815,
+            0.0
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Layer": "0",
+        "SubClasses": "AcDbEntity:AcDbLine",
+        "EntityHandle": "66F"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            39.11691647459671,
+            21.71359972024811,
+            0.0
+          ],
+          [
+            39.11691647459671,
+            21.41359972024815,
+            0.0
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Layer": "0",
+        "SubClasses": "AcDbEntity:AcDbLine",
+        "EntityHandle": "670"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            42.26691647459682,
+            14.46359972024822,
+            0.0
+          ],
+          [
+            42.26691647459682,
+            14.66359972024826,
+            0.0
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Layer": "0",
+        "SubClasses": "AcDbEntity:AcDbLine",
+        "EntityHandle": "671"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            41.26691647459682,
+            14.46359972024822,
+            0.0
+          ],
+          [
+            41.26691647459682,
+            14.66359972024826,
+            0.0
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Layer": "0",
+        "SubClasses": "AcDbEntity:AcDbLine",
+        "EntityHandle": "672"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            42.26691647459682,
+            14.66359972024826,
+            0.0
+          ],
+          [
+            42.36691647459673,
+            14.66359972024826,
+            0.0
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Layer": "0",
+        "SubClasses": "AcDbEntity:AcDbLine",
+        "EntityHandle": "673"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            42.36691647459673,
+            14.66359972024826,
+            0.0
+          ],
+          [
+            42.36691647459673,
+            14.86359972024831,
+            0.0
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Layer": "0",
+        "SubClasses": "AcDbEntity:AcDbLine",
+        "EntityHandle": "674"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            41.26691647459682,
+            14.66359972024826,
+            0.0
+          ],
+          [
+            41.16691647459691,
+            14.66359972024826,
+            0.0
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Layer": "0",
+        "SubClasses": "AcDbEntity:AcDbLine",
+        "EntityHandle": "675"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            41.16691647459691,
+            14.66359972024826,
+            0.0
+          ],
+          [
+            41.16691647459691,
+            14.86359972024831,
+            0.0
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Layer": "0",
+        "SubClasses": "AcDbEntity:AcDbLine",
+        "EntityHandle": "676"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            40.36691647459673,
+            14.46359972024822,
+            0.0
+          ],
+          [
+            40.36691647459673,
+            14.66359972024826,
+            0.0
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Layer": "0",
+        "SubClasses": "AcDbEntity:AcDbLine",
+        "EntityHandle": "677"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            39.16691647459692,
+            14.46359972024822,
+            0.0
+          ],
+          [
+            39.16691647459692,
+            14.66359972024826,
+            0.0
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Layer": "0",
+        "SubClasses": "AcDbEntity:AcDbLine",
+        "EntityHandle": "678"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            40.36691647459673,
+            14.66359972024826,
+            0.0
+          ],
+          [
+            40.46691647459664,
+            14.66359972024826,
+            0.0
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Layer": "0",
+        "SubClasses": "AcDbEntity:AcDbLine",
+        "EntityHandle": "679"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            40.46691647459664,
+            14.66359972024826,
+            0.0
+          ],
+          [
+            40.46691647459664,
+            14.86359972024831,
+            0.0
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Layer": "0",
+        "SubClasses": "AcDbEntity:AcDbLine",
+        "EntityHandle": "67A"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            39.16691647459692,
+            14.66359972024826,
+            0.0
+          ],
+          [
+            39.06691647459701,
+            14.66359972024826,
+            0.0
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Layer": "0",
+        "SubClasses": "AcDbEntity:AcDbLine",
+        "EntityHandle": "67B"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            39.06691647459701,
+            14.66359972024826,
+            0.0
+          ],
+          [
+            39.06691647459701,
+            14.86359972024831,
+            0.0
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Layer": "0",
+        "SubClasses": "AcDbEntity:AcDbLine",
+        "EntityHandle": "67C"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            37.76691647460834,
+            14.46359972024503,
+            0.0
+          ],
+          [
+            37.76691647460834,
+            14.66359972024508,
+            0.0
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Layer": "0",
+        "SubClasses": "AcDbEntity:AcDbLine",
+        "EntityHandle": "67D"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            35.76691647460834,
+            14.46359972024611,
+            0.0
+          ],
+          [
+            35.76691647460834,
+            14.66359972024616,
+            0.0
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Layer": "0",
+        "SubClasses": "AcDbEntity:AcDbLine",
+        "EntityHandle": "67E"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            37.76691647460834,
+            14.66359972024508,
+            0.0
+          ],
+          [
+            37.86691647460825,
+            14.66359972024508,
+            0.0
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Layer": "0",
+        "SubClasses": "AcDbEntity:AcDbLine",
+        "EntityHandle": "67F"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            37.86691647460825,
+            14.66359972024508,
+            0.0
+          ],
+          [
+            37.86691647460825,
+            14.86359972024535,
+            0.0
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Layer": "0",
+        "SubClasses": "AcDbEntity:AcDbLine",
+        "EntityHandle": "680"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            35.76691647460834,
+            14.66359972024616,
+            0.0
+          ],
+          [
+            35.66691647460843,
+            14.66359972024616,
+            0.0
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Layer": "0",
+        "SubClasses": "AcDbEntity:AcDbLine",
+        "EntityHandle": "681"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            35.66691647460843,
+            14.66359972024616,
+            0.0
+          ],
+          [
+            35.66691647460843,
+            14.86359972024621,
+            0.0
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Layer": "0",
+        "SubClasses": "AcDbEntity:AcDbLine",
+        "EntityHandle": "682"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            34.56691647459698,
+            16.31359972024824,
+            0.0
+          ],
+          [
+            34.7669164745968,
+            16.31359972024824,
+            0.0
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Layer": "0",
+        "SubClasses": "AcDbEntity:AcDbLine",
+        "EntityHandle": "683"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            34.56691647459698,
+            17.81359972024824,
+            0.0
+          ],
+          [
+            34.7669164745968,
+            17.81359972024824,
+            0.0
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Layer": "0",
+        "SubClasses": "AcDbEntity:AcDbLine",
+        "EntityHandle": "684"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            34.7669164745968,
+            16.31359972024824,
+            0.0
+          ],
+          [
+            34.7669164745968,
+            16.21359972024833,
+            0.0
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Layer": "0",
+        "SubClasses": "AcDbEntity:AcDbLine",
+        "EntityHandle": "685"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            34.7669164745968,
+            16.21359972024833,
+            0.0
+          ],
+          [
+            34.96691647459753,
+            16.21359972024833,
+            0.0
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Layer": "0",
+        "SubClasses": "AcDbEntity:AcDbLine",
+        "EntityHandle": "686"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            34.7669164745968,
+            17.81359972024824,
+            0.0
+          ],
+          [
+            34.7669164745968,
+            17.91359972024815,
+            0.0
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Layer": "0",
+        "SubClasses": "AcDbEntity:AcDbLine",
+        "EntityHandle": "687"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            34.7669164745968,
+            17.91359972024815,
+            0.0
+          ],
+          [
+            34.96691647459753,
+            17.91359972024815,
+            0.0
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Layer": "0",
+        "SubClasses": "AcDbEntity:AcDbLine",
+        "EntityHandle": "688"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            34.56691647459744,
+            23.91359972024838,
+            0.0
+          ],
+          [
+            34.76691647459726,
+            23.91359972024838,
+            0.0
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Layer": "0",
+        "SubClasses": "AcDbEntity:AcDbLine",
+        "EntityHandle": "689"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            34.76691647459726,
+            23.91359972024838,
+            0.0
+          ],
+          [
+            34.76691647459726,
+            24.01359972024829,
+            0.0
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Layer": "0",
+        "SubClasses": "AcDbEntity:AcDbLine",
+        "EntityHandle": "68A"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            34.76691647459726,
+            24.01359972024829,
+            0.0
+          ],
+          [
+            34.96691647459707,
+            24.01359972024829,
+            0.0
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Layer": "0",
+        "SubClasses": "AcDbEntity:AcDbLine",
+        "EntityHandle": "68B"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            38.81691647459653,
+            19.61359972024819,
+            0.0
+          ],
+          [
+            38.81691647459653,
+            15.86359972024885,
+            0.0
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Layer": "0",
+        "SubClasses": "AcDbEntity:AcDbLine",
+        "EntityHandle": "68C"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            38.81691647459792,
+            15.06359972024881,
+            0.0
+          ],
+          [
+            38.81691647459746,
+            14.86359972024876,
+            0.0
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Layer": "0",
+        "SubClasses": "AcDbEntity:AcDbLine",
+        "EntityHandle": "68D"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            38.91691647459643,
+            19.61359972024797,
+            0.0
+          ],
+          [
+            38.91691647459643,
+            15.86359972024885,
+            0.0
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Layer": "0",
+        "SubClasses": "AcDbEntity:AcDbLine",
+        "EntityHandle": "68E"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            38.91691647459783,
+            15.06359972024881,
+            0.0
+          ],
+          [
+            38.91691647459737,
+            14.86359972024876,
+            0.0
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Layer": "0",
+        "SubClasses": "AcDbEntity:AcDbLine",
+        "EntityHandle": "68F"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            40.96691647459659,
+            14.86359972024837,
+            0.0
+          ],
+          [
+            40.96691647459661,
+            19.61359972024819,
+            0.0
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Layer": "0",
+        "SubClasses": "AcDbEntity:AcDbLine",
+        "EntityHandle": "690"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            40.8669164745967,
+            14.86359972024842,
+            0.0
+          ],
+          [
+            40.8669164745967,
+            16.1635997202486,
+            0.0
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Layer": "0",
+        "SubClasses": "AcDbEntity:AcDbLine",
+        "EntityHandle": "691"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            40.8669164745967,
+            16.2635997202486,
+            0.0
+          ],
+          [
+            40.8669164745967,
+            19.61359972024797,
+            0.0
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Layer": "0",
+        "SubClasses": "AcDbEntity:AcDbLine",
+        "EntityHandle": "692"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            42.66691647459686,
+            19.61359972024819,
+            0.0
+          ],
+          [
+            41.88866473913882,
+            19.613599720248,
+            0.0
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Layer": "0",
+        "SubClasses": "AcDbEntity:AcDbLine",
+        "EntityHandle": "693"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            41.08866473913863,
+            19.61359972024797,
+            0.0
+          ],
+          [
+            40.96691647459661,
+            19.61359972024819,
+            0.0
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Layer": "0",
+        "SubClasses": "AcDbEntity:AcDbLine",
+        "EntityHandle": "694"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            40.8669164745967,
+            19.61359972024797,
+            0.0
+          ],
+          [
+            38.91691647459643,
+            19.61359972024797,
+            0.0
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Layer": "0",
+        "SubClasses": "AcDbEntity:AcDbLine",
+        "EntityHandle": "695"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            42.66691647459687,
+            19.7135997202481,
+            0.0
+          ],
+          [
+            41.88866473913883,
+            19.7135997202481,
+            0.0
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Layer": "0",
+        "SubClasses": "AcDbEntity:AcDbLine",
+        "EntityHandle": "696"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            41.08866473913863,
+            19.7135997202481,
+            0.0
+          ],
+          [
+            39.11691647459671,
+            19.71359972024788,
+            0.0
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Layer": "0",
+        "SubClasses": "AcDbEntity:AcDbLine",
+        "EntityHandle": "697"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            38.81691647459746,
+            15.06359972024881,
+            0.0
+          ],
+          [
+            38.91691647459737,
+            15.06359972024881,
+            0.0
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Layer": "0",
+        "SubClasses": "AcDbEntity:AcDbLine",
+        "EntityHandle": "698"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            38.81691647459756,
+            15.86359972024885,
+            0.0
+          ],
+          [
+            38.91691647459747,
+            15.86359972024885,
+            0.0
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Layer": "0",
+        "SubClasses": "AcDbEntity:AcDbLine",
+        "EntityHandle": "699"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            39.94191647459705,
+            16.46359972024856,
+            0.0
+          ],
+          [
+            40.8669164745967,
+            16.46359972024856,
+            0.0
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Layer": "0",
+        "SubClasses": "AcDbEntity:AcDbLine",
+        "EntityHandle": "69A"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            39.94191647459705,
+            16.76359972024851,
+            0.0
+          ],
+          [
+            40.8669164745967,
+            16.76359972024851,
+            0.0
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Layer": "0",
+        "SubClasses": "AcDbEntity:AcDbLine",
+        "EntityHandle": "69B"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            39.94191647459705,
+            17.06359972024781,
+            0.0
+          ],
+          [
+            40.8669164745967,
+            17.06359972024847,
+            0.0
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Layer": "0",
+        "SubClasses": "AcDbEntity:AcDbLine",
+        "EntityHandle": "69C"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            39.94191647459704,
+            17.36359972024845,
+            0.0
+          ],
+          [
+            40.8669164745967,
+            17.36359972024871,
+            0.0
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Layer": "0",
+        "SubClasses": "AcDbEntity:AcDbLine",
+        "EntityHandle": "69D"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            40.37941647457865,
+            17.68642756730735,
+            0.0
+          ],
+          [
+            40.8669164745967,
+            17.68642756730718,
+            0.0
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Layer": "0",
+        "SubClasses": "AcDbEntity:AcDbLine",
+        "EntityHandle": "69E"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            38.91691647459735,
+            17.98642756730708,
+            0.0
+          ],
+          [
+            39.84191647459707,
+            17.98642756730731,
+            0.0
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Layer": "0",
+        "SubClasses": "AcDbEntity:AcDbLine",
+        "EntityHandle": "69F"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            39.94191647459704,
+            17.98642756730708,
+            0.0
+          ],
+          [
+            40.8669164745967,
+            17.98642756730708,
+            0.0
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Layer": "0",
+        "SubClasses": "AcDbEntity:AcDbLine",
+        "EntityHandle": "6A0"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            38.91691647459735,
+            18.28642756730704,
+            0.0
+          ],
+          [
+            39.84191647459707,
+            18.28642756730749,
+            0.0
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Layer": "0",
+        "SubClasses": "AcDbEntity:AcDbLine",
+        "EntityHandle": "6A1"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            39.94191647459702,
+            18.28642756730726,
+            0.0
+          ],
+          [
+            40.8669164745967,
+            18.28642756730704,
+            0.0
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Layer": "0",
+        "SubClasses": "AcDbEntity:AcDbLine",
+        "EntityHandle": "6A2"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            38.91691647459669,
+            18.58642756730648,
+            0.0
+          ],
+          [
+            39.84191647459703,
+            18.58642756730673,
+            0.0
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Layer": "0",
+        "SubClasses": "AcDbEntity:AcDbLine",
+        "EntityHandle": "6A3"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            39.94191647459702,
+            18.58642756730676,
+            0.0
+          ],
+          [
+            40.8669164745967,
+            18.58642756730699,
+            0.0
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Layer": "0",
+        "SubClasses": "AcDbEntity:AcDbLine",
+        "EntityHandle": "6A4"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            39.84191647459707,
+            16.1635997202486,
+            0.0
+          ],
+          [
+            39.84191647459704,
+            18.58642756730676,
+            0.0
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Layer": "0",
+        "SubClasses": "AcDbEntity:AcDbLine",
+        "EntityHandle": "6A5"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            39.94191647459707,
+            16.2635997202486,
+            0.0
+          ],
+          [
+            39.94191647459704,
+            18.58642756730676,
+            0.0
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Layer": "0",
+        "SubClasses": "AcDbEntity:AcDbLine",
+        "EntityHandle": "6A6"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            40.8669164745967,
+            17.47826875881099,
+            0.0
+          ],
+          [
+            39.94191647459705,
+            17.87323675440466,
+            0.0
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Layer": "0",
+        "SubClasses": "AcDbEntity:AcDbLine",
+        "EntityHandle": "6A7"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            34.56691647459698,
+            26.06359972024824,
+            0.0
+          ],
+          [
+            34.56691647459698,
+            27.26356311181302,
+            0.0
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Layer": "0",
+        "SubClasses": "AcDbEntity:AcDbLine",
+        "EntityHandle": "6A8"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            35.06691648356721,
+            26.06359972024824,
+            0.0
+          ],
+          [
+            35.06691648356724,
+            29.31359972024648,
+            0.0
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Layer": "0",
+        "SubClasses": "AcDbEntity:AcDbLine",
+        "EntityHandle": "6A9"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            36.31691647459698,
+            26.06359972024824,
+            0.0
+          ],
+          [
+            36.31691647459698,
+            25.86359972024843,
+            0.0
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Layer": "0",
+        "SubClasses": "AcDbEntity:AcDbLine",
+        "EntityHandle": "6AA"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            36.31691647459698,
+            25.86359972024843,
+            0.0
+          ],
+          [
+            36.21691647459707,
+            25.86359972024865,
+            0.0
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Layer": "0",
+        "SubClasses": "AcDbEntity:AcDbLine",
+        "EntityHandle": "6AB"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            36.21691647459707,
+            25.86359972024865,
+            0.0
+          ],
+          [
+            36.21691647459707,
+            25.66359972024838,
+            0.0
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Layer": "0",
+        "SubClasses": "AcDbEntity:AcDbLine",
+        "EntityHandle": "6AC"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            37.31691647459698,
+            26.06359972024824,
+            0.0
+          ],
+          [
+            37.31691647459698,
+            25.86359972024843,
+            0.0
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Layer": "0",
+        "SubClasses": "AcDbEntity:AcDbLine",
+        "EntityHandle": "6AD"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            37.31691647459698,
+            25.86359972024843,
+            0.0
+          ],
+          [
+            37.41691647459689,
+            25.8635997202482,
+            0.0
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Layer": "0",
+        "SubClasses": "AcDbEntity:AcDbLine",
+        "EntityHandle": "6AE"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            37.41691647459689,
+            25.8635997202482,
+            0.0
+          ],
+          [
+            37.41691647459689,
+            25.81359972024847,
+            0.0
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Layer": "0",
+        "SubClasses": "AcDbEntity:AcDbLine",
+        "EntityHandle": "6AF"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            37.41691647459689,
+            25.81359972024847,
+            0.0
+          ],
+          [
+            37.41691647459689,
+            25.66359972024838,
+            0.0
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Layer": "0",
+        "SubClasses": "AcDbEntity:AcDbLine",
+        "EntityHandle": "6B0"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            34.76691647459726,
+            24.01359972024829,
+            0.0
+          ],
+          [
+            34.76691647459726,
+            23.91359972024838,
+            0.0
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Layer": "0",
+        "SubClasses": "AcDbEntity:AcDbLine",
+        "EntityHandle": "6B1"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            41.08866473913863,
+            19.61359972024819,
+            0.0
+          ],
+          [
+            41.08866473913863,
+            19.7135997202481,
+            0.0
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Layer": "0",
+        "SubClasses": "AcDbEntity:AcDbLine",
+        "EntityHandle": "6B2"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            41.88866473913882,
+            19.613599720248,
+            0.0
+          ],
+          [
+            41.88866473913883,
+            19.7135997202481,
+            0.0
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Layer": "0",
+        "SubClasses": "AcDbEntity:AcDbLine",
+        "EntityHandle": "6B3"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            34.56691647459698,
+            22.41359972024861,
+            0.0
+          ],
+          [
+            34.7669164745968,
+            22.41359972024861,
+            0.0
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Layer": "0",
+        "SubClasses": "AcDbEntity:AcDbLine",
+        "EntityHandle": "6B4"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            34.7669164745968,
+            22.3135997202487,
+            0.0
+          ],
+          [
+            34.96691647459662,
+            22.3135997202487,
+            0.0
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Layer": "0",
+        "SubClasses": "AcDbEntity:AcDbLine",
+        "EntityHandle": "6B5"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            34.76691647459726,
+            22.41359972024861,
+            0.0
+          ],
+          [
+            34.76691647459726,
+            22.3135997202487,
+            0.0
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Layer": "0",
+        "SubClasses": "AcDbEntity:AcDbLine",
+        "EntityHandle": "6C6"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            40.37941647459888,
+            17.68642756730735,
+            0.0
+          ],
+          [
+            40.46319887655295,
+            18.03426468310493,
+            0.0
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Layer": "0",
+        "SubClasses": "AcDbEntity:AcDbLine",
+        "EntityHandle": "6C7"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            40.46319887655295,
+            18.03426468310493,
+            0.0
+          ],
+          [
+            40.37941647459933,
+            17.98591820703534,
+            0.0
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Layer": "0",
+        "SubClasses": "AcDbEntity:AcDbLine",
+        "EntityHandle": "6C8"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            40.37941647459888,
+            17.68642756730735,
+            0.0
+          ],
+          [
+            40.29563407264618,
+            18.03426468310538,
+            0.0
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Layer": "0",
+        "SubClasses": "AcDbEntity:AcDbLine",
+        "EntityHandle": "6C9"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            40.29563407264618,
+            18.03426468310538,
+            0.0
+          ],
+          [
+            40.37941647459933,
+            17.98591820703534,
+            0.0
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Layer": "0",
+        "SubClasses": "AcDbEntity:AcDbLine",
+        "EntityHandle": "6CA"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            40.37941647459979,
+            17.98591820703506,
+            0.0
+          ],
+          [
+            40.37941647459698,
+            19.09557592794817,
+            0.0
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Layer": "0",
+        "SubClasses": "AcDbEntity:AcDbLine",
+        "EntityHandle": "6CB"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            40.37941647459698,
+            19.09557592794817,
+            0.0
+          ],
+          [
+            39.42265866209348,
+            19.09557592794817,
+            0.0
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Layer": "0",
+        "SubClasses": "AcDbEntity:AcDbLine",
+        "EntityHandle": "6CC"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            39.42265866209348,
+            19.09557592794817,
+            0.0
+          ],
+          [
+            39.42265866209377,
+            17.96359972024844,
+            0.0
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Layer": "0",
+        "SubClasses": "AcDbEntity:AcDbLine",
+        "EntityHandle": "6CD"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            40.37715416372532,
+            16.2635997202486,
+            0.0
+          ],
+          [
+            40.46093656567939,
+            16.61143683604617,
+            0.0
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Layer": "0",
+        "SubClasses": "AcDbEntity:AcDbLine",
+        "EntityHandle": "6CE"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            40.46093656567939,
+            16.61143683604617,
+            0.0
+          ],
+          [
+            40.37715416372577,
+            16.56309035997659,
+            0.0
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Layer": "0",
+        "SubClasses": "AcDbEntity:AcDbLine",
+        "EntityHandle": "6CF"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            40.37715416372532,
+            16.2635997202486,
+            0.0
+          ],
+          [
+            40.29337176177262,
+            16.61143683604663,
+            0.0
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Layer": "0",
+        "SubClasses": "AcDbEntity:AcDbLine",
+        "EntityHandle": "6D0"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            40.29337176177262,
+            16.61143683604663,
+            0.0
+          ],
+          [
+            40.37715416372577,
+            16.56309035997659,
+            0.0
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Layer": "0",
+        "SubClasses": "AcDbEntity:AcDbLine",
+        "EntityHandle": "6D1"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            40.37941647459956,
+            16.56178489777962,
+            0.0
+          ],
+          [
+            40.37941647459601,
+            17.68642756729553,
+            0.0
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Layer": "0",
+        "SubClasses": "AcDbEntity:AcDbLine",
+        "EntityHandle": "6E1"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            38.84190167928756,
+            29.56359972024915,
+            0.0
+          ],
+          [
+            38.96691647459943,
+            29.56359972024915,
+            0.0
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Layer": "0",
+        "SubClasses": "AcDbEntity:AcDbLine",
+        "EntityHandle": "6E2"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            38.96690231473298,
+            29.31359972024761,
+            0.0
+          ],
+          [
+            38.96690231473298,
+            26.06359972024824,
+            0.0
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Layer": "0",
+        "SubClasses": "AcDbEntity:AcDbLine",
+        "EntityHandle": "6E4"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            35.06693063901449,
+            30.71359972024936,
+            0.0
+          ],
+          [
+            38.84190167928725,
+            30.71359972024902,
+            0.0
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Layer": "0",
+        "SubClasses": "AcDbEntity:AcDbLine",
+        "EntityHandle": "6E5"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            38.84190167928722,
+            30.71359972024902,
+            0.0
+          ],
+          [
+            38.84190167928753,
+            29.56359972024915,
+            0.0
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Layer": "0",
+        "SubClasses": "AcDbEntity:AcDbLine",
+        "EntityHandle": "6EA"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            35.06693063901451,
+            29.56360185295789,
+            0.0
+          ],
+          [
+            35.06693063901449,
+            30.71360185295776,
+            0.0
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Layer": "0",
+        "SubClasses": "AcDbEntity:AcDbLine",
+        "EntityHandle": "6EC"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            39.91691647624376,
+            26.06359972024574,
+            0.0
+          ],
+          [
+            39.91690818774896,
+            27.26356967364506,
+            0.0
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Layer": "0",
+        "SubClasses": "AcDbEntity:AcDbLine",
+        "EntityHandle": "6ED"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            38.96690231473298,
+            26.6635846969454,
+            0.0
+          ],
+          [
+            39.91691647624376,
+            26.06359972024569,
+            0.0
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Layer": "0",
+        "SubClasses": "AcDbEntity:AcDbLine",
+        "EntityHandle": "6EE"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            38.96690231473298,
+            26.6635846969454,
+            0.0
+          ],
+          [
+            39.91690818774899,
+            27.26356967364512,
+            0.0
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Layer": "0",
+        "SubClasses": "AcDbEntity:AcDbLine",
+        "EntityHandle": "6EF"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            36.2169164745965,
+            25.66359972086263,
+            0.0
+          ],
+          [
+            37.41691535525627,
+            25.66359972047018,
+            0.0
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Layer": "0",
+        "SubClasses": "AcDbEntity:AcDbLine",
+        "EntityHandle": "6F0"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            36.31691647459698,
+            26.06359972024847,
+            0.0
+          ],
+          [
+            37.31691647459698,
+            26.06359972135152,
+            0.0
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Layer": "0",
+        "SubClasses": "AcDbEntity:AcDbLine",
+        "EntityHandle": "6F1"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            36.31691647459641,
+            25.86472344501782,
+            0.0
+          ],
+          [
+            37.31691535525639,
+            25.86472344501811,
+            0.0
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Layer": "0",
+        "SubClasses": "AcDbEntity:AcDbLine",
+        "EntityHandle": "6F3"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            34.81691647908212,
+            26.06359972024824,
+            0.0
+          ],
+          [
+            34.81691647908212,
+            27.26356311181302,
+            0.0
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Layer": "0",
+        "SubClasses": "AcDbEntity:AcDbLine",
+        "EntityHandle": "6F4"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            35.06691648356724,
+            27.26356311181308,
+            0.0
+          ],
+          [
+            34.56691647459698,
+            27.26356311181302,
+            0.0
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Layer": "0",
+        "SubClasses": "AcDbEntity:AcDbLine",
+        "EntityHandle": "6F5"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            34.56691647459698,
+            27.26356311181302,
+            0.0
+          ],
+          [
+            33.56691647459917,
+            27.26356311181342,
+            0.0
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Layer": "0",
+        "SubClasses": "AcDbEntity:AcDbLine",
+        "EntityHandle": "6F6"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            34.5669164746,
+            13.26363632868349,
+            0.0
+          ],
+          [
+            34.5669164746,
+            14.46359972024827,
+            0.0
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Layer": "0",
+        "SubClasses": "AcDbEntity:AcDbLine",
+        "EntityHandle": "6F7"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            34.81691647908514,
+            13.26363632868349,
+            0.0
+          ],
+          [
+            34.81691647908514,
+            14.46359972024827,
+            0.0
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Layer": "0",
+        "SubClasses": "AcDbEntity:AcDbLine",
+        "EntityHandle": "6F8"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            34.56691647459527,
+            23.96359972024816,
+            0.0
+          ],
+          [
+            34.51691647459532,
+            23.96359972024816,
+            0.0
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Layer": "0",
+        "SubClasses": "AcDbEntity:AcDbLine",
+        "EntityHandle": "6F9"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            34.51691647459589,
+            22.36359972024729,
+            0.0
+          ],
+          [
+            34.51691647459532,
+            23.96359972024816,
+            0.0
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Layer": "0",
+        "SubClasses": "AcDbEntity:AcDbLine",
+        "EntityHandle": "6FA"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            34.56691647459698,
+            22.36359972024729,
+            0.0
+          ],
+          [
+            34.51691647459589,
+            22.36359972024729,
+            0.0
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Layer": "0",
+        "SubClasses": "AcDbEntity:AcDbLine",
+        "EntityHandle": "6FB"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            34.96691647459662,
+            22.3135997202487,
+            0.0
+          ],
+          [
+            34.96691647459602,
+            24.01359972024829,
+            0.0
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Layer": "0",
+        "SubClasses": "AcDbEntity:AcDbLine",
+        "EntityHandle": "6FC"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            34.76691647459726,
+            22.41359972024861,
+            0.0
+          ],
+          [
+            34.76691647459726,
+            23.91359972024838,
+            0.0
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Layer": "0",
+        "SubClasses": "AcDbEntity:AcDbLine",
+        "EntityHandle": "6FD"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            34.56691647459527,
+            17.86359972024802,
+            0.0
+          ],
+          [
+            34.51691647459532,
+            17.86359972024802,
+            0.0
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Layer": "0",
+        "SubClasses": "AcDbEntity:AcDbLine",
+        "EntityHandle": "6FE"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            34.51691647459589,
+            16.26359972024715,
+            0.0
+          ],
+          [
+            34.51691647459532,
+            17.86359972024802,
+            0.0
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Layer": "0",
+        "SubClasses": "AcDbEntity:AcDbLine",
+        "EntityHandle": "6FF"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            34.56691647459698,
+            16.26359972024715,
+            0.0
+          ],
+          [
+            34.51691647459589,
+            16.26359972024715,
+            0.0
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Layer": "0",
+        "SubClasses": "AcDbEntity:AcDbLine",
+        "EntityHandle": "700"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            34.96691647459662,
+            16.21359972024856,
+            0.0
+          ],
+          [
+            34.96691647459602,
+            17.91359972024815,
+            0.0
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Layer": "0",
+        "SubClasses": "AcDbEntity:AcDbLine",
+        "EntityHandle": "701"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            34.76691647459726,
+            16.31359972024847,
+            0.0
+          ],
+          [
+            34.76691647459726,
+            17.81359972024824,
+            0.0
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Layer": "0",
+        "SubClasses": "AcDbEntity:AcDbLine",
+        "EntityHandle": "702"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            37.81691647460923,
+            14.41359972024735,
+            0.0
+          ],
+          [
+            35.71691647455495,
+            14.41359972024661,
+            0.0
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Layer": "0",
+        "SubClasses": "AcDbEntity:AcDbLine",
+        "EntityHandle": "703"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            37.81691647460923,
+            14.46359972024844,
+            0.0
+          ],
+          [
+            37.81691647460923,
+            14.41359972024735,
+            0.0
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Layer": "0",
+        "SubClasses": "AcDbEntity:AcDbLine",
+        "EntityHandle": "704"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            35.66691647460843,
+            14.86359972024621,
+            0.0
+          ],
+          [
+            37.86691647460825,
+            14.86359972024535,
+            0.0
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Layer": "0",
+        "SubClasses": "AcDbEntity:AcDbLine",
+        "EntityHandle": "705"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            35.76691647460834,
+            14.66359972024616,
+            0.0
+          ],
+          [
+            37.76691647460834,
+            14.66359972024616,
+            0.0
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Layer": "0",
+        "SubClasses": "AcDbEntity:AcDbLine",
+        "EntityHandle": "706"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            35.71691647456083,
+            14.46359972037225,
+            0.0
+          ],
+          [
+            35.71691647455495,
+            14.41359972037116,
+            0.0
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Layer": "0",
+        "SubClasses": "AcDbEntity:AcDbLine",
+        "EntityHandle": "707"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            39.16691647459692,
+            14.66359972024826,
+            0.0
+          ],
+          [
+            40.36691647459673,
+            14.66359972024826,
+            0.0
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Layer": "0",
+        "SubClasses": "AcDbEntity:AcDbLine",
+        "EntityHandle": "708"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            39.06691647459701,
+            14.86359972024831,
+            0.0
+          ],
+          [
+            40.46691647459664,
+            14.86359972024876,
+            0.0
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Layer": "0",
+        "SubClasses": "AcDbEntity:AcDbLine",
+        "EntityHandle": "709"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            40.41691647459759,
+            14.41359972024712,
+            0.0
+          ],
+          [
+            39.1169164745435,
+            14.41359972040032,
+            0.0
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Layer": "0",
+        "SubClasses": "AcDbEntity:AcDbLine",
+        "EntityHandle": "70A"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            40.41691647459759,
+            14.46359972024822,
+            0.0
+          ],
+          [
+            40.41691647459759,
+            14.41359972024712,
+            0.0
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Layer": "0",
+        "SubClasses": "AcDbEntity:AcDbLine",
+        "EntityHandle": "70B"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            42.31691647459769,
+            14.41359972024735,
+            0.0
+          ],
+          [
+            41.21691647454341,
+            14.41359972012878,
+            0.0
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Layer": "0",
+        "SubClasses": "AcDbEntity:AcDbLine",
+        "EntityHandle": "70C"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            42.31691647459769,
+            14.46359972024844,
+            0.0
+          ],
+          [
+            42.31691647459769,
+            14.41359972024735,
+            0.0
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Layer": "0",
+        "SubClasses": "AcDbEntity:AcDbLine",
+        "EntityHandle": "70D"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            39.11691647454942,
+            14.46359972037458,
+            0.0
+          ],
+          [
+            39.11691647454353,
+            14.41359972037349,
+            0.0
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Layer": "0",
+        "SubClasses": "AcDbEntity:AcDbLine",
+        "EntityHandle": "70E"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            41.21691647454932,
+            14.46359972037225,
+            0.0
+          ],
+          [
+            41.21691647454343,
+            14.41359972037116,
+            0.0
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Layer": "0",
+        "SubClasses": "AcDbEntity:AcDbLine",
+        "EntityHandle": "70F"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            41.16691647459691,
+            14.86359972024831,
+            0.0
+          ],
+          [
+            42.36691647459673,
+            14.86359972024763,
+            0.0
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Layer": "0",
+        "SubClasses": "AcDbEntity:AcDbLine",
+        "EntityHandle": "710"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            41.26691647459682,
+            14.66359972024826,
+            0.0
+          ],
+          [
+            42.26691647459682,
+            14.66359972024826,
+            0.0
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Layer": "0",
+        "SubClasses": "AcDbEntity:AcDbLine",
+        "EntityHandle": "711"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            38.81691647459792,
+            15.86359972024885,
+            0.0
+          ],
+          [
+            38.81691647459792,
+            15.06359972024881,
+            0.0
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Layer": "0",
+        "SubClasses": "AcDbEntity:AcDbLine",
+        "EntityHandle": "712"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            38.91691647459643,
+            15.86359972024885,
+            0.0
+          ],
+          [
+            38.91691647459735,
+            15.06359972024881,
+            0.0
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Layer": "0",
+        "SubClasses": "AcDbEntity:AcDbLine",
+        "EntityHandle": "713"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            41.08866473913863,
+            19.7135997202481,
+            0.0
+          ],
+          [
+            41.88866473913927,
+            19.7135997202481,
+            0.0
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Layer": "0",
+        "SubClasses": "AcDbEntity:AcDbLine",
+        "EntityHandle": "714"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            41.88866473913856,
+            19.61359998121571,
+            0.0
+          ],
+          [
+            41.0886647391386,
+            19.61359970393746,
+            0.0
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Layer": "0",
+        "SubClasses": "AcDbEntity:AcDbLine",
+        "EntityHandle": "716"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            39.94191647459704,
+            17.66359972024869,
+            0.0
+          ],
+          [
+            40.43287842279897,
+            17.66359972024883,
+            0.0
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Layer": "0",
+        "SubClasses": "AcDbEntity:AcDbLine",
+        "EntityHandle": "8D4"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            39.84191647459704,
+            18.58642756730673,
+            0.0
+          ],
+          [
+            39.94191647459704,
+            18.58642756730676,
+            0.0
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Layer": "0",
+        "SubClasses": "AcDbEntity:AcDbLine",
+        "EntityHandle": "8D5"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            39.84191647459707,
+            16.1635997202486,
+            0.0
+          ],
+          [
+            39.97715416372513,
+            16.1635997202486,
+            0.0
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Layer": "0",
+        "SubClasses": "AcDbEntity:AcDbLine",
+        "EntityHandle": "8D6"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            40.77715416372533,
+            16.16359972024863,
+            0.0
+          ],
+          [
+            40.8669164745967,
+            16.16359972024863,
+            0.0
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Layer": "0",
+        "SubClasses": "AcDbEntity:AcDbLine",
+        "EntityHandle": "8D7"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            39.94191647459707,
+            16.2635997202486,
+            0.0
+          ],
+          [
+            39.97715416372513,
+            16.2635997202486,
+            0.0
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Layer": "0",
+        "SubClasses": "AcDbEntity:AcDbLine",
+        "EntityHandle": "8D8"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            40.77715416372533,
+            16.26359972024863,
+            0.0
+          ],
+          [
+            40.8669164745967,
+            16.2635997202486,
+            0.0
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Layer": "0",
+        "SubClasses": "AcDbEntity:AcDbLine",
+        "EntityHandle": "8D9"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            39.97715416372514,
+            16.16359972024869,
+            0.0
+          ],
+          [
+            39.97715416372514,
+            16.2635997202486,
+            0.0
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Layer": "0",
+        "SubClasses": "AcDbEntity:AcDbLine",
+        "EntityHandle": "8DA"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            40.77715416372533,
+            16.16359972024869,
+            0.0
+          ],
+          [
+            40.77715416372533,
+            16.2635997202486,
+            0.0
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Layer": "0",
+        "SubClasses": "AcDbEntity:AcDbLine",
+        "EntityHandle": "8DE"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            39.97715416372514,
+            16.2635997202486,
+            0.0
+          ],
+          [
+            40.77715416372533,
+            16.2635997202486,
+            0.0
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Layer": "0",
+        "SubClasses": "AcDbEntity:AcDbLine",
+        "EntityHandle": "8DF"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            39.97715416471658,
+            16.16359998121569,
+            0.0
+          ],
+          [
+            40.77715416372533,
+            16.16359972024818,
+            0.0
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Layer": "0",
+        "SubClasses": "AcDbEntity:AcDbLine",
+        "EntityHandle": "8F8"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            38.91691647460621,
+            17.38642756730765,
+            0.0
+          ],
+          [
+            39.84191647460594,
+            17.38642756730788,
+            0.0
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Layer": "0",
+        "SubClasses": "AcDbEntity:AcDbLine",
+        "EntityHandle": "8F9"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            38.91691647460621,
+            17.68642756730761,
+            0.0
+          ],
+          [
+            39.84191647460594,
+            17.68642756730806,
+            0.0
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Layer": "0",
+        "SubClasses": "AcDbEntity:AcDbLine",
+        "EntityHandle": "8FA"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            38.91691647460623,
+            17.07501364377798,
+            0.0
+          ],
+          [
+            39.84191647460595,
+            17.07501364377844,
+            0.0
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Layer": "0",
+        "SubClasses": "AcDbEntity:AcDbHatch",
+        "EntityHandle": "90D",
+        "Text": "SOLID"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              39.7669164745968,
+              13.71135045680739,
+              0.0
+            ],
+            [
+              39.63701266402913,
+              13.48635045680736,
+              0.0
+            ],
+            [
+              39.89682028516447,
+              13.48635045680736,
+              0.0
+            ],
+            [
+              39.7669164745968,
+              13.71135045680739,
+              0.0
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Layer": "0",
+        "SubClasses": "AcDbEntity:AcDbBlockReference",
+        "EntityHandle": "455D"
+      },
+      "geometry": {
+        "type": "MultiLineString",
+        "coordinates": [
+          [
+            [
+              41.08866500010595,
+              18.813599720249613,
+              0.0
+            ],
+            [
+              41.13866500010579,
+              18.81359973656008,
+              0.0
+            ],
+            [
+              41.13866473913822,
+              19.613599736560033,
+              0.0
+            ],
+            [
+              41.08866473913838,
+              19.613599720249567,
+              0.0
+            ],
+            [
+              41.08866500010595,
+              18.813599720249613,
+              0.0
+            ]
+          ],
+          [
+            [
+              41.08866498379541,
+              18.86359972024961,
+              0.0
+            ],
+            [
+              41.03866498379534,
+              18.86359970393913,
+              0.0
+            ]
+          ],
+          [
+            [
+              41.03866498379534,
+              18.86359970393913,
+              0.0
+            ],
+            [
+              41.03866495117438,
+              18.96359970393911,
+              0.0
+            ]
+          ],
+          [
+            [
+              41.05866497727118,
+              18.883599710463315,
+              0.0
+            ],
+            [
+              41.058664951174364,
+              18.9635997104633,
+              0.0
+            ]
+          ],
+          [
+            [
+              41.058664951174364,
+              18.9635997104633,
+              0.0
+            ],
+            [
+              41.03866495117438,
+              18.96359970393911,
+              0.0
+            ]
+          ],
+          [
+            [
+              41.05866497727118,
+              18.883599710463315,
+              0.0
+            ],
+            [
+              41.088664977271264,
+              18.883599720249606,
+              0.0
+            ]
+          ],
+          [
+            [
+              41.138664983795366,
+              18.863599736560076,
+              0.0
+            ],
+            [
+              41.188664983795434,
+              18.86359975287054,
+              0.0
+            ]
+          ],
+          [
+            [
+              41.188664983795434,
+              18.86359975287054,
+              0.0
+            ],
+            [
+              41.188664951174474,
+              18.963599752870522,
+              0.0
+            ]
+          ],
+          [
+            [
+              41.168664977271305,
+              18.88359974634635,
+              0.0
+            ],
+            [
+              41.16866495117449,
+              18.963599746346333,
+              0.0
+            ]
+          ],
+          [
+            [
+              41.16866495117449,
+              18.963599746346333,
+              0.0
+            ],
+            [
+              41.188664951174474,
+              18.963599752870522,
+              0.0
+            ]
+          ],
+          [
+            [
+              41.168664977271305,
+              18.88359974634635,
+              0.0
+            ],
+            [
+              41.13866497727122,
+              18.883599736560072,
+              0.0
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Layer": "0",
+        "SubClasses": "AcDbEntity:AcDbCircle:AcDbArc",
+        "Linetype": "TRATTEGGIATA",
+        "EntityHandle": "455E"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            41.88866473913867,
+            19.61359998121572,
+            0.0
+          ],
+          [
+            41.88856411286699,
+            19.56065383005502,
+            0.0
+          ],
+          [
+            41.88485054804479,
+            19.507837975572777,
+            0.0
+          ],
+          [
+            41.877541359025535,
+            19.45539866966338,
+            0.0
+          ],
+          [
+            41.866670624622486,
+            19.403580408577962,
+            0.0
+          ],
+          [
+            41.85228902921757,
+            19.352624792969987,
+            0.0
+          ],
+          [
+            41.83446362644738,
+            19.302769401441502,
+            0.0
+          ],
+          [
+            41.81327752656817,
+            19.254246682842,
+            0.0
+          ],
+          [
+            41.78882950895749,
+            19.207282872484594,
+            0.0
+          ],
+          [
+            41.7612335615591,
+            19.162096937332564,
+            0.0
+          ],
+          [
+            41.73061834941859,
+            19.11889955507426,
+            0.0
+          ],
+          [
+            41.697126614787514,
+            19.07789213184651,
+            0.0
+          ],
+          [
+            41.66091451159315,
+            19.0392658631862,
+            0.0
+          ],
+          [
+            41.62215087737677,
+            19.003200842588438,
+            0.0
+          ],
+          [
+            41.58101644609512,
+            18.969865221827547,
+            0.0
+          ],
+          [
+            41.53770300545528,
+            18.939414426955874,
+            0.0
+          ],
+          [
+            41.492412502711794,
+            18.91199043363577,
+            0.0
+          ],
+          [
+            41.44535610309543,
+            18.887721105183523,
+            0.0
+          ],
+          [
+            41.39675320526331,
+            18.866719596411567,
+            0.0
+          ],
+          [
+            41.346830418361144,
+            18.849083826048485,
+            0.0
+          ],
+          [
+            41.29582050546678,
+            18.834896020196716,
+            0.0
+          ],
+          [
+            41.24396129834126,
+            18.824222328956502,
+            0.0
+          ],
+          [
+            41.191494588547414,
+            18.817112518003583,
+            0.0
+          ],
+          [
+            41.13866500010591,
+            18.813599736558643,
+            0.0
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Layer": "0",
+        "SubClasses": "AcDbEntity:AcDbLine",
+        "EntityHandle": "455F"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            38.96690231473298,
+            29.31359972024761,
+            0.0
+          ],
+          [
+            38.7169010439313,
+            29.31359972024761,
+            0.0
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Layer": "0",
+        "SubClasses": "AcDbEntity:AcDbLine",
+        "EntityHandle": "4560"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            38.7169010439313,
+            29.31359972024761,
+            0.0
+          ],
+          [
+            38.7169010439313,
+            29.56359972025057,
+            0.0
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Layer": "0",
+        "SubClasses": "AcDbEntity:AcDbLine",
+        "EntityHandle": "4561"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            38.7169010439313,
+            29.56359972025057,
+            0.0
+          ],
+          [
+            38.96690231473298,
+            29.56359972025057,
+            0.0
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Layer": "0",
+        "SubClasses": "AcDbEntity:AcDbLine",
+        "EntityHandle": "4562"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            38.96690231473298,
+            29.56359972025057,
+            0.0
+          ],
+          [
+            38.96690231473298,
+            29.31359972024761,
+            0.0
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Layer": "0",
+        "SubClasses": "AcDbEntity:AcDbLine",
+        "EntityHandle": "4563"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            35.31691648805236,
+            29.31360185295403,
+            0.0
+          ],
+          [
+            35.06693063901451,
+            29.31360185295403,
+            0.0
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Layer": "0",
+        "SubClasses": "AcDbEntity:AcDbLine",
+        "EntityHandle": "4564"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            35.06693063901451,
+            29.31360185295403,
+            0.0
+          ],
+          [
+            35.06693063901451,
+            29.56360185295704,
+            0.0
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Layer": "0",
+        "SubClasses": "AcDbEntity:AcDbLine",
+        "EntityHandle": "4565"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            35.06693063901451,
+            29.56360185295704,
+            0.0
+          ],
+          [
+            35.31691648805236,
+            29.56360185295704,
+            0.0
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Layer": "0",
+        "SubClasses": "AcDbEntity:AcDbLine",
+        "EntityHandle": "4566"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            35.31691648805236,
+            29.56360185295704,
+            0.0
+          ],
+          [
+            35.31691648805236,
+            29.31360185295403,
+            0.0
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Layer": "0",
+        "SubClasses": "AcDbEntity:AcDbBlockReference",
+        "EntityHandle": "4585"
+      },
+      "geometry": {
+        "type": "MultiLineString",
+        "coordinates": [
+          [
+            [
+              40.77715390374908,
+              15.363599720248203,
+              0.0
+            ],
+            [
+              40.72715390374924,
+              15.363599736558669,
+              0.0
+            ],
+            [
+              40.727154164716694,
+              16.163599736558623,
+              0.0
+            ],
+            [
+              40.777154164716535,
+              16.163599720248158,
+              0.0
+            ],
+            [
+              40.77715390374908,
+              15.363599720248203,
+              0.0
+            ]
+          ],
+          [
+            [
+              40.777153920059504,
+              15.4135997202482,
+              0.0
+            ],
+            [
+              40.82715392005957,
+              15.413599703937734,
+              0.0
+            ]
+          ],
+          [
+            [
+              40.82715392005957,
+              15.413599703937734,
+              0.0
+            ],
+            [
+              40.82715395268053,
+              15.513599703937714,
+              0.0
+            ]
+          ],
+          [
+            [
+              40.80715392658374,
+              15.43359971046192,
+              0.0
+            ],
+            [
+              40.80715395268055,
+              15.513599710461904,
+              0.0
+            ]
+          ],
+          [
+            [
+              40.80715395268055,
+              15.513599710461904,
+              0.0
+            ],
+            [
+              40.82715395268053,
+              15.513599703937714,
+              0.0
+            ]
+          ],
+          [
+            [
+              40.80715392658374,
+              15.43359971046192,
+              0.0
+            ],
+            [
+              40.77715392658365,
+              15.433599720248196,
+              0.0
+            ]
+          ],
+          [
+            [
+              40.72715392005955,
+              15.413599736558666,
+              0.0
+            ],
+            [
+              40.67715392005948,
+              15.413599752869132,
+              0.0
+            ]
+          ],
+          [
+            [
+              40.67715392005948,
+              15.413599752869132,
+              0.0
+            ],
+            [
+              40.67715395268044,
+              15.513599752869112,
+              0.0
+            ]
+          ],
+          [
+            [
+              40.697153926583724,
+              15.433599746344939,
+              0.0
+            ],
+            [
+              40.697153952680424,
+              15.513599746344923,
+              0.0
+            ]
+          ],
+          [
+            [
+              40.697153952680424,
+              15.513599746344923,
+              0.0
+            ],
+            [
+              40.67715395268044,
+              15.513599752869112,
+              0.0
+            ]
+          ],
+          [
+            [
+              40.697153926583724,
+              15.433599746344939,
+              0.0
+            ],
+            [
+              40.727153926583696,
+              15.433599736558662,
+              0.0
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Layer": "0",
+        "SubClasses": "AcDbEntity:AcDbCircle:AcDbArc",
+        "Linetype": "TRATTEGGIATA",
+        "EntityHandle": "4586"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            40.72715390374912,
+            15.363599736558605,
+            0.0
+          ],
+          [
+            40.674324315307615,
+            15.367112518003545,
+            0.0
+          ],
+          [
+            40.62185760551377,
+            15.374222328956463,
+            0.0
+          ],
+          [
+            40.56999839838825,
+            15.384896020196678,
+            0.0
+          ],
+          [
+            40.518988485493885,
+            15.399083826048445,
+            0.0
+          ],
+          [
+            40.46906569859172,
+            15.416719596411527,
+            0.0
+          ],
+          [
+            40.4204628007596,
+            15.437721105183485,
+            0.0
+          ],
+          [
+            40.373406401143235,
+            15.46199043363573,
+            0.0
+          ],
+          [
+            40.32811589839975,
+            15.489414426955836,
+            0.0
+          ],
+          [
+            40.28480245775991,
+            15.51986522182751,
+            0.0
+          ],
+          [
+            40.24366802647826,
+            15.553200842588398,
+            0.0
+          ],
+          [
+            40.20490439226188,
+            15.58926586318616,
+            0.0
+          ],
+          [
+            40.168692289067515,
+            15.627892131846473,
+            0.0
+          ],
+          [
+            40.13520055443644,
+            15.668899555074223,
+            0.0
+          ],
+          [
+            40.10458534229593,
+            15.712096937332523,
+            0.0
+          ],
+          [
+            40.07698939489754,
+            15.757282872484556,
+            0.0
+          ],
+          [
+            40.05254137728686,
+            15.804246682841958,
+            0.0
+          ],
+          [
+            40.03135527740765,
+            15.852769401441462,
+            0.0
+          ],
+          [
+            40.013529874637456,
+            15.902624792969949,
+            0.0
+          ],
+          [
+            39.99914827923254,
+            15.953580408577922,
+            0.0
+          ],
+          [
+            39.988277544829494,
+            16.005398669663343,
+            0.0
+          ],
+          [
+            39.98096835581024,
+            16.05783797557274,
+            0.0
+          ],
+          [
+            39.97725479098804,
+            16.110653830054982,
+            0.0
+          ],
+          [
+            39.97715416471636,
+            16.163599981215683,
+            0.0
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Layer": "0",
+        "SubClasses": "AcDbEntity:AcDbBlockReference",
+        "EntityHandle": "4587"
+      },
+      "geometry": {
+        "type": "MultiLineString",
+        "coordinates": [
+          [
+            [
+              38.0169171140445,
+              15.06359998121286,
+              0.0
+            ],
+            [
+              38.0169171303548,
+              15.113599981212701,
+              0.0
+            ],
+            [
+              38.81691713035475,
+              15.113599720247976,
+              0.0
+            ],
+            [
+              38.81691711404446,
+              15.063599720248135,
+              0.0
+            ],
+            [
+              38.0169171140445,
+              15.06359998121286,
+              0.0
+            ]
+          ],
+          [
+            [
+              38.0669171140445,
+              15.063599964902664,
+              0.0
+            ],
+            [
+              38.066917097734205,
+              15.013599964902596,
+              0.0
+            ]
+          ],
+          [
+            [
+              38.066917097734205,
+              15.013599964902596,
+              0.0
+            ],
+            [
+              38.166917097734185,
+              15.013599932281977,
+              0.0
+            ]
+          ],
+          [
+            [
+              38.08691710425832,
+              15.033599958378431,
+              0.0
+            ],
+            [
+              38.1669171042583,
+              15.033599932281959,
+              0.0
+            ]
+          ],
+          [
+            [
+              38.1669171042583,
+              15.033599932281959,
+              0.0
+            ],
+            [
+              38.166917097734185,
+              15.013599932281977,
+              0.0
+            ]
+          ],
+          [
+            [
+              38.08691710425832,
+              15.033599958378431,
+              0.0
+            ],
+            [
+              38.086917114044496,
+              15.063599958378518,
+              0.0
+            ]
+          ],
+          [
+            [
+              38.066917130354796,
+              15.113599964902505,
+              0.0
+            ],
+            [
+              38.06691714666509,
+              15.163599964902573,
+              0.0
+            ]
+          ],
+          [
+            [
+              38.06691714666509,
+              15.163599964902573,
+              0.0
+            ],
+            [
+              38.16691714666507,
+              15.163599932282068,
+              0.0
+            ]
+          ],
+          [
+            [
+              38.08691714014097,
+              15.143599958378559,
+              0.0
+            ],
+            [
+              38.16691714014095,
+              15.143599932282086,
+              0.0
+            ]
+          ],
+          [
+            [
+              38.16691714014095,
+              15.143599932282086,
+              0.0
+            ],
+            [
+              38.16691714666507,
+              15.163599932282068,
+              0.0
+            ]
+          ],
+          [
+            [
+              38.08691714014097,
+              15.143599958378559,
+              0.0
+            ],
+            [
+              38.08691713035479,
+              15.113599958378472,
+              0.0
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Layer": "0",
+        "SubClasses": "AcDbEntity:AcDbCircle:AcDbArc",
+        "Linetype": "TRATTEGGIATA",
+        "EntityHandle": "4588"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            38.016917130354756,
+            15.113599981212907,
+            0.0
+          ],
+          [
+            38.02042991179952,
+            15.166429569654417,
+            0.0
+          ],
+          [
+            38.02753972275225,
+            15.218896279448288,
+            0.0
+          ],
+          [
+            38.03821341399229,
+            15.270755486573835,
+            0.0
+          ],
+          [
+            38.05240121984388,
+            15.321765399468248,
+            0.0
+          ],
+          [
+            38.070036990206795,
+            15.37168818637047,
+            0.0
+          ],
+          [
+            38.091038498978584,
+            15.420291084202661,
+            0.0
+          ],
+          [
+            38.11530782743066,
+            15.467347483819111,
+            0.0
+          ],
+          [
+            38.14273182075061,
+            15.512637986562682,
+            0.0
+          ],
+          [
+            38.17318261562214,
+            15.555951427202631,
+            0.0
+          ],
+          [
+            38.206518236382884,
+            15.597085858484391,
+            0.0
+          ],
+          [
+            38.24258325698051,
+            15.635849492700894,
+            0.0
+          ],
+          [
+            38.2812095256407,
+            15.672061595895395,
+            0.0
+          ],
+          [
+            38.32221694886833,
+            15.70555333052661,
+            0.0
+          ],
+          [
+            38.36541433112652,
+            15.736168542667269,
+            0.0
+          ],
+          [
+            38.41060026627846,
+            15.763764490065812,
+            0.0
+          ],
+          [
+            38.45756407663578,
+            15.788212507676656,
+            0.0
+          ],
+          [
+            38.5060867952352,
+            15.80939860755603,
+            0.0
+          ],
+          [
+            38.55594218676362,
+            15.827224010326391,
+            0.0
+          ],
+          [
+            38.60689780237154,
+            15.841605605731484,
+            0.0
+          ],
+          [
+            38.65871606345692,
+            15.85247634013471,
+            0.0
+          ],
+          [
+            38.71115536936629,
+            15.859785529154149,
+            0.0
+          ],
+          [
+            38.76397122384852,
+            15.863499093976527,
+            0.0
+          ],
+          [
+            38.81691737500922,
+            15.863599720248393,
+            0.0
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Layer": "0",
+        "SubClasses": "AcDbEntity:AcDbLine",
+        "EntityHandle": "4589"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            39.7669164745968,
+            13.71135045680739,
+            0.0
+          ],
+          [
+            39.63701266402913,
+            13.48635045680736,
+            0.0
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Layer": "0",
+        "SubClasses": "AcDbEntity:AcDbLine",
+        "EntityHandle": "458A"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            39.63701266402913,
+            13.48635045680736,
+            0.0
+          ],
+          [
+            39.89682028516447,
+            13.48635045680736,
+            0.0
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Layer": "0",
+        "SubClasses": "AcDbEntity:AcDbLine",
+        "EntityHandle": "458B"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            39.89682028516447,
+            13.48635045680736,
+            0.0
+          ],
+          [
+            39.7669164745968,
+            13.71135045680739,
+            0.0
+          ]
+        ]
+      }
+    }
+  ]
+}

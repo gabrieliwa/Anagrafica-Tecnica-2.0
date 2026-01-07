@@ -46,7 +46,7 @@ public final class APIClient {
         guard var components = URLComponents(url: config.baseURL, resolvingAgainstBaseURL: false) else {
             throw APIError.invalidURL
         }
-        components.path = components.path.appendingPathComponent(endpoint.path)
+        components.path = joinedPath(basePath: components.path, endpointPath: endpoint.path)
         if !endpoint.queryItems.isEmpty {
             components.queryItems = endpoint.queryItems
         }
@@ -65,5 +65,15 @@ public final class APIClient {
         }
 
         return request
+    }
+
+    private func joinedPath(basePath: String, endpointPath: String) -> String {
+        let trimmedBase = basePath.trimmingCharacters(in: CharacterSet(charactersIn: "/"))
+        let trimmedEndpoint = endpointPath.trimmingCharacters(in: CharacterSet(charactersIn: "/"))
+        let parts = [trimmedBase, trimmedEndpoint].filter { !$0.isEmpty }
+        guard !parts.isEmpty else {
+            return ""
+        }
+        return "/" + parts.joined(separator: "/")
     }
 }

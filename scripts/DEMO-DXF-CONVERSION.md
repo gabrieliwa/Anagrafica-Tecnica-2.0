@@ -1,6 +1,6 @@
-# Demo DXF Conversion (Vector Tiles + Tappable Rooms)
+# Demo DXF Conversion (GeoJSON + Tappable Rooms)
 
-This guide explains how to convert a DXF floorplan into vector tiles and a `plan_template.json` file for the demo project.
+This guide explains how to convert a DXF floorplan into per-level GeoJSON and a `plan_template.json` file for the demo project.
 
 ## Requirements
 
@@ -21,7 +21,6 @@ Room labels (optional):
 
 Install these tools:
 - GDAL (`ogr2ogr`, `ogrinfo`)
-- tippecanoe
 - python3
 - mapshaper (optional but recommended for cleanup)
 
@@ -37,14 +36,6 @@ From the repo root:
 bash scripts/dxf_to_vector_tiles.sh "anagrafica tecnica app/demo_plans.dxf" "anagrafica tecnica app/demo_plan_output"
 ```
 
-Optional environment overrides:
-```bash
-MIN_ZOOM=14 MAX_ZOOM=16 TILE_SIZE=512 EXTENT=4096 \
-bash scripts/dxf_to_vector_tiles.sh input.dxf output_dir
-```
-
-For demos, keep `MAX_ZOOM` at 16 (or lower) to avoid generating multi-gigabyte tile sets.
-
 ## Output
 
 ```
@@ -55,14 +46,13 @@ demo_plan_output/
       background.geojson
       rooms.geojson
       north.json
-      tiles/{z}/{x}/{y}.pbf
     L1/
       ...
   _work/                 # intermediate GeoJSON
 ```
 
 `plan_template.json` contains:
-- Levels with `background.vector_tiles` pointing to tiles
+- Levels with `background.geojson` pointing to per-level GeoJSON
 - Tappable room polygons with room number and name
 - Per-level north vectors and bounds
 
@@ -70,27 +60,29 @@ demo_plan_output/
 
 Required files for the app:
 - `plan_template.json`
-- `levels/<LEVEL_ID>/tiles/{z}/{x}/{y}.pbf` (vector tiles)
+- `levels/<LEVEL_ID>/background.geojson`
+- `levels/<LEVEL_ID>/rooms.geojson`
+- `levels/<LEVEL_ID>/north.json`
 
 Optional (debug only):
-- `levels/<LEVEL_ID>/rooms.geojson`, `background.geojson`, `north.json`
 - `_work/` folder
 
 Where to place them (so the app can load them as bundled demo data):
 1. Create this folder in the app target if it doesn't exist:
-   `anagrafica tecnica app/AnagraficaTecnica/AnagraficaTecnica/Resources/DemoPlan`
+   `anagrafica tecnica app/AnagraficaTecnica/AnagraficaTecnica/Resources/DemoPlan.bundle`
 2. Copy into it:
    - `plan_template.json`
-   - the full `levels/` directory (keep the tile folder structure intact)
-3. In Xcode, add `Resources/DemoPlan` as a **folder reference** to preserve the tiles subfolders.
+   - the full `levels/` directory
+3. Xcode treats `.bundle` as a package and will include it as a single resource, preserving subfolders and avoiding duplicate file names.
+   If `DemoPlan.bundle` does not appear in **Copy Bundle Resources**, add it there.
 
 Example final layout:
 ```
-anagrafica tecnica app/AnagraficaTecnica/AnagraficaTecnica/Resources/DemoPlan/
+anagrafica tecnica app/AnagraficaTecnica/AnagraficaTecnica/Resources/DemoPlan.bundle/
   plan_template.json
   levels/
-    L0/tiles/{z}/{x}/{y}.pbf
-    L1/tiles/{z}/{x}/{y}.pbf
+    L0/background.geojson
+    L1/background.geojson
 ```
 
 ## Troubleshooting
@@ -99,9 +91,9 @@ anagrafica tecnica app/AnagraficaTecnica/AnagraficaTecnica/Resources/DemoPlan/
 - **Level layer mismatch**: The script also accepts `2_LEVELS` if your file uses that name, but `2_LEVEL` is the required standard.
 - **Room names missing**: Room labels are optional. If none are provided, the script assigns default names.
 - **Room not assigned to a level**: Room polygon must be fully inside a level boundary.
-- **No tiles generated**: Check that `tippecanoe` is installed and that background features exist on layer `0`.
+- **Empty background**: Ensure layer `0` has linework and is not on a frozen/hidden layer.
 
 ## Notes
 
-- The script assumes plan-space coordinates and uses those directly for tiles.
+- The script assumes plan-space coordinates and uses those directly for GeoJSON.
 - Use `plan_template.json` as the plan section in your demo project template file (see `anagrafica tecnica app/DEMO-PROJECT-TEMPLATE-GUIDE.md`).

@@ -1,6 +1,6 @@
 # Progress Checklist
 
-Last updated: 2026-01-06
+Last updated: 2026-01-07
 
 Update rule: keep this checklist current whenever milestones change.
 
@@ -12,6 +12,7 @@ Update rule: keep this checklist current whenever milestones change.
 - [x] Module folders created under `Packages/`
 - [x] Legacy phase folders removed
 - [x] Documentation consolidated into `README.md` + `mobile-ui-specs.md`
+- [x] DemoPlan.bundle added to app resources (plan template + levels + schema)
 
 ## Phase 1 - Foundation (Core)
 
@@ -24,6 +25,7 @@ Update rule: keep this checklist current whenever milestones change.
 - [x] Networking layer skeleton (API client + endpoints)
 - [ ] Core services (validation, ID generation, photo naming, coordinates)
 - [ ] Local file cache (photos + tiles)
+- [ ] Demo data loader (bundle -> Core Data seed)
 
 ## Phase 2 - Core UI (DesignSystem + Features)
 

@@ -9,9 +9,11 @@ Usage:
 Example:
   bash scripts/dxf_to_vector_tiles.sh "anagrafica tecnica app/demo_plans.dxf" "anagrafica tecnica app/demo_plan_output"
 
+Note:
+  This script outputs GeoJSON-only demo data (no tiles). The name is legacy.
+
 Dependencies:
   - ogr2ogr, ogrinfo (GDAL)
-  - tippecanoe
   - python3
   - mapshaper (optional, used for geometry cleanup)
 USAGE
@@ -39,18 +41,12 @@ require_cmd() {
 
 require_cmd ogr2ogr
 require_cmd ogrinfo
-require_cmd tippecanoe
 require_cmd python3
 
 HAS_MAPSHAPER=0
 if command -v mapshaper >/dev/null 2>&1; then
   HAS_MAPSHAPER=1
 fi
-
-MIN_ZOOM="${MIN_ZOOM:-14}"
-MAX_ZOOM="${MAX_ZOOM:-16}"
-TILE_SIZE="${TILE_SIZE:-512}"
-EXTENT="${EXTENT:-4096}"
 
 WORK_DIR="$OUT_DIR/_work"
 mkdir -p "$WORK_DIR"
@@ -137,10 +133,6 @@ export LEVELS_GEOJSON="$WORK_DIR/levels_clean.geojson"
 export NORTH_GEOJSON="$WORK_DIR/north_clean.geojson"
 export BACKGROUND_GEOJSON="$WORK_DIR/background_clean.geojson"
 export OUT_DIR
-export MIN_ZOOM
-export MAX_ZOOM
-export TILE_SIZE
-export EXTENT
 
 echo "Building plan_template.json and per-level GeoJSON..."
 python3 - <<'PY'
@@ -154,10 +146,6 @@ levels_path = os.environ["LEVELS_GEOJSON"]
 north_path = os.environ["NORTH_GEOJSON"]
 background_path = os.environ["BACKGROUND_GEOJSON"]
 out_dir = os.environ["OUT_DIR"]
-min_zoom = int(os.environ["MIN_ZOOM"])
-max_zoom = int(os.environ["MAX_ZOOM"])
-tile_size = int(os.environ["TILE_SIZE"])
-extent = int(os.environ["EXTENT"])
 
 LABEL_KEYS = ("Text", "TEXT", "text", "Label", "label", "Name", "name", "STRING", "String", "string")
 
@@ -334,6 +322,54 @@ def centroid_of_polygon(coords):
 def strip_z_ring(ring):
     return [[pt[0], pt[1]] for pt in ring]
 
+def ring_area(ring):
+    if len(ring) < 3:
+        return 0.0
+    area = 0.0
+    for i in range(len(ring)):
+        x1, y1 = ring[i][0], ring[i][1]
+        x2, y2 = ring[(i + 1) % len(ring)][0], ring[(i + 1) % len(ring)][1]
+        area += x1 * y2 - x2 * y1
+    return area / 2.0
+
+def orient_ring(ring, clockwise):
+    if not ring:
+        return ring
+    area = ring_area(ring)
+    if area == 0.0:
+        return ring
+    is_cw = area < 0.0
+    if is_cw != clockwise:
+        return list(reversed(ring))
+    return ring
+
+def orient_polygon_coords(coords):
+    if not coords:
+        return coords
+    outer = orient_ring(coords[0], clockwise=False)
+    holes = [orient_ring(hole, clockwise=True) for hole in coords[1:]]
+    return [outer] + holes
+
+def normalize_polygon_geometry(geom):
+    gtype = geom.get("type")
+    coords = geom.get("coordinates")
+    if gtype == "Polygon":
+        return {"type": "Polygon", "coordinates": orient_polygon_coords(coords)}
+    if gtype == "MultiPolygon":
+        return {"type": "MultiPolygon", "coordinates": [orient_polygon_coords(poly) for poly in coords]}
+    return geom
+
+def normalize_polygon_feature(feature):
+    geom = feature.get("geometry") or {}
+    if geom.get("type") not in ("Polygon", "MultiPolygon"):
+        return feature
+    normalized = normalize_polygon_geometry(geom)
+    if normalized is geom:
+        return feature
+    updated = dict(feature)
+    updated["geometry"] = normalized
+    return updated
+
 rooms_raw = load_geojson(rooms_path)
 levels_raw = load_geojson(levels_path)
 north_raw = load_geojson(north_path)
@@ -343,7 +379,7 @@ room_polys = []
 for f in rooms_raw["features"]:
     poly = feature_as_polygon(f)
     if poly:
-        room_polys.append(poly)
+        room_polys.append(normalize_polygon_feature(poly))
 room_label_points = []
 for f in rooms_raw["features"]:
     if geom_type(f) in ("Point", "MultiPoint"):
@@ -356,7 +392,7 @@ level_polys = []
 for f in levels_raw["features"]:
     poly = feature_as_polygon(f)
     if poly:
-        level_polys.append(poly)
+        level_polys.append(normalize_polygon_feature(poly))
 level_label_points = []
 for f in levels_raw["features"]:
     if geom_type(f) in ("Point", "MultiPoint"):
@@ -435,7 +471,7 @@ for feature in background_lines:
         continue
     level = find_level_for_point(pt)
     if level:
-        level["background"].append(feature)
+        level["background"].append(normalize_polygon_feature(feature))
 
 used_indexes = set()
 for level in levels:
@@ -524,14 +560,8 @@ for level in levels:
         "index": level["index"],
         "name": level["name"],
         "background": {
-            "vector_tiles": {
-                "tiles": f"levels/{level['id']}/tiles/{{z}}/{{x}}/{{y}}.pbf",
-                "min_zoom": min_zoom,
-                "max_zoom": max_zoom,
-                "tile_size": tile_size,
-                "extent": extent,
-                "bounds": level["bounds"],
-            }
+            "geojson": f"levels/{level['id']}/background.geojson",
+            "bounds": level["bounds"],
         },
         "north": level["north"],
         "rooms": rooms_out,
@@ -539,16 +569,6 @@ for level in levels:
 
 save_json(os.path.join(out_dir, "plan_template.json"), plan)
 PY
-
-echo "Generating vector tiles..."
-for bg in "$OUT_DIR"/levels/*/background.geojson; do
-  level_dir=$(dirname "$bg")
-  tiles_dir="$level_dir/tiles"
-  mkdir -p "$tiles_dir"
-  tippecanoe --force -e "$tiles_dir" -Z "$MIN_ZOOM" -z "$MAX_ZOOM" \
-    --no-tile-size-limit --no-feature-limit \
-    --layer=background "$bg"
-done
 
 echo "Done."
 echo "Plan template: $OUT_DIR/plan_template.json"
