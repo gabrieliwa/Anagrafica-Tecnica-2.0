@@ -28,6 +28,7 @@ Update rule: keep this checklist current whenever milestones change.
 - [x] Core services: photo naming
 - [x] Local file cache (photos + tiles)
 - [x] Demo data loader (bundle -> Core Data seed)
+- [x] App launch wires Core Data + demo seeder
 
 ## Phase 2 - Core UI (DesignSystem + Features)
 
