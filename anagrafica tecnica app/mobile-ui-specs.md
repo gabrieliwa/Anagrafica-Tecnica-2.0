@@ -70,10 +70,13 @@
 - Rooms with assets or room notes show a light blue fill with a count badge (assets + room notes)
   - Empty rooms show a halftone gray fill with a (+) button inside
   - Room names and numbers are visible on the floorplan
+  - Room badges (+ and counts) keep a constant on-screen size when zooming
 - Interactions:
   - Tap room with assets or room notes: open Room View
   - Tap empty room: open Add Asset Wizard
   - Operator can freely zoom and pan in this view
+  - Zoom out is limited to the full-plan fit; zoom in is limited to the smallest room size
+  - Zoom is centered on the view (not the top-left)
 
 ### Exit Pop-up (Before Exiting)
 

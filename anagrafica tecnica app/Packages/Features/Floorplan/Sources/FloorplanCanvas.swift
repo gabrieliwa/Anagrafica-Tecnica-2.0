@@ -18,15 +18,20 @@ struct FloorplanCanvas: View {
             let size = proxy.size
             if let bounds {
                 let transform = FloorplanTransform(bounds: bounds, size: size)
+                let zoomBounds = zoomLimits(for: rooms, transform: transform, canvasSize: size)
+                let viewCenter = CGPoint(x: size.width * 0.5, y: size.height * 0.5)
                 Canvas { context, canvasSize in
                     let localTransform = FloorplanTransform(bounds: bounds, size: canvasSize)
+                    let canvasCenter = CGPoint(x: canvasSize.width * 0.5, y: canvasSize.height * 0.5)
+                    context.translateBy(x: panOffset.width, y: panOffset.height)
+                    context.translateBy(x: canvasCenter.x, y: canvasCenter.y)
+                    context.scaleBy(x: zoomScale, y: zoomScale)
+                    context.translateBy(x: -canvasCenter.x, y: -canvasCenter.y)
                     drawLinework(lines: linework, transform: localTransform, context: &context)
-                    drawRooms(rooms: rooms, transform: localTransform, context: &context)
+                    drawRooms(rooms: rooms, transform: localTransform, zoomScale: zoomScale, context: &context)
                 }
-                .scaleEffect(zoomScale, anchor: .topLeading)
-                .offset(panOffset)
-                .gesture(dragGesture(transform: transform))
-                .simultaneousGesture(magnificationGesture)
+                .contentShape(Rectangle())
+                .gesture(combinedGesture(transform: transform, zoomBounds: zoomBounds, center: viewCenter))
                 .frame(width: size.width, height: size.height)
             } else {
                 Text("No floorplan bounds")
@@ -37,17 +42,22 @@ struct FloorplanCanvas: View {
         }
     }
 
-    private var magnificationGesture: some Gesture {
+    private func magnificationGesture(zoomBounds: ZoomBounds) -> some Gesture {
         MagnificationGesture()
             .onChanged { value in
-                zoomScale = clamp(lastScale * value, min: 0.5, max: 5.0)
+                zoomScale = clamp(lastScale * value, min: zoomBounds.min, max: zoomBounds.max)
             }
             .onEnded { _ in
                 lastScale = zoomScale
             }
     }
 
-    private func dragGesture(transform: FloorplanTransform) -> some Gesture {
+    private func combinedGesture(transform: FloorplanTransform, zoomBounds: ZoomBounds, center: CGPoint) -> some Gesture {
+        dragGesture(transform: transform, center: center)
+            .simultaneously(with: magnificationGesture(zoomBounds: zoomBounds))
+    }
+
+    private func dragGesture(transform: FloorplanTransform, center: CGPoint) -> some Gesture {
         DragGesture(minimumDistance: 0)
             .onChanged { value in
                 panOffset = CGSize(
@@ -60,7 +70,7 @@ struct FloorplanCanvas: View {
                 let isTap = abs(translation.width) < 4 && abs(translation.height) < 4
                 if isTap {
                     panOffset = lastOffset
-                    handleTap(location: value.location, transform: transform)
+                    handleTap(location: value.location, transform: transform, center: center)
                 } else {
                     lastOffset = panOffset
                 }
@@ -90,8 +100,17 @@ struct FloorplanCanvas: View {
     private func drawRooms(
         rooms: [FloorplanRoom],
         transform: FloorplanTransform,
+        zoomScale: CGFloat,
         context: inout GraphicsContext
     ) {
+        let iconScale = max(zoomScale, 0.0001)
+        let iconDiameter: CGFloat = 24 / iconScale
+        let iconRadius = iconDiameter * 0.5
+        let iconStroke: CGFloat = 1.5 / iconScale
+        let plusLength: CGFloat = 12 / iconScale
+        let plusHalf = plusLength * 0.5
+        let plusThickness: CGFloat = 1.5 / iconScale
+
         for room in rooms {
             guard let first = room.polygon.first else { continue }
             var roomPath = Path()
@@ -106,23 +125,85 @@ struct FloorplanCanvas: View {
 
             if let label = room.labelPoint {
                 let labelPoint = transform.point(label)
-                let iconPath = Path(ellipseIn: CGRect(x: labelPoint.x - 12, y: labelPoint.y - 12, width: 24, height: 24))
-                context.stroke(iconPath, with: .color(AppColors.roomEmptyIcon), lineWidth: 1.5)
-                context.stroke(Path(CGRect(x: labelPoint.x - 6, y: labelPoint.y - 0.75, width: 12, height: 1.5)), with: .color(AppColors.roomEmptyIcon), lineWidth: 1.5)
-                context.stroke(Path(CGRect(x: labelPoint.x - 0.75, y: labelPoint.y - 6, width: 1.5, height: 12)), with: .color(AppColors.roomEmptyIcon), lineWidth: 1.5)
+                let iconPath = Path(ellipseIn: CGRect(x: labelPoint.x - iconRadius, y: labelPoint.y - iconRadius, width: iconDiameter, height: iconDiameter))
+                context.stroke(iconPath, with: .color(AppColors.roomEmptyIcon), lineWidth: iconStroke)
+                context.fill(
+                    Path(
+                        CGRect(
+                            x: labelPoint.x - plusHalf,
+                            y: labelPoint.y - plusThickness * 0.5,
+                            width: plusLength,
+                            height: plusThickness
+                        )
+                    ),
+                    with: .color(AppColors.roomEmptyIcon)
+                )
+                context.fill(
+                    Path(
+                        CGRect(
+                            x: labelPoint.x - plusThickness * 0.5,
+                            y: labelPoint.y - plusHalf,
+                            width: plusThickness,
+                            height: plusLength
+                        )
+                    ),
+                    with: .color(AppColors.roomEmptyIcon)
+                )
             }
         }
     }
 
-    private func handleTap(location: CGPoint, transform: FloorplanTransform) {
+    private func handleTap(location: CGPoint, transform: FloorplanTransform, center: CGPoint) {
         let adjusted = CGPoint(
-            x: (location.x - panOffset.width) / max(zoomScale, 0.0001),
-            y: (location.y - panOffset.height) / max(zoomScale, 0.0001)
+            x: (location.x - panOffset.width - center.x) / max(zoomScale, 0.0001) + center.x,
+            y: (location.y - panOffset.height - center.y) / max(zoomScale, 0.0001) + center.y
         )
         let planPoint = transform.planPoint(from: adjusted)
         if let room = rooms.first(where: { GeometryUtils.contains(point: planPoint, in: $0.polygon) }) {
             onRoomTapped(room)
         }
+    }
+
+    private struct ZoomBounds {
+        let min: CGFloat
+        let max: CGFloat
+    }
+
+    private func zoomLimits(
+        for rooms: [FloorplanRoom],
+        transform: FloorplanTransform,
+        canvasSize: CGSize
+    ) -> ZoomBounds {
+        let minZoom: CGFloat = 1.0
+        var smallestBounds: Rect?
+        var smallestArea: Double = .infinity
+
+        for room in rooms {
+            guard let bounds = GeometryUtils.bounds(for: room.polygon) else { continue }
+            let width = bounds.maxX - bounds.minX
+            let height = bounds.maxY - bounds.minY
+            guard width > 0, height > 0 else { continue }
+            let area = width * height
+            if area < smallestArea {
+                smallestArea = area
+                smallestBounds = bounds
+            }
+        }
+
+        guard let bounds = smallestBounds else {
+            return ZoomBounds(min: minZoom, max: 5.0)
+        }
+
+        let roomWidth = CGFloat(bounds.maxX - bounds.minX) * transform.scale
+        let roomHeight = CGFloat(bounds.maxY - bounds.minY) * transform.scale
+        guard roomWidth > 0, roomHeight > 0 else {
+            return ZoomBounds(min: minZoom, max: 5.0)
+        }
+
+        let maxZoomX = canvasSize.width / roomWidth
+        let maxZoomY = canvasSize.height / roomHeight
+        let maxZoom = max(minZoom, min(maxZoomX, maxZoomY))
+        return ZoomBounds(min: minZoom, max: maxZoom)
     }
 }
 
