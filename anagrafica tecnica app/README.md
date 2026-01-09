@@ -131,6 +131,7 @@ Setup:
 ## Demo Project (Bundled)
 
 The app ships with a local demo project for offline testing before the backend is wired.
+Planned: seed two demo projects (Open + Completed) once read-only mode is implemented.
 
 Bundle path:
 `AnagraficaTecnica/AnagraficaTecnica/Resources/DemoPlan.bundle`

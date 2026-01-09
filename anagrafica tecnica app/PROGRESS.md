@@ -13,6 +13,7 @@ Update rule: keep this checklist current whenever milestones change.
 - [x] Legacy phase folders removed
 - [x] Documentation consolidated into `README.md` + `mobile-ui-specs.md`
 - [x] DemoPlan.bundle added to app resources (plan template + levels + schema)
+- [ ] Add second demo project (Completed) for read-only testing once sync is implemented
 
 ## Phase 1 - Foundation (Core)
 
@@ -36,16 +37,15 @@ Update rule: keep this checklist current whenever milestones change.
 - [x] Projects list view skeleton
 - [x] Floorplan renderer spike (demo GeoJSON + pan/zoom)
 - [x] Level picker UI (bottom-right, drop-up)
-- [x] Read-only UI styling (badge/indicator)
-- [ ] Read-only halftone styling for assets + disabled actions
+- [x] Core navigation shell (projects -> floorplan -> wizard)
 
 ## Phase 3 - Asset Management (AddAssetWizard)
 
 - [x] Add Asset wizard skeleton (step indicator + placeholders)
-- [ ] Add Asset wizard flow (family -> type -> instance)
-- [ ] Room Note flow
-- [ ] Type branching flow
-- [ ] Instance photo handling (optional up to 5)
+- [x] Add Asset wizard flow (family -> type -> instance)
+- [x] Room Note flow
+- [x] Type branching flow
+- [x] Instance photo handling (optional up to 5)
 
 ## Phase 4 - Room Management (Room)
 
@@ -67,6 +67,8 @@ Update rule: keep this checklist current whenever milestones change.
 - [ ] Photo upload queue
 - [ ] Exponential backoff retry policy (cap 5 minutes)
 - [ ] Sync status indicator
+- [ ] Read-only mode + warning for completed projects
+- [ ] Read-only halftone styling + disabled actions
 
 ## Phase 7 - Hardening + QA
 

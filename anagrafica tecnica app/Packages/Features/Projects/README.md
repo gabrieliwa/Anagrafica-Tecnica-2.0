@@ -1,6 +1,6 @@
 # Projects
 
-Purpose: Projects list, download flow, read-only entry.
+Purpose: Projects list, download flow, entry points (read-only gating planned for sync phase).
 
 Dependencies:
 - Core

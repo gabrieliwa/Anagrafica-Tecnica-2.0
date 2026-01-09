@@ -1,0 +1,464 @@
+{
+  "id": "c181b1f8-e05b-4259-b041-17205af7783c",
+  "projectId": "21a30159-ebb5-4fa3-abee-a7a8ad9570e1",
+  "version": "1.0-demo",
+  "createdAt": "2026-01-07T12:00:00Z",
+  "isLocked": false,
+  "families": [
+    {
+      "id": "5f682641-5da3-4923-b34e-93da113061a8",
+      "name": "Lighting",
+      "iconName": "lightbulb",
+      "sortOrder": 0,
+      "parameters": [
+        {
+          "id": "b8164484-b597-4cff-b905-4d2ca8524220",
+          "name": "Manufacturer",
+          "dataType": "TEXT",
+          "scope": "TYPE",
+          "isRequired": true,
+          "validation": {
+            "minLength": 1,
+            "maxLength": 80
+          }
+        },
+        {
+          "id": "218d3950-ba1d-4598-ab67-61c9812fb9fc",
+          "name": "Model",
+          "dataType": "TEXT",
+          "scope": "TYPE",
+          "isRequired": true,
+          "validation": {
+            "minLength": 1,
+            "maxLength": 80
+          }
+        },
+        {
+          "id": "d7a3bfdb-659d-4a01-a69e-5e78606842ef",
+          "name": "Fixture Type",
+          "dataType": "ENUM",
+          "scope": "TYPE",
+          "isRequired": true,
+          "enumValues": [
+            "Downlight",
+            "Linear",
+            "Panel",
+            "Spot",
+            "Emergency"
+          ]
+        },
+        {
+          "id": "352a6c3a-76a0-4fea-a7fd-ad730e197381",
+          "name": "Power",
+          "dataType": "NUMBER",
+          "scope": "TYPE",
+          "isRequired": true,
+          "unit": "W",
+          "validation": {
+            "min": 1,
+            "max": 2000
+          }
+        },
+        {
+          "id": "e1ed0675-e6a0-4dab-b26a-06826ed5631e",
+          "name": "Condition",
+          "dataType": "ENUM",
+          "scope": "INSTANCE",
+          "isRequired": true,
+          "enumValues": [
+            "New",
+            "Good",
+            "Worn",
+            "Damaged"
+          ]
+        },
+        {
+          "id": "cde9d836-c1ec-41c7-8c74-cd468fd8ead4",
+          "name": "Install Date",
+          "dataType": "DATE",
+          "scope": "INSTANCE",
+          "isRequired": false
+        }
+      ]
+    },
+    {
+      "id": "aa78d137-e891-4a16-a07a-ae38576d832d",
+      "name": "HVAC",
+      "iconName": "thermometer",
+      "sortOrder": 1,
+      "parameters": [
+        {
+          "id": "08807e87-c546-44a4-a9ac-1dabc043070d",
+          "name": "Manufacturer",
+          "dataType": "TEXT",
+          "scope": "TYPE",
+          "isRequired": true,
+          "validation": {
+            "minLength": 1,
+            "maxLength": 80
+          }
+        },
+        {
+          "id": "2bbb6858-ef21-48e4-8694-59be8ea018be",
+          "name": "Model",
+          "dataType": "TEXT",
+          "scope": "TYPE",
+          "isRequired": true,
+          "validation": {
+            "minLength": 1,
+            "maxLength": 80
+          }
+        },
+        {
+          "id": "50b95db3-f220-4941-9837-f7b03f12d905",
+          "name": "System Type",
+          "dataType": "ENUM",
+          "scope": "TYPE",
+          "isRequired": true,
+          "enumValues": [
+            "Split",
+            "VRF",
+            "Chiller",
+            "AirHandler",
+            "FanCoil"
+          ]
+        },
+        {
+          "id": "be67d7f5-55c9-4711-9034-91cb2b371cba",
+          "name": "Capacity",
+          "dataType": "NUMBER",
+          "scope": "TYPE",
+          "isRequired": true,
+          "unit": "kW",
+          "validation": {
+            "min": 1,
+            "max": 500
+          }
+        },
+        {
+          "id": "72b36020-2024-4daa-bae9-d0d968258ca4",
+          "name": "Service Due",
+          "dataType": "DATE",
+          "scope": "INSTANCE",
+          "isRequired": false
+        },
+        {
+          "id": "4f9412f2-a913-40f1-a095-788a4753c537",
+          "name": "Zone",
+          "dataType": "TEXT",
+          "scope": "INSTANCE",
+          "isRequired": false,
+          "validation": {
+            "maxLength": 40
+          }
+        }
+      ]
+    },
+    {
+      "id": "55961692-1931-4479-aa18-7e31128b2ce3",
+      "name": "Electrical",
+      "iconName": "bolt",
+      "sortOrder": 2,
+      "parameters": [
+        {
+          "id": "be55928f-1483-4f69-ac36-0e0b52624304",
+          "name": "Manufacturer",
+          "dataType": "TEXT",
+          "scope": "TYPE",
+          "isRequired": true,
+          "validation": {
+            "minLength": 1,
+            "maxLength": 80
+          }
+        },
+        {
+          "id": "6581e53b-8221-4870-8730-705f241ff20c",
+          "name": "Model",
+          "dataType": "TEXT",
+          "scope": "TYPE",
+          "isRequired": true,
+          "validation": {
+            "minLength": 1,
+            "maxLength": 80
+          }
+        },
+        {
+          "id": "17cc8d8d-3eba-4557-b8dd-7c7b0cfcd7c0",
+          "name": "Device Type",
+          "dataType": "ENUM",
+          "scope": "TYPE",
+          "isRequired": true,
+          "enumValues": [
+            "Panel",
+            "Breaker",
+            "Outlet",
+            "Switch",
+            "UPS"
+          ]
+        },
+        {
+          "id": "a77b9098-38e0-4da0-99b8-53987bf0e7da",
+          "name": "Voltage",
+          "dataType": "NUMBER",
+          "scope": "TYPE",
+          "isRequired": true,
+          "unit": "V",
+          "validation": {
+            "min": 12,
+            "max": 480
+          }
+        },
+        {
+          "id": "3d43c48d-d939-4fcf-af87-b0b00e49c5b3",
+          "name": "Circuit ID",
+          "dataType": "TEXT",
+          "scope": "INSTANCE",
+          "isRequired": false,
+          "validation": {
+            "maxLength": 30
+          }
+        },
+        {
+          "id": "e5ef88f4-277f-45d5-a93a-72e08e34f691",
+          "name": "Condition",
+          "dataType": "ENUM",
+          "scope": "INSTANCE",
+          "isRequired": true,
+          "enumValues": [
+            "New",
+            "Good",
+            "Worn",
+            "Damaged"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "7eadbee7-91b5-4d77-a4da-3d7a80d6bbbf",
+      "name": "Plumbing",
+      "iconName": "drop",
+      "sortOrder": 3,
+      "parameters": [
+        {
+          "id": "f628abf2-63c5-4618-9c12-c40c5197d3f3",
+          "name": "Manufacturer",
+          "dataType": "TEXT",
+          "scope": "TYPE",
+          "isRequired": true,
+          "validation": {
+            "minLength": 1,
+            "maxLength": 80
+          }
+        },
+        {
+          "id": "746accf8-9a40-41ac-b2b7-ddf71833d799",
+          "name": "Model",
+          "dataType": "TEXT",
+          "scope": "TYPE",
+          "isRequired": true,
+          "validation": {
+            "minLength": 1,
+            "maxLength": 80
+          }
+        },
+        {
+          "id": "c9bc2441-a3e0-4674-b9cb-2318b101b6da",
+          "name": "Fixture Type",
+          "dataType": "ENUM",
+          "scope": "TYPE",
+          "isRequired": true,
+          "enumValues": [
+            "Faucet",
+            "Valve",
+            "Pump",
+            "Boiler",
+            "Heater"
+          ]
+        },
+        {
+          "id": "414b4544-0a00-4aac-9db0-4b29826fef3f",
+          "name": "Flow Rate",
+          "dataType": "NUMBER",
+          "scope": "TYPE",
+          "isRequired": false,
+          "unit": "L/min",
+          "validation": {
+            "min": 0,
+            "max": 300
+          }
+        },
+        {
+          "id": "931ba71b-3b6e-4403-b21d-b47524e2dae1",
+          "name": "Install Date",
+          "dataType": "DATE",
+          "scope": "INSTANCE",
+          "isRequired": false
+        },
+        {
+          "id": "53cbf60e-f00b-434c-8a78-cf6f134b1bec",
+          "name": "Location Note",
+          "dataType": "TEXT",
+          "scope": "INSTANCE",
+          "isRequired": false,
+          "validation": {
+            "maxLength": 120
+          }
+        }
+      ]
+    },
+    {
+      "id": "c81e05f4-e8c9-4421-b455-52573b2cee95",
+      "name": "Fire Safety",
+      "iconName": "flame",
+      "sortOrder": 4,
+      "parameters": [
+        {
+          "id": "0b5d430a-740b-4218-93b2-d49ac904ecc6",
+          "name": "Manufacturer",
+          "dataType": "TEXT",
+          "scope": "TYPE",
+          "isRequired": true,
+          "validation": {
+            "minLength": 1,
+            "maxLength": 80
+          }
+        },
+        {
+          "id": "0ca42189-f1b2-4c80-b3bc-49ceed21413d",
+          "name": "Model",
+          "dataType": "TEXT",
+          "scope": "TYPE",
+          "isRequired": true,
+          "validation": {
+            "minLength": 1,
+            "maxLength": 80
+          }
+        },
+        {
+          "id": "be0f5ce9-35f5-4313-a9e3-cd4cffc51552",
+          "name": "Device Type",
+          "dataType": "ENUM",
+          "scope": "TYPE",
+          "isRequired": true,
+          "enumValues": [
+            "Smoke Detector",
+            "Heat Detector",
+            "Sprinkler",
+            "Extinguisher",
+            "Alarm Panel"
+          ]
+        },
+        {
+          "id": "5e2b3820-2d51-4778-a3c9-6ce6481dbd5e",
+          "name": "Certification",
+          "dataType": "ENUM",
+          "scope": "TYPE",
+          "isRequired": false,
+          "enumValues": [
+            "EN54",
+            "UL",
+            "NFPA",
+            "Other"
+          ]
+        },
+        {
+          "id": "cafedc67-4d82-422f-8950-3f2cc16981c7",
+          "name": "Status",
+          "dataType": "ENUM",
+          "scope": "INSTANCE",
+          "isRequired": true,
+          "enumValues": [
+            "Active",
+            "OutOfService",
+            "NeedsService"
+          ]
+        },
+        {
+          "id": "fd6c8a57-b342-4374-8dde-a616332427e8",
+          "name": "Inspection Due",
+          "dataType": "DATE",
+          "scope": "INSTANCE",
+          "isRequired": false
+        }
+      ]
+    },
+    {
+      "id": "0af9584f-414a-40f5-9eae-1405da975703",
+      "name": "IT Network",
+      "iconName": "wifi",
+      "sortOrder": 5,
+      "parameters": [
+        {
+          "id": "eb8f4131-4660-48bc-b65a-2f3d0e27a4ba",
+          "name": "Manufacturer",
+          "dataType": "TEXT",
+          "scope": "TYPE",
+          "isRequired": true,
+          "validation": {
+            "minLength": 1,
+            "maxLength": 80
+          }
+        },
+        {
+          "id": "ccc55707-f226-4577-a155-25bf923c5f42",
+          "name": "Model",
+          "dataType": "TEXT",
+          "scope": "TYPE",
+          "isRequired": true,
+          "validation": {
+            "minLength": 1,
+            "maxLength": 80
+          }
+        },
+        {
+          "id": "186a9a34-bc25-4a9f-b035-aa1f0ce30650",
+          "name": "Device Type",
+          "dataType": "ENUM",
+          "scope": "TYPE",
+          "isRequired": true,
+          "enumValues": [
+            "Switch",
+            "Router",
+            "Access Point",
+            "Firewall",
+            "Patch Panel"
+          ]
+        },
+        {
+          "id": "c889e2c5-cc21-401c-95b1-2846d9d3918c",
+          "name": "Ports",
+          "dataType": "NUMBER",
+          "scope": "TYPE",
+          "isRequired": true,
+          "unit": "count",
+          "validation": {
+            "min": 1,
+            "max": 96
+          }
+        },
+        {
+          "id": "2524d3b1-f42d-4a58-a783-7a2e056b2903",
+          "name": "IP Address",
+          "dataType": "TEXT",
+          "scope": "INSTANCE",
+          "isRequired": false,
+          "validation": {
+            "regex": "^(?:\\\\d{1,3}\\\\.){3}\\\\d{1,3}$"
+          }
+        },
+        {
+          "id": "0c05bffe-86e8-402b-8897-8520f95d8be1",
+          "name": "Rack Unit",
+          "dataType": "NUMBER",
+          "scope": "INSTANCE",
+          "isRequired": false,
+          "unit": "U",
+          "validation": {
+            "min": 1,
+            "max": 48
+          }
+        }
+      ]
+    }
+  ]
+}

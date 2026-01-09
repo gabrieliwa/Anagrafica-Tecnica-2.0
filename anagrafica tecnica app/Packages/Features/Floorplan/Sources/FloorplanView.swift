@@ -4,6 +4,7 @@ import DesignSystem
 import SwiftUI
 
 public struct FloorplanView: View {
+    @Environment(\.managedObjectContext) private var context
     @StateObject private var viewModel: FloorplanViewModel
     private let projectName: String
     private let uiState: ProjectUIState?
@@ -46,13 +47,14 @@ public struct FloorplanView: View {
                 linework: viewModel.linework,
                 rooms: viewModel.rooms,
                 bounds: viewModel.bounds,
+                isReadOnly: uiState == .completed,
                 onRoomTapped: { room in
                     guard uiState != .completed else { return }
                     selectedRoom = room
                 }
             )
-            .padding(.horizontal, AppSpacing.lg)
-            .padding(.vertical, AppSpacing.xl)
+            .id(viewModel.selectedLevelIndex)
+            .ignoresSafeArea()
 
             VStack(alignment: .trailing, spacing: AppSpacing.sm) {
                 if uiState == .completed {
@@ -65,9 +67,21 @@ public struct FloorplanView: View {
             }
             .padding(AppSpacing.lg)
         }
-        .sheet(item: $selectedRoom) { _ in
-            AddAssetWizardView()
+        .sheet(item: $selectedRoom) { room in
+            AddAssetWizardView(
+                roomNumber: room.number,
+                roomName: room.name,
+                levelName: currentLevelName,
+                context: context
+            )
         }
+    }
+
+    private var currentLevelName: String {
+        guard viewModel.levels.indices.contains(viewModel.selectedLevelIndex) else {
+            return "Level"
+        }
+        return viewModel.levels[viewModel.selectedLevelIndex].name
     }
 }
 

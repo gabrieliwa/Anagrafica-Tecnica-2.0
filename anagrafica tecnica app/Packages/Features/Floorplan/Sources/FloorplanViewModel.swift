@@ -29,15 +29,19 @@ final class FloorplanViewModel: ObservableObject {
             let loader = try DemoPlanLoader(bundle: demoBundle)
             let template = try loader.loadPlanTemplate()
             demoBundle = loader.demoBundle
-            levels = template.levels
-            selectedLevelIndex = 0
-            loadSelectedLevel()
+            levels = template.levels.sorted(by: { $0.index < $1.index })
+            if selectedLevelIndex != 0 {
+                selectedLevelIndex = 0
+            } else {
+                loadSelectedLevel()
+            }
             isLoading = false
         } catch {
             errorMessage = error.localizedDescription
             isLoading = false
         }
     }
+
 
     private func loadSelectedLevel() {
         guard levels.indices.contains(selectedLevelIndex) else {

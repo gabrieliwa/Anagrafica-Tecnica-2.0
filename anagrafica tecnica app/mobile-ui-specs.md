@@ -39,11 +39,12 @@
 - Interactions:
   - Tap Online project: show loading screen while downloading, then open floorplan
   - Tap Open project: open floorplan
-  - Tap Completed project: show read-only warning, then open in read-only mode
+  - Tap Completed project: opens floorplan (read-only warning and lock behavior planned for sync phase)
 
-### Read-Only Mode (Completed Projects)
+### Read-Only Mode (Completed Projects, planned for sync phase)
 
 - Trigger: opening a Completed project
+- Implement after sync is functional (Phase 6)
 - Warning popup informs the operator that the project is read-only
 - Visual treatment:
   - Assets and room notes are halftoned in floorplan badges and room lists
@@ -66,6 +67,7 @@
   - Sync status icon (top right)
   - Level picker (bottom right, drop-up)
   - Survey Report hamburger (bottom left)
+- Floorplan canvas renders edge-to-edge behind UI chrome
 - Room states:
 - Rooms with assets or room notes show a light blue fill with a count badge (assets + room notes)
   - Empty rooms show a halftone gray fill with a (+) button inside
@@ -77,6 +79,8 @@
   - Operator can freely zoom and pan in this view
   - Zoom out is limited to the full-plan fit; zoom in is limited to the smallest room size
   - Zoom is centered on the view (not the top-left)
+  - First open starts at the lowest floor level
+  - Switching levels resets zoom/pan to full-plan fit and centered
 
 ### Exit Pop-up (Before Exiting)
 

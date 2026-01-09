@@ -6,6 +6,7 @@ struct FloorplanCanvas: View {
     let linework: [[Point]]
     let rooms: [FloorplanRoom]
     let bounds: Rect?
+    let isReadOnly: Bool
     let onRoomTapped: (FloorplanRoom) -> Void
 
     @State private var zoomScale: CGFloat = 1.0
@@ -27,8 +28,8 @@ struct FloorplanCanvas: View {
                     context.translateBy(x: canvasCenter.x, y: canvasCenter.y)
                     context.scaleBy(x: zoomScale, y: zoomScale)
                     context.translateBy(x: -canvasCenter.x, y: -canvasCenter.y)
-                    drawLinework(lines: linework, transform: localTransform, context: &context)
-                    drawRooms(rooms: rooms, transform: localTransform, zoomScale: zoomScale, context: &context)
+                    drawLinework(lines: linework, transform: localTransform, isReadOnly: isReadOnly, context: &context)
+                    drawRooms(rooms: rooms, transform: localTransform, zoomScale: zoomScale, isReadOnly: isReadOnly, context: &context)
                 }
                 .contentShape(Rectangle())
                 .gesture(combinedGesture(transform: transform, zoomBounds: zoomBounds, center: viewCenter))
@@ -84,8 +85,10 @@ struct FloorplanCanvas: View {
     private func drawLinework(
         lines: [[Point]],
         transform: FloorplanTransform,
+        isReadOnly: Bool,
         context: inout GraphicsContext
     ) {
+        let lineworkColor = isReadOnly ? AppColors.planLinework.opacity(0.45) : AppColors.planLinework
         var path = Path()
         for line in lines {
             guard let first = line.first else { continue }
@@ -94,15 +97,17 @@ struct FloorplanCanvas: View {
                 path.addLine(to: transform.point(point))
             }
         }
-        context.stroke(path, with: .color(AppColors.planLinework), lineWidth: 1)
+        context.stroke(path, with: .color(lineworkColor), lineWidth: 1)
     }
 
     private func drawRooms(
         rooms: [FloorplanRoom],
         transform: FloorplanTransform,
         zoomScale: CGFloat,
+        isReadOnly: Bool,
         context: inout GraphicsContext
     ) {
+        let readOnlyOpacity: Double = isReadOnly ? 0.45 : 1.0
         let iconScale = max(zoomScale, 0.0001)
         let iconDiameter: CGFloat = 24 / iconScale
         let iconRadius = iconDiameter * 0.5
@@ -120,13 +125,13 @@ struct FloorplanCanvas: View {
             }
             roomPath.closeSubpath()
 
-            context.fill(roomPath, with: .color(AppColors.roomEmptyFill))
-            context.stroke(roomPath, with: .color(AppColors.roomEmptyStroke), lineWidth: 1.5)
+            context.fill(roomPath, with: .color(AppColors.roomEmptyFill.opacity(readOnlyOpacity)))
+            context.stroke(roomPath, with: .color(AppColors.roomEmptyStroke.opacity(readOnlyOpacity)), lineWidth: 1.5)
 
             if let label = room.labelPoint {
                 let labelPoint = transform.point(label)
                 let iconPath = Path(ellipseIn: CGRect(x: labelPoint.x - iconRadius, y: labelPoint.y - iconRadius, width: iconDiameter, height: iconDiameter))
-                context.stroke(iconPath, with: .color(AppColors.roomEmptyIcon), lineWidth: iconStroke)
+                context.stroke(iconPath, with: .color(AppColors.roomEmptyIcon.opacity(readOnlyOpacity)), lineWidth: iconStroke)
                 context.fill(
                     Path(
                         CGRect(
@@ -136,7 +141,7 @@ struct FloorplanCanvas: View {
                             height: plusThickness
                         )
                     ),
-                    with: .color(AppColors.roomEmptyIcon)
+                    with: .color(AppColors.roomEmptyIcon.opacity(readOnlyOpacity))
                 )
                 context.fill(
                     Path(
@@ -147,13 +152,14 @@ struct FloorplanCanvas: View {
                             height: plusLength
                         )
                     ),
-                    with: .color(AppColors.roomEmptyIcon)
+                    with: .color(AppColors.roomEmptyIcon.opacity(readOnlyOpacity))
                 )
             }
         }
     }
 
     private func handleTap(location: CGPoint, transform: FloorplanTransform, center: CGPoint) {
+        guard !isReadOnly else { return }
         let adjusted = CGPoint(
             x: (location.x - panOffset.width - center.x) / max(zoomScale, 0.0001) + center.x,
             y: (location.y - panOffset.height - center.y) / max(zoomScale, 0.0001) + center.y
