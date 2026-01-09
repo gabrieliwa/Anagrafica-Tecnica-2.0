@@ -3,7 +3,7 @@ import PackageDescription
 
 let package = Package(
     name: "AnagraficaTecnicaModules",
-    platforms: [.iOS(.v16)],
+    platforms: [.iOS(.v16), .macOS(.v12)],
     products: [
         .library(name: "Core", targets: ["Core"]),
         .library(name: "DesignSystem", targets: ["DesignSystem"]),
@@ -52,6 +52,11 @@ let package = Package(
             name: "Export",
             dependencies: ["Core", "DesignSystem"],
             path: "Features/Export/Sources"
+        ),
+        .testTarget(
+            name: "CoreTests",
+            dependencies: ["Core"],
+            path: "Core/Tests"
         )
     ]
 )

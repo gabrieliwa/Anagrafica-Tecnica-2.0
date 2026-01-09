@@ -46,31 +46,82 @@ Update rule: keep this checklist current whenever milestones change.
 - [x] Room Note flow
 - [x] Type branching flow
 - [x] Instance photo handling (optional up to 5)
+- [x] Refactor AddAssetWizard ViewModel + View into smaller files
+- [x] Replace magic numbers with DesignSystem metrics
+- [x] Add baseline Core tests (StableID, ParameterValidator, GeometryUtils)
+- [x] Add logging for silent failures in core services
 
-## Phase 4 - Room Management (Room)
+## Phase 4A - Room View (read-only)
 
 - [ ] Room view list (assets + room notes, ordering)
-- [ ] Instance editor widget
-- [ ] Edit Type widget
-- [ ] Room notes editing
+- [ ] Instance editor widget (read-only)
+- [ ] Type info display in instance view
+- [ ] Navigation: Floorplan -> Room -> Instance detail
 
-## Phase 5 - Survey Hub + Export (SurveyReport + Export)
+## Phase 4B - Room Editing
+
+- [ ] Instance editor widget (editable)
+- [ ] Edit Type widget (from instance context)
+- [ ] Room notes editing
+- [ ] Delete asset/room note with confirmation
+- [ ] Core Data save/refresh on edit
+
+## Phase 4C - Testing Sprint 1
+
+- [x] Unit tests: Core services (ParameterValidator, StableID, GeometryUtils)
+- [ ] Unit tests: Models encoding/decoding
+- [ ] Integration tests: DemoDataSeeder
+- [ ] ViewModel tests: AddAssetWizardViewModel state transitions
+
+## Phase 5A - Survey Report (Rooms)
 
 - [ ] Survey hub shell (Rooms, Types, Export)
 - [ ] Room list filters
+- [ ] Room list search and grouping by level
+- [ ] Navigation from room list to room view
+
+## Phase 5B - Survey Report (Types + Export)
+
 - [ ] Type list filters
+- [ ] Types list view with family grouping
+- [ ] Edit Type widget from types list
 - [ ] Export stub + share sheet
 
-## Phase 6 - Synchronization (Core/Sync)
+## Phase 6A - Photo Capture
+
+- [ ] PHPickerViewController integration
+- [ ] JPEG compression (1280px, 0.8 quality)
+- [ ] LocalFileCache integration
+- [ ] Photo deletion handling
+- [ ] Camera permission flows
+
+## Phase 6B - Sync Foundation
 
 - [ ] Event log upload pipeline
+- [ ] API client implementation (real endpoints)
+- [ ] Offline queue management
+- [ ] Basic sync status indicator
+
+## Phase 6C - Sync Completion
+
 - [ ] Photo upload queue
 - [ ] Exponential backoff retry policy (cap 5 minutes)
-- [ ] Sync status indicator
+- [ ] Sync status UI refinement
+- [ ] Conflict detection (MVP)
+
+## Phase 7A - Read-only Mode
+
 - [ ] Read-only mode + warning for completed projects
 - [ ] Read-only halftone styling + disabled actions
 
-## Phase 7 - Hardening + QA
+## Phase 7B - Testing Sprint 2
+
+- [ ] UI tests: critical user flows
+- [ ] Integration tests: sync pipeline
+- [ ] Performance tests: large project loading
+- [ ] Snapshot tests: key UI components
+
+## Phase 7C - Hardening + QA
 
 - [ ] Validation rules tied to schema
 - [ ] Error states and alerts

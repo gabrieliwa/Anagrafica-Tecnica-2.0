@@ -72,7 +72,8 @@ struct FloorplanCanvas: View {
             }
             .onEnded { value in
                 let translation = value.translation
-                let isTap = abs(translation.width) < 4 && abs(translation.height) < 4
+                let isTap = abs(translation.width) < AppMetrics.floorplanTapThreshold
+                    && abs(translation.height) < AppMetrics.floorplanTapThreshold
                 if isTap {
                     panOffset = lastOffset
                     handleTap(location: value.location, transform: transform, center: center)
@@ -101,7 +102,7 @@ struct FloorplanCanvas: View {
                 path.addLine(to: transform.point(point))
             }
         }
-        context.stroke(path, with: .color(lineworkColor), lineWidth: 1)
+        context.stroke(path, with: .color(lineworkColor), lineWidth: AppMetrics.floorplanLineWidth)
     }
 
     private func drawRooms(
@@ -124,15 +125,19 @@ struct FloorplanCanvas: View {
             let isOccupied = room.totalCount > 0
             let fillColor = isOccupied ? AppColors.roomOccupiedFill : AppColors.roomEmptyFill
             context.fill(roomPath, with: .color(fillColor.opacity(readOnlyOpacity)))
-            context.stroke(roomPath, with: .color(AppColors.roomEmptyStroke.opacity(readOnlyOpacity)), lineWidth: 1.5)
+            context.stroke(
+                roomPath,
+                with: .color(AppColors.roomEmptyStroke.opacity(readOnlyOpacity)),
+                lineWidth: AppMetrics.floorplanRoomStrokeWidth
+            )
         }
     }
 
     private func handleTap(location: CGPoint, transform: FloorplanTransform, center: CGPoint) {
         guard !isReadOnly else { return }
         let adjusted = CGPoint(
-            x: (location.x - panOffset.width - center.x) / max(zoomScale, 0.0001) + center.x,
-            y: (location.y - panOffset.height - center.y) / max(zoomScale, 0.0001) + center.y
+            x: (location.x - panOffset.width - center.x) / max(zoomScale, AppMetrics.floorplanZoomEpsilon) + center.x,
+            y: (location.y - panOffset.height - center.y) / max(zoomScale, AppMetrics.floorplanZoomEpsilon) + center.y
         )
         let planPoint = transform.planPoint(from: adjusted)
         if let room = rooms.first(where: { GeometryUtils.contains(point: planPoint, in: $0.polygon) }) {
@@ -150,7 +155,7 @@ struct FloorplanCanvas: View {
         transform: FloorplanTransform,
         canvasSize: CGSize
     ) -> ZoomBounds {
-        let minZoom: CGFloat = 1.0
+        let minZoom = AppMetrics.floorplanMinZoom
         var smallestBounds: Rect?
         var smallestArea: Double = .infinity
 
@@ -167,13 +172,13 @@ struct FloorplanCanvas: View {
         }
 
         guard let bounds = smallestBounds else {
-            return ZoomBounds(min: minZoom, max: 5.0)
+            return ZoomBounds(min: minZoom, max: AppMetrics.floorplanDefaultMaxZoom)
         }
 
         let roomWidth = CGFloat(bounds.maxX - bounds.minX) * transform.scale
         let roomHeight = CGFloat(bounds.maxY - bounds.minY) * transform.scale
         guard roomWidth > 0, roomHeight > 0 else {
-            return ZoomBounds(min: minZoom, max: 5.0)
+            return ZoomBounds(min: minZoom, max: AppMetrics.floorplanDefaultMaxZoom)
         }
 
         let maxZoomX = canvasSize.width / roomWidth
@@ -217,18 +222,18 @@ private struct RoomBadge: View {
         let opacity = isReadOnly ? 0.45 : 1.0
         ZStack {
             Circle()
-                .stroke(AppColors.roomEmptyIcon.opacity(opacity), lineWidth: 1.5)
+                .stroke(AppColors.roomEmptyIcon.opacity(opacity), lineWidth: AppMetrics.floorplanBadgeStrokeWidth)
             if isEmpty {
                 Text("+")
-                    .font(.system(size: 14, weight: .bold))
+                    .font(.system(size: AppMetrics.floorplanBadgePlusSize, weight: .bold))
                     .foregroundStyle(AppColors.roomEmptyIcon.opacity(opacity))
             } else {
                 Text("\(count)")
-                    .font(.system(size: 12, weight: .bold))
+                    .font(.system(size: AppMetrics.floorplanBadgeTextSize, weight: .bold))
                     .foregroundStyle(AppColors.textPrimary.opacity(opacity))
             }
         }
-        .frame(width: 24, height: 24)
+        .frame(width: AppMetrics.floorplanBadgeSize, height: AppMetrics.floorplanBadgeSize)
     }
 }
 
@@ -241,7 +246,7 @@ struct FloorplanTransform {
         self.bounds = bounds
         let width = bounds.maxX - bounds.minX
         let height = bounds.maxY - bounds.minY
-        let scale = min(size.width / width, size.height / height) * 0.92
+        let scale = min(size.width / width, size.height / height) * AppMetrics.floorplanFitScale
         let offsetX = (size.width - width * scale) * 0.5
         let offsetY = (size.height - height * scale) * 0.5
         self.scale = scale
@@ -249,12 +254,14 @@ struct FloorplanTransform {
     }
 
     func point(_ point: Point) -> CGPoint {
+        // Convert plan coordinates into screen coordinates (origin flipped on Y).
         let x = (point.x - bounds.minX) * scale + offset.x
         let y = (bounds.maxY - point.y) * scale + offset.y
         return CGPoint(x: x, y: y)
     }
 
     func planPoint(from point: CGPoint) -> Point {
+        // Convert screen coordinates back into plan coordinates.
         let x = (point.x - offset.x) / scale + bounds.minX
         let y = bounds.maxY - (point.y - offset.y) / scale
         return Point(x: x, y: y)

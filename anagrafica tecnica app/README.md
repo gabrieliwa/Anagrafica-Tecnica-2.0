@@ -64,14 +64,28 @@ Each SwiftPM module should include:
 2. Core UI (DesignSystem + Features)
    - Projects UI, floorplan renderer, navigation shell
 3. Asset Management (AddAssetWizard)
-   - Wizard flow, type branching, instance form, photos
-4. Room Management (Room)
-   - Room view, instance editor, type editor, room notes
-5. Survey Hub and Export (SurveyReport + Export)
-   - Rooms list, types list, filters, export share sheet
-6. Synchronization (Core/Sync)
-   - Event log upload, photo upload, exponential backoff
-7. Hardening and QA (App + Modules)
+   - Wizard flow, type branching, instance form, placeholder photos
+4A. Room View (read-only)
+   - Room view list, instance details, navigation
+4B. Room Editing
+   - Instance edits, type edits, room note edits, delete flows
+4C. Testing Sprint 1
+   - Core services + Demo seeder + wizard view model tests
+5A. Survey Report (Rooms)
+   - Rooms list, filters, navigation
+5B. Survey Report (Types + Export)
+   - Types list, filters, export share sheet
+6A. Photo Capture
+   - PHPicker integration + LocalFileCache wiring
+6B. Sync Foundation
+   - Event log upload, offline queue, status indicator
+6C. Sync Completion
+   - Photo upload, backoff, conflict handling (MVP)
+7A. Read-only Mode
+   - Completed project lockout, warnings, halftone UI
+7B. Testing Sprint 2
+   - UI + integration + performance tests
+7C. Hardening and QA
    - Validation, error handling, performance, QA pass
 
 ## Milestones (Order Only)

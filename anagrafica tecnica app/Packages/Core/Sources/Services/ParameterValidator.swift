@@ -81,9 +81,16 @@ public enum ParameterValidator {
 
     private static func matchesRegex(_ text: String, pattern: String) -> Bool {
         guard let regex = try? NSRegularExpression(pattern: pattern) else {
+            logInvalidRegex(pattern)
             return true
         }
         let range = NSRange(text.startIndex..., in: text)
         return regex.firstMatch(in: text, options: [], range: range) != nil
+    }
+
+    private static func logInvalidRegex(_ pattern: String) {
+        #if DEBUG
+        print("ParameterValidator: Invalid regex pattern: \(pattern)")
+        #endif
     }
 }

@@ -67,7 +67,7 @@ public struct ProjectsListView: View {
         )
         .overlay(
             RoundedRectangle(cornerRadius: AppRadius.field)
-                .stroke(AppColors.cardBorder, lineWidth: 1)
+                .stroke(AppColors.cardBorder, lineWidth: AppMetrics.cardStrokeWidth)
         )
     }
 
@@ -118,6 +118,7 @@ private enum ProjectFetchRequest {
         request.sortDescriptors = [
             NSSortDescriptor(key: "name", ascending: true)
         ]
+        request.fetchBatchSize = 20
         return request
     }
 }
@@ -152,10 +153,10 @@ private struct ProjectCardView: View {
                 RoundedRectangle(cornerRadius: AppRadius.thumb)
                     .fill(AppGradients.cardAccent)
                 Image(systemName: "building.2.fill")
-                    .font(.system(size: 24, weight: .bold))
+                    .font(.system(size: AppMetrics.projectCardIconSize, weight: .bold))
                     .foregroundStyle(.white.opacity(0.9))
             }
-            .frame(width: 64, height: 64)
+            .frame(width: AppMetrics.projectCardImageSize, height: AppMetrics.projectCardImageSize)
 
             VStack(alignment: .leading, spacing: AppSpacing.sm) {
                 HStack(alignment: .top) {
@@ -183,7 +184,7 @@ private struct ProjectCardView: View {
                 .fill(AppColors.cardBackground)
                 .overlay(
                     RoundedRectangle(cornerRadius: AppRadius.card)
-                        .stroke(AppColors.cardBorder.opacity(0.6), lineWidth: 1)
+                        .stroke(AppColors.cardBorder.opacity(0.6), lineWidth: AppMetrics.cardStrokeWidth)
                 )
         )
         .shadow(color: AppShadow.card.color, radius: AppShadow.card.radius, x: AppShadow.card.x, y: AppShadow.card.y)

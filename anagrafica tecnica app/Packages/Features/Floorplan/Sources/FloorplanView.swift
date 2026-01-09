@@ -97,7 +97,7 @@ private struct ReadOnlyBadge: View {
     var body: some View {
         HStack(spacing: AppSpacing.xs) {
             Image(systemName: "lock.fill")
-                .font(.system(size: 12, weight: .bold))
+                .font(.system(size: AppMetrics.readOnlyBadgeIconSize, weight: .bold))
             Text("Read-only")
                 .font(AppTypography.badge)
         }
@@ -127,7 +127,7 @@ private struct LevelPicker: View {
                 Text(levelLabel)
                     .font(AppTypography.badge)
                 Image(systemName: "chevron.up")
-                    .font(.system(size: 10, weight: .bold))
+                    .font(.system(size: AppMetrics.levelPickerChevronSize, weight: .bold))
             }
             .padding(.horizontal, AppSpacing.md)
             .padding(.vertical, AppSpacing.sm)
@@ -135,7 +135,7 @@ private struct LevelPicker: View {
                 Capsule().fill(AppColors.cardBackground)
             )
             .overlay(
-                Capsule().stroke(AppColors.cardBorder, lineWidth: 1)
+                Capsule().stroke(AppColors.cardBorder, lineWidth: AppMetrics.cardStrokeWidth)
             )
             .foregroundStyle(AppColors.textPrimary)
             .shadow(color: AppShadow.card.color, radius: AppShadow.card.radius, x: AppShadow.card.x, y: AppShadow.card.y)

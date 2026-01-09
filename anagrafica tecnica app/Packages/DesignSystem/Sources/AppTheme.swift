@@ -65,6 +65,34 @@ public enum AppRadius {
     public static let field: CGFloat = 12
 }
 
+public enum AppMetrics {
+    public static let cardStrokeWidth: CGFloat = 1
+    public static let projectCardImageSize: CGFloat = 64
+    public static let projectCardIconSize: CGFloat = 24
+    public static let readOnlyBadgeIconSize: CGFloat = 12
+    public static let levelPickerChevronSize: CGFloat = 10
+
+    public static let wizardCloseIconSize: CGFloat = 14
+    public static let wizardHeaderPlaceholderSize: CGFloat = 28
+    public static let wizardChevronSize: CGFloat = 12
+    public static let wizardStepDotSize: CGFloat = 10
+    public static let wizardStepLineWidth: CGFloat = 26
+    public static let wizardStepLineHeight: CGFloat = 2
+    public static let wizardTextAreaMinHeight: CGFloat = 80
+
+    public static let floorplanLineWidth: CGFloat = 1
+    public static let floorplanRoomStrokeWidth: CGFloat = 1.5
+    public static let floorplanBadgeSize: CGFloat = 24
+    public static let floorplanBadgeStrokeWidth: CGFloat = 1.5
+    public static let floorplanBadgePlusSize: CGFloat = 14
+    public static let floorplanBadgeTextSize: CGFloat = 12
+    public static let floorplanFitScale: CGFloat = 0.92
+    public static let floorplanTapThreshold: CGFloat = 4
+    public static let floorplanMinZoom: CGFloat = 1.0
+    public static let floorplanDefaultMaxZoom: CGFloat = 5.0
+    public static let floorplanZoomEpsilon: CGFloat = 0.0001
+}
+
 public enum AppShadow {
     public static let card = (color: Color.black.opacity(0.08), radius: CGFloat(10), x: CGFloat(0), y: CGFloat(6))
 }

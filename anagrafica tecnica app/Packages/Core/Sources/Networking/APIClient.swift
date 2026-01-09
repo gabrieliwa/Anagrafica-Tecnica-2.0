@@ -27,7 +27,7 @@ public final class APIClient {
     public func request(_ endpoint: Endpoint) async throws -> Data {
         let request = try buildRequest(for: endpoint)
         do {
-            let (data, response) = try await session.data(for: request)
+            let (data, response) = try await fetchData(for: request)
             guard let httpResponse = response as? HTTPURLResponse else {
                 throw APIError.invalidResponse
             }
@@ -39,6 +39,23 @@ public final class APIClient {
             throw error
         } catch {
             throw APIError.requestFailed(error)
+        }
+    }
+
+    private func fetchData(for request: URLRequest) async throws -> (Data, URLResponse) {
+        try await withCheckedThrowingContinuation { continuation in
+            let task = session.dataTask(with: request) { data, response, error in
+                if let error {
+                    continuation.resume(throwing: APIError.requestFailed(error))
+                    return
+                }
+                guard let data, let response else {
+                    continuation.resume(throwing: APIError.invalidResponse)
+                    return
+                }
+                continuation.resume(returning: (data, response))
+            }
+            task.resume()
         }
     }
 

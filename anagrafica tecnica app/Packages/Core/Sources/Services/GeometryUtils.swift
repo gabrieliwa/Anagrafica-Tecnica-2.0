@@ -28,6 +28,7 @@ public enum GeometryUtils {
     }
 
     public static func contains(point: Point, in polygon: [Point]) -> Bool {
+        // Ray-casting point-in-polygon test.
         guard polygon.count >= 3 else {
             return false
         }
