@@ -1,6 +1,6 @@
 # Progress Checklist
 
-Last updated: 2026-01-07
+Last updated: 2026-01-09
 
 Update rule: keep this checklist current whenever milestones change.
 
@@ -75,4 +75,5 @@ Update rule: keep this checklist current whenever milestones change.
 - [ ] Validation rules tied to schema
 - [ ] Error states and alerts
 - [ ] Performance profiling (floorplan and lists)
+- [ ] Move demo plan loading + Core Data seeding off the main thread
 - [ ] Test coverage >= 80%

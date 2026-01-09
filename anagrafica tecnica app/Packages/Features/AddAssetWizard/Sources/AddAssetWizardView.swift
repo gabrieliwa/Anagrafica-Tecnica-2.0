@@ -558,6 +558,7 @@ private struct ParameterField: View {
     let viewModel: AddAssetWizardViewModel
     let requireAll: Bool
     let showValidation: Bool
+    @State private var localOption = ""
 
     var body: some View {
         VStack(alignment: .leading, spacing: 4) {
@@ -582,15 +583,19 @@ private struct ParameterField: View {
                 DatePicker("", selection: viewModel.dateBinding(for: definition, scope: scope), displayedComponents: .date)
                     .labelsHidden()
             case .enumerated:
+                let currentValue = viewModel.optionBinding(for: definition, scope: scope).wrappedValue
                 Menu {
                     ForEach(definition.enumValues ?? [], id: \.self) { value in
                         Button(value) {
-                            viewModel.optionBinding(for: definition, scope: scope).wrappedValue = value
+                            localOption = value
+                            if currentValue != value {
+                                viewModel.optionBinding(for: definition, scope: scope).wrappedValue = value
+                            }
                         }
                     }
                 } label: {
                     HStack {
-                        Text(viewModel.optionBinding(for: definition, scope: scope).wrappedValue.isEmpty ? "Select" : viewModel.optionBinding(for: definition, scope: scope).wrappedValue)
+                        Text(localOption.isEmpty ? "Select" : localOption)
                             .foregroundStyle(AppColors.textPrimary)
                         Spacer()
                         Image(systemName: "chevron.down")
@@ -599,6 +604,14 @@ private struct ParameterField: View {
                     }
                     .padding(AppSpacing.sm)
                     .background(RoundedRectangle(cornerRadius: AppRadius.field).fill(AppColors.cardBackground))
+                }
+                .onAppear {
+                    localOption = currentValue
+                }
+                .onChange(of: currentValue) { newValue in
+                    if localOption != newValue {
+                        localOption = newValue
+                    }
                 }
             }
 

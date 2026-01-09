@@ -597,9 +597,13 @@ final class AddAssetWizardViewModel: ObservableObject {
     private func setInputText(_ value: String, for definition: ParameterDefinition, scope: ParameterScope) {
         switch scope {
         case .type:
-            typeTextInputs[definition.id] = value
+            var updated = typeTextInputs
+            updated[definition.id] = value
+            typeTextInputs = updated
         case .instance:
-            instanceTextInputs[definition.id] = value
+            var updated = instanceTextInputs
+            updated[definition.id] = value
+            instanceTextInputs = updated
         }
     }
 
@@ -615,9 +619,13 @@ final class AddAssetWizardViewModel: ObservableObject {
     private func setInputNumber(_ value: String, for definition: ParameterDefinition, scope: ParameterScope) {
         switch scope {
         case .type:
-            typeNumberInputs[definition.id] = value
+            var updated = typeNumberInputs
+            updated[definition.id] = value
+            typeNumberInputs = updated
         case .instance:
-            instanceNumberInputs[definition.id] = value
+            var updated = instanceNumberInputs
+            updated[definition.id] = value
+            instanceNumberInputs = updated
         }
     }
 
@@ -633,9 +641,13 @@ final class AddAssetWizardViewModel: ObservableObject {
     private func setInputOption(_ value: String, for definition: ParameterDefinition, scope: ParameterScope) {
         switch scope {
         case .type:
-            typeOptionInputs[definition.id] = value
+            var updated = typeOptionInputs
+            updated[definition.id] = value
+            typeOptionInputs = updated
         case .instance:
-            instanceOptionInputs[definition.id] = value
+            var updated = instanceOptionInputs
+            updated[definition.id] = value
+            instanceOptionInputs = updated
         }
     }
 
@@ -651,9 +663,13 @@ final class AddAssetWizardViewModel: ObservableObject {
     private func setInputBool(_ value: Bool, for definition: ParameterDefinition, scope: ParameterScope) {
         switch scope {
         case .type:
-            typeBoolInputs[definition.id] = value
+            var updated = typeBoolInputs
+            updated[definition.id] = value
+            typeBoolInputs = updated
         case .instance:
-            instanceBoolInputs[definition.id] = value
+            var updated = instanceBoolInputs
+            updated[definition.id] = value
+            instanceBoolInputs = updated
         }
     }
 
@@ -669,9 +685,13 @@ final class AddAssetWizardViewModel: ObservableObject {
     private func setInputDate(_ value: Date, for definition: ParameterDefinition, scope: ParameterScope) {
         switch scope {
         case .type:
-            typeDateInputs[definition.id] = value
+            var updated = typeDateInputs
+            updated[definition.id] = value
+            typeDateInputs = updated
         case .instance:
-            instanceDateInputs[definition.id] = value
+            var updated = instanceDateInputs
+            updated[definition.id] = value
+            instanceDateInputs = updated
         }
     }
 }

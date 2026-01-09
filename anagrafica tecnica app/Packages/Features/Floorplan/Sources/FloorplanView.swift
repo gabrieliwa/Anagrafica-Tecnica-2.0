@@ -45,7 +45,7 @@ public struct FloorplanView: View {
         ZStack(alignment: .bottomTrailing) {
             FloorplanCanvas(
                 linework: viewModel.linework,
-                rooms: viewModel.rooms,
+                rooms: viewModel.roomsWithCounts,
                 bounds: viewModel.bounds,
                 isReadOnly: uiState == .completed,
                 onRoomTapped: { room in
@@ -67,13 +67,21 @@ public struct FloorplanView: View {
             }
             .padding(AppSpacing.lg)
         }
-        .sheet(item: $selectedRoom) { room in
+        .sheet(item: $selectedRoom, onDismiss: {
+            viewModel.reloadRoomCounts(context: context)
+        }) { room in
             AddAssetWizardView(
                 roomNumber: room.number,
                 roomName: room.name,
                 levelName: currentLevelName,
                 context: context
             )
+        }
+        .onAppear {
+            viewModel.reloadRoomCounts(context: context)
+        }
+        .onChange(of: viewModel.selectedLevelIndex) { _ in
+            viewModel.reloadRoomCounts(context: context)
         }
     }
 

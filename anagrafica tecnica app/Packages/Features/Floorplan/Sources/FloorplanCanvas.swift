@@ -21,15 +21,19 @@ struct FloorplanCanvas: View {
                 let transform = FloorplanTransform(bounds: bounds, size: size)
                 let zoomBounds = zoomLimits(for: rooms, transform: transform, canvasSize: size)
                 let viewCenter = CGPoint(x: size.width * 0.5, y: size.height * 0.5)
-                Canvas { context, canvasSize in
-                    let localTransform = FloorplanTransform(bounds: bounds, size: canvasSize)
-                    let canvasCenter = CGPoint(x: canvasSize.width * 0.5, y: canvasSize.height * 0.5)
-                    context.translateBy(x: panOffset.width, y: panOffset.height)
-                    context.translateBy(x: canvasCenter.x, y: canvasCenter.y)
-                    context.scaleBy(x: zoomScale, y: zoomScale)
-                    context.translateBy(x: -canvasCenter.x, y: -canvasCenter.y)
-                    drawLinework(lines: linework, transform: localTransform, isReadOnly: isReadOnly, context: &context)
-                    drawRooms(rooms: rooms, transform: localTransform, zoomScale: zoomScale, isReadOnly: isReadOnly, context: &context)
+                ZStack {
+                    Canvas { context, canvasSize in
+                        let localTransform = FloorplanTransform(bounds: bounds, size: canvasSize)
+                        let canvasCenter = CGPoint(x: canvasSize.width * 0.5, y: canvasSize.height * 0.5)
+                        context.translateBy(x: panOffset.width, y: panOffset.height)
+                        context.translateBy(x: canvasCenter.x, y: canvasCenter.y)
+                        context.scaleBy(x: zoomScale, y: zoomScale)
+                        context.translateBy(x: -canvasCenter.x, y: -canvasCenter.y)
+                        drawLinework(lines: linework, transform: localTransform, isReadOnly: isReadOnly, context: &context)
+                        drawRooms(rooms: rooms, transform: localTransform, isReadOnly: isReadOnly, context: &context)
+                    }
+                    roomBadges(transform: transform, canvasSize: size)
+                        .allowsHitTesting(false)
                 }
                 .contentShape(Rectangle())
                 .gesture(combinedGesture(transform: transform, zoomBounds: zoomBounds, center: viewCenter))
@@ -103,18 +107,10 @@ struct FloorplanCanvas: View {
     private func drawRooms(
         rooms: [FloorplanRoom],
         transform: FloorplanTransform,
-        zoomScale: CGFloat,
         isReadOnly: Bool,
         context: inout GraphicsContext
     ) {
         let readOnlyOpacity: Double = isReadOnly ? 0.45 : 1.0
-        let iconScale = max(zoomScale, 0.0001)
-        let iconDiameter: CGFloat = 24 / iconScale
-        let iconRadius = iconDiameter * 0.5
-        let iconStroke: CGFloat = 1.5 / iconScale
-        let plusLength: CGFloat = 12 / iconScale
-        let plusHalf = plusLength * 0.5
-        let plusThickness: CGFloat = 1.5 / iconScale
 
         for room in rooms {
             guard let first = room.polygon.first else { continue }
@@ -125,36 +121,10 @@ struct FloorplanCanvas: View {
             }
             roomPath.closeSubpath()
 
-            context.fill(roomPath, with: .color(AppColors.roomEmptyFill.opacity(readOnlyOpacity)))
+            let isOccupied = room.totalCount > 0
+            let fillColor = isOccupied ? AppColors.roomOccupiedFill : AppColors.roomEmptyFill
+            context.fill(roomPath, with: .color(fillColor.opacity(readOnlyOpacity)))
             context.stroke(roomPath, with: .color(AppColors.roomEmptyStroke.opacity(readOnlyOpacity)), lineWidth: 1.5)
-
-            if let label = room.labelPoint {
-                let labelPoint = transform.point(label)
-                let iconPath = Path(ellipseIn: CGRect(x: labelPoint.x - iconRadius, y: labelPoint.y - iconRadius, width: iconDiameter, height: iconDiameter))
-                context.stroke(iconPath, with: .color(AppColors.roomEmptyIcon.opacity(readOnlyOpacity)), lineWidth: iconStroke)
-                context.fill(
-                    Path(
-                        CGRect(
-                            x: labelPoint.x - plusHalf,
-                            y: labelPoint.y - plusThickness * 0.5,
-                            width: plusLength,
-                            height: plusThickness
-                        )
-                    ),
-                    with: .color(AppColors.roomEmptyIcon.opacity(readOnlyOpacity))
-                )
-                context.fill(
-                    Path(
-                        CGRect(
-                            x: labelPoint.x - plusThickness * 0.5,
-                            y: labelPoint.y - plusHalf,
-                            width: plusThickness,
-                            height: plusLength
-                        )
-                    ),
-                    with: .color(AppColors.roomEmptyIcon.opacity(readOnlyOpacity))
-                )
-            }
         }
     }
 
@@ -210,6 +180,55 @@ struct FloorplanCanvas: View {
         let maxZoomY = canvasSize.height / roomHeight
         let maxZoom = max(minZoom, min(maxZoomX, maxZoomY))
         return ZoomBounds(min: minZoom, max: maxZoom)
+    }
+
+    private func roomBadges(transform: FloorplanTransform, canvasSize: CGSize) -> some View {
+        let center = CGPoint(x: canvasSize.width * 0.5, y: canvasSize.height * 0.5)
+        return ZStack {
+            ForEach(rooms) { room in
+                if let label = room.labelPoint {
+                    let position = screenPoint(for: label, transform: transform, center: center)
+                    RoomBadge(
+                        count: room.totalCount,
+                        isReadOnly: isReadOnly
+                    )
+                    .position(position)
+                }
+            }
+        }
+    }
+
+    private func screenPoint(for point: Point, transform: FloorplanTransform, center: CGPoint) -> CGPoint {
+        let base = transform.point(point)
+        let scaled = CGPoint(
+            x: center.x + (base.x - center.x) * zoomScale,
+            y: center.y + (base.y - center.y) * zoomScale
+        )
+        return CGPoint(x: scaled.x + panOffset.width, y: scaled.y + panOffset.height)
+    }
+}
+
+private struct RoomBadge: View {
+    let count: Int
+    let isReadOnly: Bool
+
+    var body: some View {
+        let isEmpty = count == 0
+        let opacity = isReadOnly ? 0.45 : 1.0
+        ZStack {
+            Circle()
+                .stroke(AppColors.roomEmptyIcon.opacity(opacity), lineWidth: 1.5)
+            if isEmpty {
+                Text("+")
+                    .font(.system(size: 14, weight: .bold))
+                    .foregroundStyle(AppColors.roomEmptyIcon.opacity(opacity))
+            } else {
+                Text("\(count)")
+                    .font(.system(size: 12, weight: .bold))
+                    .foregroundStyle(AppColors.textPrimary.opacity(opacity))
+            }
+        }
+        .frame(width: 24, height: 24)
     }
 }
 
