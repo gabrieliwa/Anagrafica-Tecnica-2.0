@@ -91,6 +91,13 @@ public enum AppMetrics {
     public static let floorplanMinZoom: CGFloat = 1.0
     public static let floorplanDefaultMaxZoom: CGFloat = 5.0
     public static let floorplanZoomEpsilon: CGFloat = 0.0001
+
+    public static let roomPlanHeight: CGFloat = 220
+    public static let roomRowIconSize: CGFloat = 18
+    public static let roomRowIconFrame: CGFloat = 36
+    public static let roomRowChevronSize: CGFloat = 10
+    public static let detailPhotoSize: CGFloat = 56
+    public static let detailPhotoIconSize: CGFloat = 22
 }
 
 public enum AppShadow {

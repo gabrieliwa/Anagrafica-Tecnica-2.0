@@ -182,6 +182,16 @@ struct FloorplanRoom: Identifiable {
     }
 }
 
+extension FloorplanRoom: Hashable {
+    static func == (lhs: FloorplanRoom, rhs: FloorplanRoom) -> Bool {
+        lhs.id == rhs.id
+    }
+
+    func hash(into hasher: inout Hasher) {
+        hasher.combine(id)
+    }
+}
+
 struct RoomCounts: Equatable {
     let assetCount: Int
     let roomNoteCount: Int

@@ -30,7 +30,7 @@ let package = Package(
         ),
         .target(
             name: "Floorplan",
-            dependencies: ["Core", "DesignSystem", "AddAssetWizard"],
+            dependencies: ["Core", "DesignSystem", "AddAssetWizard", "Room"],
             path: "Features/Floorplan/Sources"
         ),
         .target(

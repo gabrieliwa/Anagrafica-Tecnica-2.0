@@ -1,6 +1,7 @@
 import AddAssetWizard
 import Core
 import DesignSystem
+import Room
 import SwiftUI
 
 public struct FloorplanView: View {
@@ -8,7 +9,9 @@ public struct FloorplanView: View {
     @StateObject private var viewModel: FloorplanViewModel
     private let projectName: String
     private let uiState: ProjectUIState?
-    @State private var selectedRoom: FloorplanRoom?
+    @State private var selectedRoomForWizard: FloorplanRoom?
+    @State private var selectedRoomForDetails: FloorplanRoom?
+    @State private var isRoomDetailsActive = false
 
     public init(projectName: String, uiState: ProjectUIState?, bundle: Bundle = .main) {
         _viewModel = StateObject(wrappedValue: FloorplanViewModel(bundle: bundle))
@@ -49,8 +52,12 @@ public struct FloorplanView: View {
                 bounds: viewModel.bounds,
                 isReadOnly: uiState == .completed,
                 onRoomTapped: { room in
-                    guard uiState != .completed else { return }
-                    selectedRoom = room
+                    if uiState == .completed || room.totalCount > 0 {
+                        selectedRoomForDetails = room
+                        isRoomDetailsActive = true
+                    } else {
+                        selectedRoomForWizard = room
+                    }
                 }
             )
             .id(viewModel.selectedLevelIndex)
@@ -67,7 +74,7 @@ public struct FloorplanView: View {
             }
             .padding(AppSpacing.lg)
         }
-        .sheet(item: $selectedRoom, onDismiss: {
+        .sheet(item: $selectedRoomForWizard, onDismiss: {
             viewModel.reloadRoomCounts(context: context)
         }) { room in
             AddAssetWizardView(
@@ -77,11 +84,39 @@ public struct FloorplanView: View {
                 context: context
             )
         }
+        .background(
+            NavigationLink(
+                destination: roomDetailDestination,
+                isActive: $isRoomDetailsActive,
+                label: { EmptyView() }
+            )
+            .hidden()
+        )
         .onAppear {
             viewModel.reloadRoomCounts(context: context)
         }
         .onChange(of: viewModel.selectedLevelIndex) { _ in
             viewModel.reloadRoomCounts(context: context)
+        }
+        .onChange(of: isRoomDetailsActive) { isActive in
+            if !isActive {
+                selectedRoomForDetails = nil
+            }
+        }
+    }
+
+    private var roomDetailDestination: some View {
+        Group {
+            if let room = selectedRoomForDetails {
+                RoomView(
+                    levelName: currentLevelName,
+                    roomNumber: room.number,
+                    roomName: room.name,
+                    context: context
+                )
+            } else {
+                EmptyView()
+            }
         }
     }
 

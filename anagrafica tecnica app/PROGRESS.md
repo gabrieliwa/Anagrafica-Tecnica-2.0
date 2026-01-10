@@ -53,10 +53,10 @@ Update rule: keep this checklist current whenever milestones change.
 
 ## Phase 4A - Room View (read-only)
 
-- [ ] Room view list (assets + room notes, ordering)
-- [ ] Instance editor widget (read-only)
-- [ ] Type info display in instance view
-- [ ] Navigation: Floorplan -> Room -> Instance detail
+- [x] Room view list (assets + room notes, ordering)
+- [x] Instance editor widget (read-only)
+- [x] Type info display in instance view
+- [x] Navigation: Floorplan -> Room -> Instance detail
 
 ## Phase 4B - Room Editing
 

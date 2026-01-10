@@ -134,7 +134,6 @@ struct FloorplanCanvas: View {
     }
 
     private func handleTap(location: CGPoint, transform: FloorplanTransform, center: CGPoint) {
-        guard !isReadOnly else { return }
         let adjusted = CGPoint(
             x: (location.x - panOffset.width - center.x) / max(zoomScale, AppMetrics.floorplanZoomEpsilon) + center.x,
             y: (location.y - panOffset.height - center.y) / max(zoomScale, AppMetrics.floorplanZoomEpsilon) + center.y
