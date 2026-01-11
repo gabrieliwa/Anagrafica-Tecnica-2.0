@@ -2,45 +2,6 @@ import DesignSystem
 import Foundation
 import SwiftUI
 
-struct RoomItemsList: View {
-    let items: [RoomItem]
-
-    var body: some View {
-        VStack(alignment: .leading, spacing: AppSpacing.md) {
-            Text("Assets & Room Notes")
-                .font(AppTypography.section)
-                .foregroundStyle(AppColors.textPrimary)
-
-            if items.isEmpty {
-                Text("No assets or room notes yet.")
-                    .font(AppTypography.body)
-                    .foregroundStyle(AppColors.textSecondary)
-            } else {
-                VStack(spacing: AppSpacing.sm) {
-                    ForEach(items) { item in
-                        NavigationLink {
-                            destination(for: item)
-                        } label: {
-                            RoomItemRow(item: item)
-                        }
-                        .buttonStyle(.plain)
-                    }
-                }
-            }
-        }
-    }
-
-    @ViewBuilder
-    private func destination(for item: RoomItem) -> some View {
-        switch item.kind {
-        case .asset(let snapshot):
-            AssetInstanceDetailView(snapshot: snapshot)
-        case .roomNote(let snapshot):
-            RoomNoteDetailView(snapshot: snapshot)
-        }
-    }
-}
-
 struct RoomItemRow: View {
     let item: RoomItem
 

@@ -3,9 +3,22 @@ import CoreData
 import DesignSystem
 import SwiftUI
 
+public struct RoomOverlayLayout: Equatable {
+    public let safeTop: CGFloat
+    public let safeBottom: CGFloat
+    public let screenSize: CGSize
+
+    public init(safeTop: CGFloat, safeBottom: CGFloat, screenSize: CGSize) {
+        self.safeTop = safeTop
+        self.safeBottom = safeBottom
+        self.screenSize = screenSize
+    }
+}
+
 public struct RoomOverlayView: View {
     @StateObject private var viewModel: RoomViewModel
 
+    private let layout: RoomOverlayLayout
     private let onClose: () -> Void
     private let onAddAsset: () -> Void
     private let onOpenSurvey: () -> Void
@@ -16,6 +29,7 @@ public struct RoomOverlayView: View {
         roomNumber: String,
         roomName: String?,
         context: NSManagedObjectContext,
+        layout: RoomOverlayLayout,
         onClose: @escaping () -> Void,
         onAddAsset: @escaping () -> Void,
         onOpenSurvey: @escaping () -> Void,
@@ -29,6 +43,7 @@ public struct RoomOverlayView: View {
                 roomName: roomName
             )
         )
+        self.layout = layout
         self.onClose = onClose
         self.onAddAsset = onAddAsset
         self.onOpenSurvey = onOpenSurvey
@@ -36,62 +51,51 @@ public struct RoomOverlayView: View {
     }
 
     public var body: some View {
-        GeometryReader { proxy in
-            let screenWidth = proxy.size.width
-            let safeTop = proxy.safeAreaInsets.top
-            let safeBottom = proxy.safeAreaInsets.bottom
-            let margin = AppSpacing.lg
-            // Available height: total - safeTop - (safeBottom + margin) - top bar - bottom bar - gaps
-            let availableForSheet = proxy.size.height - safeTop - safeBottom - margin - AppMetrics.roomOverlayTopBarHeight - AppMetrics.roomBottomBarHeight - AppSpacing.sm * 2
-            let sheetHeight = sheetHeight(for: viewModel.items.count, availableHeight: availableForSheet)
-            let bottomBarWidth = min(
-                screenWidth * AppMetrics.roomBottomBarWidthRatio,
-                screenWidth - margin * 2
+        let screenWidth = layout.screenSize.width
+        let margin = AppSpacing.lg
+        let availableForSheet = layout.screenSize.height - layout.safeTop - layout.safeBottom - margin - AppMetrics.roomOverlayTopBarHeight - AppMetrics.roomBottomBarHeight - AppSpacing.sm * 2
+        let sheetHeight = sheetHeight(for: viewModel.items.count, availableHeight: availableForSheet)
+        let bottomBarWidth = min(
+            screenWidth * AppMetrics.roomBottomBarWidthRatio,
+            screenWidth - margin * 2
+        )
+
+        VStack(spacing: 0) {
+            RoomTopBar(
+                levelName: viewModel.levelName,
+                roomLabel: viewModel.roomLabel,
+                onClose: onClose
             )
+            .frame(height: AppMetrics.roomOverlayTopBarHeight)
+            .allowsHitTesting(true)
 
-            VStack(spacing: 0) {
-                // Top bar
-                RoomTopBar(
-                    levelName: viewModel.levelName,
-                    roomLabel: viewModel.roomLabel,
-                    onClose: onClose
+            Spacer(minLength: AppSpacing.sm)
+
+            RoomBottomSheet(
+                items: viewModel.items,
+                height: sheetHeight,
+                onSelectItem: onSelectItem
+            )
+            .allowsHitTesting(true)
+
+            Spacer().frame(height: AppSpacing.sm)
+
+            HStack(spacing: 0) {
+                Spacer(minLength: 0)
+                RoomBottomBar(
+                    onAddAsset: onAddAsset,
+                    onOpenSurvey: onOpenSurvey
                 )
-                .frame(height: AppMetrics.roomOverlayTopBarHeight)
+                .frame(width: bottomBarWidth)
                 .allowsHitTesting(true)
-
-                Spacer(minLength: AppSpacing.sm)
-
-                // Bottom sheet
-                RoomBottomSheet(
-                    items: viewModel.items,
-                    height: sheetHeight,
-                    onSelectItem: onSelectItem
-                )
-                .allowsHitTesting(true)
-
-                // Small gap
-                Spacer().frame(height: AppSpacing.sm)
-
-                // Bottom bar
-                HStack(spacing: 0) {
-                    Spacer(minLength: 0)
-                    RoomBottomBar(
-                        onAddAsset: onAddAsset,
-                        onOpenSurvey: onOpenSurvey
-                    )
-                    .frame(width: bottomBarWidth)
-                    .allowsHitTesting(true)
-                    Spacer(minLength: 0)
-                }
-                .frame(height: AppMetrics.roomBottomBarHeight)
+                Spacer(minLength: 0)
             }
-            .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .top)
-            // Top: align with navigation bar (no extra margin)
-            // Bottom & sides: consistent margin
-            .padding(.top, safeTop)
-            .padding(.bottom, safeBottom + AppSpacing.lg)
-            .padding(.horizontal, AppSpacing.lg)
+            .frame(height: AppMetrics.roomBottomBarHeight)
         }
+        .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .top)
+        .padding(.top, layout.safeTop)
+        .padding(.bottom, layout.safeBottom + AppSpacing.lg)
+        .padding(.horizontal, AppSpacing.lg)
         .onAppear {
             viewModel.reload()
         }

@@ -7,6 +7,7 @@ import SwiftUI
 
 public struct FloorplanView: View {
     @Environment(\.managedObjectContext) private var context
+    @Environment(\.dismiss) private var dismiss
     @StateObject private var viewModel: FloorplanViewModel
     private let projectName: String
     private let uiState: ProjectUIState?
@@ -43,9 +44,8 @@ public struct FloorplanView: View {
                 floorplanContent
             }
         }
-        .navigationTitle(isRoomViewActive ? "" : projectName)
-        .navigationBarTitleDisplayMode(.inline)
-        .toolbar(isRoomViewActive ? .hidden : .visible, for: .navigationBar)
+        .navigationBarBackButtonHidden(true)
+        .toolbar(.hidden, for: .navigationBar)
     }
 
     private var floorplanContent: some View {
@@ -61,7 +61,7 @@ public struct FloorplanView: View {
             let topInset = safeTop + AppMetrics.roomOverlayTopBarHeight
             let bottomInset = safeBottom + margin + sheetHeight + AppMetrics.roomBottomBarHeight + AppSpacing.sm
 
-            ZStack(alignment: .bottomTrailing) {
+            ZStack {
                 FloorplanCanvas(
                     linework: viewModel.linework,
                     rooms: viewModel.roomsWithCounts,
@@ -88,6 +88,11 @@ public struct FloorplanView: View {
                         roomNumber: room.number,
                         roomName: room.name,
                         context: context,
+                        layout: RoomOverlayLayout(
+                            safeTop: safeTop,
+                            safeBottom: safeBottom,
+                            screenSize: size
+                        ),
                         onClose: {
                             withAnimation(.easeOut(duration: AppMetrics.roomFocusAnimationDuration)) {
                                 mode = .browse
@@ -108,16 +113,16 @@ public struct FloorplanView: View {
                     .id("\(room.id)-\(roomOverlayRefreshToken)")
                     .transition(.opacity.combined(with: .move(edge: .bottom)))
                 } else {
-                    VStack(alignment: .trailing, spacing: AppSpacing.sm) {
-                        if uiState == .completed {
-                            ReadOnlyBadge()
-                        }
-                        LevelPicker(
-                            levels: viewModel.levels,
-                            selection: $viewModel.selectedLevelIndex
-                        )
-                    }
-                    .padding(AppSpacing.lg)
+                    BrowseChromeOverlay(
+                        safeTop: safeTop,
+                        safeBottom: safeBottom,
+                        projectName: projectName,
+                        showReadOnly: uiState == .completed,
+                        levels: viewModel.levels,
+                        selection: $viewModel.selectedLevelIndex,
+                        onBack: { dismiss() },
+                        onOpenSurvey: { isSurveyReportActive = true }
+                    )
                 }
             }
             .sheet(item: $activeSheet, onDismiss: handleSheetDismiss) { sheet in
@@ -308,6 +313,97 @@ public struct FloorplanView: View {
             + AppMetrics.roomSheetRowHeight
             + internalPadding
         return min(maxHeight, max(minHeight, contentHeight))
+    }
+}
+
+private struct BrowseChromeOverlay: View {
+    let safeTop: CGFloat
+    let safeBottom: CGFloat
+    let projectName: String
+    let showReadOnly: Bool
+    let levels: [DemoPlanLevel]
+    @Binding var selection: Int
+    let onBack: () -> Void
+    let onOpenSurvey: () -> Void
+
+    var body: some View {
+        ZStack {
+            VStack(spacing: 0) {
+                BrowseTopBar(title: projectName, onBack: onBack)
+                    .frame(height: AppMetrics.roomOverlayTopBarHeight)
+                    .padding(.horizontal, AppSpacing.lg)
+                    .padding(.top, safeTop)
+                Spacer()
+            }
+
+            VStack {
+                Spacer()
+                HStack {
+                    Button(action: onOpenSurvey) {
+                        Image(systemName: "line.3.horizontal")
+                            .font(.system(size: AppMetrics.roomRowIconSize, weight: .bold))
+                            .foregroundStyle(AppColors.textPrimary)
+                            .frame(width: AppMetrics.roomRowIconFrame, height: AppMetrics.roomRowIconFrame)
+                            .background(
+                                RoundedRectangle(cornerRadius: AppRadius.field)
+                                    .fill(AppColors.cardBackground)
+                            )
+                            .overlay(
+                                RoundedRectangle(cornerRadius: AppRadius.field)
+                                    .stroke(AppColors.cardBorder, lineWidth: AppMetrics.cardStrokeWidth)
+                            )
+                    }
+                    .accessibilityLabel("Survey Report")
+                    Spacer()
+                    VStack(alignment: .trailing, spacing: AppSpacing.sm) {
+                        if showReadOnly {
+                            ReadOnlyBadge()
+                        }
+                        LevelPicker(
+                            levels: levels,
+                            selection: $selection
+                        )
+                    }
+                }
+                .padding(.horizontal, AppSpacing.lg)
+                .padding(.bottom, safeBottom + AppSpacing.lg)
+            }
+        }
+        .frame(maxWidth: .infinity, maxHeight: .infinity)
+    }
+}
+
+private struct BrowseTopBar: View {
+    let title: String
+    let onBack: () -> Void
+
+    var body: some View {
+        ZStack {
+            Text(title)
+                .font(AppTypography.bodyEmphasis)
+                .foregroundStyle(AppColors.textPrimary)
+
+            HStack {
+                Button(action: onBack) {
+                    Image(systemName: "chevron.left")
+                        .font(.system(size: AppMetrics.roomRowIconSize, weight: .bold))
+                        .foregroundStyle(AppColors.textPrimary)
+                        .frame(width: AppMetrics.roomRowIconFrame, height: AppMetrics.roomRowIconFrame)
+                        .background(
+                            Circle().fill(AppColors.cardBackground.opacity(0.95))
+                        )
+                }
+                Spacer()
+                Image(systemName: "arrow.triangle.2.circlepath")
+                    .font(.system(size: AppMetrics.roomRowIconSize, weight: .semibold))
+                    .foregroundStyle(AppColors.textSecondary)
+                    .frame(width: AppMetrics.roomRowIconFrame, height: AppMetrics.roomRowIconFrame)
+                    .background(
+                        Circle().fill(AppColors.cardBackground.opacity(0.95))
+                    )
+            }
+        }
+        .frame(maxWidth: .infinity)
     }
 }
 

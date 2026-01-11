@@ -158,6 +158,7 @@ When the room overlay is open:
 - Driving room selection via a navigation push to a different screen (forces map recreation)
 - Multiple simultaneous `.sheet` / `.fullScreenCover` layers from different subviews
   - Prefer a single sheet driven by the floor map screen (Add Asset + item detail)
+- Leaving the system navigation bar enabled on the floorplan screen (use a custom top bar for consistent overlay layout)
 - Rebuilding map view when `mode` changes (loses zoom/offset)
 
 ---

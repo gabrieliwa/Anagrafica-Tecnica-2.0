@@ -62,6 +62,7 @@ Each SwiftPM module should include:
 - The floorplan map is a persistent background view (pan/zoom always available).
 - Room View is an overlay state on the same screen, not a navigation push.
 - All room-related modals (Add Asset, item detail) are presented from the floorplan screen to avoid nested sheets.
+- The system navigation bar is hidden on the floorplan screen; browse + room use custom top bars for consistent layout.
 
 ## Roadmap (Capability-Based Phases)
 

@@ -1045,10 +1045,6 @@
         },
         {
           "kind" : "file",
-          "name" : "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/Features/Room/Sources/RoomView.swift"
-        },
-        {
-          "kind" : "file",
           "name" : "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/Features/Room/Sources/RoomViewModel.swift"
         },
         {
@@ -1075,7 +1071,6 @@
         "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/.build/index-build/arm64-apple-macosx/debug/Room.build/Room.swift.o",
         "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/.build/index-build/arm64-apple-macosx/debug/Room.build/RoomDetailViews.swift.o",
         "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/.build/index-build/arm64-apple-macosx/debug/Room.build/RoomOverlayView.swift.o",
-        "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/.build/index-build/arm64-apple-macosx/debug/Room.build/RoomView.swift.o",
         "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/.build/index-build/arm64-apple-macosx/debug/Room.build/RoomViewModel.swift.o"
       ],
       "otherArguments" : [
@@ -1139,7 +1134,6 @@
         "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/Features/Room/Sources/Room.swift",
         "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/Features/Room/Sources/RoomDetailViews.swift",
         "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/Features/Room/Sources/RoomOverlayView.swift",
-        "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/Features/Room/Sources/RoomView.swift",
         "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/Features/Room/Sources/RoomViewModel.swift"
       ],
       "tempsPath" : "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/.build/index-build/arm64-apple-macosx/debug/Room.build",
@@ -1783,7 +1777,6 @@
       "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/Features/Room/Sources/Room.swift",
       "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/Features/Room/Sources/RoomDetailViews.swift",
       "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/Features/Room/Sources/RoomOverlayView.swift",
-      "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/Features/Room/Sources/RoomView.swift",
       "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/Features/Room/Sources/RoomViewModel.swift",
       "-I",
       "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/.build/index-build/arm64-apple-macosx/debug/Modules",
@@ -2255,10 +2248,6 @@
         {
           "kind" : "file",
           "name" : "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/Features/Room/Sources/RoomOverlayView.swift"
-        },
-        {
-          "kind" : "file",
-          "name" : "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/Features/Room/Sources/RoomView.swift"
         },
         {
           "kind" : "file",
