@@ -5,23 +5,63 @@ import Room
 import SurveyReport
 import SwiftUI
 
+// MARK: - PlanimetricFlow
+
+/// Main container for the planimetric workflow.
+///
+/// ## Architecture
+/// The floor plan is persistent ONLY within this workflow. Two modes are supported:
+/// - **Browse Mode**: Default state, user navigates the floor plan with pan/zoom.
+/// - **Room Mode**: A room is selected, overlay UI shows room details, map stays mounted.
+///
+/// The floor plan (`FloorplanCanvas`) is always the same view instance - it is never
+/// recreated during mode transitions. Only the overlay UI changes based on `PlanMode`.
+///
+/// ## Why persistent map matters
+/// Keeping the same map instance:
+/// - Preserves zoom/pan state during room selection
+/// - Enables smooth camera animations (zoom-to-fit on room)
+/// - Avoids "deck of cards" view hierarchy issues
+/// - Improves performance by not recreating complex Canvas views
+///
+/// ## ReportsFlow separation
+/// Outside this workflow (e.g., Survey Report), the floor plan is NOT visible.
+/// Reports use standard full-screen navigation without the map background.
 public struct FloorplanView: View {
     @Environment(\.managedObjectContext) private var context
     @Environment(\.dismiss) private var dismiss
+
+    // MARK: - State
+
     @StateObject private var viewModel: FloorplanViewModel
+    @StateObject private var mapController = MapController()
+
+    /// Single source of truth for the current UI mode
+    @State private var mode: PlanMode = .browse
+
+    /// Sheet presentation state (centralized to avoid nested sheet issues)
+    @State private var activeSheet: ActiveSheet?
+
+    /// Navigation to Survey Report (ReportsFlow)
+    @State private var isSurveyReportActive = false
+
+    /// Token to force refresh RoomOverlayView when sheet dismisses
+    @State private var roomOverlayRefreshToken = UUID()
+
+    // MARK: - Configuration
+
     private let projectName: String
     private let uiState: ProjectUIState?
-    @State private var mode: FloorplanMode = .browse
-    @State private var activeSheet: ActiveSheet?
-    @State private var isSurveyReportActive = false
-    @State private var viewport = FloorplanViewport()
-    @State private var roomOverlayRefreshToken = UUID()
+
+    // MARK: - Init
 
     public init(projectName: String, uiState: ProjectUIState?, bundle: Bundle = .main) {
         _viewModel = StateObject(wrappedValue: FloorplanViewModel(bundle: bundle))
         self.projectName = projectName
         self.uiState = uiState
     }
+
+    // MARK: - Body
 
     public var body: some View {
         ZStack {
@@ -32,117 +72,76 @@ public struct FloorplanView: View {
                 ProgressView("Loading floorplan")
                     .foregroundStyle(AppColors.textSecondary)
             } else if let message = viewModel.errorMessage {
-                VStack(spacing: AppSpacing.sm) {
-                    Text("Failed to load demo plan")
-                        .font(AppTypography.section)
-                        .foregroundStyle(AppColors.textPrimary)
-                    Text(message)
-                        .font(AppTypography.body)
-                        .foregroundStyle(AppColors.textSecondary)
-                }
+                errorContent(message: message)
             } else {
-                floorplanContent
+                planimetricContent
             }
         }
+        #if os(iOS)
         .navigationBarBackButtonHidden(true)
         .toolbar(.hidden, for: .navigationBar)
+        #endif
     }
 
-    private var floorplanContent: some View {
+    // MARK: - Error State
+
+    private func errorContent(message: String) -> some View {
+        VStack(spacing: AppSpacing.sm) {
+            Text("Failed to load demo plan")
+                .font(AppTypography.section)
+                .foregroundStyle(AppColors.textPrimary)
+            Text(message)
+                .font(AppTypography.body)
+                .foregroundStyle(AppColors.textSecondary)
+        }
+    }
+
+    // MARK: - Planimetric Content
+
+    /// The main planimetric view structure:
+    /// - ZStack with FloorplanCanvas always at the bottom
+    /// - Overlay switches based on current mode
+    private var planimetricContent: some View {
         GeometryReader { proxy in
             let size = proxy.size
             let safeTop = proxy.safeAreaInsets.top
             let safeBottom = proxy.safeAreaInsets.bottom
-            let margin = AppSpacing.lg
-            // Calculate available space for sheet (matching RoomOverlayView)
-            let availableForSheet = size.height - safeTop - safeBottom - margin - AppMetrics.roomOverlayTopBarHeight - AppMetrics.roomBottomBarHeight - AppSpacing.sm * 2
-            let sheetHeight = roomSheetHeight(for: selectedRoom?.totalCount ?? 1, availableHeight: availableForSheet)
-            // Insets for room focus calculation (top bar at safeTop, bottom has margin)
-            let topInset = safeTop + AppMetrics.roomOverlayTopBarHeight
-            let bottomInset = safeBottom + margin + sheetHeight + AppMetrics.roomBottomBarHeight + AppSpacing.sm
+
+            // Layout calculations for room focus
+            let layout = RoomSheetLayout(
+                safeTop: safeTop,
+                safeBottom: safeBottom,
+                screenSize: size
+            )
 
             ZStack {
+                // MARK: Persistent Floor Map
+                // This view is NEVER recreated during mode changes.
+                // It stays mounted and only the overlays change.
                 FloorplanCanvas(
                     linework: viewModel.linework,
                     rooms: viewModel.roomsWithCounts,
                     bounds: viewModel.bounds,
                     isReadOnly: uiState == .completed,
-                    selectedRoomId: selectedRoom?.id,
-                    isRoomViewActive: isRoomViewActive,
+                    selectedRoomId: mode.selectedRoomID,
+                    isRoomViewActive: isRoomMode,
                     onRoomTapped: { room in
-                        handleRoomTap(
-                            room,
-                            canvasSize: size,
-                            topInset: topInset,
-                            bottomInset: bottomInset
-                        )
+                        handleRoomTap(room, canvasSize: size, layout: layout)
                     },
-                    viewport: $viewport
+                    viewport: $mapController.viewport
                 )
+                // Use level index as id to reset canvas state when level changes
                 .id(viewModel.selectedLevelIndex)
                 .ignoresSafeArea()
 
-                if isRoomViewActive, let room = selectedRoom {
-                    RoomOverlayView(
-                        levelName: currentLevelName,
-                        roomNumber: room.number,
-                        roomName: room.name,
-                        context: context,
-                        layout: RoomOverlayLayout(
-                            safeTop: safeTop,
-                            safeBottom: safeBottom,
-                            screenSize: size
-                        ),
-                        onClose: {
-                            withAnimation(.easeOut(duration: AppMetrics.roomFocusAnimationDuration)) {
-                                mode = .browse
-                                viewport = FloorplanViewport()
-                            }
-                        },
-                        onAddAsset: {
-                            activeSheet = .addAsset(room)
-                        },
-                        onOpenSurvey: {
-                            isSurveyReportActive = true
-                        },
-                        onSelectItem: { item in
-                            activeSheet = .roomItem(item)
-                        }
-                    )
-                    .ignoresSafeArea(edges: .all)
-                    .id("\(room.id)-\(roomOverlayRefreshToken)")
-                    .transition(.opacity.combined(with: .move(edge: .bottom)))
-                } else {
-                    BrowseChromeOverlay(
-                        safeTop: safeTop,
-                        safeBottom: safeBottom,
-                        projectName: projectName,
-                        showReadOnly: uiState == .completed,
-                        levels: viewModel.levels,
-                        selection: $viewModel.selectedLevelIndex,
-                        onBack: { dismiss() },
-                        onOpenSurvey: { isSurveyReportActive = true }
-                    )
-                }
+                // MARK: Mode-specific Overlays
+                overlayContent(safeTop: safeTop, safeBottom: safeBottom, screenSize: size)
             }
+            // Sheet presentation (centralized at top level to avoid hierarchy issues)
             .sheet(item: $activeSheet, onDismiss: handleSheetDismiss) { sheet in
-                switch sheet {
-                case .addAsset(let room):
-                    AddAssetWizardView(
-                        roomNumber: room.number,
-                        roomName: room.name,
-                        levelName: currentLevelName,
-                        context: context
-                    )
-                case .roomItem(let item):
-                    switch item.kind {
-                    case .asset(let snapshot):
-                        AssetInstanceDetailView(snapshot: snapshot)
-                    case .roomNote(let snapshot):
-                        RoomNoteDetailView(snapshot: snapshot)
-                    }
-                }
+                sheetContent(for: sheet)
             }
+            // Hidden navigation link for Survey Report (ReportsFlow)
             .background(
                 NavigationLink(
                     destination: SurveyReportView(),
@@ -152,14 +151,91 @@ public struct FloorplanView: View {
                 .hidden()
             )
             .onAppear {
+                configureMapController()
                 viewModel.reloadRoomCounts(context: context)
             }
             .onChange(of: viewModel.selectedLevelIndex) { _ in
-                viewModel.reloadRoomCounts(context: context)
-                resetViewport()
+                handleLevelChange()
             }
         }
     }
+
+    // MARK: - Overlay Content
+
+    /// Returns the appropriate overlay based on current mode.
+    @ViewBuilder
+    private func overlayContent(safeTop: CGFloat, safeBottom: CGFloat, screenSize: CGSize) -> some View {
+        switch mode {
+        case .browse:
+            // Browse mode: top bar with project title, bottom bar with level picker
+            BrowseOverlay(
+                safeTop: safeTop,
+                safeBottom: safeBottom,
+                projectName: projectName,
+                isReadOnly: uiState == .completed,
+                levels: viewModel.levels,
+                selectedLevelIndex: $viewModel.selectedLevelIndex,
+                onBack: { dismiss() },
+                onOpenSurvey: { isSurveyReportActive = true }
+            )
+            .transition(.opacity)
+
+        case .room(let roomID):
+            // Room mode: room overlay with asset list and actions
+            if let room = viewModel.roomsWithCounts.first(where: { $0.id == roomID }) {
+                RoomOverlayView(
+                    levelName: currentLevelName,
+                    roomNumber: room.number,
+                    roomName: room.name,
+                    context: context,
+                    layout: RoomOverlayLayout(
+                        safeTop: safeTop,
+                        safeBottom: safeBottom,
+                        screenSize: screenSize
+                    ),
+                    onClose: {
+                        exitRoomMode()
+                    },
+                    onAddAsset: {
+                        activeSheet = .addAsset(room)
+                    },
+                    onOpenSurvey: {
+                        isSurveyReportActive = true
+                    },
+                    onSelectItem: { item in
+                        activeSheet = .roomItem(item)
+                    }
+                )
+                .ignoresSafeArea(edges: .all)
+                .id("\(room.id)-\(roomOverlayRefreshToken)")
+                .transition(.opacity.combined(with: .move(edge: .bottom)))
+            }
+        }
+    }
+
+    // MARK: - Sheet Content
+
+    @ViewBuilder
+    private func sheetContent(for sheet: ActiveSheet) -> some View {
+        switch sheet {
+        case .addAsset(let room):
+            AddAssetWizardView(
+                roomNumber: room.number,
+                roomName: room.name,
+                levelName: currentLevelName,
+                context: context
+            )
+        case .roomItem(let item):
+            switch item.kind {
+            case .asset(let snapshot):
+                AssetInstanceDetailView(snapshot: snapshot)
+            case .roomNote(let snapshot):
+                RoomNoteDetailView(snapshot: snapshot)
+            }
+        }
+    }
+
+    // MARK: - Computed Properties
 
     private var currentLevelName: String {
         guard viewModel.levels.indices.contains(viewModel.selectedLevelIndex) else {
@@ -168,307 +244,93 @@ public struct FloorplanView: View {
         return viewModel.levels[viewModel.selectedLevelIndex].name
     }
 
+    private var isRoomMode: Bool {
+        if case .room = mode { return true }
+        return false
+    }
+
+    // MARK: - Actions
+
+    /// Handle tap on a room polygon.
     private func handleRoomTap(
         _ room: FloorplanRoom,
         canvasSize: CGSize,
-        topInset: CGFloat,
-        bottomInset: CGFloat
+        layout: RoomSheetLayout
     ) {
-        if room.totalCount > 0 {
-            // Animate both the room selection and the viewport change together
-            withAnimation(.easeOut(duration: AppMetrics.roomFocusAnimationDuration)) {
-                mode = .room(room)
-            }
-            focusOnRoom(room, canvasSize: canvasSize, topInset: topInset, bottomInset: bottomInset)
+        // If room has items or we're already in room mode, enter/switch room mode
+        if room.totalCount > 0 || isRoomMode {
+            enterRoomMode(room: room, canvasSize: canvasSize, layout: layout)
         } else {
-            if isRoomViewActive {
-                withAnimation(.easeOut(duration: AppMetrics.roomFocusAnimationDuration)) {
-                    mode = .room(room)
-                }
-                focusOnRoom(room, canvasSize: canvasSize, topInset: topInset, bottomInset: bottomInset)
-            }
+            // Empty room tapped from browse mode: show add asset sheet directly
+            // (also enter room mode so user sees the room highlighted)
+            enterRoomMode(room: room, canvasSize: canvasSize, layout: layout)
             activeSheet = .addAsset(room)
         }
     }
 
-    private func focusOnRoom(
-        _ room: FloorplanRoom,
+    /// Enter room mode: animate camera to focus on room, show room overlay.
+    private func enterRoomMode(
+        room: FloorplanRoom,
         canvasSize: CGSize,
-        topInset: CGFloat,
-        bottomInset: CGFloat
+        layout: RoomSheetLayout
     ) {
-        guard let bounds = viewModel.bounds else { return }
-        guard let roomBounds = GeometryUtils.bounds(for: room.polygon) else { return }
-        let transform = FloorplanTransform(bounds: bounds, size: canvasSize)
+        let itemCount = room.totalCount
+        let topInset = layout.topInset
+        let bottomInset = layout.bottomInset(for: max(1, itemCount))
 
-        let availableHeight = max(1, canvasSize.height - topInset - bottomInset)
-        let availableWidth = canvasSize.width
-
-        let roomWidth = CGFloat(roomBounds.maxX - roomBounds.minX) * transform.scale
-        let roomHeight = CGFloat(roomBounds.maxY - roomBounds.minY) * transform.scale
-        guard roomWidth > 0, roomHeight > 0 else { return }
-
-        let zoomBounds = zoomLimits(for: viewModel.roomsWithCounts, transform: transform, canvasSize: canvasSize)
-        let targetScale = clamp(
-            min(availableWidth / roomWidth, availableHeight / roomHeight) * AppMetrics.roomFocusPaddingScale,
-            min: zoomBounds.min,
-            max: zoomBounds.max
-        )
-
-        let roomCenter = Point(
-            x: (roomBounds.minX + roomBounds.maxX) * 0.5,
-            y: (roomBounds.minY + roomBounds.maxY) * 0.5
-        )
-        let baseCenter = transform.point(roomCenter)
-        let viewCenter = CGPoint(x: canvasSize.width * 0.5, y: canvasSize.height * 0.5)
-        let desiredCenter = CGPoint(x: viewCenter.x, y: topInset + availableHeight * 0.5)
-
-        let targetOffset = CGSize(
-            width: desiredCenter.x - (viewCenter.x + (baseCenter.x - viewCenter.x) * targetScale),
-            height: desiredCenter.y - (viewCenter.y + (baseCenter.y - viewCenter.y) * targetScale)
-        )
-
+        // Animate mode change and camera focus together
         withAnimation(.easeOut(duration: AppMetrics.roomFocusAnimationDuration)) {
-            viewport = FloorplanViewport(scale: targetScale, offset: targetOffset)
+            mode = .room(roomID: room.id)
         }
+
+        mapController.focusOnRoom(
+            room,
+            canvasSize: canvasSize,
+            topInset: topInset,
+            bottomInset: bottomInset
+        )
     }
 
-    private func resetViewport() {
-        viewport = FloorplanViewport()
+    /// Exit room mode: return to browse mode, optionally restore previous viewport.
+    private func exitRoomMode() {
+        withAnimation(.easeOut(duration: AppMetrics.roomFocusAnimationDuration)) {
+            mode = .browse
+        }
+        // Reset viewport (restores previous browse viewport or defaults)
+        mapController.resetViewport(restorePreviousViewport: false)
+    }
+
+    /// Configure the MapController with current rooms and bounds.
+    private func configureMapController() {
+        mapController.configure(
+            rooms: viewModel.roomsWithCounts,
+            bounds: viewModel.bounds
+        )
+    }
+
+    /// Handle level change: reset mode and viewport, reload counts.
+    private func handleLevelChange() {
         mode = .browse
+        mapController.resetViewportImmediate()
+        viewModel.reloadRoomCounts(context: context)
+        configureMapController()
     }
 
-    private func clamp(_ value: CGFloat, min: CGFloat, max: CGFloat) -> CGFloat {
-        Swift.max(min, Swift.min(max, value))
-    }
-
+    /// Handle sheet dismissal: refresh data and room overlay if needed.
     private func handleSheetDismiss() {
         viewModel.reloadRoomCounts(context: context)
-        if isRoomViewActive {
+        configureMapController()
+        if isRoomMode {
+            // Force refresh the room overlay to show updated items
             roomOverlayRefreshToken = UUID()
         }
     }
-
-    private var selectedRoom: FloorplanRoom? {
-        if case let .room(room) = mode {
-            return room
-        }
-        return nil
-    }
-
-    private var isRoomViewActive: Bool {
-        if case .room = mode {
-            return true
-        }
-        return false
-    }
-
-    private func zoomLimits(
-        for rooms: [FloorplanRoom],
-        transform: FloorplanTransform,
-        canvasSize: CGSize
-    ) -> (min: CGFloat, max: CGFloat) {
-        let minZoom = AppMetrics.floorplanMinZoom
-        var smallestBounds: Rect?
-        var smallestArea: Double = .infinity
-
-        for room in rooms {
-            guard let bounds = GeometryUtils.bounds(for: room.polygon) else { continue }
-            let width = bounds.maxX - bounds.minX
-            let height = bounds.maxY - bounds.minY
-            guard width > 0, height > 0 else { continue }
-            let area = width * height
-            if area < smallestArea {
-                smallestArea = area
-                smallestBounds = bounds
-            }
-        }
-
-        guard let bounds = smallestBounds else {
-            return (minZoom, AppMetrics.floorplanDefaultMaxZoom)
-        }
-
-        let roomWidth = CGFloat(bounds.maxX - bounds.minX) * transform.scale
-        let roomHeight = CGFloat(bounds.maxY - bounds.minY) * transform.scale
-        guard roomWidth > 0, roomHeight > 0 else {
-            return (minZoom, AppMetrics.floorplanDefaultMaxZoom)
-        }
-
-        let maxZoomX = canvasSize.width / roomWidth
-        let maxZoomY = canvasSize.height / roomHeight
-        let maxZoom = max(minZoom, min(maxZoomX, maxZoomY))
-        return (minZoom, maxZoom)
-    }
-
-    private func roomSheetHeight(for itemCount: Int, availableHeight: CGFloat) -> CGFloat {
-        // Max height is 40% of available height (between top bar and bottom buttons)
-        let maxHeight = availableHeight * AppMetrics.roomSheetMaxHeightFraction
-        let rowCount = max(1, itemCount)
-        // Account for internal padding (lg on all sides) + header + spacing
-        let internalPadding = AppSpacing.lg * 2 + AppSpacing.sm
-        let contentHeight = AppMetrics.roomSheetHeaderHeight
-            + CGFloat(rowCount) * AppMetrics.roomSheetRowHeight
-            + internalPadding
-        let minHeight = AppMetrics.roomSheetHeaderHeight
-            + AppMetrics.roomSheetRowHeight
-            + internalPadding
-        return min(maxHeight, max(minHeight, contentHeight))
-    }
 }
 
-private struct BrowseChromeOverlay: View {
-    let safeTop: CGFloat
-    let safeBottom: CGFloat
-    let projectName: String
-    let showReadOnly: Bool
-    let levels: [DemoPlanLevel]
-    @Binding var selection: Int
-    let onBack: () -> Void
-    let onOpenSurvey: () -> Void
+// MARK: - ActiveSheet
 
-    var body: some View {
-        ZStack {
-            VStack(spacing: 0) {
-                BrowseTopBar(title: projectName, onBack: onBack)
-                    .frame(height: AppMetrics.roomOverlayTopBarHeight)
-                    .padding(.horizontal, AppSpacing.lg)
-                    .padding(.top, safeTop)
-                Spacer()
-            }
-
-            VStack {
-                Spacer()
-                HStack {
-                    Button(action: onOpenSurvey) {
-                        Image(systemName: "line.3.horizontal")
-                            .font(.system(size: AppMetrics.roomRowIconSize, weight: .bold))
-                            .foregroundStyle(AppColors.textPrimary)
-                            .frame(width: AppMetrics.roomRowIconFrame, height: AppMetrics.roomRowIconFrame)
-                            .background(
-                                RoundedRectangle(cornerRadius: AppRadius.field)
-                                    .fill(AppColors.cardBackground)
-                            )
-                            .overlay(
-                                RoundedRectangle(cornerRadius: AppRadius.field)
-                                    .stroke(AppColors.cardBorder, lineWidth: AppMetrics.cardStrokeWidth)
-                            )
-                    }
-                    .accessibilityLabel("Survey Report")
-                    Spacer()
-                    VStack(alignment: .trailing, spacing: AppSpacing.sm) {
-                        if showReadOnly {
-                            ReadOnlyBadge()
-                        }
-                        LevelPicker(
-                            levels: levels,
-                            selection: $selection
-                        )
-                    }
-                }
-                .padding(.horizontal, AppSpacing.lg)
-                .padding(.bottom, safeBottom + AppSpacing.lg)
-            }
-        }
-        .frame(maxWidth: .infinity, maxHeight: .infinity)
-    }
-}
-
-private struct BrowseTopBar: View {
-    let title: String
-    let onBack: () -> Void
-
-    var body: some View {
-        ZStack {
-            Text(title)
-                .font(AppTypography.bodyEmphasis)
-                .foregroundStyle(AppColors.textPrimary)
-
-            HStack {
-                Button(action: onBack) {
-                    Image(systemName: "chevron.left")
-                        .font(.system(size: AppMetrics.roomRowIconSize, weight: .bold))
-                        .foregroundStyle(AppColors.textPrimary)
-                        .frame(width: AppMetrics.roomRowIconFrame, height: AppMetrics.roomRowIconFrame)
-                        .background(
-                            Circle().fill(AppColors.cardBackground.opacity(0.95))
-                        )
-                }
-                Spacer()
-                Image(systemName: "arrow.triangle.2.circlepath")
-                    .font(.system(size: AppMetrics.roomRowIconSize, weight: .semibold))
-                    .foregroundStyle(AppColors.textSecondary)
-                    .frame(width: AppMetrics.roomRowIconFrame, height: AppMetrics.roomRowIconFrame)
-                    .background(
-                        Circle().fill(AppColors.cardBackground.opacity(0.95))
-                    )
-            }
-        }
-        .frame(maxWidth: .infinity)
-    }
-}
-
-private struct ReadOnlyBadge: View {
-    var body: some View {
-        HStack(spacing: AppSpacing.xs) {
-            Image(systemName: "lock.fill")
-                .font(.system(size: AppMetrics.readOnlyBadgeIconSize, weight: .bold))
-            Text("Read-only")
-                .font(AppTypography.badge)
-        }
-        .padding(.horizontal, AppSpacing.sm)
-        .padding(.vertical, AppSpacing.xs)
-        .background(
-            Capsule().fill(AppColors.completedBadgeBackground)
-        )
-        .foregroundStyle(AppColors.completedBadgeText)
-    }
-}
-
-private struct LevelPicker: View {
-    let levels: [DemoPlanLevel]
-    @Binding var selection: Int
-
-    var body: some View {
-        Menu {
-            ForEach(levels.indices, id: \.self) { index in
-                Button(levels[index].name) {
-                    selection = index
-                }
-            }
-        } label: {
-            HStack(spacing: AppSpacing.xs) {
-                Image(systemName: "square.stack.3d.up")
-                Text(levelLabel)
-                    .font(AppTypography.badge)
-                Image(systemName: "chevron.up")
-                    .font(.system(size: AppMetrics.levelPickerChevronSize, weight: .bold))
-            }
-            .padding(.horizontal, AppSpacing.md)
-            .padding(.vertical, AppSpacing.sm)
-            .background(
-                Capsule().fill(AppColors.cardBackground)
-            )
-            .overlay(
-                Capsule().stroke(AppColors.cardBorder, lineWidth: AppMetrics.cardStrokeWidth)
-            )
-            .foregroundStyle(AppColors.textPrimary)
-            .shadow(color: AppShadow.card.color, radius: AppShadow.card.radius, x: AppShadow.card.x, y: AppShadow.card.y)
-        }
-    }
-
-    private var levelLabel: String {
-        guard levels.indices.contains(selection) else {
-            return "Level"
-        }
-        return levels[selection].name
-    }
-}
-
-private enum FloorplanMode: Equatable {
-    case browse
-    case room(FloorplanRoom)
-}
-
+/// Centralized sheet state to avoid nested sheet presentation issues.
+/// All sheets are presented from the top-level container.
 private enum ActiveSheet: Identifiable {
     case addAsset(FloorplanRoom)
     case roomItem(RoomItem)

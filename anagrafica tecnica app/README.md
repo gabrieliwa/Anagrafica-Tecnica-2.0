@@ -57,12 +57,50 @@ Each SwiftPM module should include:
 - README.md and CHANGELOG.md
 - Module-specific assets (if any)
 
-## Floorplan UI Architecture
+## UI Architecture: Two-Flow System
 
-- The floorplan map is a persistent background view (pan/zoom always available).
-- Room View is an overlay state on the same screen, not a navigation push.
-- All room-related modals (Add Asset, item detail) are presented from the floorplan screen to avoid nested sheets.
-- The system navigation bar is hidden on the floorplan screen; browse + room use custom top bars for consistent layout.
+The app uses two top-level navigation flows to optimize for different use cases:
+
+### 1. PlanimetricFlow (FloorplanView)
+
+The floor plan is the root surface with overlay UI that swaps based on mode:
+
+- **Browse Mode** (default): Pan/zoom the floor plan, browse chrome visible (project title, level picker)
+- **Room Mode**: Room selected, room overlay visible, camera animates to room
+
+Key architectural decisions:
+- Floor plan (`FloorplanCanvas`) is always the same view instance - never recreated during mode transitions
+- Overlays switch based on `PlanMode` enum (single source of truth)
+- This preserves zoom/pan state and enables smooth camera animations
+- Avoids "deck of cards" view hierarchy issues in Debug View Hierarchy
+
+Files:
+- `Packages/Features/Floorplan/Sources/FloorplanView.swift` - Main PlanimetricFlow container
+- `Packages/Features/Floorplan/Sources/MapController.swift` - Camera animations, hit-testing, viewport management
+- `Packages/Features/Floorplan/Sources/BrowseOverlay.swift` - Browse mode UI components
+- `Packages/Features/Room/Sources/RoomOverlayView.swift` - Room mode UI components
+
+### 2. ReportsFlow (SurveyReportView)
+
+Standard full-screen navigation for "server report" screens:
+
+- List of all rooms (grouped by level)
+- List of all asset types (grouped by family)
+- Export functionality
+
+Key architectural decisions:
+- No floor plan visible - full-screen layouts maximize content space
+- Standard push navigation for detail screens
+- Accessed via hamburger menu from PlanimetricFlow
+
+### Why No Nested NavigationStacks
+
+We use a single `NavigationStack` at the app root (`ContentView`) to avoid:
+- Multiple navigation bars stacking
+- State management complexity
+- View hierarchy artifacts
+
+The PlanimetricFlow handles internal mode transitions using state-driven overlay switching rather than navigation pushes.
 
 ## Roadmap (Capability-Based Phases)
 

@@ -1,0 +1,2586 @@
+{
+  "builtTestProducts" : [
+    {
+      "binaryPath" : "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/.build/arm64-apple-macosx/debug/AnagraficaTecnicaModulesPackageTests.xctest/Contents/MacOS/AnagraficaTecnicaModulesPackageTests",
+      "packagePath" : "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages",
+      "productName" : "AnagraficaTecnicaModulesPackageTests"
+    }
+  ],
+  "copyCommands" : {
+
+  },
+  "explicitTargetDependencyImportCheckingMode" : {
+    "none" : {
+
+    }
+  },
+  "generatedSourceTargetSet" : [
+
+  ],
+  "pluginDescriptions" : [
+
+  ],
+  "swiftCommands" : {
+    "C.AddAssetWizard-arm64-apple-macosx15.0-debug.module" : {
+      "executable" : "/Library/Developer/CommandLineTools/usr/bin/swiftc",
+      "fileList" : "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/.build/arm64-apple-macosx/debug/AddAssetWizard.build/sources",
+      "importPath" : "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/.build/arm64-apple-macosx/debug/Modules",
+      "inputs" : [
+        {
+          "kind" : "file",
+          "name" : "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/Features/AddAssetWizard/Sources/AddAssetWizard.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/Features/AddAssetWizard/Sources/AddAssetWizardStepViews.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/Features/AddAssetWizard/Sources/AddAssetWizardView.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/Features/AddAssetWizard/Sources/AddAssetWizardViewModel+Bindings.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/Features/AddAssetWizard/Sources/AddAssetWizardViewModel+Persistence.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/Features/AddAssetWizard/Sources/AddAssetWizardViewModel+Photos.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/Features/AddAssetWizard/Sources/AddAssetWizardViewModel+Validation.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/Features/AddAssetWizard/Sources/AddAssetWizardViewModel.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/.build/arm64-apple-macosx/debug/swift-version--1AB21518FC5DEDBE.txt"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/.build/arm64-apple-macosx/debug/Modules/Core.swiftmodule"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/.build/arm64-apple-macosx/debug/Modules/DesignSystem.swiftmodule"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/.build/arm64-apple-macosx/debug/AddAssetWizard.build/sources"
+        }
+      ],
+      "isLibrary" : true,
+      "moduleName" : "AddAssetWizard",
+      "moduleOutputPath" : "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/.build/arm64-apple-macosx/debug/Modules/AddAssetWizard.swiftmodule",
+      "objects" : [
+        "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/.build/arm64-apple-macosx/debug/AddAssetWizard.build/AddAssetWizard.swift.o",
+        "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/.build/arm64-apple-macosx/debug/AddAssetWizard.build/AddAssetWizardStepViews.swift.o",
+        "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/.build/arm64-apple-macosx/debug/AddAssetWizard.build/AddAssetWizardView.swift.o",
+        "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/.build/arm64-apple-macosx/debug/AddAssetWizard.build/AddAssetWizardViewModel+Bindings.swift.o",
+        "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/.build/arm64-apple-macosx/debug/AddAssetWizard.build/AddAssetWizardViewModel+Persistence.swift.o",
+        "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/.build/arm64-apple-macosx/debug/AddAssetWizard.build/AddAssetWizardViewModel+Photos.swift.o",
+        "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/.build/arm64-apple-macosx/debug/AddAssetWizard.build/AddAssetWizardViewModel+Validation.swift.o",
+        "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/.build/arm64-apple-macosx/debug/AddAssetWizard.build/AddAssetWizardViewModel.swift.o"
+      ],
+      "otherArguments" : [
+        "-target",
+        "arm64-apple-macosx13.0",
+        "-incremental",
+        "-enable-batch-mode",
+        "-serialize-diagnostics",
+        "-index-store-path",
+        "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/.build/arm64-apple-macosx/debug/index/store",
+        "-Onone",
+        "-enable-testing",
+        "-j10",
+        "-DSWIFT_PACKAGE",
+        "-DDEBUG",
+        "-DSWIFT_MODULE_RESOURCE_BUNDLE_UNAVAILABLE",
+        "-module-cache-path",
+        "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/.build/arm64-apple-macosx/debug/ModuleCache",
+        "-parseable-output",
+        "-parse-as-library",
+        "-emit-objc-header",
+        "-emit-objc-header-path",
+        "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/.build/arm64-apple-macosx/debug/AddAssetWizard.build/include/AddAssetWizard-Swift.h",
+        "-swift-version",
+        "5",
+        "-I",
+        "/Library/Developer/CommandLineTools/Library/Developer/Frameworks",
+        "-L",
+        "/Library/Developer/CommandLineTools/Library/Developer/Frameworks",
+        "-plugin-path",
+        "/Library/Developer/CommandLineTools/usr/lib/swift/host/plugins/testing",
+        "-sdk",
+        "/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk",
+        "-g",
+        "-Xcc",
+        "-isysroot",
+        "-Xcc",
+        "/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk",
+        "-Xcc",
+        "-fPIC",
+        "-Xcc",
+        "-g",
+        "-package-name",
+        "packages"
+      ],
+      "outputFileMapPath" : "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/.build/arm64-apple-macosx/debug/AddAssetWizard.build/output-file-map.json",
+      "outputs" : [
+        {
+          "kind" : "file",
+          "name" : "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/.build/arm64-apple-macosx/debug/AddAssetWizard.build/AddAssetWizard.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/.build/arm64-apple-macosx/debug/AddAssetWizard.build/AddAssetWizardStepViews.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/.build/arm64-apple-macosx/debug/AddAssetWizard.build/AddAssetWizardView.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/.build/arm64-apple-macosx/debug/AddAssetWizard.build/AddAssetWizardViewModel+Bindings.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/.build/arm64-apple-macosx/debug/AddAssetWizard.build/AddAssetWizardViewModel+Persistence.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/.build/arm64-apple-macosx/debug/AddAssetWizard.build/AddAssetWizardViewModel+Photos.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/.build/arm64-apple-macosx/debug/AddAssetWizard.build/AddAssetWizardViewModel+Validation.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/.build/arm64-apple-macosx/debug/AddAssetWizard.build/AddAssetWizardViewModel.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/.build/arm64-apple-macosx/debug/Modules/AddAssetWizard.swiftmodule"
+        }
+      ],
+      "prepareForIndexing" : false,
+      "sources" : [
+        "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/Features/AddAssetWizard/Sources/AddAssetWizard.swift",
+        "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/Features/AddAssetWizard/Sources/AddAssetWizardStepViews.swift",
+        "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/Features/AddAssetWizard/Sources/AddAssetWizardView.swift",
+        "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/Features/AddAssetWizard/Sources/AddAssetWizardViewModel+Bindings.swift",
+        "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/Features/AddAssetWizard/Sources/AddAssetWizardViewModel+Persistence.swift",
+        "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/Features/AddAssetWizard/Sources/AddAssetWizardViewModel+Photos.swift",
+        "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/Features/AddAssetWizard/Sources/AddAssetWizardViewModel+Validation.swift",
+        "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/Features/AddAssetWizard/Sources/AddAssetWizardViewModel.swift"
+      ],
+      "tempsPath" : "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/.build/arm64-apple-macosx/debug/AddAssetWizard.build",
+      "wholeModuleOptimization" : false
+    },
+    "C.AnagraficaTecnicaModulesPackageTests-arm64-apple-macosx15.0-debug.module" : {
+      "executable" : "/Library/Developer/CommandLineTools/usr/bin/swiftc",
+      "fileList" : "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/.build/arm64-apple-macosx/debug/AnagraficaTecnicaModulesPackageTests.build/sources",
+      "importPath" : "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/.build/arm64-apple-macosx/debug/Modules",
+      "inputs" : [
+        {
+          "kind" : "file",
+          "name" : "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/.build/arm64-apple-macosx/debug/AnagraficaTecnicaModulesPackageTests.derived/runner.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/.build/arm64-apple-macosx/debug/swift-version--1AB21518FC5DEDBE.txt"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/.build/arm64-apple-macosx/debug/Modules/CoreTests.swiftmodule"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/.build/arm64-apple-macosx/debug/AnagraficaTecnicaModulesPackageTests.build/sources"
+        }
+      ],
+      "isLibrary" : true,
+      "moduleName" : "AnagraficaTecnicaModulesPackageTests",
+      "moduleOutputPath" : "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/.build/arm64-apple-macosx/debug/Modules/AnagraficaTecnicaModulesPackageTests.swiftmodule",
+      "objects" : [
+        "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/.build/arm64-apple-macosx/debug/AnagraficaTecnicaModulesPackageTests.build/runner.swift.o"
+      ],
+      "otherArguments" : [
+        "-target",
+        "arm64-apple-macosx13.0",
+        "-incremental",
+        "-enable-batch-mode",
+        "-serialize-diagnostics",
+        "-index-store-path",
+        "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/.build/arm64-apple-macosx/debug/index/store",
+        "-Onone",
+        "-enable-testing",
+        "-Xfrontend",
+        "-enable-cross-import-overlays",
+        "-j10",
+        "-DSWIFT_PACKAGE",
+        "-DDEBUG",
+        "-DSWIFT_MODULE_RESOURCE_BUNDLE_UNAVAILABLE",
+        "-module-cache-path",
+        "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/.build/arm64-apple-macosx/debug/ModuleCache",
+        "-parseable-output",
+        "-parse-as-library",
+        "-emit-objc-header",
+        "-emit-objc-header-path",
+        "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/.build/arm64-apple-macosx/debug/AnagraficaTecnicaModulesPackageTests.build/include/AnagraficaTecnicaModulesPackageTests-Swift.h",
+        "-I",
+        "/Library/Developer/CommandLineTools/Library/Developer/Frameworks",
+        "-L",
+        "/Library/Developer/CommandLineTools/Library/Developer/Frameworks",
+        "-plugin-path",
+        "/Library/Developer/CommandLineTools/usr/lib/swift/host/plugins/testing",
+        "-sdk",
+        "/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk",
+        "-g",
+        "-Xcc",
+        "-isysroot",
+        "-Xcc",
+        "/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk",
+        "-Xcc",
+        "-fPIC",
+        "-Xcc",
+        "-g",
+        "-package-name",
+        "packages"
+      ],
+      "outputFileMapPath" : "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/.build/arm64-apple-macosx/debug/AnagraficaTecnicaModulesPackageTests.build/output-file-map.json",
+      "outputs" : [
+        {
+          "kind" : "file",
+          "name" : "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/.build/arm64-apple-macosx/debug/AnagraficaTecnicaModulesPackageTests.build/runner.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/.build/arm64-apple-macosx/debug/Modules/AnagraficaTecnicaModulesPackageTests.swiftmodule"
+        }
+      ],
+      "prepareForIndexing" : false,
+      "sources" : [
+        "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/.build/arm64-apple-macosx/debug/AnagraficaTecnicaModulesPackageTests.derived/runner.swift"
+      ],
+      "tempsPath" : "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/.build/arm64-apple-macosx/debug/AnagraficaTecnicaModulesPackageTests.build",
+      "wholeModuleOptimization" : false
+    },
+    "C.Core-arm64-apple-macosx15.0-debug.module" : {
+      "executable" : "/Library/Developer/CommandLineTools/usr/bin/swiftc",
+      "fileList" : "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/.build/arm64-apple-macosx/debug/Core.build/sources",
+      "importPath" : "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/.build/arm64-apple-macosx/debug/Modules",
+      "inputs" : [
+        {
+          "kind" : "file",
+          "name" : "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/Core/Sources/Core.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/Core/Sources/Demo/DemoDataSeeder.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/Core/Sources/Demo/DemoPlanLoader.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/Core/Sources/Demo/DemoPlanModels.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/Core/Sources/Models/AssetInstance.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/Core/Sources/Models/AssetType.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/Core/Sources/Models/Family.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/Core/Sources/Models/Geometry.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/Core/Sources/Models/Level.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/Core/Sources/Models/ParameterDefinition.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/Core/Sources/Models/ParameterValue.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/Core/Sources/Models/Photo.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/Core/Sources/Models/Project.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/Core/Sources/Models/ProjectState.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/Core/Sources/Models/Room.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/Core/Sources/Models/RoomNote.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/Core/Sources/Models/SchemaVersion.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/Core/Sources/Models/SyncEvent.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/Core/Sources/Networking/APIClient.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/Core/Sources/Networking/APIError.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/Core/Sources/Networking/Endpoint.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/Core/Sources/Networking/HTTPMethod.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/Core/Sources/Networking/NetworkConfig.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/Core/Sources/Persistence/CoreDataStack.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/Core/Sources/Services/GeometryUtils.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/Core/Sources/Services/JSONCoding.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/Core/Sources/Services/LocalFileCache.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/Core/Sources/Services/ParameterValidator.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/Core/Sources/Services/PhotoNamer.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/Core/Sources/Services/StableID.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/.build/arm64-apple-macosx/debug/swift-version--1AB21518FC5DEDBE.txt"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/.build/arm64-apple-macosx/debug/Core.build/sources"
+        }
+      ],
+      "isLibrary" : true,
+      "moduleName" : "Core",
+      "moduleOutputPath" : "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/.build/arm64-apple-macosx/debug/Modules/Core.swiftmodule",
+      "objects" : [
+        "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/.build/arm64-apple-macosx/debug/Core.build/Core.swift.o",
+        "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/.build/arm64-apple-macosx/debug/Core.build/DemoDataSeeder.swift.o",
+        "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/.build/arm64-apple-macosx/debug/Core.build/DemoPlanLoader.swift.o",
+        "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/.build/arm64-apple-macosx/debug/Core.build/DemoPlanModels.swift.o",
+        "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/.build/arm64-apple-macosx/debug/Core.build/AssetInstance.swift.o",
+        "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/.build/arm64-apple-macosx/debug/Core.build/AssetType.swift.o",
+        "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/.build/arm64-apple-macosx/debug/Core.build/Family.swift.o",
+        "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/.build/arm64-apple-macosx/debug/Core.build/Geometry.swift.o",
+        "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/.build/arm64-apple-macosx/debug/Core.build/Level.swift.o",
+        "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/.build/arm64-apple-macosx/debug/Core.build/ParameterDefinition.swift.o",
+        "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/.build/arm64-apple-macosx/debug/Core.build/ParameterValue.swift.o",
+        "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/.build/arm64-apple-macosx/debug/Core.build/Photo.swift.o",
+        "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/.build/arm64-apple-macosx/debug/Core.build/Project.swift.o",
+        "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/.build/arm64-apple-macosx/debug/Core.build/ProjectState.swift.o",
+        "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/.build/arm64-apple-macosx/debug/Core.build/Room.swift.o",
+        "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/.build/arm64-apple-macosx/debug/Core.build/RoomNote.swift.o",
+        "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/.build/arm64-apple-macosx/debug/Core.build/SchemaVersion.swift.o",
+        "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/.build/arm64-apple-macosx/debug/Core.build/SyncEvent.swift.o",
+        "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/.build/arm64-apple-macosx/debug/Core.build/APIClient.swift.o",
+        "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/.build/arm64-apple-macosx/debug/Core.build/APIError.swift.o",
+        "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/.build/arm64-apple-macosx/debug/Core.build/Endpoint.swift.o",
+        "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/.build/arm64-apple-macosx/debug/Core.build/HTTPMethod.swift.o",
+        "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/.build/arm64-apple-macosx/debug/Core.build/NetworkConfig.swift.o",
+        "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/.build/arm64-apple-macosx/debug/Core.build/CoreDataStack.swift.o",
+        "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/.build/arm64-apple-macosx/debug/Core.build/GeometryUtils.swift.o",
+        "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/.build/arm64-apple-macosx/debug/Core.build/JSONCoding.swift.o",
+        "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/.build/arm64-apple-macosx/debug/Core.build/LocalFileCache.swift.o",
+        "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/.build/arm64-apple-macosx/debug/Core.build/ParameterValidator.swift.o",
+        "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/.build/arm64-apple-macosx/debug/Core.build/PhotoNamer.swift.o",
+        "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/.build/arm64-apple-macosx/debug/Core.build/StableID.swift.o"
+      ],
+      "otherArguments" : [
+        "-target",
+        "arm64-apple-macosx13.0",
+        "-incremental",
+        "-enable-batch-mode",
+        "-serialize-diagnostics",
+        "-index-store-path",
+        "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/.build/arm64-apple-macosx/debug/index/store",
+        "-Onone",
+        "-enable-testing",
+        "-j10",
+        "-DSWIFT_PACKAGE",
+        "-DDEBUG",
+        "-DSWIFT_MODULE_RESOURCE_BUNDLE_UNAVAILABLE",
+        "-module-cache-path",
+        "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/.build/arm64-apple-macosx/debug/ModuleCache",
+        "-parseable-output",
+        "-parse-as-library",
+        "-emit-objc-header",
+        "-emit-objc-header-path",
+        "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/.build/arm64-apple-macosx/debug/Core.build/include/Core-Swift.h",
+        "-swift-version",
+        "5",
+        "-I",
+        "/Library/Developer/CommandLineTools/Library/Developer/Frameworks",
+        "-L",
+        "/Library/Developer/CommandLineTools/Library/Developer/Frameworks",
+        "-plugin-path",
+        "/Library/Developer/CommandLineTools/usr/lib/swift/host/plugins/testing",
+        "-sdk",
+        "/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk",
+        "-g",
+        "-Xcc",
+        "-isysroot",
+        "-Xcc",
+        "/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk",
+        "-Xcc",
+        "-fPIC",
+        "-Xcc",
+        "-g",
+        "-package-name",
+        "packages"
+      ],
+      "outputFileMapPath" : "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/.build/arm64-apple-macosx/debug/Core.build/output-file-map.json",
+      "outputs" : [
+        {
+          "kind" : "file",
+          "name" : "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/.build/arm64-apple-macosx/debug/Core.build/Core.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/.build/arm64-apple-macosx/debug/Core.build/DemoDataSeeder.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/.build/arm64-apple-macosx/debug/Core.build/DemoPlanLoader.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/.build/arm64-apple-macosx/debug/Core.build/DemoPlanModels.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/.build/arm64-apple-macosx/debug/Core.build/AssetInstance.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/.build/arm64-apple-macosx/debug/Core.build/AssetType.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/.build/arm64-apple-macosx/debug/Core.build/Family.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/.build/arm64-apple-macosx/debug/Core.build/Geometry.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/.build/arm64-apple-macosx/debug/Core.build/Level.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/.build/arm64-apple-macosx/debug/Core.build/ParameterDefinition.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/.build/arm64-apple-macosx/debug/Core.build/ParameterValue.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/.build/arm64-apple-macosx/debug/Core.build/Photo.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/.build/arm64-apple-macosx/debug/Core.build/Project.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/.build/arm64-apple-macosx/debug/Core.build/ProjectState.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/.build/arm64-apple-macosx/debug/Core.build/Room.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/.build/arm64-apple-macosx/debug/Core.build/RoomNote.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/.build/arm64-apple-macosx/debug/Core.build/SchemaVersion.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/.build/arm64-apple-macosx/debug/Core.build/SyncEvent.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/.build/arm64-apple-macosx/debug/Core.build/APIClient.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/.build/arm64-apple-macosx/debug/Core.build/APIError.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/.build/arm64-apple-macosx/debug/Core.build/Endpoint.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/.build/arm64-apple-macosx/debug/Core.build/HTTPMethod.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/.build/arm64-apple-macosx/debug/Core.build/NetworkConfig.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/.build/arm64-apple-macosx/debug/Core.build/CoreDataStack.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/.build/arm64-apple-macosx/debug/Core.build/GeometryUtils.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/.build/arm64-apple-macosx/debug/Core.build/JSONCoding.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/.build/arm64-apple-macosx/debug/Core.build/LocalFileCache.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/.build/arm64-apple-macosx/debug/Core.build/ParameterValidator.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/.build/arm64-apple-macosx/debug/Core.build/PhotoNamer.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/.build/arm64-apple-macosx/debug/Core.build/StableID.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/.build/arm64-apple-macosx/debug/Modules/Core.swiftmodule"
+        }
+      ],
+      "prepareForIndexing" : false,
+      "sources" : [
+        "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/Core/Sources/Core.swift",
+        "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/Core/Sources/Demo/DemoDataSeeder.swift",
+        "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/Core/Sources/Demo/DemoPlanLoader.swift",
+        "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/Core/Sources/Demo/DemoPlanModels.swift",
+        "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/Core/Sources/Models/AssetInstance.swift",
+        "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/Core/Sources/Models/AssetType.swift",
+        "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/Core/Sources/Models/Family.swift",
+        "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/Core/Sources/Models/Geometry.swift",
+        "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/Core/Sources/Models/Level.swift",
+        "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/Core/Sources/Models/ParameterDefinition.swift",
+        "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/Core/Sources/Models/ParameterValue.swift",
+        "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/Core/Sources/Models/Photo.swift",
+        "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/Core/Sources/Models/Project.swift",
+        "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/Core/Sources/Models/ProjectState.swift",
+        "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/Core/Sources/Models/Room.swift",
+        "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/Core/Sources/Models/RoomNote.swift",
+        "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/Core/Sources/Models/SchemaVersion.swift",
+        "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/Core/Sources/Models/SyncEvent.swift",
+        "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/Core/Sources/Networking/APIClient.swift",
+        "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/Core/Sources/Networking/APIError.swift",
+        "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/Core/Sources/Networking/Endpoint.swift",
+        "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/Core/Sources/Networking/HTTPMethod.swift",
+        "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/Core/Sources/Networking/NetworkConfig.swift",
+        "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/Core/Sources/Persistence/CoreDataStack.swift",
+        "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/Core/Sources/Services/GeometryUtils.swift",
+        "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/Core/Sources/Services/JSONCoding.swift",
+        "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/Core/Sources/Services/LocalFileCache.swift",
+        "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/Core/Sources/Services/ParameterValidator.swift",
+        "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/Core/Sources/Services/PhotoNamer.swift",
+        "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/Core/Sources/Services/StableID.swift"
+      ],
+      "tempsPath" : "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/.build/arm64-apple-macosx/debug/Core.build",
+      "wholeModuleOptimization" : false
+    },
+    "C.CoreTests-arm64-apple-macosx15.0-debug.module" : {
+      "executable" : "/Library/Developer/CommandLineTools/usr/bin/swiftc",
+      "fileList" : "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/.build/arm64-apple-macosx/debug/CoreTests.build/sources",
+      "importPath" : "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/.build/arm64-apple-macosx/debug/Modules",
+      "inputs" : [
+        {
+          "kind" : "file",
+          "name" : "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/Core/Tests/GeometryUtilsTests.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/Core/Tests/ParameterValidatorTests.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/Core/Tests/StableIDTests.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/.build/arm64-apple-macosx/debug/swift-version--1AB21518FC5DEDBE.txt"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/.build/arm64-apple-macosx/debug/Modules/Core.swiftmodule"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/.build/arm64-apple-macosx/debug/CoreTests.build/sources"
+        }
+      ],
+      "isLibrary" : true,
+      "moduleName" : "CoreTests",
+      "moduleOutputPath" : "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/.build/arm64-apple-macosx/debug/Modules/CoreTests.swiftmodule",
+      "objects" : [
+        "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/.build/arm64-apple-macosx/debug/CoreTests.build/GeometryUtilsTests.swift.o",
+        "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/.build/arm64-apple-macosx/debug/CoreTests.build/ParameterValidatorTests.swift.o",
+        "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/.build/arm64-apple-macosx/debug/CoreTests.build/StableIDTests.swift.o"
+      ],
+      "otherArguments" : [
+        "-target",
+        "arm64-apple-macosx13.0",
+        "-incremental",
+        "-enable-batch-mode",
+        "-serialize-diagnostics",
+        "-index-store-path",
+        "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/.build/arm64-apple-macosx/debug/index/store",
+        "-Onone",
+        "-enable-testing",
+        "-Xfrontend",
+        "-enable-cross-import-overlays",
+        "-j10",
+        "-DSWIFT_PACKAGE",
+        "-DDEBUG",
+        "-DSWIFT_MODULE_RESOURCE_BUNDLE_UNAVAILABLE",
+        "-module-cache-path",
+        "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/.build/arm64-apple-macosx/debug/ModuleCache",
+        "-parseable-output",
+        "-parse-as-library",
+        "-swift-version",
+        "5",
+        "-I",
+        "/Library/Developer/CommandLineTools/Library/Developer/Frameworks",
+        "-L",
+        "/Library/Developer/CommandLineTools/Library/Developer/Frameworks",
+        "-plugin-path",
+        "/Library/Developer/CommandLineTools/usr/lib/swift/host/plugins/testing",
+        "-sdk",
+        "/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk",
+        "-g",
+        "-Xcc",
+        "-isysroot",
+        "-Xcc",
+        "/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk",
+        "-Xcc",
+        "-fPIC",
+        "-Xcc",
+        "-g",
+        "-package-name",
+        "packages"
+      ],
+      "outputFileMapPath" : "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/.build/arm64-apple-macosx/debug/CoreTests.build/output-file-map.json",
+      "outputs" : [
+        {
+          "kind" : "file",
+          "name" : "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/.build/arm64-apple-macosx/debug/CoreTests.build/GeometryUtilsTests.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/.build/arm64-apple-macosx/debug/CoreTests.build/ParameterValidatorTests.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/.build/arm64-apple-macosx/debug/CoreTests.build/StableIDTests.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/.build/arm64-apple-macosx/debug/Modules/CoreTests.swiftmodule"
+        }
+      ],
+      "prepareForIndexing" : false,
+      "sources" : [
+        "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/Core/Tests/GeometryUtilsTests.swift",
+        "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/Core/Tests/ParameterValidatorTests.swift",
+        "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/Core/Tests/StableIDTests.swift"
+      ],
+      "tempsPath" : "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/.build/arm64-apple-macosx/debug/CoreTests.build",
+      "wholeModuleOptimization" : false
+    },
+    "C.DesignSystem-arm64-apple-macosx15.0-debug.module" : {
+      "executable" : "/Library/Developer/CommandLineTools/usr/bin/swiftc",
+      "fileList" : "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/.build/arm64-apple-macosx/debug/DesignSystem.build/sources",
+      "importPath" : "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/.build/arm64-apple-macosx/debug/Modules",
+      "inputs" : [
+        {
+          "kind" : "file",
+          "name" : "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/DesignSystem/Sources/AppTheme.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/DesignSystem/Sources/DesignSystem.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/.build/arm64-apple-macosx/debug/swift-version--1AB21518FC5DEDBE.txt"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/.build/arm64-apple-macosx/debug/DesignSystem.build/sources"
+        }
+      ],
+      "isLibrary" : true,
+      "moduleName" : "DesignSystem",
+      "moduleOutputPath" : "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/.build/arm64-apple-macosx/debug/Modules/DesignSystem.swiftmodule",
+      "objects" : [
+        "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/.build/arm64-apple-macosx/debug/DesignSystem.build/AppTheme.swift.o",
+        "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/.build/arm64-apple-macosx/debug/DesignSystem.build/DesignSystem.swift.o"
+      ],
+      "otherArguments" : [
+        "-target",
+        "arm64-apple-macosx13.0",
+        "-incremental",
+        "-enable-batch-mode",
+        "-serialize-diagnostics",
+        "-index-store-path",
+        "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/.build/arm64-apple-macosx/debug/index/store",
+        "-Onone",
+        "-enable-testing",
+        "-j10",
+        "-DSWIFT_PACKAGE",
+        "-DDEBUG",
+        "-DSWIFT_MODULE_RESOURCE_BUNDLE_UNAVAILABLE",
+        "-module-cache-path",
+        "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/.build/arm64-apple-macosx/debug/ModuleCache",
+        "-parseable-output",
+        "-parse-as-library",
+        "-emit-objc-header",
+        "-emit-objc-header-path",
+        "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/.build/arm64-apple-macosx/debug/DesignSystem.build/include/DesignSystem-Swift.h",
+        "-swift-version",
+        "5",
+        "-I",
+        "/Library/Developer/CommandLineTools/Library/Developer/Frameworks",
+        "-L",
+        "/Library/Developer/CommandLineTools/Library/Developer/Frameworks",
+        "-plugin-path",
+        "/Library/Developer/CommandLineTools/usr/lib/swift/host/plugins/testing",
+        "-sdk",
+        "/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk",
+        "-g",
+        "-Xcc",
+        "-isysroot",
+        "-Xcc",
+        "/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk",
+        "-Xcc",
+        "-fPIC",
+        "-Xcc",
+        "-g",
+        "-package-name",
+        "packages"
+      ],
+      "outputFileMapPath" : "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/.build/arm64-apple-macosx/debug/DesignSystem.build/output-file-map.json",
+      "outputs" : [
+        {
+          "kind" : "file",
+          "name" : "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/.build/arm64-apple-macosx/debug/DesignSystem.build/AppTheme.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/.build/arm64-apple-macosx/debug/DesignSystem.build/DesignSystem.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/.build/arm64-apple-macosx/debug/Modules/DesignSystem.swiftmodule"
+        }
+      ],
+      "prepareForIndexing" : false,
+      "sources" : [
+        "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/DesignSystem/Sources/AppTheme.swift",
+        "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/DesignSystem/Sources/DesignSystem.swift"
+      ],
+      "tempsPath" : "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/.build/arm64-apple-macosx/debug/DesignSystem.build",
+      "wholeModuleOptimization" : false
+    },
+    "C.Export-arm64-apple-macosx15.0-debug.module" : {
+      "executable" : "/Library/Developer/CommandLineTools/usr/bin/swiftc",
+      "fileList" : "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/.build/arm64-apple-macosx/debug/Export.build/sources",
+      "importPath" : "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/.build/arm64-apple-macosx/debug/Modules",
+      "inputs" : [
+        {
+          "kind" : "file",
+          "name" : "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/Features/Export/Sources/Export.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/.build/arm64-apple-macosx/debug/swift-version--1AB21518FC5DEDBE.txt"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/.build/arm64-apple-macosx/debug/Modules/Core.swiftmodule"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/.build/arm64-apple-macosx/debug/Modules/DesignSystem.swiftmodule"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/.build/arm64-apple-macosx/debug/Export.build/sources"
+        }
+      ],
+      "isLibrary" : true,
+      "moduleName" : "Export",
+      "moduleOutputPath" : "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/.build/arm64-apple-macosx/debug/Modules/Export.swiftmodule",
+      "objects" : [
+        "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/.build/arm64-apple-macosx/debug/Export.build/Export.swift.o"
+      ],
+      "otherArguments" : [
+        "-target",
+        "arm64-apple-macosx13.0",
+        "-incremental",
+        "-enable-batch-mode",
+        "-serialize-diagnostics",
+        "-index-store-path",
+        "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/.build/arm64-apple-macosx/debug/index/store",
+        "-Onone",
+        "-enable-testing",
+        "-j10",
+        "-DSWIFT_PACKAGE",
+        "-DDEBUG",
+        "-DSWIFT_MODULE_RESOURCE_BUNDLE_UNAVAILABLE",
+        "-module-cache-path",
+        "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/.build/arm64-apple-macosx/debug/ModuleCache",
+        "-parseable-output",
+        "-parse-as-library",
+        "-emit-objc-header",
+        "-emit-objc-header-path",
+        "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/.build/arm64-apple-macosx/debug/Export.build/include/Export-Swift.h",
+        "-swift-version",
+        "5",
+        "-I",
+        "/Library/Developer/CommandLineTools/Library/Developer/Frameworks",
+        "-L",
+        "/Library/Developer/CommandLineTools/Library/Developer/Frameworks",
+        "-plugin-path",
+        "/Library/Developer/CommandLineTools/usr/lib/swift/host/plugins/testing",
+        "-sdk",
+        "/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk",
+        "-g",
+        "-Xcc",
+        "-isysroot",
+        "-Xcc",
+        "/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk",
+        "-Xcc",
+        "-fPIC",
+        "-Xcc",
+        "-g",
+        "-package-name",
+        "packages"
+      ],
+      "outputFileMapPath" : "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/.build/arm64-apple-macosx/debug/Export.build/output-file-map.json",
+      "outputs" : [
+        {
+          "kind" : "file",
+          "name" : "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/.build/arm64-apple-macosx/debug/Export.build/Export.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/.build/arm64-apple-macosx/debug/Modules/Export.swiftmodule"
+        }
+      ],
+      "prepareForIndexing" : false,
+      "sources" : [
+        "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/Features/Export/Sources/Export.swift"
+      ],
+      "tempsPath" : "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/.build/arm64-apple-macosx/debug/Export.build",
+      "wholeModuleOptimization" : false
+    },
+    "C.Floorplan-arm64-apple-macosx15.0-debug.module" : {
+      "executable" : "/Library/Developer/CommandLineTools/usr/bin/swiftc",
+      "fileList" : "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/.build/arm64-apple-macosx/debug/Floorplan.build/sources",
+      "importPath" : "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/.build/arm64-apple-macosx/debug/Modules",
+      "inputs" : [
+        {
+          "kind" : "file",
+          "name" : "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/Features/Floorplan/Sources/BrowseOverlay.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/Features/Floorplan/Sources/Floorplan.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/Features/Floorplan/Sources/FloorplanCanvas.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/Features/Floorplan/Sources/FloorplanView.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/Features/Floorplan/Sources/FloorplanViewModel.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/Features/Floorplan/Sources/MapController.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/.build/arm64-apple-macosx/debug/swift-version--1AB21518FC5DEDBE.txt"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/.build/arm64-apple-macosx/debug/Modules/Core.swiftmodule"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/.build/arm64-apple-macosx/debug/Modules/DesignSystem.swiftmodule"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/.build/arm64-apple-macosx/debug/Modules/AddAssetWizard.swiftmodule"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/.build/arm64-apple-macosx/debug/Modules/Room.swiftmodule"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/.build/arm64-apple-macosx/debug/Modules/SurveyReport.swiftmodule"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/.build/arm64-apple-macosx/debug/Floorplan.build/sources"
+        }
+      ],
+      "isLibrary" : true,
+      "moduleName" : "Floorplan",
+      "moduleOutputPath" : "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/.build/arm64-apple-macosx/debug/Modules/Floorplan.swiftmodule",
+      "objects" : [
+        "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/.build/arm64-apple-macosx/debug/Floorplan.build/BrowseOverlay.swift.o",
+        "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/.build/arm64-apple-macosx/debug/Floorplan.build/Floorplan.swift.o",
+        "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/.build/arm64-apple-macosx/debug/Floorplan.build/FloorplanCanvas.swift.o",
+        "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/.build/arm64-apple-macosx/debug/Floorplan.build/FloorplanView.swift.o",
+        "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/.build/arm64-apple-macosx/debug/Floorplan.build/FloorplanViewModel.swift.o",
+        "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/.build/arm64-apple-macosx/debug/Floorplan.build/MapController.swift.o"
+      ],
+      "otherArguments" : [
+        "-target",
+        "arm64-apple-macosx13.0",
+        "-incremental",
+        "-enable-batch-mode",
+        "-serialize-diagnostics",
+        "-index-store-path",
+        "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/.build/arm64-apple-macosx/debug/index/store",
+        "-Onone",
+        "-enable-testing",
+        "-j10",
+        "-DSWIFT_PACKAGE",
+        "-DDEBUG",
+        "-DSWIFT_MODULE_RESOURCE_BUNDLE_UNAVAILABLE",
+        "-module-cache-path",
+        "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/.build/arm64-apple-macosx/debug/ModuleCache",
+        "-parseable-output",
+        "-parse-as-library",
+        "-emit-objc-header",
+        "-emit-objc-header-path",
+        "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/.build/arm64-apple-macosx/debug/Floorplan.build/include/Floorplan-Swift.h",
+        "-swift-version",
+        "5",
+        "-I",
+        "/Library/Developer/CommandLineTools/Library/Developer/Frameworks",
+        "-L",
+        "/Library/Developer/CommandLineTools/Library/Developer/Frameworks",
+        "-plugin-path",
+        "/Library/Developer/CommandLineTools/usr/lib/swift/host/plugins/testing",
+        "-sdk",
+        "/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk",
+        "-g",
+        "-Xcc",
+        "-isysroot",
+        "-Xcc",
+        "/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk",
+        "-Xcc",
+        "-fPIC",
+        "-Xcc",
+        "-g",
+        "-package-name",
+        "packages"
+      ],
+      "outputFileMapPath" : "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/.build/arm64-apple-macosx/debug/Floorplan.build/output-file-map.json",
+      "outputs" : [
+        {
+          "kind" : "file",
+          "name" : "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/.build/arm64-apple-macosx/debug/Floorplan.build/BrowseOverlay.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/.build/arm64-apple-macosx/debug/Floorplan.build/Floorplan.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/.build/arm64-apple-macosx/debug/Floorplan.build/FloorplanCanvas.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/.build/arm64-apple-macosx/debug/Floorplan.build/FloorplanView.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/.build/arm64-apple-macosx/debug/Floorplan.build/FloorplanViewModel.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/.build/arm64-apple-macosx/debug/Floorplan.build/MapController.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/.build/arm64-apple-macosx/debug/Modules/Floorplan.swiftmodule"
+        }
+      ],
+      "prepareForIndexing" : false,
+      "sources" : [
+        "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/Features/Floorplan/Sources/BrowseOverlay.swift",
+        "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/Features/Floorplan/Sources/Floorplan.swift",
+        "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/Features/Floorplan/Sources/FloorplanCanvas.swift",
+        "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/Features/Floorplan/Sources/FloorplanView.swift",
+        "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/Features/Floorplan/Sources/FloorplanViewModel.swift",
+        "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/Features/Floorplan/Sources/MapController.swift"
+      ],
+      "tempsPath" : "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/.build/arm64-apple-macosx/debug/Floorplan.build",
+      "wholeModuleOptimization" : false
+    },
+    "C.Projects-arm64-apple-macosx15.0-debug.module" : {
+      "executable" : "/Library/Developer/CommandLineTools/usr/bin/swiftc",
+      "fileList" : "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/.build/arm64-apple-macosx/debug/Projects.build/sources",
+      "importPath" : "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/.build/arm64-apple-macosx/debug/Modules",
+      "inputs" : [
+        {
+          "kind" : "file",
+          "name" : "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/Features/Projects/Sources/Projects.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/Features/Projects/Sources/ProjectsListView.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/.build/arm64-apple-macosx/debug/swift-version--1AB21518FC5DEDBE.txt"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/.build/arm64-apple-macosx/debug/Modules/Core.swiftmodule"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/.build/arm64-apple-macosx/debug/Modules/DesignSystem.swiftmodule"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/.build/arm64-apple-macosx/debug/Projects.build/sources"
+        }
+      ],
+      "isLibrary" : true,
+      "moduleName" : "Projects",
+      "moduleOutputPath" : "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/.build/arm64-apple-macosx/debug/Modules/Projects.swiftmodule",
+      "objects" : [
+        "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/.build/arm64-apple-macosx/debug/Projects.build/Projects.swift.o",
+        "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/.build/arm64-apple-macosx/debug/Projects.build/ProjectsListView.swift.o"
+      ],
+      "otherArguments" : [
+        "-target",
+        "arm64-apple-macosx13.0",
+        "-incremental",
+        "-enable-batch-mode",
+        "-serialize-diagnostics",
+        "-index-store-path",
+        "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/.build/arm64-apple-macosx/debug/index/store",
+        "-Onone",
+        "-enable-testing",
+        "-j10",
+        "-DSWIFT_PACKAGE",
+        "-DDEBUG",
+        "-DSWIFT_MODULE_RESOURCE_BUNDLE_UNAVAILABLE",
+        "-module-cache-path",
+        "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/.build/arm64-apple-macosx/debug/ModuleCache",
+        "-parseable-output",
+        "-parse-as-library",
+        "-emit-objc-header",
+        "-emit-objc-header-path",
+        "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/.build/arm64-apple-macosx/debug/Projects.build/include/Projects-Swift.h",
+        "-swift-version",
+        "5",
+        "-I",
+        "/Library/Developer/CommandLineTools/Library/Developer/Frameworks",
+        "-L",
+        "/Library/Developer/CommandLineTools/Library/Developer/Frameworks",
+        "-plugin-path",
+        "/Library/Developer/CommandLineTools/usr/lib/swift/host/plugins/testing",
+        "-sdk",
+        "/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk",
+        "-g",
+        "-Xcc",
+        "-isysroot",
+        "-Xcc",
+        "/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk",
+        "-Xcc",
+        "-fPIC",
+        "-Xcc",
+        "-g",
+        "-package-name",
+        "packages"
+      ],
+      "outputFileMapPath" : "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/.build/arm64-apple-macosx/debug/Projects.build/output-file-map.json",
+      "outputs" : [
+        {
+          "kind" : "file",
+          "name" : "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/.build/arm64-apple-macosx/debug/Projects.build/Projects.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/.build/arm64-apple-macosx/debug/Projects.build/ProjectsListView.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/.build/arm64-apple-macosx/debug/Modules/Projects.swiftmodule"
+        }
+      ],
+      "prepareForIndexing" : false,
+      "sources" : [
+        "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/Features/Projects/Sources/Projects.swift",
+        "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/Features/Projects/Sources/ProjectsListView.swift"
+      ],
+      "tempsPath" : "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/.build/arm64-apple-macosx/debug/Projects.build",
+      "wholeModuleOptimization" : false
+    },
+    "C.Room-arm64-apple-macosx15.0-debug.module" : {
+      "executable" : "/Library/Developer/CommandLineTools/usr/bin/swiftc",
+      "fileList" : "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/.build/arm64-apple-macosx/debug/Room.build/sources",
+      "importPath" : "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/.build/arm64-apple-macosx/debug/Modules",
+      "inputs" : [
+        {
+          "kind" : "file",
+          "name" : "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/Features/Room/Sources/Room.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/Features/Room/Sources/RoomDetailViews.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/Features/Room/Sources/RoomOverlayView.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/Features/Room/Sources/RoomViewModel.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/.build/arm64-apple-macosx/debug/swift-version--1AB21518FC5DEDBE.txt"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/.build/arm64-apple-macosx/debug/Modules/Core.swiftmodule"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/.build/arm64-apple-macosx/debug/Modules/DesignSystem.swiftmodule"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/.build/arm64-apple-macosx/debug/Room.build/sources"
+        }
+      ],
+      "isLibrary" : true,
+      "moduleName" : "Room",
+      "moduleOutputPath" : "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/.build/arm64-apple-macosx/debug/Modules/Room.swiftmodule",
+      "objects" : [
+        "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/.build/arm64-apple-macosx/debug/Room.build/Room.swift.o",
+        "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/.build/arm64-apple-macosx/debug/Room.build/RoomDetailViews.swift.o",
+        "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/.build/arm64-apple-macosx/debug/Room.build/RoomOverlayView.swift.o",
+        "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/.build/arm64-apple-macosx/debug/Room.build/RoomViewModel.swift.o"
+      ],
+      "otherArguments" : [
+        "-target",
+        "arm64-apple-macosx13.0",
+        "-incremental",
+        "-enable-batch-mode",
+        "-serialize-diagnostics",
+        "-index-store-path",
+        "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/.build/arm64-apple-macosx/debug/index/store",
+        "-Onone",
+        "-enable-testing",
+        "-j10",
+        "-DSWIFT_PACKAGE",
+        "-DDEBUG",
+        "-DSWIFT_MODULE_RESOURCE_BUNDLE_UNAVAILABLE",
+        "-module-cache-path",
+        "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/.build/arm64-apple-macosx/debug/ModuleCache",
+        "-parseable-output",
+        "-parse-as-library",
+        "-emit-objc-header",
+        "-emit-objc-header-path",
+        "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/.build/arm64-apple-macosx/debug/Room.build/include/Room-Swift.h",
+        "-swift-version",
+        "5",
+        "-I",
+        "/Library/Developer/CommandLineTools/Library/Developer/Frameworks",
+        "-L",
+        "/Library/Developer/CommandLineTools/Library/Developer/Frameworks",
+        "-plugin-path",
+        "/Library/Developer/CommandLineTools/usr/lib/swift/host/plugins/testing",
+        "-sdk",
+        "/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk",
+        "-g",
+        "-Xcc",
+        "-isysroot",
+        "-Xcc",
+        "/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk",
+        "-Xcc",
+        "-fPIC",
+        "-Xcc",
+        "-g",
+        "-package-name",
+        "packages"
+      ],
+      "outputFileMapPath" : "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/.build/arm64-apple-macosx/debug/Room.build/output-file-map.json",
+      "outputs" : [
+        {
+          "kind" : "file",
+          "name" : "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/.build/arm64-apple-macosx/debug/Room.build/Room.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/.build/arm64-apple-macosx/debug/Room.build/RoomDetailViews.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/.build/arm64-apple-macosx/debug/Room.build/RoomOverlayView.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/.build/arm64-apple-macosx/debug/Room.build/RoomViewModel.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/.build/arm64-apple-macosx/debug/Modules/Room.swiftmodule"
+        }
+      ],
+      "prepareForIndexing" : false,
+      "sources" : [
+        "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/Features/Room/Sources/Room.swift",
+        "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/Features/Room/Sources/RoomDetailViews.swift",
+        "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/Features/Room/Sources/RoomOverlayView.swift",
+        "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/Features/Room/Sources/RoomViewModel.swift"
+      ],
+      "tempsPath" : "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/.build/arm64-apple-macosx/debug/Room.build",
+      "wholeModuleOptimization" : false
+    },
+    "C.SurveyReport-arm64-apple-macosx15.0-debug.module" : {
+      "executable" : "/Library/Developer/CommandLineTools/usr/bin/swiftc",
+      "fileList" : "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/.build/arm64-apple-macosx/debug/SurveyReport.build/sources",
+      "importPath" : "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/.build/arm64-apple-macosx/debug/Modules",
+      "inputs" : [
+        {
+          "kind" : "file",
+          "name" : "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/Features/SurveyReport/Sources/SurveyReport.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/Features/SurveyReport/Sources/SurveyReportView.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/.build/arm64-apple-macosx/debug/swift-version--1AB21518FC5DEDBE.txt"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/.build/arm64-apple-macosx/debug/Modules/Core.swiftmodule"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/.build/arm64-apple-macosx/debug/Modules/DesignSystem.swiftmodule"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/.build/arm64-apple-macosx/debug/SurveyReport.build/sources"
+        }
+      ],
+      "isLibrary" : true,
+      "moduleName" : "SurveyReport",
+      "moduleOutputPath" : "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/.build/arm64-apple-macosx/debug/Modules/SurveyReport.swiftmodule",
+      "objects" : [
+        "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/.build/arm64-apple-macosx/debug/SurveyReport.build/SurveyReport.swift.o",
+        "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/.build/arm64-apple-macosx/debug/SurveyReport.build/SurveyReportView.swift.o"
+      ],
+      "otherArguments" : [
+        "-target",
+        "arm64-apple-macosx13.0",
+        "-incremental",
+        "-enable-batch-mode",
+        "-serialize-diagnostics",
+        "-index-store-path",
+        "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/.build/arm64-apple-macosx/debug/index/store",
+        "-Onone",
+        "-enable-testing",
+        "-j10",
+        "-DSWIFT_PACKAGE",
+        "-DDEBUG",
+        "-DSWIFT_MODULE_RESOURCE_BUNDLE_UNAVAILABLE",
+        "-module-cache-path",
+        "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/.build/arm64-apple-macosx/debug/ModuleCache",
+        "-parseable-output",
+        "-parse-as-library",
+        "-emit-objc-header",
+        "-emit-objc-header-path",
+        "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/.build/arm64-apple-macosx/debug/SurveyReport.build/include/SurveyReport-Swift.h",
+        "-swift-version",
+        "5",
+        "-I",
+        "/Library/Developer/CommandLineTools/Library/Developer/Frameworks",
+        "-L",
+        "/Library/Developer/CommandLineTools/Library/Developer/Frameworks",
+        "-plugin-path",
+        "/Library/Developer/CommandLineTools/usr/lib/swift/host/plugins/testing",
+        "-sdk",
+        "/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk",
+        "-g",
+        "-Xcc",
+        "-isysroot",
+        "-Xcc",
+        "/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk",
+        "-Xcc",
+        "-fPIC",
+        "-Xcc",
+        "-g",
+        "-package-name",
+        "packages"
+      ],
+      "outputFileMapPath" : "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/.build/arm64-apple-macosx/debug/SurveyReport.build/output-file-map.json",
+      "outputs" : [
+        {
+          "kind" : "file",
+          "name" : "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/.build/arm64-apple-macosx/debug/SurveyReport.build/SurveyReport.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/.build/arm64-apple-macosx/debug/SurveyReport.build/SurveyReportView.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/.build/arm64-apple-macosx/debug/Modules/SurveyReport.swiftmodule"
+        }
+      ],
+      "prepareForIndexing" : false,
+      "sources" : [
+        "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/Features/SurveyReport/Sources/SurveyReport.swift",
+        "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/Features/SurveyReport/Sources/SurveyReportView.swift"
+      ],
+      "tempsPath" : "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/.build/arm64-apple-macosx/debug/SurveyReport.build",
+      "wholeModuleOptimization" : false
+    }
+  },
+  "swiftFrontendCommands" : {
+
+  },
+  "swiftTargetScanArgs" : {
+    "AddAssetWizard" : [
+      "/Library/Developer/CommandLineTools/usr/bin/swiftc",
+      "-module-name",
+      "AddAssetWizard",
+      "-package-name",
+      "packages",
+      "-c",
+      "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/Features/AddAssetWizard/Sources/AddAssetWizard.swift",
+      "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/Features/AddAssetWizard/Sources/AddAssetWizardStepViews.swift",
+      "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/Features/AddAssetWizard/Sources/AddAssetWizardView.swift",
+      "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/Features/AddAssetWizard/Sources/AddAssetWizardViewModel+Bindings.swift",
+      "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/Features/AddAssetWizard/Sources/AddAssetWizardViewModel+Persistence.swift",
+      "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/Features/AddAssetWizard/Sources/AddAssetWizardViewModel+Photos.swift",
+      "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/Features/AddAssetWizard/Sources/AddAssetWizardViewModel+Validation.swift",
+      "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/Features/AddAssetWizard/Sources/AddAssetWizardViewModel.swift",
+      "-I",
+      "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/.build/arm64-apple-macosx/debug/Modules",
+      "-target",
+      "arm64-apple-macosx13.0",
+      "-incremental",
+      "-enable-batch-mode",
+      "-serialize-diagnostics",
+      "-index-store-path",
+      "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/.build/arm64-apple-macosx/debug/index/store",
+      "-Onone",
+      "-enable-testing",
+      "-j10",
+      "-DSWIFT_PACKAGE",
+      "-DDEBUG",
+      "-DSWIFT_MODULE_RESOURCE_BUNDLE_UNAVAILABLE",
+      "-module-cache-path",
+      "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/.build/arm64-apple-macosx/debug/ModuleCache",
+      "-parseable-output",
+      "-parse-as-library",
+      "-emit-objc-header",
+      "-emit-objc-header-path",
+      "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/.build/arm64-apple-macosx/debug/AddAssetWizard.build/include/AddAssetWizard-Swift.h",
+      "-swift-version",
+      "5",
+      "-I",
+      "/Library/Developer/CommandLineTools/Library/Developer/Frameworks",
+      "-L",
+      "/Library/Developer/CommandLineTools/Library/Developer/Frameworks",
+      "-plugin-path",
+      "/Library/Developer/CommandLineTools/usr/lib/swift/host/plugins/testing",
+      "-sdk",
+      "/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk",
+      "-g",
+      "-Xcc",
+      "-isysroot",
+      "-Xcc",
+      "/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk",
+      "-Xcc",
+      "-fPIC",
+      "-Xcc",
+      "-g",
+      "-package-name",
+      "packages",
+      "-driver-use-frontend-path",
+      "/Library/Developer/CommandLineTools/usr/bin/swiftc"
+    ],
+    "AnagraficaTecnicaModulesPackageTests" : [
+      "/Library/Developer/CommandLineTools/usr/bin/swiftc",
+      "-module-name",
+      "AnagraficaTecnicaModulesPackageTests",
+      "-package-name",
+      "packages",
+      "-c",
+      "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/.build/arm64-apple-macosx/debug/AnagraficaTecnicaModulesPackageTests.derived/runner.swift",
+      "-I",
+      "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/.build/arm64-apple-macosx/debug/Modules",
+      "-target",
+      "arm64-apple-macosx13.0",
+      "-incremental",
+      "-enable-batch-mode",
+      "-serialize-diagnostics",
+      "-index-store-path",
+      "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/.build/arm64-apple-macosx/debug/index/store",
+      "-Onone",
+      "-enable-testing",
+      "-Xfrontend",
+      "-enable-cross-import-overlays",
+      "-j10",
+      "-DSWIFT_PACKAGE",
+      "-DDEBUG",
+      "-DSWIFT_MODULE_RESOURCE_BUNDLE_UNAVAILABLE",
+      "-module-cache-path",
+      "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/.build/arm64-apple-macosx/debug/ModuleCache",
+      "-parseable-output",
+      "-parse-as-library",
+      "-emit-objc-header",
+      "-emit-objc-header-path",
+      "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/.build/arm64-apple-macosx/debug/AnagraficaTecnicaModulesPackageTests.build/include/AnagraficaTecnicaModulesPackageTests-Swift.h",
+      "-I",
+      "/Library/Developer/CommandLineTools/Library/Developer/Frameworks",
+      "-L",
+      "/Library/Developer/CommandLineTools/Library/Developer/Frameworks",
+      "-plugin-path",
+      "/Library/Developer/CommandLineTools/usr/lib/swift/host/plugins/testing",
+      "-sdk",
+      "/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk",
+      "-g",
+      "-Xcc",
+      "-isysroot",
+      "-Xcc",
+      "/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk",
+      "-Xcc",
+      "-fPIC",
+      "-Xcc",
+      "-g",
+      "-package-name",
+      "packages",
+      "-driver-use-frontend-path",
+      "/Library/Developer/CommandLineTools/usr/bin/swiftc"
+    ],
+    "Core" : [
+      "/Library/Developer/CommandLineTools/usr/bin/swiftc",
+      "-module-name",
+      "Core",
+      "-package-name",
+      "packages",
+      "-c",
+      "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/Core/Sources/Core.swift",
+      "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/Core/Sources/Demo/DemoDataSeeder.swift",
+      "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/Core/Sources/Demo/DemoPlanLoader.swift",
+      "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/Core/Sources/Demo/DemoPlanModels.swift",
+      "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/Core/Sources/Models/AssetInstance.swift",
+      "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/Core/Sources/Models/AssetType.swift",
+      "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/Core/Sources/Models/Family.swift",
+      "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/Core/Sources/Models/Geometry.swift",
+      "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/Core/Sources/Models/Level.swift",
+      "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/Core/Sources/Models/ParameterDefinition.swift",
+      "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/Core/Sources/Models/ParameterValue.swift",
+      "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/Core/Sources/Models/Photo.swift",
+      "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/Core/Sources/Models/Project.swift",
+      "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/Core/Sources/Models/ProjectState.swift",
+      "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/Core/Sources/Models/Room.swift",
+      "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/Core/Sources/Models/RoomNote.swift",
+      "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/Core/Sources/Models/SchemaVersion.swift",
+      "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/Core/Sources/Models/SyncEvent.swift",
+      "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/Core/Sources/Networking/APIClient.swift",
+      "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/Core/Sources/Networking/APIError.swift",
+      "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/Core/Sources/Networking/Endpoint.swift",
+      "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/Core/Sources/Networking/HTTPMethod.swift",
+      "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/Core/Sources/Networking/NetworkConfig.swift",
+      "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/Core/Sources/Persistence/CoreDataStack.swift",
+      "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/Core/Sources/Services/GeometryUtils.swift",
+      "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/Core/Sources/Services/JSONCoding.swift",
+      "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/Core/Sources/Services/LocalFileCache.swift",
+      "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/Core/Sources/Services/ParameterValidator.swift",
+      "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/Core/Sources/Services/PhotoNamer.swift",
+      "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/Core/Sources/Services/StableID.swift",
+      "-I",
+      "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/.build/arm64-apple-macosx/debug/Modules",
+      "-target",
+      "arm64-apple-macosx13.0",
+      "-incremental",
+      "-enable-batch-mode",
+      "-serialize-diagnostics",
+      "-index-store-path",
+      "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/.build/arm64-apple-macosx/debug/index/store",
+      "-Onone",
+      "-enable-testing",
+      "-j10",
+      "-DSWIFT_PACKAGE",
+      "-DDEBUG",
+      "-DSWIFT_MODULE_RESOURCE_BUNDLE_UNAVAILABLE",
+      "-module-cache-path",
+      "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/.build/arm64-apple-macosx/debug/ModuleCache",
+      "-parseable-output",
+      "-parse-as-library",
+      "-emit-objc-header",
+      "-emit-objc-header-path",
+      "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/.build/arm64-apple-macosx/debug/Core.build/include/Core-Swift.h",
+      "-swift-version",
+      "5",
+      "-I",
+      "/Library/Developer/CommandLineTools/Library/Developer/Frameworks",
+      "-L",
+      "/Library/Developer/CommandLineTools/Library/Developer/Frameworks",
+      "-plugin-path",
+      "/Library/Developer/CommandLineTools/usr/lib/swift/host/plugins/testing",
+      "-sdk",
+      "/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk",
+      "-g",
+      "-Xcc",
+      "-isysroot",
+      "-Xcc",
+      "/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk",
+      "-Xcc",
+      "-fPIC",
+      "-Xcc",
+      "-g",
+      "-package-name",
+      "packages",
+      "-driver-use-frontend-path",
+      "/Library/Developer/CommandLineTools/usr/bin/swiftc"
+    ],
+    "CoreTests" : [
+      "/Library/Developer/CommandLineTools/usr/bin/swiftc",
+      "-module-name",
+      "CoreTests",
+      "-package-name",
+      "packages",
+      "-c",
+      "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/Core/Tests/GeometryUtilsTests.swift",
+      "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/Core/Tests/ParameterValidatorTests.swift",
+      "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/Core/Tests/StableIDTests.swift",
+      "-I",
+      "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/.build/arm64-apple-macosx/debug/Modules",
+      "-target",
+      "arm64-apple-macosx13.0",
+      "-incremental",
+      "-enable-batch-mode",
+      "-serialize-diagnostics",
+      "-index-store-path",
+      "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/.build/arm64-apple-macosx/debug/index/store",
+      "-Onone",
+      "-enable-testing",
+      "-Xfrontend",
+      "-enable-cross-import-overlays",
+      "-j10",
+      "-DSWIFT_PACKAGE",
+      "-DDEBUG",
+      "-DSWIFT_MODULE_RESOURCE_BUNDLE_UNAVAILABLE",
+      "-module-cache-path",
+      "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/.build/arm64-apple-macosx/debug/ModuleCache",
+      "-parseable-output",
+      "-parse-as-library",
+      "-swift-version",
+      "5",
+      "-I",
+      "/Library/Developer/CommandLineTools/Library/Developer/Frameworks",
+      "-L",
+      "/Library/Developer/CommandLineTools/Library/Developer/Frameworks",
+      "-plugin-path",
+      "/Library/Developer/CommandLineTools/usr/lib/swift/host/plugins/testing",
+      "-sdk",
+      "/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk",
+      "-g",
+      "-Xcc",
+      "-isysroot",
+      "-Xcc",
+      "/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk",
+      "-Xcc",
+      "-fPIC",
+      "-Xcc",
+      "-g",
+      "-package-name",
+      "packages",
+      "-driver-use-frontend-path",
+      "/Library/Developer/CommandLineTools/usr/bin/swiftc"
+    ],
+    "DesignSystem" : [
+      "/Library/Developer/CommandLineTools/usr/bin/swiftc",
+      "-module-name",
+      "DesignSystem",
+      "-package-name",
+      "packages",
+      "-c",
+      "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/DesignSystem/Sources/AppTheme.swift",
+      "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/DesignSystem/Sources/DesignSystem.swift",
+      "-I",
+      "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/.build/arm64-apple-macosx/debug/Modules",
+      "-target",
+      "arm64-apple-macosx13.0",
+      "-incremental",
+      "-enable-batch-mode",
+      "-serialize-diagnostics",
+      "-index-store-path",
+      "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/.build/arm64-apple-macosx/debug/index/store",
+      "-Onone",
+      "-enable-testing",
+      "-j10",
+      "-DSWIFT_PACKAGE",
+      "-DDEBUG",
+      "-DSWIFT_MODULE_RESOURCE_BUNDLE_UNAVAILABLE",
+      "-module-cache-path",
+      "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/.build/arm64-apple-macosx/debug/ModuleCache",
+      "-parseable-output",
+      "-parse-as-library",
+      "-emit-objc-header",
+      "-emit-objc-header-path",
+      "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/.build/arm64-apple-macosx/debug/DesignSystem.build/include/DesignSystem-Swift.h",
+      "-swift-version",
+      "5",
+      "-I",
+      "/Library/Developer/CommandLineTools/Library/Developer/Frameworks",
+      "-L",
+      "/Library/Developer/CommandLineTools/Library/Developer/Frameworks",
+      "-plugin-path",
+      "/Library/Developer/CommandLineTools/usr/lib/swift/host/plugins/testing",
+      "-sdk",
+      "/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk",
+      "-g",
+      "-Xcc",
+      "-isysroot",
+      "-Xcc",
+      "/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk",
+      "-Xcc",
+      "-fPIC",
+      "-Xcc",
+      "-g",
+      "-package-name",
+      "packages",
+      "-driver-use-frontend-path",
+      "/Library/Developer/CommandLineTools/usr/bin/swiftc"
+    ],
+    "Export" : [
+      "/Library/Developer/CommandLineTools/usr/bin/swiftc",
+      "-module-name",
+      "Export",
+      "-package-name",
+      "packages",
+      "-c",
+      "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/Features/Export/Sources/Export.swift",
+      "-I",
+      "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/.build/arm64-apple-macosx/debug/Modules",
+      "-target",
+      "arm64-apple-macosx13.0",
+      "-incremental",
+      "-enable-batch-mode",
+      "-serialize-diagnostics",
+      "-index-store-path",
+      "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/.build/arm64-apple-macosx/debug/index/store",
+      "-Onone",
+      "-enable-testing",
+      "-j10",
+      "-DSWIFT_PACKAGE",
+      "-DDEBUG",
+      "-DSWIFT_MODULE_RESOURCE_BUNDLE_UNAVAILABLE",
+      "-module-cache-path",
+      "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/.build/arm64-apple-macosx/debug/ModuleCache",
+      "-parseable-output",
+      "-parse-as-library",
+      "-emit-objc-header",
+      "-emit-objc-header-path",
+      "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/.build/arm64-apple-macosx/debug/Export.build/include/Export-Swift.h",
+      "-swift-version",
+      "5",
+      "-I",
+      "/Library/Developer/CommandLineTools/Library/Developer/Frameworks",
+      "-L",
+      "/Library/Developer/CommandLineTools/Library/Developer/Frameworks",
+      "-plugin-path",
+      "/Library/Developer/CommandLineTools/usr/lib/swift/host/plugins/testing",
+      "-sdk",
+      "/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk",
+      "-g",
+      "-Xcc",
+      "-isysroot",
+      "-Xcc",
+      "/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk",
+      "-Xcc",
+      "-fPIC",
+      "-Xcc",
+      "-g",
+      "-package-name",
+      "packages",
+      "-driver-use-frontend-path",
+      "/Library/Developer/CommandLineTools/usr/bin/swiftc"
+    ],
+    "Floorplan" : [
+      "/Library/Developer/CommandLineTools/usr/bin/swiftc",
+      "-module-name",
+      "Floorplan",
+      "-package-name",
+      "packages",
+      "-c",
+      "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/Features/Floorplan/Sources/BrowseOverlay.swift",
+      "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/Features/Floorplan/Sources/Floorplan.swift",
+      "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/Features/Floorplan/Sources/FloorplanCanvas.swift",
+      "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/Features/Floorplan/Sources/FloorplanView.swift",
+      "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/Features/Floorplan/Sources/FloorplanViewModel.swift",
+      "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/Features/Floorplan/Sources/MapController.swift",
+      "-I",
+      "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/.build/arm64-apple-macosx/debug/Modules",
+      "-target",
+      "arm64-apple-macosx13.0",
+      "-incremental",
+      "-enable-batch-mode",
+      "-serialize-diagnostics",
+      "-index-store-path",
+      "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/.build/arm64-apple-macosx/debug/index/store",
+      "-Onone",
+      "-enable-testing",
+      "-j10",
+      "-DSWIFT_PACKAGE",
+      "-DDEBUG",
+      "-DSWIFT_MODULE_RESOURCE_BUNDLE_UNAVAILABLE",
+      "-module-cache-path",
+      "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/.build/arm64-apple-macosx/debug/ModuleCache",
+      "-parseable-output",
+      "-parse-as-library",
+      "-emit-objc-header",
+      "-emit-objc-header-path",
+      "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/.build/arm64-apple-macosx/debug/Floorplan.build/include/Floorplan-Swift.h",
+      "-swift-version",
+      "5",
+      "-I",
+      "/Library/Developer/CommandLineTools/Library/Developer/Frameworks",
+      "-L",
+      "/Library/Developer/CommandLineTools/Library/Developer/Frameworks",
+      "-plugin-path",
+      "/Library/Developer/CommandLineTools/usr/lib/swift/host/plugins/testing",
+      "-sdk",
+      "/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk",
+      "-g",
+      "-Xcc",
+      "-isysroot",
+      "-Xcc",
+      "/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk",
+      "-Xcc",
+      "-fPIC",
+      "-Xcc",
+      "-g",
+      "-package-name",
+      "packages",
+      "-driver-use-frontend-path",
+      "/Library/Developer/CommandLineTools/usr/bin/swiftc"
+    ],
+    "Projects" : [
+      "/Library/Developer/CommandLineTools/usr/bin/swiftc",
+      "-module-name",
+      "Projects",
+      "-package-name",
+      "packages",
+      "-c",
+      "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/Features/Projects/Sources/Projects.swift",
+      "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/Features/Projects/Sources/ProjectsListView.swift",
+      "-I",
+      "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/.build/arm64-apple-macosx/debug/Modules",
+      "-target",
+      "arm64-apple-macosx13.0",
+      "-incremental",
+      "-enable-batch-mode",
+      "-serialize-diagnostics",
+      "-index-store-path",
+      "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/.build/arm64-apple-macosx/debug/index/store",
+      "-Onone",
+      "-enable-testing",
+      "-j10",
+      "-DSWIFT_PACKAGE",
+      "-DDEBUG",
+      "-DSWIFT_MODULE_RESOURCE_BUNDLE_UNAVAILABLE",
+      "-module-cache-path",
+      "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/.build/arm64-apple-macosx/debug/ModuleCache",
+      "-parseable-output",
+      "-parse-as-library",
+      "-emit-objc-header",
+      "-emit-objc-header-path",
+      "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/.build/arm64-apple-macosx/debug/Projects.build/include/Projects-Swift.h",
+      "-swift-version",
+      "5",
+      "-I",
+      "/Library/Developer/CommandLineTools/Library/Developer/Frameworks",
+      "-L",
+      "/Library/Developer/CommandLineTools/Library/Developer/Frameworks",
+      "-plugin-path",
+      "/Library/Developer/CommandLineTools/usr/lib/swift/host/plugins/testing",
+      "-sdk",
+      "/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk",
+      "-g",
+      "-Xcc",
+      "-isysroot",
+      "-Xcc",
+      "/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk",
+      "-Xcc",
+      "-fPIC",
+      "-Xcc",
+      "-g",
+      "-package-name",
+      "packages",
+      "-driver-use-frontend-path",
+      "/Library/Developer/CommandLineTools/usr/bin/swiftc"
+    ],
+    "Room" : [
+      "/Library/Developer/CommandLineTools/usr/bin/swiftc",
+      "-module-name",
+      "Room",
+      "-package-name",
+      "packages",
+      "-c",
+      "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/Features/Room/Sources/Room.swift",
+      "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/Features/Room/Sources/RoomDetailViews.swift",
+      "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/Features/Room/Sources/RoomOverlayView.swift",
+      "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/Features/Room/Sources/RoomViewModel.swift",
+      "-I",
+      "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/.build/arm64-apple-macosx/debug/Modules",
+      "-target",
+      "arm64-apple-macosx13.0",
+      "-incremental",
+      "-enable-batch-mode",
+      "-serialize-diagnostics",
+      "-index-store-path",
+      "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/.build/arm64-apple-macosx/debug/index/store",
+      "-Onone",
+      "-enable-testing",
+      "-j10",
+      "-DSWIFT_PACKAGE",
+      "-DDEBUG",
+      "-DSWIFT_MODULE_RESOURCE_BUNDLE_UNAVAILABLE",
+      "-module-cache-path",
+      "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/.build/arm64-apple-macosx/debug/ModuleCache",
+      "-parseable-output",
+      "-parse-as-library",
+      "-emit-objc-header",
+      "-emit-objc-header-path",
+      "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/.build/arm64-apple-macosx/debug/Room.build/include/Room-Swift.h",
+      "-swift-version",
+      "5",
+      "-I",
+      "/Library/Developer/CommandLineTools/Library/Developer/Frameworks",
+      "-L",
+      "/Library/Developer/CommandLineTools/Library/Developer/Frameworks",
+      "-plugin-path",
+      "/Library/Developer/CommandLineTools/usr/lib/swift/host/plugins/testing",
+      "-sdk",
+      "/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk",
+      "-g",
+      "-Xcc",
+      "-isysroot",
+      "-Xcc",
+      "/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk",
+      "-Xcc",
+      "-fPIC",
+      "-Xcc",
+      "-g",
+      "-package-name",
+      "packages",
+      "-driver-use-frontend-path",
+      "/Library/Developer/CommandLineTools/usr/bin/swiftc"
+    ],
+    "SurveyReport" : [
+      "/Library/Developer/CommandLineTools/usr/bin/swiftc",
+      "-module-name",
+      "SurveyReport",
+      "-package-name",
+      "packages",
+      "-c",
+      "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/Features/SurveyReport/Sources/SurveyReport.swift",
+      "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/Features/SurveyReport/Sources/SurveyReportView.swift",
+      "-I",
+      "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/.build/arm64-apple-macosx/debug/Modules",
+      "-target",
+      "arm64-apple-macosx13.0",
+      "-incremental",
+      "-enable-batch-mode",
+      "-serialize-diagnostics",
+      "-index-store-path",
+      "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/.build/arm64-apple-macosx/debug/index/store",
+      "-Onone",
+      "-enable-testing",
+      "-j10",
+      "-DSWIFT_PACKAGE",
+      "-DDEBUG",
+      "-DSWIFT_MODULE_RESOURCE_BUNDLE_UNAVAILABLE",
+      "-module-cache-path",
+      "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/.build/arm64-apple-macosx/debug/ModuleCache",
+      "-parseable-output",
+      "-parse-as-library",
+      "-emit-objc-header",
+      "-emit-objc-header-path",
+      "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/.build/arm64-apple-macosx/debug/SurveyReport.build/include/SurveyReport-Swift.h",
+      "-swift-version",
+      "5",
+      "-I",
+      "/Library/Developer/CommandLineTools/Library/Developer/Frameworks",
+      "-L",
+      "/Library/Developer/CommandLineTools/Library/Developer/Frameworks",
+      "-plugin-path",
+      "/Library/Developer/CommandLineTools/usr/lib/swift/host/plugins/testing",
+      "-sdk",
+      "/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk",
+      "-g",
+      "-Xcc",
+      "-isysroot",
+      "-Xcc",
+      "/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk",
+      "-Xcc",
+      "-fPIC",
+      "-Xcc",
+      "-g",
+      "-package-name",
+      "packages",
+      "-driver-use-frontend-path",
+      "/Library/Developer/CommandLineTools/usr/bin/swiftc"
+    ]
+  },
+  "targetDependencyMap" : {
+    "AddAssetWizard" : [
+      "DesignSystem",
+      "Core"
+    ],
+    "AnagraficaTecnicaModulesPackageTests" : [
+      "CoreTests",
+      "Core"
+    ],
+    "Core" : [
+
+    ],
+    "CoreTests" : [
+      "Core"
+    ],
+    "DesignSystem" : [
+
+    ],
+    "Export" : [
+      "DesignSystem",
+      "Core"
+    ],
+    "Floorplan" : [
+      "SurveyReport",
+      "Room",
+      "AddAssetWizard",
+      "DesignSystem",
+      "Core"
+    ],
+    "Projects" : [
+      "DesignSystem",
+      "Core"
+    ],
+    "Room" : [
+      "DesignSystem",
+      "Core"
+    ],
+    "SurveyReport" : [
+      "DesignSystem",
+      "Core"
+    ]
+  },
+  "testDiscoveryCommands" : {
+
+  },
+  "testEntryPointCommands" : {
+    "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/.build/arm64-apple-macosx/debug/AnagraficaTecnicaModulesPackageTests.derived/runner.swift" : {
+      "inputs" : [
+
+      ],
+      "outputs" : [
+        {
+          "kind" : "file",
+          "name" : "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/.build/arm64-apple-macosx/debug/AnagraficaTecnicaModulesPackageTests.derived/runner.swift"
+        }
+      ]
+    }
+  },
+  "traitConfiguration" : {
+    "default" : {
+
+    }
+  },
+  "writeCommands" : {
+    "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/.build/arm64-apple-macosx/debug/AddAssetWizard.build/sources" : {
+      "alwaysOutOfDate" : false,
+      "inputs" : [
+        {
+          "kind" : "virtual",
+          "name" : "<sources-file-list>"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/Features/AddAssetWizard/Sources/AddAssetWizard.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/Features/AddAssetWizard/Sources/AddAssetWizardStepViews.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/Features/AddAssetWizard/Sources/AddAssetWizardView.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/Features/AddAssetWizard/Sources/AddAssetWizardViewModel+Bindings.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/Features/AddAssetWizard/Sources/AddAssetWizardViewModel+Persistence.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/Features/AddAssetWizard/Sources/AddAssetWizardViewModel+Photos.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/Features/AddAssetWizard/Sources/AddAssetWizardViewModel+Validation.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/Features/AddAssetWizard/Sources/AddAssetWizardViewModel.swift"
+        }
+      ],
+      "outputFilePath" : "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/.build/arm64-apple-macosx/debug/AddAssetWizard.build/sources"
+    },
+    "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/.build/arm64-apple-macosx/debug/AnagraficaTecnicaModulesPackageTests.build/sources" : {
+      "alwaysOutOfDate" : false,
+      "inputs" : [
+        {
+          "kind" : "virtual",
+          "name" : "<sources-file-list>"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/.build/arm64-apple-macosx/debug/AnagraficaTecnicaModulesPackageTests.derived/runner.swift"
+        }
+      ],
+      "outputFilePath" : "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/.build/arm64-apple-macosx/debug/AnagraficaTecnicaModulesPackageTests.build/sources"
+    },
+    "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/.build/arm64-apple-macosx/debug/AnagraficaTecnicaModulesPackageTests.product/Objects.LinkFileList" : {
+      "alwaysOutOfDate" : false,
+      "inputs" : [
+        {
+          "kind" : "virtual",
+          "name" : "<link-file-list>"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/.build/arm64-apple-macosx/debug/AnagraficaTecnicaModulesPackageTests.build/runner.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/.build/arm64-apple-macosx/debug/Core.build/APIClient.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/.build/arm64-apple-macosx/debug/Core.build/APIError.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/.build/arm64-apple-macosx/debug/Core.build/AssetInstance.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/.build/arm64-apple-macosx/debug/Core.build/AssetType.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/.build/arm64-apple-macosx/debug/Core.build/Core.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/.build/arm64-apple-macosx/debug/Core.build/CoreDataStack.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/.build/arm64-apple-macosx/debug/Core.build/DemoDataSeeder.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/.build/arm64-apple-macosx/debug/Core.build/DemoPlanLoader.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/.build/arm64-apple-macosx/debug/Core.build/DemoPlanModels.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/.build/arm64-apple-macosx/debug/Core.build/Endpoint.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/.build/arm64-apple-macosx/debug/Core.build/Family.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/.build/arm64-apple-macosx/debug/Core.build/Geometry.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/.build/arm64-apple-macosx/debug/Core.build/GeometryUtils.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/.build/arm64-apple-macosx/debug/Core.build/HTTPMethod.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/.build/arm64-apple-macosx/debug/Core.build/JSONCoding.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/.build/arm64-apple-macosx/debug/Core.build/Level.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/.build/arm64-apple-macosx/debug/Core.build/LocalFileCache.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/.build/arm64-apple-macosx/debug/Core.build/NetworkConfig.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/.build/arm64-apple-macosx/debug/Core.build/ParameterDefinition.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/.build/arm64-apple-macosx/debug/Core.build/ParameterValidator.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/.build/arm64-apple-macosx/debug/Core.build/ParameterValue.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/.build/arm64-apple-macosx/debug/Core.build/Photo.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/.build/arm64-apple-macosx/debug/Core.build/PhotoNamer.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/.build/arm64-apple-macosx/debug/Core.build/Project.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/.build/arm64-apple-macosx/debug/Core.build/ProjectState.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/.build/arm64-apple-macosx/debug/Core.build/Room.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/.build/arm64-apple-macosx/debug/Core.build/RoomNote.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/.build/arm64-apple-macosx/debug/Core.build/SchemaVersion.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/.build/arm64-apple-macosx/debug/Core.build/StableID.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/.build/arm64-apple-macosx/debug/Core.build/SyncEvent.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/.build/arm64-apple-macosx/debug/CoreTests.build/GeometryUtilsTests.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/.build/arm64-apple-macosx/debug/CoreTests.build/ParameterValidatorTests.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/.build/arm64-apple-macosx/debug/CoreTests.build/StableIDTests.swift.o"
+        }
+      ],
+      "outputFilePath" : "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/.build/arm64-apple-macosx/debug/AnagraficaTecnicaModulesPackageTests.product/Objects.LinkFileList"
+    },
+    "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/.build/arm64-apple-macosx/debug/Core.build/sources" : {
+      "alwaysOutOfDate" : false,
+      "inputs" : [
+        {
+          "kind" : "virtual",
+          "name" : "<sources-file-list>"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/Core/Sources/Core.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/Core/Sources/Demo/DemoDataSeeder.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/Core/Sources/Demo/DemoPlanLoader.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/Core/Sources/Demo/DemoPlanModels.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/Core/Sources/Models/AssetInstance.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/Core/Sources/Models/AssetType.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/Core/Sources/Models/Family.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/Core/Sources/Models/Geometry.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/Core/Sources/Models/Level.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/Core/Sources/Models/ParameterDefinition.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/Core/Sources/Models/ParameterValue.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/Core/Sources/Models/Photo.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/Core/Sources/Models/Project.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/Core/Sources/Models/ProjectState.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/Core/Sources/Models/Room.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/Core/Sources/Models/RoomNote.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/Core/Sources/Models/SchemaVersion.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/Core/Sources/Models/SyncEvent.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/Core/Sources/Networking/APIClient.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/Core/Sources/Networking/APIError.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/Core/Sources/Networking/Endpoint.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/Core/Sources/Networking/HTTPMethod.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/Core/Sources/Networking/NetworkConfig.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/Core/Sources/Persistence/CoreDataStack.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/Core/Sources/Services/GeometryUtils.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/Core/Sources/Services/JSONCoding.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/Core/Sources/Services/LocalFileCache.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/Core/Sources/Services/ParameterValidator.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/Core/Sources/Services/PhotoNamer.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/Core/Sources/Services/StableID.swift"
+        }
+      ],
+      "outputFilePath" : "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/.build/arm64-apple-macosx/debug/Core.build/sources"
+    },
+    "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/.build/arm64-apple-macosx/debug/CoreTests.build/sources" : {
+      "alwaysOutOfDate" : false,
+      "inputs" : [
+        {
+          "kind" : "virtual",
+          "name" : "<sources-file-list>"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/Core/Tests/GeometryUtilsTests.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/Core/Tests/ParameterValidatorTests.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/Core/Tests/StableIDTests.swift"
+        }
+      ],
+      "outputFilePath" : "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/.build/arm64-apple-macosx/debug/CoreTests.build/sources"
+    },
+    "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/.build/arm64-apple-macosx/debug/DesignSystem.build/sources" : {
+      "alwaysOutOfDate" : false,
+      "inputs" : [
+        {
+          "kind" : "virtual",
+          "name" : "<sources-file-list>"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/DesignSystem/Sources/AppTheme.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/DesignSystem/Sources/DesignSystem.swift"
+        }
+      ],
+      "outputFilePath" : "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/.build/arm64-apple-macosx/debug/DesignSystem.build/sources"
+    },
+    "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/.build/arm64-apple-macosx/debug/Export.build/sources" : {
+      "alwaysOutOfDate" : false,
+      "inputs" : [
+        {
+          "kind" : "virtual",
+          "name" : "<sources-file-list>"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/Features/Export/Sources/Export.swift"
+        }
+      ],
+      "outputFilePath" : "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/.build/arm64-apple-macosx/debug/Export.build/sources"
+    },
+    "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/.build/arm64-apple-macosx/debug/Floorplan.build/sources" : {
+      "alwaysOutOfDate" : false,
+      "inputs" : [
+        {
+          "kind" : "virtual",
+          "name" : "<sources-file-list>"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/Features/Floorplan/Sources/BrowseOverlay.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/Features/Floorplan/Sources/Floorplan.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/Features/Floorplan/Sources/FloorplanCanvas.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/Features/Floorplan/Sources/FloorplanView.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/Features/Floorplan/Sources/FloorplanViewModel.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/Features/Floorplan/Sources/MapController.swift"
+        }
+      ],
+      "outputFilePath" : "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/.build/arm64-apple-macosx/debug/Floorplan.build/sources"
+    },
+    "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/.build/arm64-apple-macosx/debug/Projects.build/sources" : {
+      "alwaysOutOfDate" : false,
+      "inputs" : [
+        {
+          "kind" : "virtual",
+          "name" : "<sources-file-list>"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/Features/Projects/Sources/Projects.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/Features/Projects/Sources/ProjectsListView.swift"
+        }
+      ],
+      "outputFilePath" : "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/.build/arm64-apple-macosx/debug/Projects.build/sources"
+    },
+    "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/.build/arm64-apple-macosx/debug/Room.build/sources" : {
+      "alwaysOutOfDate" : false,
+      "inputs" : [
+        {
+          "kind" : "virtual",
+          "name" : "<sources-file-list>"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/Features/Room/Sources/Room.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/Features/Room/Sources/RoomDetailViews.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/Features/Room/Sources/RoomOverlayView.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/Features/Room/Sources/RoomViewModel.swift"
+        }
+      ],
+      "outputFilePath" : "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/.build/arm64-apple-macosx/debug/Room.build/sources"
+    },
+    "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/.build/arm64-apple-macosx/debug/SurveyReport.build/sources" : {
+      "alwaysOutOfDate" : false,
+      "inputs" : [
+        {
+          "kind" : "virtual",
+          "name" : "<sources-file-list>"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/Features/SurveyReport/Sources/SurveyReport.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/Features/SurveyReport/Sources/SurveyReportView.swift"
+        }
+      ],
+      "outputFilePath" : "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/.build/arm64-apple-macosx/debug/SurveyReport.build/sources"
+    },
+    "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/.build/arm64-apple-macosx/debug/swift-version--1AB21518FC5DEDBE.txt" : {
+      "alwaysOutOfDate" : true,
+      "inputs" : [
+        {
+          "kind" : "virtual",
+          "name" : "<swift-get-version>"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Library/Developer/CommandLineTools/usr/bin/swiftc"
+        }
+      ],
+      "outputFilePath" : "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/.build/arm64-apple-macosx/debug/swift-version--1AB21518FC5DEDBE.txt"
+    }
+  }
+}

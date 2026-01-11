@@ -90,7 +90,7 @@
       ],
       "otherArguments" : [
         "-target",
-        "arm64-apple-macosx12.0",
+        "arm64-apple-macosx13.0",
         "-incremental",
         "-enable-batch-mode",
         "-serialize-diagnostics",
@@ -188,7 +188,7 @@
       ],
       "otherArguments" : [
         "-target",
-        "arm64-apple-macosx12.0",
+        "arm64-apple-macosx13.0",
         "-incremental",
         "-enable-batch-mode",
         "-serialize-diagnostics",
@@ -420,7 +420,7 @@
       ],
       "otherArguments" : [
         "-target",
-        "arm64-apple-macosx12.0",
+        "arm64-apple-macosx13.0",
         "-incremental",
         "-enable-batch-mode",
         "-serialize-diagnostics",
@@ -550,7 +550,7 @@
       ],
       "otherArguments" : [
         "-target",
-        "arm64-apple-macosx12.0",
+        "arm64-apple-macosx13.0",
         "-incremental",
         "-enable-batch-mode",
         "-serialize-diagnostics",
@@ -643,7 +643,7 @@
       ],
       "otherArguments" : [
         "-target",
-        "arm64-apple-macosx12.0",
+        "arm64-apple-macosx13.0",
         "-incremental",
         "-enable-batch-mode",
         "-serialize-diagnostics",
@@ -739,7 +739,7 @@
       ],
       "otherArguments" : [
         "-target",
-        "arm64-apple-macosx12.0",
+        "arm64-apple-macosx13.0",
         "-incremental",
         "-enable-batch-mode",
         "-serialize-diagnostics",
@@ -807,6 +807,10 @@
       "inputs" : [
         {
           "kind" : "file",
+          "name" : "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/Features/Floorplan/Sources/BrowseOverlay.swift"
+        },
+        {
+          "kind" : "file",
           "name" : "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/Features/Floorplan/Sources/Floorplan.swift"
         },
         {
@@ -820,6 +824,10 @@
         {
           "kind" : "file",
           "name" : "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/Features/Floorplan/Sources/FloorplanViewModel.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/Features/Floorplan/Sources/MapController.swift"
         },
         {
           "kind" : "file",
@@ -854,14 +862,16 @@
       "moduleName" : "Floorplan",
       "moduleOutputPath" : "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/.build/index-build/arm64-apple-macosx/debug/Modules/Floorplan.swiftmodule",
       "objects" : [
+        "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/.build/index-build/arm64-apple-macosx/debug/Floorplan.build/BrowseOverlay.swift.o",
         "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/.build/index-build/arm64-apple-macosx/debug/Floorplan.build/Floorplan.swift.o",
         "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/.build/index-build/arm64-apple-macosx/debug/Floorplan.build/FloorplanCanvas.swift.o",
         "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/.build/index-build/arm64-apple-macosx/debug/Floorplan.build/FloorplanView.swift.o",
-        "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/.build/index-build/arm64-apple-macosx/debug/Floorplan.build/FloorplanViewModel.swift.o"
+        "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/.build/index-build/arm64-apple-macosx/debug/Floorplan.build/FloorplanViewModel.swift.o",
+        "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/.build/index-build/arm64-apple-macosx/debug/Floorplan.build/MapController.swift.o"
       ],
       "otherArguments" : [
         "-target",
-        "arm64-apple-macosx12.0",
+        "arm64-apple-macosx13.0",
         "-incremental",
         "-enable-batch-mode",
         "-serialize-diagnostics",
@@ -917,10 +927,12 @@
       ],
       "prepareForIndexing" : true,
       "sources" : [
+        "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/Features/Floorplan/Sources/BrowseOverlay.swift",
         "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/Features/Floorplan/Sources/Floorplan.swift",
         "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/Features/Floorplan/Sources/FloorplanCanvas.swift",
         "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/Features/Floorplan/Sources/FloorplanView.swift",
-        "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/Features/Floorplan/Sources/FloorplanViewModel.swift"
+        "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/Features/Floorplan/Sources/FloorplanViewModel.swift",
+        "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/Features/Floorplan/Sources/MapController.swift"
       ],
       "tempsPath" : "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/.build/index-build/arm64-apple-macosx/debug/Floorplan.build",
       "wholeModuleOptimization" : false
@@ -964,7 +976,7 @@
       ],
       "otherArguments" : [
         "-target",
-        "arm64-apple-macosx12.0",
+        "arm64-apple-macosx13.0",
         "-incremental",
         "-enable-batch-mode",
         "-serialize-diagnostics",
@@ -1075,7 +1087,7 @@
       ],
       "otherArguments" : [
         "-target",
-        "arm64-apple-macosx12.0",
+        "arm64-apple-macosx13.0",
         "-incremental",
         "-enable-batch-mode",
         "-serialize-diagnostics",
@@ -1178,7 +1190,7 @@
       ],
       "otherArguments" : [
         "-target",
-        "arm64-apple-macosx12.0",
+        "arm64-apple-macosx13.0",
         "-incremental",
         "-enable-batch-mode",
         "-serialize-diagnostics",
@@ -1263,7 +1275,7 @@
       "-I",
       "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/.build/index-build/arm64-apple-macosx/debug/Modules",
       "-target",
-      "arm64-apple-macosx12.0",
+      "arm64-apple-macosx13.0",
       "-incremental",
       "-enable-batch-mode",
       "-serialize-diagnostics",
@@ -1323,7 +1335,7 @@
       "-I",
       "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/.build/index-build/arm64-apple-macosx/debug/Modules",
       "-target",
-      "arm64-apple-macosx12.0",
+      "arm64-apple-macosx13.0",
       "-incremental",
       "-enable-batch-mode",
       "-serialize-diagnostics",
@@ -1412,7 +1424,7 @@
       "-I",
       "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/.build/index-build/arm64-apple-macosx/debug/Modules",
       "-target",
-      "arm64-apple-macosx12.0",
+      "arm64-apple-macosx13.0",
       "-incremental",
       "-enable-batch-mode",
       "-serialize-diagnostics",
@@ -1474,7 +1486,7 @@
       "-I",
       "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/.build/index-build/arm64-apple-macosx/debug/Modules",
       "-target",
-      "arm64-apple-macosx12.0",
+      "arm64-apple-macosx13.0",
       "-incremental",
       "-enable-batch-mode",
       "-serialize-diagnostics",
@@ -1534,7 +1546,7 @@
       "-I",
       "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/.build/index-build/arm64-apple-macosx/debug/Modules",
       "-target",
-      "arm64-apple-macosx12.0",
+      "arm64-apple-macosx13.0",
       "-incremental",
       "-enable-batch-mode",
       "-serialize-diagnostics",
@@ -1594,7 +1606,7 @@
       "-I",
       "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/.build/index-build/arm64-apple-macosx/debug/Modules",
       "-target",
-      "arm64-apple-macosx12.0",
+      "arm64-apple-macosx13.0",
       "-incremental",
       "-enable-batch-mode",
       "-serialize-diagnostics",
@@ -1650,14 +1662,16 @@
       "-package-name",
       "packages",
       "-c",
+      "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/Features/Floorplan/Sources/BrowseOverlay.swift",
       "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/Features/Floorplan/Sources/Floorplan.swift",
       "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/Features/Floorplan/Sources/FloorplanCanvas.swift",
       "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/Features/Floorplan/Sources/FloorplanView.swift",
       "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/Features/Floorplan/Sources/FloorplanViewModel.swift",
+      "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/Features/Floorplan/Sources/MapController.swift",
       "-I",
       "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/.build/index-build/arm64-apple-macosx/debug/Modules",
       "-target",
-      "arm64-apple-macosx12.0",
+      "arm64-apple-macosx13.0",
       "-incremental",
       "-enable-batch-mode",
       "-serialize-diagnostics",
@@ -1718,7 +1732,7 @@
       "-I",
       "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/.build/index-build/arm64-apple-macosx/debug/Modules",
       "-target",
-      "arm64-apple-macosx12.0",
+      "arm64-apple-macosx13.0",
       "-incremental",
       "-enable-batch-mode",
       "-serialize-diagnostics",
@@ -1781,7 +1795,7 @@
       "-I",
       "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/.build/index-build/arm64-apple-macosx/debug/Modules",
       "-target",
-      "arm64-apple-macosx12.0",
+      "arm64-apple-macosx13.0",
       "-incremental",
       "-enable-batch-mode",
       "-serialize-diagnostics",
@@ -1842,7 +1856,7 @@
       "-I",
       "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/.build/index-build/arm64-apple-macosx/debug/Modules",
       "-target",
-      "arm64-apple-macosx12.0",
+      "arm64-apple-macosx13.0",
       "-incremental",
       "-enable-batch-mode",
       "-serialize-diagnostics",
@@ -2195,6 +2209,10 @@
         },
         {
           "kind" : "file",
+          "name" : "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/Features/Floorplan/Sources/BrowseOverlay.swift"
+        },
+        {
+          "kind" : "file",
           "name" : "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/Features/Floorplan/Sources/Floorplan.swift"
         },
         {
@@ -2208,6 +2226,10 @@
         {
           "kind" : "file",
           "name" : "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/Features/Floorplan/Sources/FloorplanViewModel.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/Features/Floorplan/Sources/MapController.swift"
         }
       ],
       "outputFilePath" : "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/.build/index-build/arm64-apple-macosx/debug/Floorplan.build/sources"

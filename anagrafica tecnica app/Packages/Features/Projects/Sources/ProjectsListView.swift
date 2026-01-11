@@ -57,7 +57,9 @@ public struct ProjectsListView: View {
             Image(systemName: "magnifyingglass")
                 .foregroundStyle(AppColors.textSecondary)
             TextField("Search projects", text: $searchText)
+                #if os(iOS)
                 .textInputAutocapitalization(.words)
+                #endif
                 .disableAutocorrection(true)
         }
         .padding(AppSpacing.md)

@@ -3,7 +3,7 @@ import PackageDescription
 
 let package = Package(
     name: "AnagraficaTecnicaModules",
-    platforms: [.iOS(.v16), .macOS(.v12)],
+    platforms: [.iOS(.v16), .macOS(.v13)],
     products: [
         .library(name: "Core", targets: ["Core"]),
         .library(name: "DesignSystem", targets: ["DesignSystem"]),

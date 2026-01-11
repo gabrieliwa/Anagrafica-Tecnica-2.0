@@ -536,7 +536,9 @@ private struct ParameterField: View {
                     .background(RoundedRectangle(cornerRadius: AppRadius.field).fill(AppColors.cardBackground))
             case .number:
                 TextField("Enter number", text: viewModel.numberBinding(for: definition, scope: scope))
+                    #if os(iOS)
                     .keyboardType(.decimalPad)
+                    #endif
                     .textFieldStyle(.plain)
                     .padding(AppSpacing.sm)
                     .background(RoundedRectangle(cornerRadius: AppRadius.field).fill(AppColors.cardBackground))

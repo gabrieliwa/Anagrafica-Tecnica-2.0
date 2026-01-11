@@ -72,7 +72,9 @@ public struct AssetInstanceDetailView: View {
             .padding(.bottom, AppSpacing.xl)
         }
         .navigationTitle(snapshot.typeName)
+        #if os(iOS)
         .navigationBarTitleDisplayMode(.inline)
+        #endif
     }
 }
 
@@ -187,7 +189,9 @@ public struct RoomNoteDetailView: View {
             .padding(.bottom, AppSpacing.xl)
         }
         .navigationTitle("Room Note")
+        #if os(iOS)
         .navigationBarTitleDisplayMode(.inline)
+        #endif
     }
 }
 

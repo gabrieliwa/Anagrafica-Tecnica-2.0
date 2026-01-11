@@ -1,0 +1,61 @@
+{
+  "": {
+    "swift-dependencies": "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/.build/arm64-apple-macosx/debug/AddAssetWizard.build/master.swiftdeps"
+  },
+  "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/Features/AddAssetWizard/Sources/AddAssetWizard.swift": {
+    "dependencies": "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/.build/arm64-apple-macosx/debug/AddAssetWizard.build/AddAssetWizard.d",
+    "object": "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/.build/arm64-apple-macosx/debug/AddAssetWizard.build/AddAssetWizard.swift.o",
+    "swiftmodule": "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/.build/arm64-apple-macosx/debug/AddAssetWizard.build/AddAssetWizard~partial.swiftmodule",
+    "swift-dependencies": "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/.build/arm64-apple-macosx/debug/AddAssetWizard.build/AddAssetWizard.swiftdeps",
+    "diagnostics": "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/.build/arm64-apple-macosx/debug/AddAssetWizard.build/AddAssetWizard.dia"
+  },
+  "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/Features/AddAssetWizard/Sources/AddAssetWizardStepViews.swift": {
+    "dependencies": "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/.build/arm64-apple-macosx/debug/AddAssetWizard.build/AddAssetWizardStepViews.d",
+    "object": "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/.build/arm64-apple-macosx/debug/AddAssetWizard.build/AddAssetWizardStepViews.swift.o",
+    "swiftmodule": "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/.build/arm64-apple-macosx/debug/AddAssetWizard.build/AddAssetWizardStepViews~partial.swiftmodule",
+    "swift-dependencies": "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/.build/arm64-apple-macosx/debug/AddAssetWizard.build/AddAssetWizardStepViews.swiftdeps",
+    "diagnostics": "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/.build/arm64-apple-macosx/debug/AddAssetWizard.build/AddAssetWizardStepViews.dia"
+  },
+  "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/Features/AddAssetWizard/Sources/AddAssetWizardView.swift": {
+    "dependencies": "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/.build/arm64-apple-macosx/debug/AddAssetWizard.build/AddAssetWizardView.d",
+    "object": "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/.build/arm64-apple-macosx/debug/AddAssetWizard.build/AddAssetWizardView.swift.o",
+    "swiftmodule": "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/.build/arm64-apple-macosx/debug/AddAssetWizard.build/AddAssetWizardView~partial.swiftmodule",
+    "swift-dependencies": "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/.build/arm64-apple-macosx/debug/AddAssetWizard.build/AddAssetWizardView.swiftdeps",
+    "diagnostics": "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/.build/arm64-apple-macosx/debug/AddAssetWizard.build/AddAssetWizardView.dia"
+  },
+  "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/Features/AddAssetWizard/Sources/AddAssetWizardViewModel+Bindings.swift": {
+    "dependencies": "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/.build/arm64-apple-macosx/debug/AddAssetWizard.build/AddAssetWizardViewModel+Bindings.d",
+    "object": "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/.build/arm64-apple-macosx/debug/AddAssetWizard.build/AddAssetWizardViewModel+Bindings.swift.o",
+    "swiftmodule": "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/.build/arm64-apple-macosx/debug/AddAssetWizard.build/AddAssetWizardViewModel+Bindings~partial.swiftmodule",
+    "swift-dependencies": "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/.build/arm64-apple-macosx/debug/AddAssetWizard.build/AddAssetWizardViewModel+Bindings.swiftdeps",
+    "diagnostics": "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/.build/arm64-apple-macosx/debug/AddAssetWizard.build/AddAssetWizardViewModel+Bindings.dia"
+  },
+  "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/Features/AddAssetWizard/Sources/AddAssetWizardViewModel+Persistence.swift": {
+    "dependencies": "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/.build/arm64-apple-macosx/debug/AddAssetWizard.build/AddAssetWizardViewModel+Persistence.d",
+    "object": "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/.build/arm64-apple-macosx/debug/AddAssetWizard.build/AddAssetWizardViewModel+Persistence.swift.o",
+    "swiftmodule": "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/.build/arm64-apple-macosx/debug/AddAssetWizard.build/AddAssetWizardViewModel+Persistence~partial.swiftmodule",
+    "swift-dependencies": "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/.build/arm64-apple-macosx/debug/AddAssetWizard.build/AddAssetWizardViewModel+Persistence.swiftdeps",
+    "diagnostics": "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/.build/arm64-apple-macosx/debug/AddAssetWizard.build/AddAssetWizardViewModel+Persistence.dia"
+  },
+  "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/Features/AddAssetWizard/Sources/AddAssetWizardViewModel+Photos.swift": {
+    "dependencies": "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/.build/arm64-apple-macosx/debug/AddAssetWizard.build/AddAssetWizardViewModel+Photos.d",
+    "object": "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/.build/arm64-apple-macosx/debug/AddAssetWizard.build/AddAssetWizardViewModel+Photos.swift.o",
+    "swiftmodule": "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/.build/arm64-apple-macosx/debug/AddAssetWizard.build/AddAssetWizardViewModel+Photos~partial.swiftmodule",
+    "swift-dependencies": "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/.build/arm64-apple-macosx/debug/AddAssetWizard.build/AddAssetWizardViewModel+Photos.swiftdeps",
+    "diagnostics": "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/.build/arm64-apple-macosx/debug/AddAssetWizard.build/AddAssetWizardViewModel+Photos.dia"
+  },
+  "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/Features/AddAssetWizard/Sources/AddAssetWizardViewModel+Validation.swift": {
+    "dependencies": "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/.build/arm64-apple-macosx/debug/AddAssetWizard.build/AddAssetWizardViewModel+Validation.d",
+    "object": "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/.build/arm64-apple-macosx/debug/AddAssetWizard.build/AddAssetWizardViewModel+Validation.swift.o",
+    "swiftmodule": "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/.build/arm64-apple-macosx/debug/AddAssetWizard.build/AddAssetWizardViewModel+Validation~partial.swiftmodule",
+    "swift-dependencies": "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/.build/arm64-apple-macosx/debug/AddAssetWizard.build/AddAssetWizardViewModel+Validation.swiftdeps",
+    "diagnostics": "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/.build/arm64-apple-macosx/debug/AddAssetWizard.build/AddAssetWizardViewModel+Validation.dia"
+  },
+  "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/Features/AddAssetWizard/Sources/AddAssetWizardViewModel.swift": {
+    "dependencies": "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/.build/arm64-apple-macosx/debug/AddAssetWizard.build/AddAssetWizardViewModel.d",
+    "object": "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/.build/arm64-apple-macosx/debug/AddAssetWizard.build/AddAssetWizardViewModel.swift.o",
+    "swiftmodule": "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/.build/arm64-apple-macosx/debug/AddAssetWizard.build/AddAssetWizardViewModel~partial.swiftmodule",
+    "swift-dependencies": "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/.build/arm64-apple-macosx/debug/AddAssetWizard.build/AddAssetWizardViewModel.swiftdeps",
+    "diagnostics": "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/.build/arm64-apple-macosx/debug/AddAssetWizard.build/AddAssetWizardViewModel.dia"
+  }
+}
