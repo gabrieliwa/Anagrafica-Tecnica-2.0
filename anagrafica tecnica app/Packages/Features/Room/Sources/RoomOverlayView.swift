@@ -38,32 +38,37 @@ public struct RoomOverlayView: View {
             let totalHeight = proxy.size.height
             let safeTop = proxy.safeAreaInsets.top
             let safeBottom = proxy.safeAreaInsets.bottom
-            let sheetHeight = sheetHeight(for: viewModel.items.count, totalHeight: totalHeight)
-            let topPadding = safeTop
+            // Available space for sheet (below top bar, above bottom bar)
+            let availableForSheet = totalHeight - safeTop - AppMetrics.roomOverlayTopBarHeight - safeBottom - AppMetrics.roomBottomBarHeight - AppSpacing.lg
+            let sheetHeight = sheetHeight(for: viewModel.items.count, availableHeight: availableForSheet)
             let bottomBarWidth = min(
                 proxy.size.width * AppMetrics.roomBottomBarWidthRatio,
-                proxy.size.width - AppSpacing.xl * 2
+                proxy.size.width - AppSpacing.lg * 2
             )
 
-            VStack(spacing: AppSpacing.xs) {
+            VStack(spacing: 0) {
+                // Top bar - positioned exactly where navigation bar sits (at safe area boundary)
                 RoomTopBar(
                     levelName: viewModel.levelName,
                     roomLabel: viewModel.roomLabel,
                     onClose: onClose
                 )
                 .frame(height: AppMetrics.roomOverlayTopBarHeight)
-                .padding(.top, topPadding)
+                .padding(.horizontal, AppSpacing.lg)
                 .allowsHitTesting(true)
 
                 Spacer(minLength: AppSpacing.sm)
 
+                // Bottom sheet
                 RoomBottomSheet(
                     items: viewModel.items,
                     height: sheetHeight,
                     onSelectItem: { selectedItem = $0 }
                 )
+                .padding(.horizontal, AppSpacing.lg)
                 .allowsHitTesting(true)
 
+                // Bottom bar
                 HStack(spacing: 0) {
                     Spacer(minLength: 0)
                     RoomBottomBar(
@@ -75,10 +80,11 @@ public struct RoomOverlayView: View {
                     Spacer(minLength: 0)
                 }
                 .frame(height: AppMetrics.roomBottomBarHeight)
+                .padding(.horizontal, AppSpacing.lg)
             }
             .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .top)
-            .padding(.horizontal, AppSpacing.lg)
-            .padding(.bottom, max(0, safeBottom - AppSpacing.xs))
+            .padding(.top, safeTop)
+            .padding(.bottom, safeBottom + AppSpacing.lg)
         }
         .sheet(item: $selectedItem) { item in
             switch item.kind {
@@ -93,15 +99,18 @@ public struct RoomOverlayView: View {
         }
     }
 
-    private func sheetHeight(for itemCount: Int, totalHeight: CGFloat) -> CGFloat {
-        let maxHeight = totalHeight * AppMetrics.roomSheetMaxHeightFraction
+    private func sheetHeight(for itemCount: Int, availableHeight: CGFloat) -> CGFloat {
+        // Max height is 40% of available height (between top bar and bottom buttons)
+        let maxHeight = availableHeight * AppMetrics.roomSheetMaxHeightFraction
         let rowCount = max(1, itemCount)
+        // Account for internal padding (lg on all sides) + header + spacing
+        let internalPadding = AppSpacing.lg * 2 + AppSpacing.sm
         let contentHeight = AppMetrics.roomSheetHeaderHeight
             + CGFloat(rowCount) * AppMetrics.roomSheetRowHeight
-            + AppSpacing.lg
+            + internalPadding
         let minHeight = AppMetrics.roomSheetHeaderHeight
             + AppMetrics.roomSheetRowHeight
-            + AppSpacing.md
+            + internalPadding
         return min(maxHeight, max(minHeight, contentHeight))
     }
 }
@@ -163,21 +172,26 @@ private struct RoomBottomSheet: View {
             }
             .frame(height: AppMetrics.roomSheetHeaderHeight)
 
-            ScrollView(showsIndicators: false) {
-                VStack(spacing: AppSpacing.sm) {
-                    ForEach(items) { item in
-                        Button {
-                            onSelectItem(item)
-                        } label: {
-                            RoomItemRow(item: item)
-                                .frame(minHeight: AppMetrics.roomSheetRowHeight)
+            if items.isEmpty {
+                Text("No assets or room notes yet.")
+                    .font(AppTypography.body)
+                    .foregroundStyle(AppColors.textSecondary)
+                    .frame(maxWidth: .infinity, alignment: .leading)
+            } else {
+                ScrollView(showsIndicators: false) {
+                    VStack(spacing: AppSpacing.sm) {
+                        ForEach(items) { item in
+                            Button {
+                                onSelectItem(item)
+                            } label: {
+                                RoomItemRow(item: item)
+                                    .frame(minHeight: AppMetrics.roomSheetRowHeight)
+                            }
+                            .buttonStyle(.plain)
                         }
-                        .buttonStyle(.plain)
                     }
                 }
-                .padding(.vertical, AppSpacing.xs)
             }
-            .frame(maxHeight: height - AppMetrics.roomSheetHeaderHeight - AppSpacing.sm)
         }
         .padding(AppSpacing.lg)
         .frame(height: height)

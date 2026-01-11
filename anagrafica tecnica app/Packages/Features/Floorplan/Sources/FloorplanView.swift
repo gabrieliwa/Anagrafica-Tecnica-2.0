@@ -54,10 +54,12 @@ public struct FloorplanView: View {
             let size = proxy.size
             let safeTop = proxy.safeAreaInsets.top
             let safeBottom = proxy.safeAreaInsets.bottom
-            let sheetHeight = roomSheetHeight(for: selectedRoom?.totalCount ?? 1, totalHeight: size.height)
-            let topPadding = safeTop
-            let topInset = topPadding + AppMetrics.roomOverlayTopBarHeight + AppSpacing.xs
-            let bottomInset = safeBottom + sheetHeight + AppMetrics.roomBottomBarHeight + AppSpacing.xs
+            // Calculate available space for sheet (matching RoomOverlayView)
+            let availableForSheet = size.height - safeTop - AppMetrics.roomOverlayTopBarHeight - safeBottom - AppMetrics.roomBottomBarHeight - AppSpacing.lg
+            let sheetHeight = roomSheetHeight(for: selectedRoom?.totalCount ?? 1, availableHeight: availableForSheet)
+            // Insets for room focus calculation (top bar at safe area, bottom elements)
+            let topInset = safeTop + AppMetrics.roomOverlayTopBarHeight
+            let bottomInset = safeBottom + AppSpacing.lg + sheetHeight + AppMetrics.roomBottomBarHeight
 
             ZStack(alignment: .bottomTrailing) {
                 FloorplanCanvas(
@@ -87,8 +89,11 @@ public struct FloorplanView: View {
                         roomName: room.name,
                         context: context,
                         onClose: {
-                            isRoomViewActive = false
-                            selectedRoom = nil
+                            withAnimation(.easeOut(duration: AppMetrics.roomFocusAnimationDuration)) {
+                                isRoomViewActive = false
+                                selectedRoom = nil
+                                viewport = FloorplanViewport()
+                            }
                         },
                         onAddAsset: {
                             selectedRoomForWizard = room
@@ -98,6 +103,7 @@ public struct FloorplanView: View {
                         }
                     )
                     .id("\(room.id)-\(roomOverlayRefreshToken)")
+                    .transition(.opacity.combined(with: .move(edge: .bottom)))
                 } else {
                     VStack(alignment: .trailing, spacing: AppSpacing.sm) {
                         if uiState == .completed {
@@ -156,12 +162,17 @@ public struct FloorplanView: View {
         bottomInset: CGFloat
     ) {
         if room.totalCount > 0 {
-            selectedRoom = room
-            isRoomViewActive = true
+            // Animate both the room selection and the viewport change together
+            withAnimation(.easeOut(duration: AppMetrics.roomFocusAnimationDuration)) {
+                selectedRoom = room
+                isRoomViewActive = true
+            }
             focusOnRoom(room, canvasSize: canvasSize, topInset: topInset, bottomInset: bottomInset)
         } else {
             if isRoomViewActive {
-                selectedRoom = room
+                withAnimation(.easeOut(duration: AppMetrics.roomFocusAnimationDuration)) {
+                    selectedRoom = room
+                }
                 focusOnRoom(room, canvasSize: canvasSize, topInset: topInset, bottomInset: bottomInset)
             }
             selectedRoomForWizard = room
@@ -257,15 +268,18 @@ public struct FloorplanView: View {
         return (minZoom, maxZoom)
     }
 
-    private func roomSheetHeight(for itemCount: Int, totalHeight: CGFloat) -> CGFloat {
-        let maxHeight = totalHeight * AppMetrics.roomSheetMaxHeightFraction
+    private func roomSheetHeight(for itemCount: Int, availableHeight: CGFloat) -> CGFloat {
+        // Max height is 40% of available height (between top bar and bottom buttons)
+        let maxHeight = availableHeight * AppMetrics.roomSheetMaxHeightFraction
         let rowCount = max(1, itemCount)
+        // Account for internal padding (lg on all sides) + header + spacing
+        let internalPadding = AppSpacing.lg * 2 + AppSpacing.sm
         let contentHeight = AppMetrics.roomSheetHeaderHeight
             + CGFloat(rowCount) * AppMetrics.roomSheetRowHeight
-            + AppSpacing.lg
+            + internalPadding
         let minHeight = AppMetrics.roomSheetHeaderHeight
             + AppMetrics.roomSheetRowHeight
-            + AppSpacing.md
+            + internalPadding
         return min(maxHeight, max(minHeight, contentHeight))
     }
 }

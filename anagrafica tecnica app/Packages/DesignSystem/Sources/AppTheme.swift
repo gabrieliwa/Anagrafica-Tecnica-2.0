@@ -96,7 +96,7 @@ public enum AppMetrics {
     public static let floorplanSelectedRoomFillOpacity: Double = 1.0
     public static let floorplanSelectedRoomStrokeWidth: CGFloat = 3
     public static let roomOverlayTopBarHeight: CGFloat = 44
-    public static let roomSheetMaxHeightFraction: CGFloat = 0.38
+    public static let roomSheetMaxHeightFraction: CGFloat = 0.40
     public static let roomSheetRowHeight: CGFloat = 56
     public static let roomSheetHeaderHeight: CGFloat = 34
     public static let roomSheetActionsHeight: CGFloat = 56
