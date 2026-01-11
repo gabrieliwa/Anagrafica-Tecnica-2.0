@@ -1,6 +1,6 @@
 # Progress Checklist
 
-Last updated: 2026-01-09
+Last updated: 2026-01-11
 
 Update rule: keep this checklist current whenever milestones change.
 
@@ -58,6 +58,7 @@ Update rule: keep this checklist current whenever milestones change.
 - [x] Room list (assets + room notes, ordering)
 - [x] Instance detail view (read-only)
 - [x] Navigation: Floorplan -> Room overlay -> Instance detail
+- [x] Floorplan stays mounted; room view is a state overlay (modals centralized)
 
 ## Phase 4B - Room Editing
 

@@ -10,9 +10,8 @@ public struct FloorplanView: View {
     @StateObject private var viewModel: FloorplanViewModel
     private let projectName: String
     private let uiState: ProjectUIState?
-    @State private var selectedRoomForWizard: FloorplanRoom?
-    @State private var selectedRoom: FloorplanRoom?
-    @State private var isRoomViewActive = false
+    @State private var mode: FloorplanMode = .browse
+    @State private var activeSheet: ActiveSheet?
     @State private var isSurveyReportActive = false
     @State private var viewport = FloorplanViewport()
     @State private var roomOverlayRefreshToken = UUID()
@@ -54,12 +53,13 @@ public struct FloorplanView: View {
             let size = proxy.size
             let safeTop = proxy.safeAreaInsets.top
             let safeBottom = proxy.safeAreaInsets.bottom
+            let margin = AppSpacing.lg
             // Calculate available space for sheet (matching RoomOverlayView)
-            let availableForSheet = size.height - safeTop - AppMetrics.roomOverlayTopBarHeight - safeBottom - AppMetrics.roomBottomBarHeight - AppSpacing.lg
+            let availableForSheet = size.height - safeTop - safeBottom - margin - AppMetrics.roomOverlayTopBarHeight - AppMetrics.roomBottomBarHeight - AppSpacing.sm * 2
             let sheetHeight = roomSheetHeight(for: selectedRoom?.totalCount ?? 1, availableHeight: availableForSheet)
-            // Insets for room focus calculation (top bar at safe area, bottom elements)
+            // Insets for room focus calculation (top bar at safeTop, bottom has margin)
             let topInset = safeTop + AppMetrics.roomOverlayTopBarHeight
-            let bottomInset = safeBottom + AppSpacing.lg + sheetHeight + AppMetrics.roomBottomBarHeight
+            let bottomInset = safeBottom + margin + sheetHeight + AppMetrics.roomBottomBarHeight + AppSpacing.sm
 
             ZStack(alignment: .bottomTrailing) {
                 FloorplanCanvas(
@@ -90,18 +90,21 @@ public struct FloorplanView: View {
                         context: context,
                         onClose: {
                             withAnimation(.easeOut(duration: AppMetrics.roomFocusAnimationDuration)) {
-                                isRoomViewActive = false
-                                selectedRoom = nil
+                                mode = .browse
                                 viewport = FloorplanViewport()
                             }
                         },
                         onAddAsset: {
-                            selectedRoomForWizard = room
+                            activeSheet = .addAsset(room)
                         },
                         onOpenSurvey: {
                             isSurveyReportActive = true
+                        },
+                        onSelectItem: { item in
+                            activeSheet = .roomItem(item)
                         }
                     )
+                    .ignoresSafeArea(edges: .all)
                     .id("\(room.id)-\(roomOverlayRefreshToken)")
                     .transition(.opacity.combined(with: .move(edge: .bottom)))
                 } else {
@@ -117,18 +120,23 @@ public struct FloorplanView: View {
                     .padding(AppSpacing.lg)
                 }
             }
-            .sheet(item: $selectedRoomForWizard, onDismiss: {
-                viewModel.reloadRoomCounts(context: context)
-                if isRoomViewActive {
-                    roomOverlayRefreshToken = UUID()
+            .sheet(item: $activeSheet, onDismiss: handleSheetDismiss) { sheet in
+                switch sheet {
+                case .addAsset(let room):
+                    AddAssetWizardView(
+                        roomNumber: room.number,
+                        roomName: room.name,
+                        levelName: currentLevelName,
+                        context: context
+                    )
+                case .roomItem(let item):
+                    switch item.kind {
+                    case .asset(let snapshot):
+                        AssetInstanceDetailView(snapshot: snapshot)
+                    case .roomNote(let snapshot):
+                        RoomNoteDetailView(snapshot: snapshot)
+                    }
                 }
-            }) { room in
-                AddAssetWizardView(
-                    roomNumber: room.number,
-                    roomName: room.name,
-                    levelName: currentLevelName,
-                    context: context
-                )
             }
             .background(
                 NavigationLink(
@@ -164,18 +172,17 @@ public struct FloorplanView: View {
         if room.totalCount > 0 {
             // Animate both the room selection and the viewport change together
             withAnimation(.easeOut(duration: AppMetrics.roomFocusAnimationDuration)) {
-                selectedRoom = room
-                isRoomViewActive = true
+                mode = .room(room)
             }
             focusOnRoom(room, canvasSize: canvasSize, topInset: topInset, bottomInset: bottomInset)
         } else {
             if isRoomViewActive {
                 withAnimation(.easeOut(duration: AppMetrics.roomFocusAnimationDuration)) {
-                    selectedRoom = room
+                    mode = .room(room)
                 }
                 focusOnRoom(room, canvasSize: canvasSize, topInset: topInset, bottomInset: bottomInset)
             }
-            selectedRoomForWizard = room
+            activeSheet = .addAsset(room)
         }
     }
 
@@ -223,12 +230,32 @@ public struct FloorplanView: View {
 
     private func resetViewport() {
         viewport = FloorplanViewport()
-        selectedRoom = nil
-        isRoomViewActive = false
+        mode = .browse
     }
 
     private func clamp(_ value: CGFloat, min: CGFloat, max: CGFloat) -> CGFloat {
         Swift.max(min, Swift.min(max, value))
+    }
+
+    private func handleSheetDismiss() {
+        viewModel.reloadRoomCounts(context: context)
+        if isRoomViewActive {
+            roomOverlayRefreshToken = UUID()
+        }
+    }
+
+    private var selectedRoom: FloorplanRoom? {
+        if case let .room(room) = mode {
+            return room
+        }
+        return nil
+    }
+
+    private var isRoomViewActive: Bool {
+        if case .room = mode {
+            return true
+        }
+        return false
     }
 
     private func zoomLimits(
@@ -338,5 +365,24 @@ private struct LevelPicker: View {
             return "Level"
         }
         return levels[selection].name
+    }
+}
+
+private enum FloorplanMode: Equatable {
+    case browse
+    case room(FloorplanRoom)
+}
+
+private enum ActiveSheet: Identifiable {
+    case addAsset(FloorplanRoom)
+    case roomItem(RoomItem)
+
+    var id: String {
+        switch self {
+        case .addAsset(let room):
+            return "add-asset-\(room.id)"
+        case .roomItem(let item):
+            return "room-item-\(item.id.uuidString)"
+        }
     }
 }

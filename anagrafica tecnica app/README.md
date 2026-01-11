@@ -57,6 +57,12 @@ Each SwiftPM module should include:
 - README.md and CHANGELOG.md
 - Module-specific assets (if any)
 
+## Floorplan UI Architecture
+
+- The floorplan map is a persistent background view (pan/zoom always available).
+- Room View is an overlay state on the same screen, not a navigation push.
+- All room-related modals (Add Asset, item detail) are presented from the floorplan screen to avoid nested sheets.
+
 ## Roadmap (Capability-Based Phases)
 
 1. Foundation (Core)

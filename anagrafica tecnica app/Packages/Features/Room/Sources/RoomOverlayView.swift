@@ -5,11 +5,11 @@ import SwiftUI
 
 public struct RoomOverlayView: View {
     @StateObject private var viewModel: RoomViewModel
-    @State private var selectedItem: RoomItem?
 
     private let onClose: () -> Void
     private let onAddAsset: () -> Void
     private let onOpenSurvey: () -> Void
+    private let onSelectItem: (RoomItem) -> Void
 
     public init(
         levelName: String,
@@ -18,7 +18,8 @@ public struct RoomOverlayView: View {
         context: NSManagedObjectContext,
         onClose: @escaping () -> Void,
         onAddAsset: @escaping () -> Void,
-        onOpenSurvey: @escaping () -> Void
+        onOpenSurvey: @escaping () -> Void,
+        onSelectItem: @escaping (RoomItem) -> Void
     ) {
         _viewModel = StateObject(
             wrappedValue: RoomViewModel(
@@ -31,30 +32,31 @@ public struct RoomOverlayView: View {
         self.onClose = onClose
         self.onAddAsset = onAddAsset
         self.onOpenSurvey = onOpenSurvey
+        self.onSelectItem = onSelectItem
     }
 
     public var body: some View {
         GeometryReader { proxy in
-            let totalHeight = proxy.size.height
+            let screenWidth = proxy.size.width
             let safeTop = proxy.safeAreaInsets.top
             let safeBottom = proxy.safeAreaInsets.bottom
-            // Available space for sheet (below top bar, above bottom bar)
-            let availableForSheet = totalHeight - safeTop - AppMetrics.roomOverlayTopBarHeight - safeBottom - AppMetrics.roomBottomBarHeight - AppSpacing.lg
+            let margin = AppSpacing.lg
+            // Available height: total - safeTop - (safeBottom + margin) - top bar - bottom bar - gaps
+            let availableForSheet = proxy.size.height - safeTop - safeBottom - margin - AppMetrics.roomOverlayTopBarHeight - AppMetrics.roomBottomBarHeight - AppSpacing.sm * 2
             let sheetHeight = sheetHeight(for: viewModel.items.count, availableHeight: availableForSheet)
             let bottomBarWidth = min(
-                proxy.size.width * AppMetrics.roomBottomBarWidthRatio,
-                proxy.size.width - AppSpacing.lg * 2
+                screenWidth * AppMetrics.roomBottomBarWidthRatio,
+                screenWidth - margin * 2
             )
 
             VStack(spacing: 0) {
-                // Top bar - positioned exactly where navigation bar sits (at safe area boundary)
+                // Top bar
                 RoomTopBar(
                     levelName: viewModel.levelName,
                     roomLabel: viewModel.roomLabel,
                     onClose: onClose
                 )
                 .frame(height: AppMetrics.roomOverlayTopBarHeight)
-                .padding(.horizontal, AppSpacing.lg)
                 .allowsHitTesting(true)
 
                 Spacer(minLength: AppSpacing.sm)
@@ -63,10 +65,12 @@ public struct RoomOverlayView: View {
                 RoomBottomSheet(
                     items: viewModel.items,
                     height: sheetHeight,
-                    onSelectItem: { selectedItem = $0 }
+                    onSelectItem: onSelectItem
                 )
-                .padding(.horizontal, AppSpacing.lg)
                 .allowsHitTesting(true)
+
+                // Small gap
+                Spacer().frame(height: AppSpacing.sm)
 
                 // Bottom bar
                 HStack(spacing: 0) {
@@ -80,19 +84,13 @@ public struct RoomOverlayView: View {
                     Spacer(minLength: 0)
                 }
                 .frame(height: AppMetrics.roomBottomBarHeight)
-                .padding(.horizontal, AppSpacing.lg)
             }
             .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .top)
+            // Top: align with navigation bar (no extra margin)
+            // Bottom & sides: consistent margin
             .padding(.top, safeTop)
             .padding(.bottom, safeBottom + AppSpacing.lg)
-        }
-        .sheet(item: $selectedItem) { item in
-            switch item.kind {
-            case .asset(let snapshot):
-                AssetInstanceDetailView(snapshot: snapshot)
-            case .roomNote(let snapshot):
-                RoomNoteDetailView(snapshot: snapshot)
-            }
+            .padding(.horizontal, AppSpacing.lg)
         }
         .onAppear {
             viewModel.reload()

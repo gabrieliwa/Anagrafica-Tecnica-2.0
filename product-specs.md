@@ -428,6 +428,7 @@ This flow covers the complete on-site survey process from project download to co
        - Selected room gets a stronger border and fully opaque hatch; other room hatches are half transparent
        - The camera centers and zooms so the room boundary fits between the top bar and bottom sheet
        - Floorplan remains pan/zoomable behind the overlay
+       - Room View is a UI state on the same floorplan screen (no navigation push)
        - Tapping another room switches the Room View to that room; tapping an empty room opens Add Asset
        - Top bar: back arrow (exit Room View), level (line 1), room name/number (line 2), sync status icon (right)
        - Bottom sheet: scrollable list of assets and room notes linked to the room
@@ -476,6 +477,7 @@ This flow covers the complete on-site survey process from project download to co
 - Asset list is ordered by Family, then Type, then creation time
 - Room Notes appear in the same list with a distinct icon
 - Tapping a row opens the Instance Editor Widget
+  - Instance Editor Widget opens as a modal sheet over the floorplan screen
   - Shows Type summary, instance parameters only, optional Instance photos, and Reset/Save actions
   - "Edit Type" opens the Edit Type widget (separate modal) for Type-level changes
 - Type edits from the Instance Editor update the existing Type (no duplication)

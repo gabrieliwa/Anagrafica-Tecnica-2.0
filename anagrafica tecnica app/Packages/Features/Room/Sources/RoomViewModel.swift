@@ -226,9 +226,9 @@ final class RoomViewModel: ObservableObject {
     }()
 }
 
-struct RoomItem: Identifiable {
-    let id: UUID
-    let kind: RoomItemKind
+public struct RoomItem: Identifiable {
+    public let id: UUID
+    public let kind: RoomItemKind
     let sortKey: RoomItemSortKey
 
     init(kind: RoomItemKind) {
@@ -238,7 +238,7 @@ struct RoomItem: Identifiable {
     }
 }
 
-enum RoomItemKind {
+public enum RoomItemKind {
     case asset(AssetSnapshot)
     case roomNote(RoomNoteSnapshot)
 
@@ -314,8 +314,8 @@ struct RoomItemSortKey: Comparable {
     }
 }
 
-struct AssetSnapshot: Identifiable {
-    let id: UUID
+public struct AssetSnapshot: Identifiable {
+    public let id: UUID
     let typeName: String
     let familyName: String
     let createdAt: Date?
@@ -325,8 +325,8 @@ struct AssetSnapshot: Identifiable {
     let instanceFields: [ParameterDisplayRow]
 }
 
-struct RoomNoteSnapshot: Identifiable {
-    let id: UUID
+public struct RoomNoteSnapshot: Identifiable {
+    public let id: UUID
     let createdAt: Date?
     let emptyRoom: Bool
     let roomIsBlocked: Bool

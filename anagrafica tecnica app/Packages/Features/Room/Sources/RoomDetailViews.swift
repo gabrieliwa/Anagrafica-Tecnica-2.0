@@ -92,10 +92,14 @@ struct RoomItemRow: View {
 
 }
 
-struct AssetInstanceDetailView: View {
+public struct AssetInstanceDetailView: View {
     let snapshot: AssetSnapshot
 
-    var body: some View {
+    public init(snapshot: AssetSnapshot) {
+        self.snapshot = snapshot
+    }
+
+    public var body: some View {
         ScrollView {
             VStack(alignment: .leading, spacing: AppSpacing.lg) {
                 TypeSummaryCard(snapshot: snapshot)
@@ -153,15 +157,19 @@ private struct TypeSummaryCard: View {
     }
 }
 
-struct RoomNoteDetailView: View {
+public struct RoomNoteDetailView: View {
     let snapshot: RoomNoteSnapshot
 
-    var body: some View {
+    public init(snapshot: RoomNoteSnapshot) {
+        self.snapshot = snapshot
+    }
+
+    public var body: some View {
         ScrollView {
             VStack(alignment: .leading, spacing: AppSpacing.lg) {
                 VStack(alignment: .leading, spacing: AppSpacing.sm) {
                     Text("Room Note")
-                        .font(AppTypography.section)
+                    .font(AppTypography.section)
                         .foregroundStyle(AppColors.textPrimary)
                     if let createdAt = snapshot.createdAt {
                         Text(RoomFormatters.date.string(from: createdAt))

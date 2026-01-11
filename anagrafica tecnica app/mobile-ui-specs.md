@@ -98,6 +98,7 @@
 - Trigger: tap a room with assets or room notes in the floorplan
 - Visuals:
   - Room View is an overlay on top of the floorplan (floorplan stays visible and pan/zoomable)
+  - Room View is a state on the same screen (no navigation push; map stays mounted)
   - Selected room uses a stronger border and fully opaque hatch
   - All other room hatches are half transparent
 - Layout:
@@ -110,7 +111,7 @@
   - Bottom bar: fixed actions below the sheet (Survey Report hamburger + larger "+ Add Asset" button)
 - Interactions:
   - Entering Room View centers and zooms the floorplan so the room boundary fits between top bar and bottom sheet
-  - Tap list item: open Instance Editor Widget
+  - Tap list item: open Instance Editor Widget (modal sheet)
   - Swipe list item: reveal Delete; confirm deletion
   - Tap another room: switch Room View to that room; tap empty room to open Add Asset Wizard
   - After save: "Asset saved" or "Note created" banner
