@@ -23,6 +23,7 @@ public enum AppColors {
     public static let roomEmptyStroke = Color(red: 0.76, green: 0.76, blue: 0.76)
     public static let roomEmptyIcon = Color(red: 0.42, green: 0.42, blue: 0.44)
     public static let roomOccupiedFill = Color(red: 0.75, green: 0.88, blue: 0.94)
+    public static let roomSelectedStroke = Color(red: 0.12, green: 0.52, blue: 0.50)
 }
 
 public enum AppGradients {
@@ -91,6 +92,18 @@ public enum AppMetrics {
     public static let floorplanMinZoom: CGFloat = 1.0
     public static let floorplanDefaultMaxZoom: CGFloat = 5.0
     public static let floorplanZoomEpsilon: CGFloat = 0.0001
+    public static let floorplanRoomFillOpacity: Double = 0.5
+    public static let floorplanSelectedRoomFillOpacity: Double = 1.0
+    public static let floorplanSelectedRoomStrokeWidth: CGFloat = 3
+    public static let roomOverlayTopBarHeight: CGFloat = 44
+    public static let roomSheetMaxHeightFraction: CGFloat = 0.38
+    public static let roomSheetRowHeight: CGFloat = 56
+    public static let roomSheetHeaderHeight: CGFloat = 34
+    public static let roomSheetActionsHeight: CGFloat = 56
+    public static let roomBottomBarHeight: CGFloat = 56
+    public static let roomBottomBarWidthRatio: CGFloat = 0.72
+    public static let roomFocusAnimationDuration: Double = 0.4
+    public static let roomFocusPaddingScale: CGFloat = 0.9
 
     public static let roomPlanHeight: CGFloat = 220
     public static let roomRowIconSize: CGFloat = 18

@@ -405,7 +405,7 @@ This flow covers the complete on-site survey process from project download to co
 - Operator taps a project card to open it:
   - Online: show a loading screen while project data downloads, then open the floorplan
   - Open: open the floorplan immediately
-  - Completed: show a read-only warning and open in read-only mode
+  - Completed: read-only behavior is planned for the sync phase; until then, open the floorplan normally
 - App downloads complete project data: floorplan tiles, room geometry, schema, existing Types
 - Project state changes to ACTIVE (Open); operator can now work fully offline
 
@@ -422,13 +422,17 @@ This flow covers the complete on-site survey process from project download to co
 - Rooms are color-coded by status: empty (halftone gray), with assets or room notes (light blue)
 - Empty rooms show a (+) button inside the room
 - Rooms with assets or room notes show a circle badge with the total item count (assets + room notes)
-- The operator taps the room they are physically in. Everything outside the room boundary is half-toned:
+- The operator taps the room they are physically in:
   1. If the room is empty, the Add Asset wizard opens immediately
-  2. If the room contains assets or room notes, a "room view" opens:
-       - A back arrow returns to the interactive floorplan
-       - At the top, a label shows the level and room number and the sync status icon
-       - A scrollable list shows assets and room notes linked to the room
-       - Bottom actions include a hamburger (Survey Report) and a "+ Add Asset" button
+  2. If the room contains assets or room notes, a Room View overlay opens on top of the floorplan:
+       - Selected room gets a stronger border and fully opaque hatch; other room hatches are half transparent
+       - The camera centers and zooms so the room boundary fits between the top bar and bottom sheet
+       - Floorplan remains pan/zoomable behind the overlay
+       - Tapping another room switches the Room View to that room; tapping an empty room opens Add Asset
+       - Top bar: back arrow (exit Room View), level (line 1), room name/number (line 2), sync status icon (right)
+       - Bottom sheet: scrollable list of assets and room notes linked to the room
+         - Min height: 1 row; max height: ~35–40% of screen; scroll if overflow
+       - Bottom bar (fixed below the sheet): hamburger (Survey Report) and a larger "+ Add Asset" button
 
 **Step 3: Add Asset**
 - The operator taps the "+ Add Asset" button or taps an empty room; the Add Asset wizard opens with a progress tracker
@@ -466,8 +470,8 @@ This flow covers the complete on-site survey process from project download to co
 - If the operator exits the wizard mid-way, a warning indicates all progress will be lost; confirming returns to the Floorplan View or Room View based on where the wizard was launched
 
 **Step 4: Asset Editing Inside Room View**
-- When inside a "room view," the operator can interact with assets and room notes in the list
-- Zoom and pan are disabled; the floorplan is fixed on the current room
+- When inside the Room View overlay, the operator can interact with assets and room notes in the list
+- Floorplan remains visible and pan/zoom stays active behind the overlay
 - Room names and numbers remain visible
 - Asset list is ordered by Family, then Type, then creation time
 - Room Notes appear in the same list with a distinct icon
@@ -522,7 +526,7 @@ This flow covers the complete on-site survey process from project download to co
        - For legitimately empty rooms, the operator must add a Room Note
        - A room is considered complete when it contains at least one asset or one Room Note
        - If no rooms are empty, a "Slide to complete" control is shown
-       - Project state changes to COMPLETED; it becomes read-only on the device and cannot be edited
+       - Project state changes to COMPLETED; read-only lock is enforced after sync is implemented (Phase 6)
 
 **Step 7: Final Sync**
 - When network is available, update events and photos sync to server
@@ -725,8 +729,9 @@ The fuzzy matching system actively suggests similar existing Types when operator
 
 ---
 
-### 5.5 Read-Only Mode (Completed Projects)
+### 5.5 Read-Only Mode (Completed Projects, planned for sync phase)
 
+- Implement after sync is functional (Phase 6)
 - Trigger: opening a project in the Completed state
 - Warning popup informs the operator that the project is read-only
 - Visual treatment:
@@ -744,7 +749,7 @@ The fuzzy matching system actively suggests similar existing Types when operator
 
 ### 5.6 Modals and Alerts
 
-- Read-only warning when opening a Completed project
+- Read-only warning when opening a Completed project (planned for sync phase)
 - Unsaved edits prompt with Discard/Save
 - Delete confirmation modal for assets and room notes
 - Wizard exit confirmation: warns that progress will be lost
@@ -1079,7 +1084,7 @@ Photos can be Type-scoped and optionally Instance-scoped. Instances inherit the 
 - App shall display project cards with name, image, location, number of rooms, and number of assets
 - App shall display project states (Online, Open, Completed) with distinct label text and background colors
 - App shall show a loading screen while downloading a project after selection
-- App shall open Completed projects in read-only mode with a warning popup
+- App shall open Completed projects in read-only mode with a warning popup (planned for sync phase)
 - App shall download complete project data including floorplan tiles, schema, and existing Types
 - App shall store project data locally for offline access
 - App shall update project state to ACTIVE upon successful download
@@ -1144,7 +1149,7 @@ Photos can be Type-scoped and optionally Instance-scoped. Instances inherit the 
 - App shall require a "Slide to complete" confirmation when all rooms are addressed
 - App shall consider a room complete when it contains at least one asset or one Room Note
 - App shall change project state to COMPLETED upon confirmation
-- App shall make project read-only after completion
+- App shall make project read-only after completion (planned for sync phase)
 
 #### FR-M08: Survey Report
 - App shall provide a Survey Report hub with Rooms and Types lists

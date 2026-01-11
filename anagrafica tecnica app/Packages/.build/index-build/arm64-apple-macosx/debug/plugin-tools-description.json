@@ -843,6 +843,10 @@
         },
         {
           "kind" : "file",
+          "name" : "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/.build/index-build/arm64-apple-macosx/debug/Modules/SurveyReport.swiftmodule"
+        },
+        {
+          "kind" : "file",
           "name" : "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/.build/index-build/arm64-apple-macosx/debug/Floorplan.build/sources"
         }
       ],
@@ -1037,6 +1041,10 @@
         },
         {
           "kind" : "file",
+          "name" : "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/Features/Room/Sources/RoomOverlayView.swift"
+        },
+        {
+          "kind" : "file",
           "name" : "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/Features/Room/Sources/RoomView.swift"
         },
         {
@@ -1066,6 +1074,7 @@
       "objects" : [
         "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/.build/index-build/arm64-apple-macosx/debug/Room.build/Room.swift.o",
         "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/.build/index-build/arm64-apple-macosx/debug/Room.build/RoomDetailViews.swift.o",
+        "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/.build/index-build/arm64-apple-macosx/debug/Room.build/RoomOverlayView.swift.o",
         "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/.build/index-build/arm64-apple-macosx/debug/Room.build/RoomView.swift.o",
         "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/.build/index-build/arm64-apple-macosx/debug/Room.build/RoomViewModel.swift.o"
       ],
@@ -1129,6 +1138,7 @@
       "sources" : [
         "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/Features/Room/Sources/Room.swift",
         "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/Features/Room/Sources/RoomDetailViews.swift",
+        "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/Features/Room/Sources/RoomOverlayView.swift",
         "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/Features/Room/Sources/RoomView.swift",
         "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/Features/Room/Sources/RoomViewModel.swift"
       ],
@@ -1143,6 +1153,10 @@
         {
           "kind" : "file",
           "name" : "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/Features/SurveyReport/Sources/SurveyReport.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/Features/SurveyReport/Sources/SurveyReportView.swift"
         },
         {
           "kind" : "file",
@@ -1165,7 +1179,8 @@
       "moduleName" : "SurveyReport",
       "moduleOutputPath" : "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/.build/index-build/arm64-apple-macosx/debug/Modules/SurveyReport.swiftmodule",
       "objects" : [
-        "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/.build/index-build/arm64-apple-macosx/debug/SurveyReport.build/SurveyReport.swift.o"
+        "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/.build/index-build/arm64-apple-macosx/debug/SurveyReport.build/SurveyReport.swift.o",
+        "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/.build/index-build/arm64-apple-macosx/debug/SurveyReport.build/SurveyReportView.swift.o"
       ],
       "otherArguments" : [
         "-target",
@@ -1225,7 +1240,8 @@
       ],
       "prepareForIndexing" : true,
       "sources" : [
-        "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/Features/SurveyReport/Sources/SurveyReport.swift"
+        "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/Features/SurveyReport/Sources/SurveyReport.swift",
+        "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/Features/SurveyReport/Sources/SurveyReportView.swift"
       ],
       "tempsPath" : "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/.build/index-build/arm64-apple-macosx/debug/SurveyReport.build",
       "wholeModuleOptimization" : false
@@ -1766,6 +1782,7 @@
       "-c",
       "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/Features/Room/Sources/Room.swift",
       "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/Features/Room/Sources/RoomDetailViews.swift",
+      "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/Features/Room/Sources/RoomOverlayView.swift",
       "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/Features/Room/Sources/RoomView.swift",
       "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/Features/Room/Sources/RoomViewModel.swift",
       "-I",
@@ -1828,6 +1845,7 @@
       "packages",
       "-c",
       "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/Features/SurveyReport/Sources/SurveyReport.swift",
+      "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/Features/SurveyReport/Sources/SurveyReportView.swift",
       "-I",
       "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/.build/index-build/arm64-apple-macosx/debug/Modules",
       "-target",
@@ -1904,6 +1922,7 @@
       "Core"
     ],
     "Floorplan" : [
+      "SurveyReport",
       "Room",
       "AddAssetWizard",
       "DesignSystem",
@@ -2235,6 +2254,10 @@
         },
         {
           "kind" : "file",
+          "name" : "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/Features/Room/Sources/RoomOverlayView.swift"
+        },
+        {
+          "kind" : "file",
           "name" : "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/Features/Room/Sources/RoomView.swift"
         },
         {
@@ -2254,6 +2277,10 @@
         {
           "kind" : "file",
           "name" : "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/Features/SurveyReport/Sources/SurveyReport.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/Features/SurveyReport/Sources/SurveyReportView.swift"
         }
       ],
       "outputFilePath" : "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/.build/index-build/arm64-apple-macosx/debug/SurveyReport.build/sources"

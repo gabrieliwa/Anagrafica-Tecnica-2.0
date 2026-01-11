@@ -7,12 +7,14 @@ struct FloorplanCanvas: View {
     let rooms: [FloorplanRoom]
     let bounds: Rect?
     let isReadOnly: Bool
+    let selectedRoomId: String?
+    let isRoomViewActive: Bool
     let onRoomTapped: (FloorplanRoom) -> Void
+    @Binding var viewport: FloorplanViewport
 
-    @State private var zoomScale: CGFloat = 1.0
-    @State private var lastScale: CGFloat = 1.0
-    @State private var panOffset: CGSize = .zero
-    @State private var lastOffset: CGSize = .zero
+    @State private var gestureStartScale: CGFloat = 1.0
+    @State private var gestureStartOffset: CGSize = .zero
+    @State private var isGestureActive = false
 
     var body: some View {
         GeometryReader { proxy in
@@ -25,9 +27,9 @@ struct FloorplanCanvas: View {
                     Canvas { context, canvasSize in
                         let localTransform = FloorplanTransform(bounds: bounds, size: canvasSize)
                         let canvasCenter = CGPoint(x: canvasSize.width * 0.5, y: canvasSize.height * 0.5)
-                        context.translateBy(x: panOffset.width, y: panOffset.height)
+                        context.translateBy(x: viewport.offset.width, y: viewport.offset.height)
                         context.translateBy(x: canvasCenter.x, y: canvasCenter.y)
-                        context.scaleBy(x: zoomScale, y: zoomScale)
+                        context.scaleBy(x: viewport.scale, y: viewport.scale)
                         context.translateBy(x: -canvasCenter.x, y: -canvasCenter.y)
                         drawLinework(lines: linework, transform: localTransform, isReadOnly: isReadOnly, context: &context)
                         drawRooms(rooms: rooms, transform: localTransform, isReadOnly: isReadOnly, context: &context)
@@ -38,6 +40,16 @@ struct FloorplanCanvas: View {
                 .contentShape(Rectangle())
                 .gesture(combinedGesture(transform: transform, zoomBounds: zoomBounds, center: viewCenter))
                 .frame(width: size.width, height: size.height)
+                .onChange(of: viewport.scale) { newValue in
+                    if !isGestureActive {
+                        gestureStartScale = newValue
+                    }
+                }
+                .onChange(of: viewport.offset) { newValue in
+                    if !isGestureActive {
+                        gestureStartOffset = newValue
+                    }
+                }
             } else {
                 Text("No floorplan bounds")
                     .font(AppTypography.body)
@@ -50,10 +62,12 @@ struct FloorplanCanvas: View {
     private func magnificationGesture(zoomBounds: ZoomBounds) -> some Gesture {
         MagnificationGesture()
             .onChanged { value in
-                zoomScale = clamp(lastScale * value, min: zoomBounds.min, max: zoomBounds.max)
+                isGestureActive = true
+                viewport.scale = clamp(gestureStartScale * value, min: zoomBounds.min, max: zoomBounds.max)
             }
             .onEnded { _ in
-                lastScale = zoomScale
+                gestureStartScale = viewport.scale
+                isGestureActive = false
             }
     }
 
@@ -65,9 +79,10 @@ struct FloorplanCanvas: View {
     private func dragGesture(transform: FloorplanTransform, center: CGPoint) -> some Gesture {
         DragGesture(minimumDistance: 0)
             .onChanged { value in
-                panOffset = CGSize(
-                    width: lastOffset.width + value.translation.width,
-                    height: lastOffset.height + value.translation.height
+                isGestureActive = true
+                viewport.offset = CGSize(
+                    width: gestureStartOffset.width + value.translation.width,
+                    height: gestureStartOffset.height + value.translation.height
                 )
             }
             .onEnded { value in
@@ -75,11 +90,12 @@ struct FloorplanCanvas: View {
                 let isTap = abs(translation.width) < AppMetrics.floorplanTapThreshold
                     && abs(translation.height) < AppMetrics.floorplanTapThreshold
                 if isTap {
-                    panOffset = lastOffset
+                    viewport.offset = gestureStartOffset
                     handleTap(location: value.location, transform: transform, center: center)
                 } else {
-                    lastOffset = panOffset
+                    gestureStartOffset = viewport.offset
                 }
+                isGestureActive = false
             }
     }
 
@@ -112,6 +128,9 @@ struct FloorplanCanvas: View {
         context: inout GraphicsContext
     ) {
         let readOnlyOpacity: Double = isReadOnly ? 0.45 : 1.0
+        let baseFillOpacity: Double = AppMetrics.floorplanRoomFillOpacity
+        let selectedFillOpacity: Double = AppMetrics.floorplanSelectedRoomFillOpacity
+        let selectedRoomId = isRoomViewActive ? selectedRoomId : nil
 
         for room in rooms {
             guard let first = room.polygon.first else { continue }
@@ -123,20 +142,20 @@ struct FloorplanCanvas: View {
             roomPath.closeSubpath()
 
             let isOccupied = room.totalCount > 0
+            let isSelected = selectedRoomId == room.id
             let fillColor = isOccupied ? AppColors.roomOccupiedFill : AppColors.roomEmptyFill
-            context.fill(roomPath, with: .color(fillColor.opacity(readOnlyOpacity)))
-            context.stroke(
-                roomPath,
-                with: .color(AppColors.roomEmptyStroke.opacity(readOnlyOpacity)),
-                lineWidth: AppMetrics.floorplanRoomStrokeWidth
-            )
+            let fillOpacity = isSelected ? selectedFillOpacity : baseFillOpacity
+            let strokeColor = isSelected ? AppColors.roomSelectedStroke : AppColors.roomEmptyStroke
+            let strokeWidth = isSelected ? AppMetrics.floorplanSelectedRoomStrokeWidth : AppMetrics.floorplanRoomStrokeWidth
+            context.fill(roomPath, with: .color(fillColor.opacity(fillOpacity * readOnlyOpacity)))
+            context.stroke(roomPath, with: .color(strokeColor.opacity(readOnlyOpacity)), lineWidth: strokeWidth)
         }
     }
 
     private func handleTap(location: CGPoint, transform: FloorplanTransform, center: CGPoint) {
         let adjusted = CGPoint(
-            x: (location.x - panOffset.width - center.x) / max(zoomScale, AppMetrics.floorplanZoomEpsilon) + center.x,
-            y: (location.y - panOffset.height - center.y) / max(zoomScale, AppMetrics.floorplanZoomEpsilon) + center.y
+            x: (location.x - viewport.offset.width - center.x) / max(viewport.scale, AppMetrics.floorplanZoomEpsilon) + center.x,
+            y: (location.y - viewport.offset.height - center.y) / max(viewport.scale, AppMetrics.floorplanZoomEpsilon) + center.y
         )
         let planPoint = transform.planPoint(from: adjusted)
         if let room = rooms.first(where: { GeometryUtils.contains(point: planPoint, in: $0.polygon) }) {
@@ -205,10 +224,10 @@ struct FloorplanCanvas: View {
     private func screenPoint(for point: Point, transform: FloorplanTransform, center: CGPoint) -> CGPoint {
         let base = transform.point(point)
         let scaled = CGPoint(
-            x: center.x + (base.x - center.x) * zoomScale,
-            y: center.y + (base.y - center.y) * zoomScale
+            x: center.x + (base.x - center.x) * viewport.scale,
+            y: center.y + (base.y - center.y) * viewport.scale
         )
-        return CGPoint(x: scaled.x + panOffset.width, y: scaled.y + panOffset.height)
+        return CGPoint(x: scaled.x + viewport.offset.width, y: scaled.y + viewport.offset.height)
     }
 }
 
@@ -265,4 +284,9 @@ struct FloorplanTransform {
         let y = bounds.maxY - (point.y - offset.y) / scale
         return Point(x: x, y: y)
     }
+}
+
+struct FloorplanViewport: Equatable {
+    var scale: CGFloat = 1.0
+    var offset: CGSize = .zero
 }

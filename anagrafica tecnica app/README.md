@@ -65,8 +65,8 @@ Each SwiftPM module should include:
    - Projects UI, floorplan renderer, navigation shell
 3. Asset Management (AddAssetWizard)
    - Wizard flow, type branching, instance form, placeholder photos
-4A. Room View (read-only)
-   - Room view list, instance details, navigation
+4A. Room View (overlay)
+   - Room overlay UI on top of floorplan, list + navigation
 4B. Room Editing
    - Instance edits, type edits, room note edits, delete flows
 4C. Testing Sprint 1

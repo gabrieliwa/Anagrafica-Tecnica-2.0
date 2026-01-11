@@ -51,12 +51,13 @@ Update rule: keep this checklist current whenever milestones change.
 - [x] Add baseline Core tests (StableID, ParameterValidator, GeometryUtils)
 - [x] Add logging for silent failures in core services
 
-## Phase 4A - Room View (read-only)
+## Phase 4A - Room View (overlay)
 
-- [x] Room view list (assets + room notes, ordering)
-- [x] Instance editor widget (read-only)
-- [x] Type info display in instance view
-- [x] Navigation: Floorplan -> Room -> Instance detail
+- [x] Room overlay UI on top of floorplan (top bar + bottom sheet)
+- [x] Selected room highlight (strong border + opaque hatch)
+- [x] Room list (assets + room notes, ordering)
+- [x] Instance detail view (read-only)
+- [x] Navigation: Floorplan -> Room overlay -> Instance detail
 
 ## Phase 4B - Room Editing
 

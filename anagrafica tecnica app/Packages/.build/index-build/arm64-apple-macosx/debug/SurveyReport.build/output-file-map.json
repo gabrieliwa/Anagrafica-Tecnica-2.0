@@ -8,5 +8,12 @@
     "swiftmodule": "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/.build/index-build/arm64-apple-macosx/debug/SurveyReport.build/SurveyReport~partial.swiftmodule",
     "swift-dependencies": "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/.build/index-build/arm64-apple-macosx/debug/SurveyReport.build/SurveyReport.swiftdeps",
     "diagnostics": "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/.build/index-build/arm64-apple-macosx/debug/SurveyReport.build/SurveyReport.dia"
+  },
+  "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/Features/SurveyReport/Sources/SurveyReportView.swift": {
+    "dependencies": "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/.build/index-build/arm64-apple-macosx/debug/SurveyReport.build/SurveyReportView.d",
+    "object": "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/.build/index-build/arm64-apple-macosx/debug/SurveyReport.build/SurveyReportView.swift.o",
+    "swiftmodule": "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/.build/index-build/arm64-apple-macosx/debug/SurveyReport.build/SurveyReportView~partial.swiftmodule",
+    "swift-dependencies": "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/.build/index-build/arm64-apple-macosx/debug/SurveyReport.build/SurveyReportView.swiftdeps",
+    "diagnostics": "/Users/iwa/projects/Anagrafica Tecnica 2.0/anagrafica tecnica app/Packages/.build/index-build/arm64-apple-macosx/debug/SurveyReport.build/SurveyReportView.dia"
   }
 }

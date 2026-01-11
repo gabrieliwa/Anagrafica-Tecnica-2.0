@@ -2,6 +2,7 @@ import AddAssetWizard
 import Core
 import DesignSystem
 import Room
+import SurveyReport
 import SwiftUI
 
 public struct FloorplanView: View {
@@ -10,8 +11,11 @@ public struct FloorplanView: View {
     private let projectName: String
     private let uiState: ProjectUIState?
     @State private var selectedRoomForWizard: FloorplanRoom?
-    @State private var selectedRoomForDetails: FloorplanRoom?
-    @State private var isRoomDetailsActive = false
+    @State private var selectedRoom: FloorplanRoom?
+    @State private var isRoomViewActive = false
+    @State private var isSurveyReportActive = false
+    @State private var viewport = FloorplanViewport()
+    @State private var roomOverlayRefreshToken = UUID()
 
     public init(projectName: String, uiState: ProjectUIState?, bundle: Bundle = .main) {
         _viewModel = StateObject(wrappedValue: FloorplanViewModel(bundle: bundle))
@@ -40,82 +44,100 @@ public struct FloorplanView: View {
                 floorplanContent
             }
         }
-        .navigationTitle(projectName)
+        .navigationTitle(isRoomViewActive ? "" : projectName)
         .navigationBarTitleDisplayMode(.inline)
+        .toolbar(isRoomViewActive ? .hidden : .visible, for: .navigationBar)
     }
 
     private var floorplanContent: some View {
-        ZStack(alignment: .bottomTrailing) {
-            FloorplanCanvas(
-                linework: viewModel.linework,
-                rooms: viewModel.roomsWithCounts,
-                bounds: viewModel.bounds,
-                isReadOnly: uiState == .completed,
-                onRoomTapped: { room in
-                    if uiState == .completed || room.totalCount > 0 {
-                        selectedRoomForDetails = room
-                        isRoomDetailsActive = true
-                    } else {
-                        selectedRoomForWizard = room
-                    }
-                }
-            )
-            .id(viewModel.selectedLevelIndex)
-            .ignoresSafeArea()
+        GeometryReader { proxy in
+            let size = proxy.size
+            let safeTop = proxy.safeAreaInsets.top
+            let safeBottom = proxy.safeAreaInsets.bottom
+            let sheetHeight = roomSheetHeight(for: selectedRoom?.totalCount ?? 1, totalHeight: size.height)
+            let topPadding = safeTop
+            let topInset = topPadding + AppMetrics.roomOverlayTopBarHeight + AppSpacing.xs
+            let bottomInset = safeBottom + sheetHeight + AppMetrics.roomBottomBarHeight + AppSpacing.xs
 
-            VStack(alignment: .trailing, spacing: AppSpacing.sm) {
-                if uiState == .completed {
-                    ReadOnlyBadge()
-                }
-                LevelPicker(
-                    levels: viewModel.levels,
-                    selection: $viewModel.selectedLevelIndex
+            ZStack(alignment: .bottomTrailing) {
+                FloorplanCanvas(
+                    linework: viewModel.linework,
+                    rooms: viewModel.roomsWithCounts,
+                    bounds: viewModel.bounds,
+                    isReadOnly: uiState == .completed,
+                    selectedRoomId: selectedRoom?.id,
+                    isRoomViewActive: isRoomViewActive,
+                    onRoomTapped: { room in
+                        handleRoomTap(
+                            room,
+                            canvasSize: size,
+                            topInset: topInset,
+                            bottomInset: bottomInset
+                        )
+                    },
+                    viewport: $viewport
                 )
-            }
-            .padding(AppSpacing.lg)
-        }
-        .sheet(item: $selectedRoomForWizard, onDismiss: {
-            viewModel.reloadRoomCounts(context: context)
-        }) { room in
-            AddAssetWizardView(
-                roomNumber: room.number,
-                roomName: room.name,
-                levelName: currentLevelName,
-                context: context
-            )
-        }
-        .background(
-            NavigationLink(
-                destination: roomDetailDestination,
-                isActive: $isRoomDetailsActive,
-                label: { EmptyView() }
-            )
-            .hidden()
-        )
-        .onAppear {
-            viewModel.reloadRoomCounts(context: context)
-        }
-        .onChange(of: viewModel.selectedLevelIndex) { _ in
-            viewModel.reloadRoomCounts(context: context)
-        }
-        .onChange(of: isRoomDetailsActive) { isActive in
-            if !isActive {
-                selectedRoomForDetails = nil
-            }
-        }
-    }
+                .id(viewModel.selectedLevelIndex)
+                .ignoresSafeArea()
 
-    private var roomDetailDestination: some View {
-        Group {
-            if let room = selectedRoomForDetails {
-                RoomView(
-                    levelName: currentLevelName,
+                if isRoomViewActive, let room = selectedRoom {
+                    RoomOverlayView(
+                        levelName: currentLevelName,
+                        roomNumber: room.number,
+                        roomName: room.name,
+                        context: context,
+                        onClose: {
+                            isRoomViewActive = false
+                            selectedRoom = nil
+                        },
+                        onAddAsset: {
+                            selectedRoomForWizard = room
+                        },
+                        onOpenSurvey: {
+                            isSurveyReportActive = true
+                        }
+                    )
+                    .id("\(room.id)-\(roomOverlayRefreshToken)")
+                } else {
+                    VStack(alignment: .trailing, spacing: AppSpacing.sm) {
+                        if uiState == .completed {
+                            ReadOnlyBadge()
+                        }
+                        LevelPicker(
+                            levels: viewModel.levels,
+                            selection: $viewModel.selectedLevelIndex
+                        )
+                    }
+                    .padding(AppSpacing.lg)
+                }
+            }
+            .sheet(item: $selectedRoomForWizard, onDismiss: {
+                viewModel.reloadRoomCounts(context: context)
+                if isRoomViewActive {
+                    roomOverlayRefreshToken = UUID()
+                }
+            }) { room in
+                AddAssetWizardView(
                     roomNumber: room.number,
                     roomName: room.name,
+                    levelName: currentLevelName,
                     context: context
                 )
-            } else {
-                EmptyView()
+            }
+            .background(
+                NavigationLink(
+                    destination: SurveyReportView(),
+                    isActive: $isSurveyReportActive,
+                    label: { EmptyView() }
+                )
+                .hidden()
+            )
+            .onAppear {
+                viewModel.reloadRoomCounts(context: context)
+            }
+            .onChange(of: viewModel.selectedLevelIndex) { _ in
+                viewModel.reloadRoomCounts(context: context)
+                resetViewport()
             }
         }
     }
@@ -125,6 +147,126 @@ public struct FloorplanView: View {
             return "Level"
         }
         return viewModel.levels[viewModel.selectedLevelIndex].name
+    }
+
+    private func handleRoomTap(
+        _ room: FloorplanRoom,
+        canvasSize: CGSize,
+        topInset: CGFloat,
+        bottomInset: CGFloat
+    ) {
+        if room.totalCount > 0 {
+            selectedRoom = room
+            isRoomViewActive = true
+            focusOnRoom(room, canvasSize: canvasSize, topInset: topInset, bottomInset: bottomInset)
+        } else {
+            if isRoomViewActive {
+                selectedRoom = room
+                focusOnRoom(room, canvasSize: canvasSize, topInset: topInset, bottomInset: bottomInset)
+            }
+            selectedRoomForWizard = room
+        }
+    }
+
+    private func focusOnRoom(
+        _ room: FloorplanRoom,
+        canvasSize: CGSize,
+        topInset: CGFloat,
+        bottomInset: CGFloat
+    ) {
+        guard let bounds = viewModel.bounds else { return }
+        guard let roomBounds = GeometryUtils.bounds(for: room.polygon) else { return }
+        let transform = FloorplanTransform(bounds: bounds, size: canvasSize)
+
+        let availableHeight = max(1, canvasSize.height - topInset - bottomInset)
+        let availableWidth = canvasSize.width
+
+        let roomWidth = CGFloat(roomBounds.maxX - roomBounds.minX) * transform.scale
+        let roomHeight = CGFloat(roomBounds.maxY - roomBounds.minY) * transform.scale
+        guard roomWidth > 0, roomHeight > 0 else { return }
+
+        let zoomBounds = zoomLimits(for: viewModel.roomsWithCounts, transform: transform, canvasSize: canvasSize)
+        let targetScale = clamp(
+            min(availableWidth / roomWidth, availableHeight / roomHeight) * AppMetrics.roomFocusPaddingScale,
+            min: zoomBounds.min,
+            max: zoomBounds.max
+        )
+
+        let roomCenter = Point(
+            x: (roomBounds.minX + roomBounds.maxX) * 0.5,
+            y: (roomBounds.minY + roomBounds.maxY) * 0.5
+        )
+        let baseCenter = transform.point(roomCenter)
+        let viewCenter = CGPoint(x: canvasSize.width * 0.5, y: canvasSize.height * 0.5)
+        let desiredCenter = CGPoint(x: viewCenter.x, y: topInset + availableHeight * 0.5)
+
+        let targetOffset = CGSize(
+            width: desiredCenter.x - (viewCenter.x + (baseCenter.x - viewCenter.x) * targetScale),
+            height: desiredCenter.y - (viewCenter.y + (baseCenter.y - viewCenter.y) * targetScale)
+        )
+
+        withAnimation(.easeOut(duration: AppMetrics.roomFocusAnimationDuration)) {
+            viewport = FloorplanViewport(scale: targetScale, offset: targetOffset)
+        }
+    }
+
+    private func resetViewport() {
+        viewport = FloorplanViewport()
+        selectedRoom = nil
+        isRoomViewActive = false
+    }
+
+    private func clamp(_ value: CGFloat, min: CGFloat, max: CGFloat) -> CGFloat {
+        Swift.max(min, Swift.min(max, value))
+    }
+
+    private func zoomLimits(
+        for rooms: [FloorplanRoom],
+        transform: FloorplanTransform,
+        canvasSize: CGSize
+    ) -> (min: CGFloat, max: CGFloat) {
+        let minZoom = AppMetrics.floorplanMinZoom
+        var smallestBounds: Rect?
+        var smallestArea: Double = .infinity
+
+        for room in rooms {
+            guard let bounds = GeometryUtils.bounds(for: room.polygon) else { continue }
+            let width = bounds.maxX - bounds.minX
+            let height = bounds.maxY - bounds.minY
+            guard width > 0, height > 0 else { continue }
+            let area = width * height
+            if area < smallestArea {
+                smallestArea = area
+                smallestBounds = bounds
+            }
+        }
+
+        guard let bounds = smallestBounds else {
+            return (minZoom, AppMetrics.floorplanDefaultMaxZoom)
+        }
+
+        let roomWidth = CGFloat(bounds.maxX - bounds.minX) * transform.scale
+        let roomHeight = CGFloat(bounds.maxY - bounds.minY) * transform.scale
+        guard roomWidth > 0, roomHeight > 0 else {
+            return (minZoom, AppMetrics.floorplanDefaultMaxZoom)
+        }
+
+        let maxZoomX = canvasSize.width / roomWidth
+        let maxZoomY = canvasSize.height / roomHeight
+        let maxZoom = max(minZoom, min(maxZoomX, maxZoomY))
+        return (minZoom, maxZoom)
+    }
+
+    private func roomSheetHeight(for itemCount: Int, totalHeight: CGFloat) -> CGFloat {
+        let maxHeight = totalHeight * AppMetrics.roomSheetMaxHeightFraction
+        let rowCount = max(1, itemCount)
+        let contentHeight = AppMetrics.roomSheetHeaderHeight
+            + CGFloat(rowCount) * AppMetrics.roomSheetRowHeight
+            + AppSpacing.lg
+        let minHeight = AppMetrics.roomSheetHeaderHeight
+            + AppMetrics.roomSheetRowHeight
+            + AppSpacing.md
+        return min(maxHeight, max(minHeight, contentHeight))
     }
 }
 

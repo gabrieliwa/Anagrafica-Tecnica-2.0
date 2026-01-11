@@ -13,5 +13,6 @@ Notes:
 - Zoom is anchored to the view center.
 - Initial load starts at the lowest level by name (S#/B# below ground, PT/G at ground, P# above); switching levels resets zoom/pan to fit.
 - Empty rooms render gray with a (+); occupied rooms render light blue with a count badge (assets + room notes).
-- Tapping a room with items opens Room View; empty rooms launch Add Asset Wizard.
+- Tapping a room with items opens Room View as an overlay on the floorplan; empty rooms launch Add Asset Wizard.
+- Selected room uses a stronger border and fully opaque hatch; other rooms are half transparent.
 - Read-only mode behavior is deferred until sync is implemented.

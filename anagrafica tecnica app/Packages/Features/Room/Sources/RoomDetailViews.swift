@@ -41,7 +41,7 @@ struct RoomItemsList: View {
     }
 }
 
-private struct RoomItemRow: View {
+struct RoomItemRow: View {
     let item: RoomItem
 
     var body: some View {
@@ -62,18 +62,14 @@ private struct RoomItemRow: View {
                 Text(item.kind.displaySubtitle)
                     .font(AppTypography.body)
                     .foregroundStyle(AppColors.textSecondary)
-                if let createdAt = item.kind.createdAt {
-                    Text(RoomFormatters.date.string(from: createdAt))
-                        .font(AppTypography.metricLabel)
-                        .foregroundStyle(AppColors.textSecondary)
-                }
             }
             Spacer()
             Image(systemName: "chevron.right")
                 .font(.system(size: AppMetrics.roomRowChevronSize, weight: .bold))
                 .foregroundStyle(AppColors.textSecondary)
         }
-        .padding(AppSpacing.md)
+        .padding(.vertical, AppSpacing.xs)
+        .padding(.horizontal, AppSpacing.sm)
         .background(
             RoundedRectangle(cornerRadius: AppRadius.card)
                 .fill(AppColors.cardBackground)
